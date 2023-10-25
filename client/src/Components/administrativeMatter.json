@@ -1,0 +1,93 @@
+[
+    {
+      "queryTitle": "Technical Issue",
+      "queryDescription": "Experiencing problems with the network connection.",
+      "queryOrganisation": "ABC Inc.",
+      "queryDepartment": "IT Support",
+      "preferences": "Urgent",
+      "dateSent": "2023-10-25",
+      "status": "inProgress"
+    },
+    {
+      "queryTitle": "Billing Inquiry",
+      "queryDescription": "I have questions regarding my recent bills.",
+      "queryOrganisation": "XYZ Corporation",
+      "queryDepartment": "Finance",
+      "preferences": "Normal",
+      "dateSent": "2023-10-26",
+      "status": "completed"
+    },
+    {
+      "queryTitle": "Product Feedback",
+      "queryDescription": "Providing feedback on our latest product.",
+      "queryOrganisation": "Tech Innovators Ltd.",
+      "queryDepartment": "Product Development",
+      "preferences": "Important",
+      "dateSent": "2023-10-27",
+      "status": "completed"
+    },
+    {
+      "queryTitle": "HR Policy Question",
+      "queryDescription": "Need clarification on the new HR policies.",
+      "queryOrganisation": "Global Corp",
+      "queryDepartment": "Human Resources",
+      "preferences": "Normal",
+      "dateSent": "2023-10-28",
+      "status": "inProgress"
+    },
+    {
+      "queryTitle": "Facility Maintenance Request",
+      "queryDescription": "Reporting a maintenance issue in the office.",
+      "queryOrganisation": "City Properties Inc.",
+      "queryDepartment": "Facilities Management",
+      "preferences": "Urgent",
+      "dateSent": "2023-10-29",
+      "status": "inProgress"
+    },
+    {
+      "queryTitle": "Feature Request",
+      "queryDescription": "Requesting a new feature in the software application.",
+      "queryOrganisation": "Tech Solutions Ltd.",
+      "queryDepartment": "Software Development",
+      "preferences": "Normal",
+      "dateSent": "2023-10-30",
+      "status": "inProgress"
+    },
+    {
+      "queryTitle": "Compliance Issue",
+      "queryDescription": "Reporting a potential compliance violation.",
+      "queryOrganisation": "Regulatory Corp",
+      "queryDepartment": "Legal and Compliance",
+      "preferences": "Important",
+      "dateSent": "2023-10-31",
+      "status": "discarded"
+    },
+    {
+      "queryTitle": "Training Request",
+      "queryDescription": "Requesting training sessions on a specific topic.",
+      "queryOrganisation": "Learning Academy",
+      "queryDepartment": "Learning and Development",
+      "preferences": "Normal",
+      "dateSent": "2023-11-01",
+      "status": "completed"
+    },
+    {
+      "queryTitle": "Feedback on Event",
+      "queryDescription": "Providing feedback on the recent company event.",
+      "queryOrganisation": "Event Planners Inc.",
+      "queryDepartment": "Marketing",
+      "preferences": "Important",
+      "dateSent": "2023-11-02",
+      "status": "inProgress"
+    },
+    {
+      "queryTitle": "Suggestion for Improvement",
+      "queryDescription": "Sharing suggestions for improving company processes.",
+      "queryOrganisation": "Innovative Co.",
+      "queryDepartment": "Operations",
+      "preferences": "Normal",
+      "dateSent": "2023-11-03",
+      "status": "inProgress"
+    }
+  ]
+  

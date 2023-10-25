@@ -1,0 +1,87 @@
+[
+    {
+        "organisation": "Google",
+        "department": "Technical",
+        "query": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam pulvinar mi et turpis vulputate, vel cursus velit placerat. Fusce egestas scelerisque lacus, a cursus neque tristique quis. Vivamus luctus eu est nec euismod. Sed in dui vel nulla pharetra hendrerit. Sed bibendum arcu vel tortor congue, et egestas quam eleifend. Vestibulum sit amet elit eu libero egestas ultrices. Nam eget varius dolor, a rhoncus sapien. Ut efficitur, velit in congue fringilla, sem arcu interdum metus, id tincidunt neque elit at ligula."
+    },
+    {
+        "organisation": "Microsoft",
+        "department": "Customer Support",
+        "query": "Pellentesque ullamcorper, sem a lacinia facilisis, odio erat tempus lectus, eu accumsan elit felis vel tortor. Aenean placerat viverra sapien eget feugiat. Praesent vehicula, tortor id posuere tincidunt, metus justo tincidunt tortor, non aliquam leo leo ut mi. Suspendisse non vehicula velit. Vivamus euismod ac purus in pharetra. Suspendisse potenti. Integer bibendum, elit eget interdum vehicula, odio velit lacinia elit, vel eleifend erat lectus quis nunc."
+    },
+    {
+        "organisation": "Apple",
+        "department": "Sales",
+        "query": "Sed at neque quis arcu scelerisque tincidunt. Nam dictum purus eget velit convallis, id euismod dolor facilisis. Cras semper leo id euismod varius. Sed malesuada in purus ut volutpat. Fusce ullamcorper efficitur orci eu facilisis. Nunc a vulputate arcu, in pharetra arcu. Quisque eu efficitur elit. Aenean sit amet justo vel erat dapibus eleifend a non velit. Nullam nec arcu ut justo aliquet fringilla."
+    },
+    {
+        "organisation": "Amazon",
+        "department": "Logistics",
+        "query": "Vivamus ultricies, erat a vulputate volutpat, mi augue blandit odio, vel dignissim purus mi vel erat. Nullam venenatis sem nec tincidunt. Quisque sit amet tellus in libero imperdiet condimentum. Donec bibendum euismod eros nec viverra. Curabitur sollicitudin, libero in tincidunt rhoncus, odio elit bibendum erat, id malesuada quam nunc ac justo. Vestibulum ut justo eget elit pharetra facilisis. Fusce vel luctus urna. Sed eleifend at arcu et bibendum."
+    },
+    {
+        "organisation": "Facebook",
+        "department": "Social Media",
+        "query": "Fusce at enim a lorem vestibulum luctus. Praesent eget erat eget purus hendrerit convallis. Sed non quam non eros tincidunt bibendum. Sed nec arcu consectetur, cursus velit id, cursus quam. Pellentesque vel fringilla lectus. Curabitur fringilla orci at quam consectetur, in posuere turpis lacinia. Vivamus laoreet non metus a malesuada. Sed efficitur erat nec purus viverra, a suscipit dolor posuere. Nulla eleifend nisi in tortor bibendum volutpat."
+    },
+    {
+        "organisation": "Tesla",
+        "department": "Engineering",
+        "query": "Nulla facilisi. Aenean scelerisque metus nec nunc condimentum, vel dictum mi bibendum. Sed in est vel purus semper iaculis. Donec feugiat id erat in condimentum. Sed consectetur et libero ut vestibulum. Suspendisse a metus tincidunt, vulputate dui eu, consectetur nulla. Cras consectetur massa a mi laoreet facilisis. Integer rhoncus ipsum in dolor rhoncus euismod."
+    },
+    {
+        "organisation": "Amazon",
+        "department": "Customer Service",
+        "query": "Vivamus at arcu eu urna bibendum egestas. Aliquam fermentum vehicula nunc, sit amet dictum urna auctor non. Sed euismod lacinia massa eu tincidunt. Curabitur sed tincidunt lectus. Nulla facilisi. Integer dignissim leo nec malesuada. Phasellus in massa sed neque luctus luctus. Nullam sed bibendum arcu. In eget massa sed justo pellentesque viverra. Sed euismod massa ut augue sollicitudin, et laoreet sem dictum."
+    },
+    {
+        "organisation": "Amazon",
+        "department": "Marketing",
+        "query": "Sed auctor non purus sit amet condimentum. Vivamus quis ultrices tortor. Nulla facilisi. Morbi nec nisl sed justo dictum volutpat. Fusce eget scelerisque velit. Aliquam consequat scelerisque odio, sit amet viverra nulla. Aenean sed efficitur purus. Nunc sit amet felis non ligula fermentum consectetur. Fusce tempus nulla eget metus tristique, nec congue augue vulputate."
+    },
+    {
+        "organisation": "Google",
+        "department": "Human Resources",
+        "query": "Mauris euismod metus nec metus dictum, in congue ipsum laoreet. Fusce eu dictum nisi, nec feugiat felis. Suspendisse potenti. Sed eget dapibus turpis. Nullam sed orci ac libero congue varius. Integer id dapibus arcu. Nam vehicula odio non ligula suscipit hendrerit. Sed elementum viverra elit id volutpat."
+    },
+    {
+        "organisation": "Microsoft",
+        "department": "Research and Development",
+        "query": "Vivamus volutpat nunc at tincidunt luctus. Nulla facilisi. Curabitur vehicula risus a lacinia cursus. Quisque eu aliquam elit. Sed pharetra nunc eu odio cursus, in tincidunt massa interdum. Morbi non venenatis dolor. Sed ac ligula non velit tincidunt facilisis. Integer hendrerit ultrices arcu, eu imperdiet leo."
+    },
+    {
+        "organisation": "Apple",
+        "department": "Quality Assurance",
+        "query": "Cras quis ante ut neque consectetur pharetra. Sed varius euismod urna, ac rhoncus urna volutpat ac. Vivamus feugiat sed sapien non rhoncus. Vestibulum venenatis enim nec arcu facilisis, at fermentum felis volutpat. Nulla eu efficitur nunc. Vivamus sed lacus id arcu efficitur convallis. Sed sed justo eu quam lacinia bibendum."
+    },
+    {
+        "organisation": "Amazon",
+        "department": "Legal",
+        "query": "In sagittis libero eu felis condimentum, sit amet efficitur libero accumsan. Phasellus eu nunc in nulla iaculis hendrerit. Curabitur sollicitudin eros at leo dignissim, in vestibulum neque cursus. Proin vestibulum euismod ligula, eu elementum justo auctor sed. Morbi eget justo et dolor tincidunt fermentum."
+    },
+    {
+        "organisation": "Facebook",
+        "department": "Advertising",
+        "query": "Suspendisse ullamcorper odio eu dapibus facilisis. Curabitur efficitur est ut est dictum, sit amet gravida orci egestas. Vivamus interdum nunc eu libero viverra euismod. Fusce ac lectus eu leo iaculis feugiat vel vel arcu. Pellentesque aliquet eget arcu non bibendum. Sed non libero et arcu vulputate laoreet. Suspendisse potenti."
+    },
+    {
+        "organisation": "Tesla",
+        "department": "Customer Experience",
+        "query": "Phasellus vel libero efficitur, auctor nisl sed, congue libero. Sed eu purus quis nunc vehicula dictum. Integer euismod felis sed pharetra bibendum. Morbi non felis quis neque rhoncus fringilla. Nullam luctus elit eu metus cursus, ac aliquam risus lacinia. Sed non efficitur libero. Sed non purus vel tortor vulputate venenatis."
+    },
+    {
+        "organisation": "Google",
+        "department": "Product Management",
+        "query": "Pellentesque consectetur nunc vel elit tincidunt, at iaculis ligula tincidunt. Sed congue urna in dui dapibus venenatis. Fusce a sagittis metus. Sed nec tellus varius, luctus justo eget, euismod ex. Nullam tempus id ex in venenatis. Sed nec libero et augue pharetra fermentum. Sed eu metus bibendum, congue quam in, fermentum urna."
+    },
+    {
+        "organisation": "Microsoft",
+        "department": "Finance",
+        "query": "Vivamus vehicula auctor odio, in eleifend nunc facilisis eu. Sed ut euismod neque, ac iaculis risus. Nam non libero vel augue feugiat congue. Sed eget nunc nec lectus hendrerit volutpat. Aenean eu turpis a quam lacinia volutpat. Vestibulum id sapien vel nunc lacinia finibus. Nullam vel mauris quis ipsum varius mattis."
+    },
+    {
+        "organisation": "Apple",
+        "department": "User Experience",
+        "query": "Suspendisse accumsan elit at libero venenatis, eu sollicitudin ligula feugiat. Aenean ultrices felis vel felis dictum, at posuere urna eleifend. Fusce vel lectus ut justo bibendum aliquet. Nunc euismod, augue eget facilisis bibendum, arcu libero euismod tortor, vel venenatis arcu leo eget massa. Morbi tristique nulla a ante malesuada, at dapibus purus tempor."
+    }
+]
