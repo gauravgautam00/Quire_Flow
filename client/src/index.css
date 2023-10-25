@@ -931,27 +931,79 @@ font-size: large;
 /* Administrator Container */
 /* Administrator Container */
 /* Administrator Container */
-#administrator_container_heading{
-  font-size: xx-large;
-    margin-top: 2rem;
-    text-align: center;
+
+#administrator_container_frontLeftPart{
+  width: 45%;
+    height: 31rem;
+    /* border: 2px solid green; */
 }
-#administrator_container_para{
+#administrator_container_frontLeftPart_heading{
+  font-size: 60px;
+    margin-top: 3rem;
+    text-align: center;
+    margin-left:0.1rem;
+}
+#administrator_container_frontLeftPart_para{
   margin-left: 15px;
     font-size: large;
-    margin-top: 10px;
+    margin-top: 3rem;
     text-align: center;
     line-height: 29px;
     font-family: sans-serif;
     width: 98%;
     color: gray;
 }
+#administrator_container_frontLeftPart_viewQueryButton{
+  margin-top: 2.5rem;
+  margin-left: 7rem;
+  border: 2px solid;
+  width: 18rem;
+  text-align: center;
+  font-size: larger;
+  padding: 0.6rem;
+  font-family: sans-serif;
+  color: white;
+  background-color: #1937be;
+  border-radius: 10px;
+}
+#administrator_container_frontRightPart{
+  margin-left: 46rem;
+  margin-top: -34rem;
+}
+
+#administrator_container_secondInfo{
+  border: 2px solid purple;
+  background-color: #F4EFE8;
+}
+#administrator_container_secondInfo_heading{
+  margin-left: 17rem;
+  text-align: center;
+  width: 40rem;
+  font-weight: 500;
+  margin-top: 3rem;
+  font-size: 31px;
+}
+#administrator_container_secondInfo_dataContainer{
+  margin-top: 2rem;
+  display: flex;
+}
+#secondInfo_child_administratorContainer{
+  border: 2px solid red;
+  height: 24rem;
+  width: 15rem;
+  margin-left: 4rem;
+}
+#administrator_container_thirdAds{
+  margin-top: 4rem;
+  border: 2px solid red;
+  height: 6rem;
+}
 #administrator_container_viewQueries{
   font-family: sans-serif;
     width: 20rem;
-    margin-top: 28rem;
+    margin-top: 2rem;
     padding: 0px 6px 7px 6px;
-    margin-left: 2rem;
+    margin-left: 28rem;
     border: 2px solid blue;
     background-color: #1937be;
     color: white;
@@ -972,33 +1024,20 @@ font-size: large;
   height: 6rem;
   margin-left: 5rem;
 }
-#administrator_container_filterLeft{
-  border: 2px solid green;
-  margin-top: -6.27rem;
-  height: 44rem;
-  background-color: aquamarine;
-  width: 5rem;
-}
 
-
-#administrator_container_queriesContainer{
-  margin-left: 8rem;
-  margin-top: -36rem;
-  border: 2px solid brown;
-}
 
 
 #administrator_container_filterUp_inputTitle{
-  font-size: large;
-    height: 2rem;
+  font-size: 15px;
+    height: 1.5rem;
     width: 17rem;
     margin-top: 6px;
-    margin-left: 1rem;
+    margin-left: 4rem;
 }
 #administrator_container_filterUp_inputDesc{
-  font-size: large;
-    height: 2rem;
-    width: 17rem;
+  font-size: 15px;
+    height: 1.5rem;
+    width: 14rem;
     margin-top: 0.3rem;
     margin-left: 2rem;
 }
@@ -1007,39 +1046,40 @@ font-size: large;
   border: 2px solid blue;
   width: 10rem;
   margin-left: 40rem;
-  margin-top: -2.4rem;
-  height: 1.7rem;
+  margin-top: -1.9rem;
+  font-size: 16px;
+    height: 1.3rem;
   padding: 4px;
   border-radius: 3px;
   cursor: pointer;
-  font-size: large;
+  
 }
 #administrator_container_filterUp_boxCompleted{
-  height: 1.7rem;
+  height: 1.3rem;
   width: 10rem;
   border: 2px solid blue;
   text-align: center;
-  font-size: large;
+  font-size: 16px;
   padding: 4px;
-  margin-top: -2.43rem;
+  margin-top: -2rem;
   cursor: pointer;
   margin-left: 53rem;
   border-radius: 3px;
 }
 #administrator_container_filterUp_selectAll{
-  height: 1.7rem;
+  height: 1.3rem;
   width: 4rem;
   border: 2px solid blue;
   text-align: center;
-  font-size: large;
+  font-size: 16px;
   padding: 4px;
-  margin-top: -2.43rem;
+  margin-top: -2rem;
   cursor: pointer;
   margin-left: 66rem;
   border-radius: 3px;
 }
 #administrator_container_filterUp_search{
-  font-size: large;
+  font-size: 15px;
   padding: 6px;
   text-align: center;
   border: 2px solid;
@@ -1047,11 +1087,11 @@ font-size: large;
   cursor: pointer;
   border-radius: 3px;
   margin-left: 32rem;
-  margin-top: 15px;
+  margin-top: 21px;
   font-family: sans-serif;
 }
 #administrator_container_filterUp_reset{
-  font-size: large;
+  font-size: 15px;
   text-align: center;
   border: 2px solid;
   width: 5rem;
@@ -1059,7 +1099,7 @@ font-size: large;
   cursor: pointer;
   border-radius: 3px;
   margin-left: 39rem;
-  margin-top: -37px;
+  margin-top: -33px;
   font-family: sans-serif;
 }
 
@@ -1068,6 +1108,21 @@ font-size: large;
   height: 30rem;
 }
 
+
+#administrator_container_filterLeft{
+  border: 2px solid green;
+  margin-top: -6.27rem;
+  height: 44rem;
+  background-color: aquamarine;
+  width: 8rem;
+}
+
+
+#administrator_container_queriesContainer{
+  margin-left: 8rem;
+  margin-top: -36rem;
+  border: 2px solid brown;
+}
 /* Administrator Container */
 /* Administrator Container */
 /* Administrator Container */
