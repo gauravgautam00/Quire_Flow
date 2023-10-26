@@ -1,26 +1,26 @@
 [
     {
-        "url":"url of image",
+        "url":"Images/secondInfo_FirstImage.png",
         "title1":"Event",
-        "title2":"big heading",
+        "title2":"Ready for the future of AI in Quire-Flow",
         "footer":"Watch on Demand"
     },
     {
-        "url":"url of image",
-        "title1":"Event",
-        "title2":"big heading",
-        "footer":"Watch on Demand"
+        "url":"Images/secondInfo_SecondImage.png",
+        "title1":"On Demand",
+        "title2":"Big Things are launching Relive the highlights of World tour NEW YORK",
+        "footer":"Watch Now"
     },
     {
-        "url":"url of image",
-        "title1":"Event",
-        "title2":"big heading",
-        "footer":"Watch on Demand"
+        "url":"Images/secondInfo_ThirdImage.png",
+        "title1":"Customer Story",
+        "title2":"See Customer Satisfaction for this management of queries",
+        "footer":"Read More"
     },
     {
-        "url":"url of image",
-        "title1":"Event",
-        "title2":"big heading",
-        "footer":"Watch on Demand"
+        "url":"Images/secondInfo_Fourthmage.png",
+        "title1":"Webinar",
+        "title2":"Top Quire-Flow tips to boost productivity",
+        "footer":"Watch Row"
     }
 ]

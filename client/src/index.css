@@ -965,6 +965,7 @@ font-size: large;
   color: white;
   background-color: #1937be;
   border-radius: 10px;
+  cursor: pointer;
 }
 #administrator_container_frontRightPart{
   margin-left: 46rem;
@@ -988,10 +989,40 @@ font-size: large;
   display: flex;
 }
 #secondInfo_child_administratorContainer{
-  border: 2px solid red;
-  height: 24rem;
-  width: 15rem;
-  margin-left: 4rem;
+  
+  height: 26rem;
+box-shadow: 0px 0px 15px 0px black;
+  margin-left: 2rem;
+  margin-bottom:3.5rem;
+  /* border:2px solid black; */
+  background-color: white;
+}
+
+#secondInfo_child_administratorContainer_image{
+  height: 11rem;
+  padding: 9px;
+}
+#secondInfo_child_administratorContainer_title1{
+  margin-left: 10px;
+}
+#secondInfo_child_administratorContainer_title2{
+  margin-left: 12px;
+  font-weight: 500;
+  margin-top: 9px;
+  width: 15.6rem;
+  font-size: x-large;
+}
+#secondInfo_child_administratorContainer_footer{
+  margin-left: 10px;
+  font-size: large;
+  margin-top: 5rem;
+  font-family: sans-serif;
+  color: #1264A3;
+}
+#secondInfo_child_administratorContainer_footerArrow{
+    top: 6px;
+    left: 4rem;
+    position: relative;
 }
 #administrator_container_thirdAds{
   margin-top: 4rem;
@@ -1002,20 +1033,18 @@ font-size: large;
   font-family: sans-serif;
     width: 20rem;
     margin-top: 2rem;
-    padding: 0px 6px 7px 6px;
+    padding: 6px;
     margin-left: 28rem;
     border: 2px solid blue;
     background-color: #1937be;
+    text-align:center;
     color: white;
     border-radius: 5px;
     font-size: larger;
+    cursor: pointer;
 }
-
-#administrator_container_viewQueries_down{
-  font-size: xx-large;
-  position: relative;
-  left: 4rem;
-  top: 8px; 
+#administrator_container_allQueriesContainer{
+  margin-top:-2rem;
 }
 #administrator_container_filterUp{
   border: 2px solid green;
@@ -1032,20 +1061,20 @@ font-size: large;
     height: 1.5rem;
     width: 17rem;
     margin-top: 6px;
-    margin-left: 4rem;
+    margin-left: 6rem;
 }
 #administrator_container_filterUp_inputDesc{
   font-size: 15px;
     height: 1.5rem;
     width: 14rem;
     margin-top: 0.3rem;
-    margin-left: 2rem;
+    margin-left: 1rem;
 }
 #administrator_container_filterUp_boxProgress{
   text-align: center;
   border: 2px solid blue;
   width: 10rem;
-  margin-left: 40rem;
+  margin-left: 41rem;
   margin-top: -1.9rem;
   font-size: 16px;
     height: 1.3rem;
@@ -1063,7 +1092,7 @@ font-size: large;
   padding: 4px;
   margin-top: -2rem;
   cursor: pointer;
-  margin-left: 53rem;
+  margin-left: 54rem;
   border-radius: 3px;
 }
 #administrator_container_filterUp_selectAll{
@@ -1073,9 +1102,10 @@ font-size: large;
   text-align: center;
   font-size: 16px;
   padding: 4px;
+  
   margin-top: -2rem;
   cursor: pointer;
-  margin-left: 66rem;
+  margin-left: 67rem;
   border-radius: 3px;
 }
 #administrator_container_filterUp_search{
@@ -1086,7 +1116,7 @@ font-size: large;
   width: 5rem;
   cursor: pointer;
   border-radius: 3px;
-  margin-left: 32rem;
+  margin-left: 33rem;
   margin-top: 21px;
   font-family: sans-serif;
 }
@@ -1098,7 +1128,7 @@ font-size: large;
   padding: 6px;
   cursor: pointer;
   border-radius: 3px;
-  margin-left: 39rem;
+  margin-left: 41rem;
   margin-top: -33px;
   font-family: sans-serif;
 }
@@ -1113,13 +1143,38 @@ font-size: large;
   border: 2px solid green;
   margin-top: -6.27rem;
   height: 44rem;
-  background-color: aquamarine;
-  width: 8rem;
+  background-color: white;
+  width: 10rem;
 }
 
+#administrator_container_filterLeft_organisationHeading{
+  border: 2px solid red;
+  margin-top: 2rem;
+  font-size: large;
+}
+#administrator_container_filterLeft_organisationHeadingSelect{
+  border: 2px solid blue;
+  height: 18rem;
+  overflow-y: scroll;
+}
+#administrator_container_filterLeft_departmentHeading{
+  border: 2px solid red;
+  margin-top: 2rem;
+  font-size: large;
+}
+#administrator_container_filterLeft_departmentHeadingSelect{
 
+}
+#administrator_container_filterLeft_preferencesHeading{
+  border: 2px solid red;
+  margin-top: 2rem;
+  font-size: large;
+}
+#administrator_container_filterLeft_preferencesHeadingSelect{
+
+}
 #administrator_container_queriesContainer{
-  margin-left: 8rem;
+  margin-left: 10.2rem;
   margin-top: -36rem;
   border: 2px solid brown;
 }
