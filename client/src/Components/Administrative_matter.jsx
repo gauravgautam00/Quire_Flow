@@ -1,4 +1,4 @@
-import React, { useState, useRef } from 'react'
+import React, { useState, useRef, useEffect } from 'react'
 import Administrative_matter_JSON from "./administrativeMatter.json"
 import Child_Administrative_matter from './Child_Administrative_matter'
 import SecondInfo_Child_administrator_container  from "./secondInfo_Child_administrator_container"
@@ -6,11 +6,53 @@ import secondInfo_administrativeMatter from "./secondInfo_administrativeMatter.j
 const Administrative_matter = () => {
 
 
-
+  const takeToTheViewQueries=useRef(null);
   const filterup=useRef(null);
   const filterleft =useRef(null);
+  const filterLeftOrganisationHeadingReference=useRef(null);
+  const filterLeftDepartmentHeadingReference=useRef(null);
+  const filterLeftPreferenceHeadingReference=useRef(null);
+  const filterLeftOrganisationSelectReference=useRef(null);
+  const filterLeftDepartmentSelectReference=useRef(null);
+  const filterLeftPreferenceSelectReference=useRef(null);
+
+
   const queryContainer=useRef(null);
 
+  if(takeToTheViewQueries.current){
+  takeToTheViewQueries.current.onclick=()=>{
+    if(takeToTheViewQueries.current){
+    window.scrollTo({
+      top:1342,
+      behavior:'smooth'
+    })
+  }
+}
+  }
+  useEffect(()=>{
+  if(
+    filterLeftOrganisationHeadingReference.current && filterLeftDepartmentHeadingReference.current &&
+    filterLeftPreferenceHeadingReference.current){
+console.log("entered ")
+    filterLeftOrganisationHeadingReference.current.onclick=()=>{
+      
+      filterLeftOrganisationSelectReference.current.style.display="block";
+      filterLeftPreferenceSelectReference.current.style.display="none";
+      filterLeftDepartmentSelectReference.current.style.display="none";
+        }
+        filterLeftDepartmentHeadingReference.current.onclick=()=>{
+          filterLeftOrganisationSelectReference.current.style.display="none";
+          filterLeftPreferenceSelectReference.current.style.display="none";
+          filterLeftDepartmentSelectReference.current.style.display="block";
+            }
+            filterLeftPreferenceHeadingReference.current.onclick=()=>{
+              filterLeftOrganisationSelectReference.current.style.display="none";
+              filterLeftPreferenceSelectReference.current.style.display="block";
+              filterLeftDepartmentSelectReference.current.style.display="none";
+                }
+
+  }
+},[])
 
   // window.onscroll=()=>{
   //   console.log(window.scrollY);
@@ -57,7 +99,7 @@ const Administrative_matter = () => {
       <div id="administrator_container_frontLeftPart_para">
       Welcome to our administrative hub, where we believe in the power of organized information. Our platform is designed to be your trusted companion in managing queries, tracking responses, and gaining valuable insights. We understand that effective administration is built upon transparency and efficiency, and that's exactly what we offer
       </div>
-      <div id="administrator_container_frontLeftPart_viewQueryButton">
+      <div id="administrator_container_frontLeftPart_viewQueryButton" ref={takeToTheViewQueries}>
         View Recieved Queries
       </div>
 </div>
@@ -110,14 +152,80 @@ Take a deeper dive into a new way to work
         <div id="administrator_container_filterUp_reset">Reset</div>
       </div>
       <div id="administrator_container_filterLeft" ref={filterleft}>      
-     <div id="administrator_container_filterLeft_organisationHeading">Select Organisation</div> 
-     <div id="administrator_container_filterLeft_organisationHeadingSelect"></div>
+     <div id="administrator_container_filterLeft_organisationHeading" ref={filterLeftOrganisationHeadingReference}>Select Organisation
+     <span id="administrator_container_filterLeft_organisationHeading_expand" class="material-symbols-outlined">
+expand_more
+</span>
+     </div> 
+     <div id="administrator_container_filterLeft_organisationHeadingSelect" ref={filterLeftOrganisationSelectReference}>
+     
+      <div class="administrator_container_filterLeft_organisationHeadingSelect_childClass"> ABC Inc.</div>
+      <div class="administrator_container_filterLeft_organisationHeadingSelect_childClass"> XYZ Corporation
+</div>
 
-     <div id="administrator_container_filterLeft_departmentHeading">Select Department</div>
-<div id="administrator_container_filterLeft_departmentHeadingSelect"></div>
+      <div class="administrator_container_filterLeft_organisationHeadingSelect_childClass"> Tech Innovators Ltd.
+</div>
 
-<div id="administrator_container_filterLeft_preferencesHeading">Select Department</div>
-<div id="administrator_container_filterLeft_preferencesHeadingSelect"></div>
+      <div class="administrator_container_filterLeft_organisationHeadingSelect_childClass"> Global Corp</div>
+
+      <div class="administrator_container_filterLeft_organisationHeadingSelect_childClass"> City Properties Inc.</div>
+
+      <div class="administrator_container_filterLeft_organisationHeadingSelect_childClass"> Tech Solutions Ltd.</div>
+
+      <div class="administrator_container_filterLeft_organisationHeadingSelect_childClass"> Regulatory Corp</div>
+
+      <div class="administrator_container_filterLeft_organisationHeadingSelect_childClass"> Learning Academy</div>
+
+     </div>
+
+     <div id="administrator_container_filterLeft_departmentHeading" ref={filterLeftDepartmentHeadingReference}>Select Department
+     <span id="administrator_container_filterLeft_departmentHeading_expand" class="material-symbols-outlined">
+expand_more
+</span>
+</div>
+<div id="administrator_container_filterLeft_departmentHeadingSelect" ref={filterLeftDepartmentSelectReference}>
+
+  <div className="administrator_container_filterLeft_departmentHeadingSelect_childClass">IT Support
+
+</div>
+<div className="administrator_container_filterLeft_departmentHeadingSelect_childClass">Finance
+
+</div>
+<div className="administrator_container_filterLeft_departmentHeadingSelect_childClass">Product Development
+
+</div>
+<div className="administrator_container_filterLeft_departmentHeadingSelect_childClass">Human Resources
+
+</div>
+<div className="administrator_container_filterLeft_departmentHeadingSelect_childClass">Facilities Management
+
+</div>
+<div className="administrator_container_filterLeft_departmentHeadingSelect_childClass">Software Development
+
+</div>
+<div className="administrator_container_filterLeft_departmentHeadingSelect_childClass">Legal and Compliance
+
+</div>
+<div className="administrator_container_filterLeft_departmentHeadingSelect_childClass">Learning and Development
+
+</div>
+<div className="administrator_container_filterLeft_departmentHeadingSelect_childClass">Learning and Development
+
+</div>
+
+</div>
+
+<div id="administrator_container_filterLeft_preferencesHeading" ref={filterLeftPreferenceHeadingReference}>Select Preferences 
+<span id="administrator_container_filterLeft_preferencesHeading_expand" class="material-symbols-outlined">
+expand_more
+</span>
+</div>
+<div id="administrator_container_filterLeft_preferencesHeadingSelect" ref={filterLeftPreferenceSelectReference}>
+  <div className="administrator_container_filterLeft_preferencesHeadingSelect_childClass">Urgent</div>
+  <div className="administrator_container_filterLeft_preferencesHeadingSelect_childClass">Normal</div>
+  <div className="administrator_container_filterLeft_preferencesHeadingSelect_childClass">Important</div>
+  <div className="administrator_container_filterLeft_preferencesHeadingSelect_childClass">Completed</div>
+</div>
 
       
       

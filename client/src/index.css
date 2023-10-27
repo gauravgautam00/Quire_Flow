@@ -1059,14 +1059,14 @@ box-shadow: 0px 0px 15px 0px black;
 #administrator_container_filterUp_inputTitle{
   font-size: 15px;
     height: 1.5rem;
-    width: 17rem;
+    width: 15rem;
     margin-top: 6px;
-    margin-left: 6rem;
+    margin-left: 7rem;
 }
 #administrator_container_filterUp_inputDesc{
   font-size: 15px;
     height: 1.5rem;
-    width: 14rem;
+    width: 15rem;
     margin-top: 0.3rem;
     margin-left: 1rem;
 }
@@ -1102,7 +1102,8 @@ box-shadow: 0px 0px 15px 0px black;
   text-align: center;
   font-size: 16px;
   padding: 4px;
-  
+  background-color: #1937BE;
+  color:white;
   margin-top: -2rem;
   cursor: pointer;
   margin-left: 67rem;
@@ -1133,50 +1134,95 @@ box-shadow: 0px 0px 15px 0px black;
   font-family: sans-serif;
 }
 
-#child_administrator_matter{
-  border: 2px solid blueviolet;
-  height: 30rem;
-}
+
 
 
 #administrator_container_filterLeft{
   border: 2px solid green;
   margin-top: -6.27rem;
-  height: 44rem;
+  height: 35.4rem;
   background-color: white;
-  width: 10rem;
+  width: 11.5rem;
 }
 
 #administrator_container_filterLeft_organisationHeading{
-  border: 2px solid red;
+  /* border: 2px solid red; */
   margin-top: 2rem;
+  cursor: pointer;
   font-size: large;
+}
+#administrator_container_filterLeft_organisationHeading_expand{
+  /* left: 9.5rem; */
+    position: relative;
+    top: 5px;
+
 }
 #administrator_container_filterLeft_organisationHeadingSelect{
   border: 2px solid blue;
-  height: 18rem;
+  height: 21rem;
   overflow-y: scroll;
+  /* margin-top: -1.6rem; */
+}
+.administrator_container_filterLeft_organisationHeadingSelect_childClass{
+  margin-top:1rem;
+  border-bottom: 1px solid #1264A3;
 }
 #administrator_container_filterLeft_departmentHeading{
-  border: 2px solid red;
+  /* border: 2px solid red; */
   margin-top: 2rem;
+  cursor: pointer;
+
   font-size: large;
 }
-#administrator_container_filterLeft_departmentHeadingSelect{
+#administrator_container_filterLeft_departmentHeading_expand{
+  position: relative;
+  top: 6px;
+  left:5px;
+}
 
+#administrator_container_filterLeft_departmentHeadingSelect{
+  overflow-y: scroll;
+  border: 2px solid blue;
+  display:none;
+  height:21rem;
+
+}
+.administrator_container_filterLeft_departmentHeadingSelect_childClass{
+  margin-top: 1rem;
+  border-bottom: 1px solid #1264A3;
 }
 #administrator_container_filterLeft_preferencesHeading{
-  border: 2px solid red;
+  /* border: 2px solid red; */
   margin-top: 2rem;
   font-size: large;
-}
-#administrator_container_filterLeft_preferencesHeadingSelect{
+  cursor: pointer;
 
 }
+
+#administrator_container_filterLeft_preferencesHeading_expand{
+  position: relative;
+  top: 6px;
+  left:8px;
+}
+#administrator_container_filterLeft_preferencesHeadingSelect{
+  overflow-y: scroll;
+  border: 2px solid blue;
+  display:none;
+height:21rem;
+}
+.administrator_container_filterLeft_preferencesHeadingSelect_childClass{
+  margin-top: 1rem;
+    border-bottom: 1px solid #1264A3;
+}
 #administrator_container_queriesContainer{
-  margin-left: 10.2rem;
-  margin-top: -36rem;
+  margin-left: 11.7rem;
+  margin-top: -29.4rem;
   border: 2px solid brown;
+}
+
+#child_administrator_matter{
+  border: 2px solid blueviolet;
+  height: 30rem;
 }
 /* Administrator Container */
 /* Administrator Container */

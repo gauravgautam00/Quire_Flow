@@ -1,7 +1,7 @@
 import React from 'react'
 import {motion} from "framer-motion"
 const secondInfo_Child_administrator_container = (props) => {
-console.log(props.styleCustomized);
+// console.log(props.styleCustomized);
   return (
     <motion.div
     
