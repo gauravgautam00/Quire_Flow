@@ -33,61 +33,77 @@ const Administrative_matter = () => {
   if(
     filterLeftOrganisationHeadingReference.current && filterLeftDepartmentHeadingReference.current &&
     filterLeftPreferenceHeadingReference.current){
-console.log("entered ")
-    filterLeftOrganisationHeadingReference.current.onclick=()=>{
-      
-      filterLeftOrganisationSelectReference.current.style.display="block";
-      filterLeftPreferenceSelectReference.current.style.display="none";
-      filterLeftDepartmentSelectReference.current.style.display="none";
-        }
-        filterLeftDepartmentHeadingReference.current.onclick=()=>{
-          filterLeftOrganisationSelectReference.current.style.display="none";
-          filterLeftPreferenceSelectReference.current.style.display="none";
-          filterLeftDepartmentSelectReference.current.style.display="block";
-            }
-            filterLeftPreferenceHeadingReference.current.onclick=()=>{
-              filterLeftOrganisationSelectReference.current.style.display="none";
-              filterLeftPreferenceSelectReference.current.style.display="block";
-              filterLeftDepartmentSelectReference.current.style.display="none";
-                }
 
+
+
+      filterLeftOrganisationHeadingReference.current.onclick = () => {
+        filterLeftOrganisationSelectReference.current.style.height = '21rem';
+        filterLeftOrganisationSelectReference.current.style.opacity = '1';
+        filterLeftDepartmentSelectReference.current.style.height = '0';
+        filterLeftDepartmentSelectReference.current.style.opacity = '0';
+        filterLeftPreferenceSelectReference.current.style.height = '0';
+        filterLeftPreferenceSelectReference.current.style.opacity = '0';
+      };
+      
+      filterLeftDepartmentHeadingReference.current.onclick = () => {
+        filterLeftOrganisationSelectReference.current.style.height = '0';
+        filterLeftOrganisationSelectReference.current.style.opacity = '0';
+        filterLeftDepartmentSelectReference.current.style.height = '21rem';
+        filterLeftDepartmentSelectReference.current.style.opacity = '1';
+        filterLeftPreferenceSelectReference.current.style.height = '0';
+        filterLeftPreferenceSelectReference.current.style.opacity = '0';
+      };
+
+      filterLeftPreferenceHeadingReference.current.onclick = () => {
+        filterLeftOrganisationSelectReference.current.style.height = '0';
+        filterLeftOrganisationSelectReference.current.style.opacity = '0';
+        filterLeftDepartmentSelectReference.current.style.height = '0';
+        filterLeftDepartmentSelectReference.current.style.opacity = '0';
+        filterLeftPreferenceSelectReference.current.style.height = '21rem';
+        filterLeftPreferenceSelectReference.current.style.opacity = '1';
+      };
+  
   }
 },[])
 
-  // window.onscroll=()=>{
-  //   console.log(window.scrollY);
-  //   if(window.scrollY>=430){
-  //       if(filterup.current){
-  //         filterup.current.style.position="fixed";
-  //         filterup.current.style.width="73.7rem";
-  //         filterup.current.style.marginTop="-23.84rem";
-          
+  window.onscroll=()=>{
+    console.log(window.scrollY);
+    if(window.scrollY>=1422){
+        if(filterup.current){
+          filterup.current.style.position="fixed";
+          filterup.current.style.width="73.6rem";
+          filterup.current.style.top="-2.9rem";
 
-  //       }
-  //       if(filterleft.current){
-  //         filterleft.current.style.position="fixed";
-  //         filterleft.current.style.marginTop="-23.84rem";
+        }
+        if(filterleft.current){
+          filterleft.current.style.position="fixed";
+          filterleft.current.style.top="6.2rem";
 
-  //       }
-  //       if(queryContainer.current){
-  //         queryContainer.current.style.marginTop="11rem";
-  //       }
-  //   }
-  //   else{
-  //     if(filterup.current){
-  //       filterup.current.style.position="static";
-  //       // filterup.current.style.width="73.8rem";  
-  //       filterup.current.style.marginTop="2.9rem";
-  //     }
-  //     if(filterleft.current){
-  //       filterleft.current.style.position="static";
-  //       filterleft.current.style.marginTop="-6.27rem";
-  //     }
-  //     if(queryContainer.current){
-  //       queryContainer.current.style.marginTop="-36rem";
-  //     }
-  //   }
-  // }
+        }
+        if(queryContainer.current){
+          queryContainer.current.style.marginTop="9.1rem";
+        }
+
+    }
+    else{
+      if(filterup.current){
+        filterup.current.style.position="static";
+        // filterup.current.style.width="73.8rem";  
+        filterup.current.style.marginTop="2.9rem";
+      }
+      if(filterleft.current){
+        filterleft.current.style.position="static";
+        filterleft.current.style.marginTop="-6.27rem";
+      }
+      if(queryContainer.current){
+        queryContainer.current.style.marginTop="-29.4rem";
+      }
+    }
+  }
+
+
+
+
   return (
     <div id="administrator_container">
       <div id="administrator_container_front">

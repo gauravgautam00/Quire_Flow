@@ -1148,8 +1148,12 @@ box-shadow: 0px 0px 15px 0px black;
 #administrator_container_filterLeft_organisationHeading{
   /* border: 2px solid red; */
   margin-top: 2rem;
+  padding: 2px;
   cursor: pointer;
   font-size: large;
+  color: white;
+    background-color: #1937BE;
+
 }
 #administrator_container_filterLeft_organisationHeading_expand{
   /* left: 9.5rem; */
@@ -1161,17 +1165,25 @@ box-shadow: 0px 0px 15px 0px black;
   border: 2px solid blue;
   height: 21rem;
   overflow-y: scroll;
+  transition: height 1s ,  opacity 0.5s;
+
   /* margin-top: -1.6rem; */
 }
 .administrator_container_filterLeft_organisationHeadingSelect_childClass{
   margin-top:1rem;
   border-bottom: 1px solid #1264A3;
+  cursor: pointer;
+}
+.administrator_container_filterLeft_organisationHeadingSelect_childClass:hover{
+  background-color:#dbdbdb;
 }
 #administrator_container_filterLeft_departmentHeading{
   /* border: 2px solid red; */
   margin-top: 2rem;
+  color: white;
+    background-color: #1937BE;
+    padding: 2px;
   cursor: pointer;
-
   font-size: large;
 }
 #administrator_container_filterLeft_departmentHeading_expand{
@@ -1183,19 +1195,30 @@ box-shadow: 0px 0px 15px 0px black;
 #administrator_container_filterLeft_departmentHeadingSelect{
   overflow-y: scroll;
   border: 2px solid blue;
-  display:none;
-  height:21rem;
+  /* display:none; */
+  height:0rem;
+  opacity:0;
+  transition: height 1s , opacity 0.5s ;
+
 
 }
+
 .administrator_container_filterLeft_departmentHeadingSelect_childClass{
   margin-top: 1rem;
   border-bottom: 1px solid #1264A3;
+  cursor: pointer;
+}
+.administrator_container_filterLeft_departmentHeadingSelect_childClass:hover{
+  background-color: #dbdbdb;
 }
 #administrator_container_filterLeft_preferencesHeading{
   /* border: 2px solid red; */
   margin-top: 2rem;
   font-size: large;
   cursor: pointer;
+  color: white;
+    background-color: #1937BE;
+    padding: 2px;
 
 }
 
@@ -1207,12 +1230,19 @@ box-shadow: 0px 0px 15px 0px black;
 #administrator_container_filterLeft_preferencesHeadingSelect{
   overflow-y: scroll;
   border: 2px solid blue;
-  display:none;
-height:21rem;
+height:0rem;
+opacity:0;
+transition: height 1s ,  opacity 1s;
+
 }
 .administrator_container_filterLeft_preferencesHeadingSelect_childClass{
   margin-top: 1rem;
     border-bottom: 1px solid #1264A3;
+    cursor: pointer;
+
+}
+.administrator_container_filterLeft_preferencesHeadingSelect_childClass:hover{
+  background-color: #dbdbdb;
 }
 #administrator_container_queriesContainer{
   margin-left: 11.7rem;
@@ -1221,8 +1251,10 @@ height:21rem;
 }
 
 #child_administrator_matter{
-  border: 2px solid blueviolet;
+  border: 2px solid white;
   height: 30rem;
+  color:white;
+  background-color: black;
 }
 /* Administrator Container */
 /* Administrator Container */
