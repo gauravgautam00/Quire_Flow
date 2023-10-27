@@ -15,6 +15,10 @@ const Administrative_matter = () => {
   const filterLeftOrganisationSelectReference=useRef(null);
   const filterLeftDepartmentSelectReference=useRef(null);
   const filterLeftPreferenceSelectReference=useRef(null);
+  const filterUpInProgressQuery=useRef(null);
+  const filterUpCompleteQuery=useRef(null);
+  const filterUpAll=useRef(null);
+
 
 
   const queryContainer=useRef(null);
@@ -103,9 +107,53 @@ const Administrative_matter = () => {
 
 
 
+useEffect(()=>{
+  if(filterUpInProgressQuery.current && filterUpCompleteQuery.current && filterUpAll.current){
+    // console.log("dd")
+    filterUpInProgressQuery.current.onclick=()=>{
+      filterUpInProgressQuery.current.style.backgroundColor="#1937BE";
+      filterUpInProgressQuery.current.style.color="white";
+      filterUpCompleteQuery.current.style.backgroundColor="white";
+      filterUpCompleteQuery.current.style.color="black";
+      filterUpAll.current.style.backgroundColor="white";
+      filterUpAll.current.style.color="black";
+    }
+    filterUpCompleteQuery.current.onclick=()=>{
+      filterUpInProgressQuery.current.style.backgroundColor="white";
+      filterUpInProgressQuery.current.style.color="black";
+      filterUpCompleteQuery.current.style.backgroundColor="#1937BE";
+      filterUpCompleteQuery.current.style.color="white";
+      filterUpAll.current.style.backgroundColor="white";
+      filterUpAll.current.style.color="black";
+   
+    }
+    filterUpAll.current.onclick=()=>{
+      filterUpInProgressQuery.current.style.backgroundColor="white";
+      filterUpInProgressQuery.current.style.color="black";
+      filterUpCompleteQuery.current.style.backgroundColor="white";
+      filterUpCompleteQuery.current.style.color="black";
+      filterUpAll.current.style.backgroundColor="#1937BE";
+      filterUpAll.current.style.color="white";
+
+    }
+
+  }
+  
+
+},[])
+
 
   return (
     <div id="administrator_container">
+
+
+      {/* FIRST PART */}
+      {/* FIRST PART */}{/* FIRST PART */}{/* FIRST PART */}
+      {/* FIRST PART */}
+      {/* FIRST PART */}
+      {/* FIRST PART */}{/* FIRST PART */}
+
+
       <div id="administrator_container_front">
 
         <div id="administrator_container_frontLeftPart">
@@ -124,6 +172,16 @@ const Administrative_matter = () => {
   <source src="Videos/A user starting a huddle and recording a video clip with the Slack app.webm" type="video/webm"></source>
 </video>
 </div>
+
+
+{/* SECOND PART */}
+{/* SECOND PART */}
+{/* SECOND PART */}
+{/* SECOND PART */}
+{/* SECOND PART */}
+{/* SECOND PART */}
+{/* SECOND PART */}
+
 
 
 </div>
@@ -149,9 +207,37 @@ Take a deeper dive into a new way to work
 </div>
 </div>
 
+
+
+{/* THIRD PART */}
+{/* THIRD PART */}
+{/* THIRD PART */}
+{/* THIRD PART */}
+{/* THIRD PART */}
+{/* THIRD PART */}
+{/* THIRD PART */}
+{/* THIRD PART */}
+
+
+
+
 <div id="administrator_container_thirdAds">
 
 </div>
+
+
+
+
+{/* //FOURTH PART */}
+{/* //FOURTH PART */}
+
+{/* //FOURTH PART */}
+
+{/* //FOURTH PART */}
+
+
+
+
 
       <div id="administrator_container_viewQueries">
       
@@ -161,12 +247,23 @@ Take a deeper dive into a new way to work
       <div id="administrator_container_filterUp" ref={filterup}>
         <input id="administrator_container_filterUp_inputTitle" type="text" placeholder="Search specific title"/>
         <input id="administrator_container_filterUp_inputDesc" type="text" placeholder="Search specific description"/>
-        <div id="administrator_container_filterUp_boxProgress">In-Progress Query</div>
-        <div id="administrator_container_filterUp_boxCompleted">Completed query</div>
-        <div id="administrator_container_filterUp_selectAll">All</div>
+        <div id="administrator_container_filterUp_boxProgress" ref={filterUpInProgressQuery}>In-Progress Query</div>
+        <div id="administrator_container_filterUp_boxCompleted" ref={filterUpCompleteQuery}>Completed query</div>
+        <div id="administrator_container_filterUp_selectAll" ref={filterUpAll}>All</div>
+        <div id="administrator_container_filterUp_firstSeparation"></div>
+        <div id="administrator_container_filterUp_sort">Sort By</div>
+        <div id="administrator_container_filterUp_secondSeparation"></div>
+
         <div id="administrator_container_filterUp_search">Search</div>
         <div id="administrator_container_filterUp_reset">Reset</div>
       </div>
+
+
+
+
+
+
+
       <div id="administrator_container_filterLeft" ref={filterleft}>      
      <div id="administrator_container_filterLeft_organisationHeading" ref={filterLeftOrganisationHeadingReference}>Select Organisation
      <span id="administrator_container_filterLeft_organisationHeading_expand" class="material-symbols-outlined">
@@ -226,11 +323,8 @@ expand_more
 
 </div>
 <div className="administrator_container_filterLeft_departmentHeadingSelect_childClass">Learning and Development
-
 </div>
-
 </div>
-
 <div id="administrator_container_filterLeft_preferencesHeading" ref={filterLeftPreferenceHeadingReference}>Select Preferences 
 <span id="administrator_container_filterLeft_preferencesHeading_expand" class="material-symbols-outlined">
 expand_more
@@ -242,9 +336,7 @@ expand_more
   <div className="administrator_container_filterLeft_preferencesHeadingSelect_childClass">Important</div>
   <div className="administrator_container_filterLeft_preferencesHeadingSelect_childClass">Completed</div>
 </div>
-
-      
-      
+  
 </div>
       </div>
 
