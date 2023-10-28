@@ -1,5 +1,5 @@
 import React from 'react'
-import {Link} from "react-router-dom"
+import {Link  , NavLink} from "react-router-dom"
 
 const header = () => {
   return (
@@ -22,19 +22,19 @@ const header = () => {
 
         
 
-<Link to="/administrative_matter">
+<NavLink to="/administrative_matter" style={{ textDecoration: 'none', color: 'inherit' }}>
 <div id="header_container_administrativePower">
 
 Administrative Matter
 </div>
-</Link>
-        
+</NavLink>
+         <NavLink to="/my_queries" style={{ textDecoration: 'none', color: 'inherit' }}>
         <div id="header_container_myQueries"
         >
-          <Link to="/my_queries">
+         
   My Queries
-  </Link>
-        </div>
+ 
+        </div> </NavLink>
         <div id="header_container_account_logo">
 photo
 
