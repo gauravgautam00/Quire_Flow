@@ -22,7 +22,7 @@ const Administrative_matter = () => {
 
 
   const queryContainer=useRef(null);
-
+useEffect(()=>{
   if(takeToTheViewQueries.current){
   takeToTheViewQueries.current.onclick=()=>{
     if(takeToTheViewQueries.current){
@@ -32,7 +32,9 @@ const Administrative_matter = () => {
     })
   }
 }
+
   }
+},[])
   useEffect(()=>{
   if(
     filterLeftOrganisationHeadingReference.current && filterLeftDepartmentHeadingReference.current &&
@@ -70,40 +72,40 @@ const Administrative_matter = () => {
   }
 },[])
 
-  window.onscroll=()=>{
-    console.log(window.scrollY);
-    if(window.scrollY>=1422){
-        if(filterup.current){
-          filterup.current.style.position="fixed";
-          filterup.current.style.width="73.6rem";
-          filterup.current.style.top="-2.9rem";
+    window.onscroll=()=>{
+      console.log(window.scrollY);
+      if(window.scrollY>=1422){
+          if(filterup.current){
+            filterup.current.style.position="fixed";
+            filterup.current.style.width="73.88rem";
+            filterup.current.style.top="-2.9rem";
 
+          }
+          if(filterleft.current){
+            filterleft.current.style.position="fixed";
+            filterleft.current.style.top="6rem";
+
+          }
+          if(queryContainer.current){
+            queryContainer.current.style.marginTop="12.01rem";
+          }
+
+      }
+      else{
+        if(filterup.current){
+          filterup.current.style.position="static";
+          // filterup.current.style.width="73.8rem";  
+          filterup.current.style.marginTop="2.9rem";
         }
         if(filterleft.current){
-          filterleft.current.style.position="fixed";
-          filterleft.current.style.top="6.2rem";
-
+          filterleft.current.style.position="static";
+          filterleft.current.style.marginTop="-6.06rem";
         }
         if(queryContainer.current){
-          queryContainer.current.style.marginTop="9.1rem";
+          queryContainer.current.style.marginTop="-29.4rem";
         }
-
-    }
-    else{
-      if(filterup.current){
-        filterup.current.style.position="static";
-        // filterup.current.style.width="73.8rem";  
-        filterup.current.style.marginTop="2.9rem";
-      }
-      if(filterleft.current){
-        filterleft.current.style.position="static";
-        filterleft.current.style.marginTop="-6.27rem";
-      }
-      if(queryContainer.current){
-        queryContainer.current.style.marginTop="-29.4rem";
       }
     }
-  }
 
 
 
@@ -351,7 +353,20 @@ expand_more
       <div id="administrator_container_queriesContainer" ref={queryContainer}>
           {Administrative_matter_JSON.map((data,index)=>{
              return (
-                <Child_Administrative_matter  key={index}/>
+                <Child_Administrative_matter 
+                 key={index}
+                 queryTitle={data.queryTitle}
+                 queryOrganisation={data.queryOrganisation}
+                 queryDepartment={data.queryDepartment}
+                 queryDescription={data.queryDescription}
+                 preferences={data.preferences}
+                 dateSent={data.dateSent}
+                 status={data.status}
+                 
+                 
+                 
+                 
+                 />
              )
           })}
       </div>

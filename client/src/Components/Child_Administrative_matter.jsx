@@ -1,9 +1,193 @@
-import React from 'react'
+import React, { useEffect, useRef } from 'react'
 
-const Child_Administrative_matter = () => {
+const Child_Administrative_matter = (props) => {
+
+const sidebarRightText=useRef(null);
+const sidebarRightLinks=useRef(null);
+const sidebarRightImages=useRef(null);
+const sidebarRightVideos=useRef(null);
+
+useEffect(()=>{
+
+if(sidebarRightText.current && sidebarRightLinks.current &&
+  sidebarRightImages.current &&  sidebarRightVideos.current ){
+    sidebarRightText.current.onclick=()=>{
+      sidebarRightText.current.style.backgroundColor="#1937be";
+      sidebarRightText.current.style.color="white";
+      sidebarRightLinks.current.style.backgroundColor="white";
+      sidebarRightLinks.current.style.color="black";
+      sidebarRightImages.current.style.backgroundColor="white";
+      sidebarRightImages.current.style.color="black";
+      sidebarRightVideos.current.style.backgroundColor="white"
+      sidebarRightVideos.current.style.color="black"
+
+     
+    }
+    sidebarRightLinks.current.onclick=()=>{
+      sidebarRightText.current.style.backgroundColor="white";
+      sidebarRightText.current.style.color="black";
+      sidebarRightLinks.current.style.backgroundColor="#1937be";
+      sidebarRightLinks.current.style.color="white";
+      sidebarRightImages.current.style.backgroundColor="white";
+      sidebarRightImages.current.style.color="black";
+      sidebarRightVideos.current.style.backgroundColor="white"
+      sidebarRightVideos.current.style.color="black"
+
+    }
+    sidebarRightImages.current.onclick=()=>{
+      sidebarRightText.current.style.backgroundColor="white";
+      sidebarRightText.current.style.color="black";
+      sidebarRightLinks.current.style.backgroundColor="white";
+      sidebarRightLinks.current.style.color="black";
+      sidebarRightImages.current.style.backgroundColor="#1937be";
+      sidebarRightImages.current.style.color="white";
+      sidebarRightVideos.current.style.backgroundColor="white"
+      sidebarRightVideos.current.style.color="black"
+
+    }
+    sidebarRightVideos.current.onclick=()=>{
+      sidebarRightText.current.style.backgroundColor="white";
+      sidebarRightText.current.style.color="black";
+      sidebarRightLinks.current.style.backgroundColor="white";
+      sidebarRightLinks.current.style.color="black";
+      sidebarRightImages.current.style.backgroundColor="white";
+      sidebarRightImages.current.style.color="black";
+      sidebarRightVideos.current.style.backgroundColor="#1937be"
+      sidebarRightVideos.current.style.color="white"
+
+    }
+
+  }
+
+
+},[])
+
+
   return (
     <div id="child_administrator_matter">
-      child
+
+
+
+
+{/* first */}
+{/* first */}
+{/* first */}
+{/* first */}
+{/* first */}
+{/* first */}
+{/* first */}
+{/* first */}
+{/* first */}
+
+
+      <div id="child_administrative_matter_headingTop">
+        
+        <div id="child_administrative_matter_headingTop_box1"></div>
+        <div id="child_administrative_matter_headingTop_box2"></div>
+
+        <div id="child_administrative_matter_headingTop_real">{props.queryTitle}</div>
+        
+        
+        </div>
+
+{/* //second */}
+{/* //second */}
+{/* //second */}
+{/* //second */}
+{/* //second */}
+{/* //second */}
+{/* //second */}
+
+
+
+      <div id="child_administrative_matter_sideBarLeft">
+        <div id="child_administrative_matter_sideBarLeft_organisationHeading">
+Organisation
+        </div>
+        <div id="child_administrative_matter_sideBarLeft_organisationName">
+{props.queryOrganisation}
+        </div>
+        <div id="child_administrative_matter_sideBarLeft_departmentHeading">
+Department
+        </div>
+        <div id="child_administrative_matter_sideBarLeft_departmentName">
+{props.queryDepartment}
+        </div>
+        <div id="child_administrative_matter_sideBarLeft_dateHeading">
+Recieved At
+        </div>
+        <div id="child_administrative_matter_sideBarLeft_dateName">
+{props.dateSent}
+        </div>
+
+      </div>
+
+
+
+{/* third */}
+{/* third */}
+{/* third */}
+{/* third */}
+{/* third */}
+{/* third */}
+{/* third */}
+{/* third */}
+
+
+
+
+
+      <div id="child_administrative_matter_mainData">
+
+        {props.queryDescription}
+      </div>
+
+
+
+      {/* fourth */}
+      {/* fourth */}
+      {/* fourth */}
+      {/* fourth */}
+      {/* fourth */}
+      {/* fourth */}
+      {/* fourth */}
+      {/* fourth */}
+      {/* fourth */}
+
+      <div id="child_administrative_matter_sideBarRight">
+      <div id="child_administrative_matter_sideBarRight_text" ref={sidebarRightText}>
+TEXT
+      </div>
+      <div id="child_administrative_matter_sideBarRight_links" ref={sidebarRightLinks}>
+LINKS
+      </div>
+      <div id="child_administrative_matter_sideBarRight_images" ref={sidebarRightImages}>
+IMAGES
+      </div>
+      <div id="child_administrative_matter_sideBarRight_videos" ref={sidebarRightVideos}>
+VIDEOS
+      </div>
+
+      </div>
+
+
+
+
+      {/* fifth */}
+      {/* fifth */}
+      {/* fifth */}
+      {/* fifth */}
+      {/* fifth */}
+      {/* fifth */}
+      {/* fifth */}
+      {/* fifth */}
+      {/* fifth */}
+      {/* fifth */}
+
+      <div id="child_administrative_matter_downBarBottom">
+
+
+      </div>
     </div>
   )
 }
