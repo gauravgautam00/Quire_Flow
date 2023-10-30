@@ -7,6 +7,12 @@ const sidebarRightLinks=useRef(null);
 const sidebarRightImages=useRef(null);
 const sidebarRightVideos=useRef(null);
 
+
+const arrowDown=useRef(null);
+const downData=useRef(null);
+
+
+
 useEffect(()=>{
 
 if(sidebarRightText.current && sidebarRightLinks.current &&
@@ -57,6 +63,24 @@ if(sidebarRightText.current && sidebarRightLinks.current &&
 
     }
 
+  }
+
+
+  if(arrowDown.current && downData.current){
+
+    arrowDown.current.onmouseover=()=>{
+      arrowDown.current.style.backgroundColor="#DBDBDB"
+    }
+    arrowDown.current.onmouseout=()=>{
+      arrowDown.current.style.backgroundColor="#FFFFFF"
+    }
+    arrowDown.current.onclick=()=>{
+      if(downData.current.style.display=="flex"){
+        downData.current.style.display="none";
+      }else{
+        downData.current.style.display="flex";
+      }
+    }
   }
 
 
@@ -183,11 +207,75 @@ VIDEOS
       {/* fifth */}
       {/* fifth */}
       {/* fifth */}
+<div id="child_administrator_matter_downBarClicks" ref={arrowDown}>
+<span id="child_administrator_matter_downBarClicks_icon"class="material-symbols-outlined">
+arrow_drop_down
+</span>
+</div>
 
-      <div id="child_administrative_matter_downBarBottom">
 
+
+
+
+<div id="child_administrative_matter_downBarBottom" ref={downData}>
+
+  {/* first */}
+<div id="child_administrative_matter_downBarBottom_first">
+<div id="child_administrative_matter_downBarBottom_first_heading">
+  Comment for querySender
+</div>
+<div id="child_administrative_matter_downBarBottom_first_textarea">
+<textarea id="child_administrative_matter_downBarBottom_first_textareaReal">Enter here</textarea>
+</div>
+<div id="child_administrative_matter_downBarBottom_first_submitComment">
+  Send
+</div>
+</div>
+
+
+{/* first line */}
+<div id="child_administrative_matter_downBarBottom_firstLine">
+
+</div>
+
+
+
+{/* second */}
+<div id="child_administrative_matter_downBarBottom_second">
+<div id="child_administrative_matter_downBarBottom_second_header">
+  Mark as 
+</div>
+
+<div id="child_administrative_matter_downBarBottom_second_completed">
+  Completed
+</div>
+
+<div id="child_administrative_matter_downBarBottom_second_inProgress">
+  IN-Progress
+</div>
+
+</div>
+
+
+
+{/* second line */}
+<div id="child_administrative_matter_downBarBottom_secondLine">
+
+</div>
+
+
+
+
+
+{/* third */}
+<div id="child_administrative_matter_downBarBottom_third">
+Delete Query
+</div>
 
       </div>
+
+
+
     </div>
   )
 }

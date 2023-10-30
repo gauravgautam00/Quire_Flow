@@ -72,40 +72,40 @@ useEffect(()=>{
   }
 },[])
 
-    window.onscroll=()=>{
-      console.log(window.scrollY);
-      if(window.scrollY>=1422){
-          if(filterup.current){
-            filterup.current.style.position="fixed";
-            filterup.current.style.width="73.88rem";
-            filterup.current.style.top="-2.9rem";
+    // window.onscroll=()=>{
+    //   console.log(window.scrollY);
+    //   if(window.scrollY>=1422){
+    //       if(filterup.current){
+    //         filterup.current.style.position="fixed";
+    //         filterup.current.style.width="73.88rem";
+    //         filterup.current.style.top="-2.9rem";
 
-          }
-          if(filterleft.current){
-            filterleft.current.style.position="fixed";
-            filterleft.current.style.top="6rem";
+    //       }
+    //       if(filterleft.current){
+    //         filterleft.current.style.position="fixed";
+    //         filterleft.current.style.top="6rem";
 
-          }
-          if(queryContainer.current){
-            queryContainer.current.style.marginTop="12.01rem";
-          }
+    //       }
+    //       if(queryContainer.current){
+    //         queryContainer.current.style.marginTop="12.01rem";
+    //       }
 
-      }
-      else{
-        if(filterup.current){
-          filterup.current.style.position="static";
-          // filterup.current.style.width="73.8rem";  
-          filterup.current.style.marginTop="2.9rem";
-        }
-        if(filterleft.current){
-          filterleft.current.style.position="static";
-          filterleft.current.style.marginTop="-6.06rem";
-        }
-        if(queryContainer.current){
-          queryContainer.current.style.marginTop="-29.4rem";
-        }
-      }
-    }
+    //   }
+    //   else{
+    //     if(filterup.current){
+    //       filterup.current.style.position="static";
+    //       // filterup.current.style.width="73.8rem";  
+    //       filterup.current.style.marginTop="2.9rem";
+    //     }
+    //     if(filterleft.current){
+    //       filterleft.current.style.position="static";
+    //       filterleft.current.style.marginTop="-6.06rem";
+    //     }
+    //     if(queryContainer.current){
+    //       queryContainer.current.style.marginTop="-29.4rem";
+    //     }
+    //   }
+    // }
 
 
 
