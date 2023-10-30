@@ -1283,9 +1283,7 @@ transition: height 1s ,  opacity 1s;
   /* background-color: black; */
 }
 
-#child_administrative_matter_headingTop{
-  /* border:2px solid ; */
-}
+
 #child_administrative_matter_headingTop_box1{
   /* border-radius: 50%; */
   /* margin-left: 2px; */
@@ -1399,9 +1397,6 @@ cursor: pointer;
   margin-top: 5rem;
   text-align: center;
 cursor: pointer;
-}
-#child_administrative_matter_downBarBottom{
-
 }
 
 /* Administrator Container */
