@@ -1298,12 +1298,11 @@ code {
   margin-top: -11px;
   font-size: 67px;
 }
-#child_administrative_matter_BottomHide {
-}
+
 #child_administrative_matter_downBarBottom {
-  border: 2px solid #1937be;
+  /* border: 2px solid #1937be; */
   margin-bottom: 1rem;
-  display: flex;
+  display: none;
   margin-top: 17px;
   height: 11.5rem;
 }
@@ -1326,6 +1325,7 @@ code {
   margin-bottom: 10px;
   text-align: center;
   margin-left: 10.6rem;
+  cursor: pointer;
   border-radius: 4px;
   background-color: #1937be;
   padding: 3px;
@@ -1351,13 +1351,14 @@ code {
 #child_administrative_matter_downBarBottom_second_header {
   text-align: center;
   font-size: x-large;
-  border: 2px solid #1937be;
+  /* border: 2px solid #1937be; */
 }
 #child_administrative_matter_downBarBottom_second_completed {
   text-align: center;
   border-radius: 2px;
   margin-top: 29px;
   font-size: large;
+  cursor: pointer;
   padding: 3px;
   width: 11rem;
   border: 2px solid #1937be;
@@ -1368,6 +1369,7 @@ code {
   font-size: large;
   padding: 3px;
   border: 2px solid #1937be;
+  cursor: pointer;
   margin-top: -35px;
   text-align: center;
   margin-left: 15rem;
@@ -1379,6 +1381,7 @@ code {
   text-align: center;
   border: 2px solid #1937be;
   /* font-size: larger; */
+  cursor: pointer;
   margin-top: 2.4rem;
   color: white;
   width: 5rem;
@@ -1387,15 +1390,19 @@ code {
   margin-left: 10.5rem;
 }
 #child_administrative_matter_downBottom_delete {
-  font-weight: 700;
-  /* height: 3rem; */
-  /* border: 2px solid; */
-  color: white;
+  color: #a40e26;
+  display: none;
   text-align: center;
+  border: 3px solid #a40e26;
   font-size: 19px;
   padding: 10px;
-  margin-top: -1rem;
+  margin-top: -0.3rem;
+  /* background-color: #a40e26; */
+  cursor: pointer;
+}
+#child_administrative_matter_downBottom_delete:hover {
   background-color: #a40e26;
+  color: white;
 }
 /* Administrator Container */
 /* Administrator Container */

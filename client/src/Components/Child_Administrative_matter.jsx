@@ -8,6 +8,7 @@ const Child_Administrative_matter = (props) => {
 
   const arrowDown = useRef(null);
   const downData = useRef(null);
+  const downDataDelete = useRef(null);
 
   useEffect(() => {
     if (
@@ -66,11 +67,14 @@ const Child_Administrative_matter = (props) => {
         arrowDown.current.style.backgroundColor = "#FFFFFF";
       };
       arrowDown.current.onclick = () => {
-        if (downData.current.style.display == "block") {
+        if (downData.current.style.display == "flex") {
           downData.current.style.display = "none";
+          downDataDelete.current.style.display = "none";
         } else {
-          downData.current.style.display = "block";
+          downData.current.style.display = "flex";
+          downDataDelete.current.style.display = "block";
         }
+        // downData.current.style.backgroundColor = "red";
       };
     }
   }, []);
@@ -185,8 +189,8 @@ const Child_Administrative_matter = (props) => {
           arrow_drop_down
         </span>
       </div>
-      <div id="child_administrative_matter_BottomHide" ref={downData}>
-        <div id="child_administrative_matter_downBarBottom">
+      <div id="child_administrative_matter_BottomHide">
+        <div id="child_administrative_matter_downBarBottom" ref={downData}>
           {/* first */}
           <div id="child_administrative_matter_downBarBottom_first">
             <div id="child_administrative_matter_downBarBottom_first_heading">
@@ -221,7 +225,10 @@ const Child_Administrative_matter = (props) => {
             </div>
           </div>
         </div>
-        <div id="child_administrative_matter_downBottom_delete">
+        <div
+          id="child_administrative_matter_downBottom_delete"
+          ref={downDataDelete}
+        >
           Delete This Query
         </div>
       </div>
