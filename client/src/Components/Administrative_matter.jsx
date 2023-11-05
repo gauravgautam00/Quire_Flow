@@ -78,7 +78,7 @@ const Administrative_matter = () => {
         filterleft.current.style.top = "6rem";
       }
       if (queryContainer.current) {
-        queryContainer.current.style.marginTop = "12.01rem";
+        queryContainer.current.style.marginTop = "11.90rem";
       }
     } else {
       if (filterup.current) {
