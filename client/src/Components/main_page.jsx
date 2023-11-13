@@ -103,7 +103,7 @@ const Main_page = () => {
             respo.current.style.visibility = "visible";
             freed.current.style.visibility = "visible";
 
-            if (encap.current.contains(video1)) {
+            if (encap.current && encap.current.contains(video1)) {
               encap.current.removeChild(video1);
             }
 

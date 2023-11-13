@@ -783,12 +783,13 @@ code {
 #footer_container_beforeLine_fourth_icons {
   /* border: 2px solid; */
   height: 1rem;
+  cursor: pointer;
   margin-top: 1.2rem;
   /* width:8rem; */
 }
 #footer_container_beforeLine_fourth_title2 {
   font-size: large;
-  margin-top: 1.4rem;
+  margin-top: 1.8rem;
 }
 #footer_container_beforeLine_fourth_second_but {
   margin-top: 1rem;
@@ -820,16 +821,18 @@ code {
 }
 
 #footer_container_afterLine_container_seventh {
-  border: 2px solid;
+  /* border: 2px solid; */
   width: 10rem;
-  border-radius: 6px;
+  /* border-radius: 6px; */
   height: 1.7rem;
-  margin-left: 11rem;
+  margin-left: 12rem;
+  color: white;
 }
 #footer_container_afterLine_container_eight {
   border-radius: 6px;
-  border: 2px solid;
+  /* border: 2px solid; */
   width: 8rem;
+  color: white;
   height: 1.7rem;
 }
 
@@ -1410,6 +1413,43 @@ code {
 /* Administrator Container */
 /* Administrator Container */
 /* Administrator Container */
+
+/* My Queries Container */
+/* My Queries Container */
+/* My Queries Container */
+/* My Queries Container */
+
+#my_queries_container {
+  background: url(../public/Images/phoebe-strafford-EBbP0Wrbmqs-unsplash.jpg)
+    no-repeat left/cover;
+  height: 31rem;
+  padding: 0.1px;
+}
+#my_queries_container_tagLine {
+  color: white;
+  margin-top: 0rem;
+  font-size: xxx-large;
+  margin-top: 6rem;
+  margin-left: 12rem;
+  text-align: center;
+  width: 54rem;
+}
+#my_queries_container_para {
+  color: white;
+  /* font-size: large; */
+  margin-left: 6rem;
+  font-weight: 500;
+  font-size: large;
+  line-height: 31px;
+  margin-top: 1rem;
+  text-align: center;
+  width: 65rem;
+}
+
+/* My Queries Container */
+/* My Queries Container */
+/* My Queries Container */
+/* My Queries Container */
 
 /* GLOBAL CSS */ /* GLOBAL CSS */ /* GLOBAL CSS */ /* GLOBAL CSS */ /* GLOBAL CSS */ /* GLOBAL CSS */ /* GLOBAL CSS */ /* GLOBAL CSS */ /* GLOBAL CSS */ /* GLOBAL CSS */ /* GLOBAL CSS */
 
