@@ -4,7 +4,7 @@ const My_Queries = () => {
   return (
     <div id="my_queries_container">
       <div id="my_queries_container_tagLine">
-        Your Questions, Your Space: Explore Your Sent Queries
+        Your Questions, Your Space: Explore Your Sent
       </div>
       <div id="my_queries_container_para">
         Welcome to the "My Queries" section, your personal gateway to a world of
