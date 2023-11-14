@@ -1430,16 +1430,14 @@ code {
   color: white;
   /* margin-top: 0rem; */
   font-size: xxx-large;
-
+  border: 2px solid;
   margin: 0 auto;
   margin-top: 6rem;
   /* margin-left: 12rem; */
   text-align: center;
   width: 858px;
 }
-#my_queries_container_tagLine_inner {
-  /* transition: visibility 0.7s ease-out, opacity 0.7s ease-out; */
-}
+
 #my_queries_container_para {
   color: white;
   /* font-size: large; */
@@ -1462,7 +1460,7 @@ code {
   /* margin-top: 1rem; */
   background: url(../public/Images/phoebe-strafford-EBbP0Wrbmqs-unsplash.jpg)
     no-repeat left/cover;
-  height: 37rem;
+  height: 58rem;
 }
 
 /* My Queries Container */
@@ -1481,5 +1479,5 @@ code {
 /* GLOBAL CSS */ /* GLOBAL CSS */ /* GLOBAL CSS */ /* GLOBAL CSS */ /* GLOBAL CSS */ /* GLOBAL CSS */ /* GLOBAL CSS */ /* GLOBAL CSS */ /* GLOBAL CSS */ /* GLOBAL CSS */ /* GLOBAL CSS */
 
 #randomSpace {
-  margin-top: 180rem;
+  margin-top: 90rem;
 }
