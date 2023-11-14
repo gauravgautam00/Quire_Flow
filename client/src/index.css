@@ -1420,19 +1420,25 @@ code {
 /* My Queries Container */
 
 #my_queries_container {
-  background: url(../public/Images/phoebe-strafford-EBbP0Wrbmqs-unsplash.jpg)
+  background: url(../public/Images/samuel-scalzo-xyuYk9oLA8I-unsplash.jpg)
     no-repeat left/cover;
-  height: 31rem;
+  height: 37rem;
   padding: 0.1px;
+  text-align: center;
 }
 #my_queries_container_tagLine {
   color: white;
-  margin-top: 0rem;
+  /* margin-top: 0rem; */
   font-size: xxx-large;
+
+  margin: 0 auto;
   margin-top: 6rem;
-  margin-left: 12rem;
+  /* margin-left: 12rem; */
   text-align: center;
-  width: 54rem;
+  width: 858px;
+}
+#my_queries_container_tagLine_inner {
+  /* transition: visibility 0.7s ease-out, opacity 0.7s ease-out; */
 }
 #my_queries_container_para {
   color: white;
@@ -1441,9 +1447,22 @@ code {
   font-weight: 500;
   font-size: large;
   line-height: 31px;
-  margin-top: 1rem;
+  margin-top: 2rem;
   text-align: center;
   width: 65rem;
+  transition: visibility 2s ease-out, opacity 2s ease-out;
+}
+#my_queries_container_firstSecondGap {
+  background-color: black;
+  height: 4rem;
+  z-index: 1;
+  position: relative;
+}
+#my_queries_container_second {
+  /* margin-top: 1rem; */
+  background: url(../public/Images/phoebe-strafford-EBbP0Wrbmqs-unsplash.jpg)
+    no-repeat left/cover;
+  height: 37rem;
 }
 
 /* My Queries Container */
@@ -1462,5 +1481,5 @@ code {
 /* GLOBAL CSS */ /* GLOBAL CSS */ /* GLOBAL CSS */ /* GLOBAL CSS */ /* GLOBAL CSS */ /* GLOBAL CSS */ /* GLOBAL CSS */ /* GLOBAL CSS */ /* GLOBAL CSS */ /* GLOBAL CSS */ /* GLOBAL CSS */
 
 #randomSpace {
-  margin-top: 40rem;
+  margin-top: 180rem;
 }
