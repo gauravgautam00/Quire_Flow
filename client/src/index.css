@@ -1456,11 +1456,12 @@ code {
   z-index: 1;
   position: relative;
 }
+
 #my_queries_container_second {
   /* margin-top: 1rem; */
   background: url(../public/Images/phoebe-strafford-EBbP0Wrbmqs-unsplash.jpg)
     no-repeat left/cover;
-  height: 58rem;
+  height: 91rem;
 }
 
 /* My Queries Container */
