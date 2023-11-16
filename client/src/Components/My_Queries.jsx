@@ -95,6 +95,9 @@ const My_Queries = () => {
         if (tagLine.current.contains(div)) {
           tagLine.current.removeChild(div);
         }
+        if (tagLine.current.contains(div3)) {
+          tagLine.current.removeChild(div3);
+        }
         if (!tagLine.current.contains(div2)) {
           console.log("rakahah");
           tagLine.current.appendChild(div2);
@@ -111,12 +114,18 @@ const My_Queries = () => {
         if (tagLine.current.contains(div2)) {
           tagLine.current.removeChild(div2);
         }
+        if (tagLine.current.contains(div3)) {
+          tagLine.current.removeChild(div3);
+        }
       } else if (curScroll >= 669.3333129882812) {
         if (tagLine.current.contains(div)) {
           tagLine.current.removeChild(div);
         }
         if (tagLine.current.contains(div2)) {
           tagLine.current.removeChild(div2);
+        }
+        if (tagLine.current.contains(div3)) {
+          tagLine.current.removeChild(div3);
         }
         tagLine.current.style.backgroundColor = "black";
         // tagLine.current.style.transform = `translate(0px , ${window.scrollY}px) `;
@@ -137,6 +146,9 @@ const My_Queries = () => {
         if (tagLine.current.contains(div2)) {
           tagLine.current.removeChild(div2);
         }
+        if (tagLine.current.contains(div3)) {
+          tagLine.current.removeChild(div3);
+        }
         tagLine.current.style.backgroundColor = "rgba(255, 255, 255, 0.01)";
         // tagLine.current.style.transform = `translate(0px, 0px)`;
         tagLine.current.style.width = "128px";
@@ -150,6 +162,9 @@ const My_Queries = () => {
         if (tagLine.current.contains(div2)) {
           tagLine.current.removeChild(div2);
         }
+        if (tagLine.current.contains(div3)) {
+          tagLine.current.removeChild(div3);
+        }
         tagLine.current.style.backgroundColor = "rgba(255, 255, 255, 0.01)";
         tagLine.current.style.transform = `translate(0px, ${window.scrollY}px)`;
 
@@ -162,6 +177,9 @@ const My_Queries = () => {
       } else {
         if (tagLine.current.contains(div)) {
           tagLine.current.removeChild(div);
+        }
+        if (tagLine.current.contains(div3)) {
+          tagLine.current.removeChild(div3);
         }
         tagLine_inner.current.style.fontSize = "xxx-large";
         tagLine.current.style.backgroundColor = "rgba(255, 255, 255, 0.01)";
