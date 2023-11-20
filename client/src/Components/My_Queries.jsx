@@ -4,194 +4,104 @@ const My_Queries = () => {
   const tagLine = useRef(null);
   const para = useRef(null);
   const tagLine_inner = useRef(null);
-  const div = document.createElement("div");
-  div.style.height = "39rem";
-  div.style.width = "78.4rem";
-  div.style.border = "2px solid white";
-  div.style.marginTop = "-3.99rem";
-  div.style.transition = "visibility 3s";
-  div.style.visibility = "hidden";
-  div.style.backgroundColor = "#1937be";
-  const div_header = document.createElement("div");
-  const div_left = document.createElement("div");
-  const div_right = document.createElement("div");
-
-  div.appendChild(div_header);
-  div_header.style.height = "2.9rem";
-  div_header.style.width = "99.9%";
-  div_header.style.backgroundColor = "white";
-  div_header.style.border = "2px solid green";
-  div_header.innerText = "KEY FEATURES";
-  div_header.style.textAlign = "center";
-  div_header.style.fontSize = "xx-large";
-  div_header.style.color = "black";
-  div_header.style.fontFamily = "sans-serif";
-
-  div.appendChild(div_left);
-
-  div_left.style.height = "36rem";
-  div_left.style.width = "41rem";
-  div_left.style.backgroundColor = "#933a3a";
-
-  div.appendChild(div_right);
-
-  div_right.style.height = "36rem";
-  div_right.style.width = "37.5rem";
-  div_right.style.marginLeft = "41rem";
-  div_right.style.backgroundColor = "white";
-  div_right.style.marginTop = "-36rem";
-  const div_right_image = document.createElement("img");
-  div_right.appendChild(div_right_image);
-  div_right_image.setAttribute(
-    "src",
-    "/Images/sable-flow-T74mVg__F_k-unsplash.jpg"
-  );
-  div_right_image.setAttribute("height", "570");
-  div_right_image.setAttribute("width", "570");
-
-  const div2 = document.createElement("div");
-
-  div2.style.height = "39rem";
-  div2.style.width = "78.4rem";
-  div2.style.border = "2px solid white";
-  div2.style.marginTop = "-3.99rem";
-  div2.style.transition = "visibility 3s";
-  div2.style.visibility = "hidden";
-  div2.style.backgroundColor = "green";
-
-  const div3 = document.createElement("div");
-
-  div3.style.height = "20rem";
-  div3.style.width = "78.4rem";
-  div3.style.border = "2px solid white";
-  div3.style.marginTop = "-3.99rem";
-  div3.style.transition = "visibility 3s";
-  div3.style.visibility = "hidden";
-  div3.style.backgroundColor = "blue";
+  const myQuerySecond = useRef(null);
+  const myQuerySecondHeader = useRef(null);
+  const myQuerySecondImage = useRef(null);
+  const myQuerySecondBottom = useRef(null);
 
   window.onscroll = () => {
     const curScroll = window.scrollY;
     console.log("window scroll By", curScroll);
+    if (curScroll >= 3126) {
+      if (myQuerySecondHeader.current) {
+        myQuerySecondHeader.current.style.position = "relative";
+        myQuerySecondHeader.current.style.top = "149rem";
+      }
+      if (myQuerySecondBottom.current) {
+        myQuerySecondBottom.current.style.marginTop = "-25rem";
+      }
+      if (myQuerySecondImage.current) {
+        myQuerySecondImage.current.style.top = "122rem";
+      }
+    } else if (curScroll >= 2710) {
+      if (myQuerySecondImage.current) {
+        myQuerySecondImage.current.style.position = "relative";
+        myQuerySecondImage.current.style.top = "134.1rem";
+      }
+      if (myQuerySecondBottom.current) {
+        myQuerySecondBottom.current.style.marginTop = "-15rem";
+      }
+      if (myQuerySecondHeader.current) {
+        myQuerySecondHeader.current.style.position = "fixed";
+        myQuerySecondHeader.current.style.top = "0rem";
+      }
+    }
+    //   if (myQuerySecondImage.current) {
+    //     myQuerySecondImage.current.style.position = "relative";
+    //     myQuerySecondImage.current.style.top = "133rem";
+    //   }
+    //   if (myQuerySecondBottom.current) {
+    //     myQuerySecondBottom.current.style.marginTop = "-25.3rem";
+    //   }
+    //   if (myQuerySecondHeader.current) {
+    //     myQuerySecondHeader.current.style.position = "fixed";
+    //     myQuerySecondHeader.current.style.top = "0rem";
+    //   }
+    // }
+    else if (curScroll >= 729) {
+      if (myQuerySecondHeader.current) {
+        myQuerySecondHeader.current.style.position = "fixed";
+        myQuerySecondHeader.current.style.top = "0rem";
+      }
+      if (myQuerySecondImage.current) {
+        myQuerySecondImage.current.style.position = "fixed";
+        myQuerySecondImage.current.style.top = "10.3rem";
+      }
+      if (myQuerySecondBottom.current) {
+        myQuerySecondBottom.current.style.marginTop = "10rem";
+        // myQuerySecondBottom.current.style.top = "10.3rem";
+      }
+    } else {
+      if (myQuerySecondHeader.current) {
+        myQuerySecondHeader.current.style.position = "static";
+      }
+      if (myQuerySecondImage.current) {
+        myQuerySecondImage.current.style.position = "relative";
+        myQuerySecondImage.current.style.top = "0rem";
+      }
+      if (myQuerySecondBottom.current) {
+        myQuerySecondBottom.current.style.marginTop = "-25.3rem";
+      }
+    }
     if (tagLine.current && tagLine_inner.current) {
-      if (curScroll >= 1111) {
-      } else if (curScroll >= 1046) {
-        tagLine.current.style.transform = `translate(0px, ${
-          window.scrollY - 170
-        }px)`;
-        if (tagLine.current.contains(div)) {
-          tagLine.current.removeChild(div);
-        }
-        if (tagLine.current.contains(div2)) {
-          tagLine.current.removeChild(div2);
-        }
-        if (!tagLine.current.contains(div3)) {
-          tagLine.current.appendChild(div3);
-          div3.style.visibility = "visible";
-        }
-      } else if (curScroll >= 965) {
-        tagLine.current.style.transform = `translate(0px, ${
-          window.scrollY - 170
-        }px)`;
-        if (tagLine.current.contains(div)) {
-          tagLine.current.removeChild(div);
-        }
-        if (tagLine.current.contains(div3)) {
-          tagLine.current.removeChild(div3);
-        }
-        if (!tagLine.current.contains(div2)) {
-          console.log("rakahah");
-          tagLine.current.appendChild(div2);
-          div2.style.visibility = "visible";
-        }
-      } else if (curScroll >= 857) {
-        tagLine.current.style.transform = `translate(0px, ${
-          window.scrollY - 170
-        }px)`;
-        if (!tagLine.current.contains(div)) {
-          tagLine.current.appendChild(div);
-          div.style.visibility = "visible";
-        }
-        if (tagLine.current.contains(div2)) {
-          tagLine.current.removeChild(div2);
-        }
-        if (tagLine.current.contains(div3)) {
-          tagLine.current.removeChild(div3);
-        }
-      } else if (curScroll >= 669.3333129882812) {
-        if (tagLine.current.contains(div)) {
-          tagLine.current.removeChild(div);
-        }
-        if (tagLine.current.contains(div2)) {
-          tagLine.current.removeChild(div2);
-        }
-        if (tagLine.current.contains(div3)) {
-          tagLine.current.removeChild(div3);
-        }
-        tagLine.current.style.backgroundColor = "black";
-        // tagLine.current.style.transform = `translate(0px , ${window.scrollY}px) `;
-        tagLine.current.style.width = `${Math.min(
-          98.3,
-          Math.min(777, curScroll) - 657.83331298
-        )}vw`;
-        tagLine.current.style.height = `${Math.min(
-          110,
-          Math.min(777, curScroll) - 648.33331298
-        )}vh`;
-        tagLine.current.style.borderRadius = "0%";
-        // tagLine.current.style.marginTop = "-3rem";
-      } else if (curScroll >= 490) {
-        if (tagLine.current.contains(div)) {
-          tagLine.current.removeChild(div);
-        }
-        if (tagLine.current.contains(div2)) {
-          tagLine.current.removeChild(div2);
-        }
-        if (tagLine.current.contains(div3)) {
-          tagLine.current.removeChild(div3);
-        }
-        tagLine.current.style.backgroundColor = "rgba(255, 255, 255, 0.01)";
-        // tagLine.current.style.transform = `translate(0px, 0px)`;
-        tagLine.current.style.width = "128px";
-        tagLine.current.style.height = "128px";
-        tagLine.current.style.transform = `translate(0px, ${window.scrollY}px)`;
-        tagLine.current.style.borderRadius = `50%`;
-      } else if (curScroll >= 270) {
-        if (tagLine.current.contains(div)) {
-          tagLine.current.removeChild(div);
-        }
-        if (tagLine.current.contains(div2)) {
-          tagLine.current.removeChild(div2);
-        }
-        if (tagLine.current.contains(div3)) {
-          tagLine.current.removeChild(div3);
-        }
-        tagLine.current.style.backgroundColor = "rgba(255, 255, 255, 0.01)";
+      if (curScroll >= 440) {
+        // root.current.appendChild(div);
+      } else if (curScroll >= 377.3333129882812) {
+        // tagLine.current.style.display = "none";
+      } else if (curScroll >= 250) {
+        tagLine.current.style.display = "block";
+
+        // tagLine.current.style.backgroundColor = "rgba(255, 255, 255, 0.01)";
         tagLine.current.style.transform = `translate(0px, ${window.scrollY}px)`;
 
-        tagLine_inner.current.style.visibility = "hidden";
+        // tagLine_inner.current.style.visibility = "hidden";
 
-        tagLine_inner.current.style.opacity = "0";
-        tagLine.current.style.border = "2px solid";
-        tagLine.current.style.borderRadius = `${curScroll - 270}%`;
-        tagLine.current.style.width = `calc(858px - ${1.5 * curScroll}px)`;
+        // tagLine_inner.current.style.opacity = "0";
+        // tagLine.current.style.border = "2px solid";
+        // tagLine.current.style.borderRadius =`${curScroll - 270}%`;
+        // tagLine.current.style.width = `calc(858px - ${1.5 * curScroll}px)`;
       } else {
-        if (tagLine.current.contains(div)) {
-          tagLine.current.removeChild(div);
-        }
-        if (tagLine.current.contains(div3)) {
-          tagLine.current.removeChild(div3);
-        }
         tagLine_inner.current.style.fontSize = "xxx-large";
         tagLine.current.style.backgroundColor = "rgba(255, 255, 255, 0.01)";
         tagLine.current.style.transform = `translate(0px, ${window.scrollY}px)`;
 
-        tagLine.current.style.width = `calc(858px - ${curScroll}px`;
-        tagLine_inner.current.style.visibility = "visible";
-        tagLine_inner.current.style.opacity = "1";
-        tagLine_inner.current.innerText =
-          "Your Questions, Your Space: Explore Your Sent Queries";
+        // tagLine.current.style.width = `calc(858px - ${curScroll}px`;
+        // tagLine_inner.current.style.visibility = "visible";
+        // tagLine_inner.current.style.opacity = "1";
+        // tagLine_inner.current.innerText =
+        //   "Your Questions, Your Space: Explore Your Sent Queries";
 
-        tagLine.current.style.borderRadius = "0%";
+        // tagLine.current.style.borderRadius = "0%";
         tagLine.current.style.height = "8rem";
       }
     }
@@ -203,7 +113,7 @@ const My_Queries = () => {
     if (para.current) {
       para.current.style.transform = `translate(0px ,${window.scrollY}px)`;
 
-      if (curScroll >= 160) {
+      if (curScroll >= 191) {
         // para.current.style.display   = "none";
         para.current.style.visibility = "hidden";
         para.current.style.opacity = "0";
@@ -213,7 +123,7 @@ const My_Queries = () => {
         para.current.style.display = "block";
       }
 
-      if (curScroll >= 178) {
+      if (curScroll >= 199) {
         para.current.style.display = "none";
       } else {
         para.current.style.display = "block";
@@ -240,8 +150,173 @@ const My_Queries = () => {
         </div>
       </div>
       <div id="my_queries_container_firstSecondGap"></div>
-      <div id="my_queries_container_second"></div>
-      <div id="randomSpace"></div>
+      <div id="my_queries_container_second" ref={myQuerySecond}>
+        <div id="my_queries_container_second_header" ref={myQuerySecondHeader}>
+          <div id="my_queries_container_second_header_flex">
+            <div
+              className="my_queries_container_second_header_flexChild_class"
+              id="my_queries_container_second_header_flex_first"
+            >
+              Effortless Query Tracking
+            </div>
+            <div
+              className="my_queries_container_second_header_flexChild_class"
+              id="my_queries_container_second_header_flex_second"
+            >
+              Organized Query History
+            </div>
+            <div
+              className="my_queries_container_second_header_flexChild_class"
+              id="my_queries_container_second_header_flex_third"
+            >
+              Smart Query Organization
+            </div>
+            <div
+              className="my_queries_container_second_header_flexChild_class"
+              id="my_queries_container_second_header_flex_fourth"
+            >
+              Priority-based Query Handling
+            </div>
+            <div
+              className="my_queries_container_second_header_flexChild_class"
+              id="my_queries_container_second_header_flex_fifth"
+            >
+              Personalized Query Insights
+            </div>
+          </div>
+        </div>
+        <div
+          id="my_queries_container_second_image"
+          ref={myQuerySecondImage}
+        ></div>
+        <div id="my_queries_container_second_bottom" ref={myQuerySecondBottom}>
+          <div
+            className="my_queries_container_second_bottomChild_class"
+            id="my_queries_container_second_bottom_first"
+          >
+            <div
+              className="my_queries_container_second_bottom_data_class"
+              id="my_queries_container_second_bottom_first_data"
+            >
+              <div
+                className="my_queries_container_second_bottom_dataChildFirst_class"
+                id="my_queries_container_second_bottom_first_data_first"
+              >
+                Keep tabs on all your queries effortlessly FIRST
+              </div>
+              <div
+                className="my_queries_container_second_bottom_dataChildSecond_class"
+                id="my_queries_container_second_bottom_first_data_second"
+              >
+                Our streamlined interface allows you to track the status,
+                responses, and updates on every query you've sent, ensuring
+                you're always in the loop.
+              </div>
+            </div>
+          </div>
+          <div
+            className="my_queries_container_second_bottomChild_class"
+            id="my_queries_container_second_bottom_second"
+          >
+            <div
+              className="my_queries_container_second_bottom_data_class"
+              id="my_queries_container_second_bottom_second_data"
+            >
+              <div
+                className="my_queries_container_second_bottom_dataChildFirst_class"
+                id="my_queries_container_second_bottom_second_data_first"
+              >
+                Keep tabs on all your queries effortlessly SECOND
+              </div>
+              <div
+                className="my_queries_container_second_bottom_dataChildSecond_class"
+                id="my_queries_container_second_bottom_second_data_second"
+              >
+                Our streamlined interface allows you to track the status,
+                responses, and updates on every query you've sent, ensuring
+                you're always in the loop.
+              </div>
+            </div>
+          </div>
+          <div
+            className="my_queries_container_second_bottomChild_class"
+            id="my_queries_container_second_bottom_third"
+          >
+            <div
+              className="my_queries_container_second_bottom_data_class"
+              id="my_queries_container_second_bottom_third_data"
+            >
+              <div
+                className="my_queries_container_second_bottom_dataChildFirst_class"
+                id="my_queries_container_second_bottom_third_data_first"
+              >
+                Keep tabs on all your queries effortlessly THIRd
+              </div>
+              <div
+                className="my_queries_container_second_bottom_dataChildSecond_class"
+                id="my_queries_container_second_bottom_third_data_second"
+              >
+                Our streamlined interface allows you to track the status,
+                responses, and updates on every query you've sent, ensuring
+                you're always in the loop.
+              </div>
+            </div>
+          </div>
+          <div
+            className="my_queries_container_second_bottomChild_class"
+            id="my_queries_container_second_bottom_fourth"
+          >
+            <div
+              className="my_queries_container_second_bottom_data_class"
+              id="my_queries_container_second_bottom_fourth_data"
+            >
+              <div
+                className="my_queries_container_second_bottom_dataChildFirst_class"
+                id="my_queries_container_second_bottom_fourth_data_first"
+              >
+                Keep tabs on all your queries effortlessly FOURTH
+              </div>
+              <div
+                className="my_queries_container_second_bottom_dataChildSecond_class"
+                id="my_queries_container_second_bottom_fourth_data_second"
+              >
+                Our streamlined interface allows you to track the status,
+                responses, and updates on every query you've sent, ensuring
+                you're always in the loop.
+              </div>
+            </div>
+          </div>
+          <div
+            className="my_queries_container_second_bottomChild_class"
+            id="my_queries_container_second_bottom_fifth"
+          >
+            <div
+              className="my_queries_container_second_bottom_data_class"
+              id="my_queries_container_second_bottom_fifth_data"
+            >
+              <div
+                className="my_queries_container_second_bottom_dataChildFirst_class"
+                id="my_queries_container_second_bottom_fifth_data_first"
+              >
+                Keep tabs on all your queries effortlessly FIFTH
+              </div>
+              <div
+                className="my_queries_container_second_bottom_dataChildSecond_class"
+                id="my_queries_container_second_bottom_fifth_data_second"
+              >
+                Our streamlined interface allows you to track the status,
+                responses, and updates on every query you've sent, ensuring
+                you're always in the loop.
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div id="my_queries_container_third_viewQueries">
+        <div id="my_queries_container_third_viewQueries_showDirection">
+          Visit Sent Queries
+        </div>
+      </div>
     </>
   );
 };
