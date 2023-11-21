@@ -8,10 +8,98 @@ const My_Queries = () => {
   const myQuerySecondHeader = useRef(null);
   const myQuerySecondImage = useRef(null);
   const myQuerySecondBottom = useRef(null);
+  const upperFlexFirst = useRef(null);
+  const upperFlexSecond = useRef(null);
+  const upperFlexThird = useRef(null);
+  const upperFlexFourth = useRef(null);
+  const upperFlexFifth = useRef(null);
+
+  const img = document.createElement("img");
 
   window.onscroll = () => {
     const curScroll = window.scrollY;
     console.log("window scroll By", curScroll);
+
+    if (curScroll >= 2575) {
+      if (upperFlexFourth.current && upperFlexFifth.current) {
+        upperFlexFifth.current.style.backgroundColor = "black";
+        upperFlexFifth.current.style.color = "white";
+        upperFlexFourth.current.style.backgroundColor = "white";
+        upperFlexFourth.current.style.color = "black";
+        img.setAttribute(
+          "src",
+          "/Images/annie-spratt-QckxruozjRg-unsplash.jpg"
+        );
+      }
+    } else if (curScroll >= 2092) {
+      if (
+        upperFlexFourth.current &&
+        upperFlexThird.current &&
+        upperFlexFifth.current
+      ) {
+        upperFlexFourth.current.style.backgroundColor = "black";
+        upperFlexFourth.current.style.color = "white";
+        upperFlexThird.current.style.backgroundColor = "white";
+        upperFlexThird.current.style.color = "black";
+        upperFlexFifth.current.style.backgroundColor = "white";
+        upperFlexFifth.current.style.color = "black";
+        img.setAttribute(
+          "src",
+          "/Images/campaign-creators-gMsnXqILjp4-unsplash.jpg"
+        );
+      }
+    } else if (curScroll >= 1592) {
+      if (
+        upperFlexSecond.current &&
+        upperFlexThird.current &&
+        upperFlexFourth.current
+      ) {
+        upperFlexThird.current.style.backgroundColor = "black";
+        upperFlexThird.current.style.color = "white";
+        upperFlexSecond.current.style.backgroundColor = "white";
+        upperFlexSecond.current.style.color = "black";
+        upperFlexFourth.current.style.backgroundColor = "white";
+        upperFlexFourth.current.style.color = "black";
+        img.setAttribute(
+          "src",
+          "/Images/thestandingdesk-sGdVTZ0wt0s-unsplash.jpg"
+        );
+      }
+    } else if (curScroll >= 1087) {
+      if (
+        upperFlexSecond.current &&
+        upperFlexFirst.current &&
+        upperFlexThird.current
+      ) {
+        upperFlexSecond.current.style.backgroundColor = "black";
+        upperFlexSecond.current.style.color = "white";
+        upperFlexFirst.current.style.backgroundColor = "white";
+        upperFlexFirst.current.style.color = "black";
+        upperFlexThird.current.style.backgroundColor = "white";
+        upperFlexThird.current.style.color = "black";
+        img.setAttribute(
+          "src",
+          "/Images/tim-van-der-kuip-CPs2X8JYmS8-unsplash.jpg"
+        );
+      }
+    } else {
+      if (upperFlexSecond.current && upperFlexFirst.current) {
+        upperFlexSecond.current.style.backgroundColor = "white";
+        upperFlexSecond.current.style.color = "black";
+        upperFlexFirst.current.style.backgroundColor = "black";
+        upperFlexFirst.current.style.color = "white";
+      }
+      if (myQuerySecondImage.current) {
+        myQuerySecondImage.current.appendChild(img);
+        img.setAttribute("height", "400px");
+        img.setAttribute("width", "544px");
+        img.setAttribute(
+          "src",
+          "/Images/alex-kotliarskyi-QBpZGqEMsKg-unsplash.jpg"
+        );
+      }
+    }
+
     if (curScroll >= 3126) {
       if (myQuerySecondHeader.current) {
         myQuerySecondHeader.current.style.position = "relative";
@@ -156,30 +244,35 @@ const My_Queries = () => {
             <div
               className="my_queries_container_second_header_flexChild_class"
               id="my_queries_container_second_header_flex_first"
+              ref={upperFlexFirst}
             >
               Effortless Query Tracking
             </div>
             <div
               className="my_queries_container_second_header_flexChild_class"
               id="my_queries_container_second_header_flex_second"
+              ref={upperFlexSecond}
             >
               Organized Query History
             </div>
             <div
               className="my_queries_container_second_header_flexChild_class"
               id="my_queries_container_second_header_flex_third"
+              ref={upperFlexThird}
             >
               Smart Query Organization
             </div>
             <div
               className="my_queries_container_second_header_flexChild_class"
               id="my_queries_container_second_header_flex_fourth"
+              ref={upperFlexFourth}
             >
               Priority-based Query Handling
             </div>
             <div
               className="my_queries_container_second_header_flexChild_class"
               id="my_queries_container_second_header_flex_fifth"
+              ref={upperFlexFifth}
             >
               Personalized Query Insights
             </div>
@@ -314,7 +407,7 @@ const My_Queries = () => {
       </div>
       <div id="my_queries_container_third_viewQueries">
         <div id="my_queries_container_third_viewQueries_showDirection">
-          Visit Sent Queries
+          View Sent Queries
         </div>
       </div>
     </>

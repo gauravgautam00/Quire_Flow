@@ -123,14 +123,14 @@ code {
   margin-left: 2rem;
 }
 #main_page_container_leftPart_title {
-  font-size: 3.7rem;
+  font-size: 4.7rem;
 }
 
 #main_page_container_rightPart {
   /* border:2px solid green; */
   width: 50%;
   margin-left: 39rem;
-  margin-top: -27rem;
+  margin-top: -30rem;
   height: 30rem;
 }
 
@@ -1484,18 +1484,25 @@ code {
 }
 #my_queries_container_second_header_flex_first {
   margin-left: 3rem;
+  background-color: black;
+  color: white;
+  cursor: pointer;
 }
 #my_queries_container_second_header_flex_second {
   margin-left: 1rem;
+  cursor: pointer;
 }
 #my_queries_container_second_header_flex_third {
   margin-left: 1rem;
+  cursor: pointer;
 }
 #my_queries_container_second_header_flex_fourth {
   margin-left: 1rem;
+  cursor: pointer;
 }
 #my_queries_container_second_header_flex_fifth {
   margin-left: 1rem;
+  cursor: pointer;
 }
 
 #my_queries_container_second_image {
@@ -1551,6 +1558,7 @@ code {
   background-color: #1937be;
   width: 29rem;
   color: white;
+  margin-left: 23rem;
   padding: 10px;
 }
 /* My Queries Container */
