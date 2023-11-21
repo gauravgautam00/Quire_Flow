@@ -314,7 +314,7 @@ const My_Queries = () => {
       </div>
       <div id="my_queries_container_third_viewQueries">
         <div id="my_queries_container_third_viewQueries_showDirection">
-          Visit Sent Queries
+          Your Sent Queries
         </div>
       </div>
     </>
