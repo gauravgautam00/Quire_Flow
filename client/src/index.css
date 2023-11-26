@@ -1424,8 +1424,8 @@ code {
 /* My Queries Container */
 
 #my_queries_container {
-  background: url(../public/Images/william-daigneault-Cd84YdL9px8-unsplash.jpg)
-    no-repeat left/cover;
+  background: url(../public/Images/dileep-m-UYvLFAkbiVE-unsplash.jpg) no-repeat
+    left/cover;
   height: 37rem;
   padding: 0.1px;
   text-align: center;
@@ -1545,10 +1545,7 @@ code {
   margin-top: 18px;
   font-size: large;
 }
-#my_queries_container_third_viewQueries {
-  border: 2px solid green;
-  height: 40rem;
-}
+
 #my_queries_container_third_viewQueries_showDirection {
   margin-top: 2rem;
   text-align: center;
@@ -1561,6 +1558,206 @@ code {
   margin-left: 23rem;
   padding: 10px;
 }
+#my_queries_container_third_viewQueries_filter {
+  margin-top: 1rem;
+  font-size: x-large;
+  border-radius: 20px;
+  border: 2px solid #1937be;
+  width: 7rem;
+  cursor: pointer;
+  padding: 5px;
+}
+#my_queries_container_third_viewQueries_filter_font {
+  left: 16px;
+  position: relative;
+  top: 4px;
+}
+#my_queries_container_third_viewQueries_data {
+  /* height: 10rem; */
+  width: 100%;
+  /* margin-top: 2rem; */
+  /* border: 2px solid; */
+  background-color: #f5f5f5;
+}
+
+/* ?card */
+/* card */
+/* card */
+
+#card {
+  height: 34.8rem;
+  width: 22.5rem;
+  /* background-color: black; */
+  padding: 0.1px;
+  /* border: 2px solid; */
+  border-radius: 15px;
+  background-color: white;
+  display: inline-block;
+  margin-left: 2rem;
+  margin-top: 3rem;
+}
+
+#card_upper {
+  margin-left: 0.4rem;
+  border: 2px solid;
+  background-color: #1937be;
+  color: white;
+  width: 20.4rem;
+  border-radius: 15px;
+  height: 12rem;
+  /* background-color: white; */
+  padding: 8px;
+  margin-top: 0.5rem;
+}
+#card_upper_title {
+  font-size: x-large;
+  font-family: sans-serif;
+}
+#card_upper_para {
+  margin-top: 2.8rem;
+}
+#card_between {
+  font-size: larger;
+  margin-left: 18px;
+  margin-top: 4px;
+  font-weight: 700;
+  font-family: sans-serif;
+}
+#card_lower {
+  margin-top: 10px;
+  /* height: 14rem; */
+  /* background-color: gray; */
+  padding: 0.1px;
+}
+
+#card_lower_name {
+  margin-left: 14px;
+  background-color: white;
+  transition: box-shadow 2s;
+  border-radius: 16px;
+  box-shadow: inset -1px 1px 1px 0px rgba(0, 0, 0, 0.5);
+  width: 19.8rem;
+  padding: 6px;
+  cursor: pointer;
+}
+#card_lower_name_first {
+  color: #515150;
+  font-family: sans-serif;
+}
+#card_lower_name_second {
+  font-size: larger;
+  margin-top: 5px;
+}
+#card_lower_anonyKey {
+  width: 90%;
+  margin-top: 8px;
+  margin-left: 14px;
+  background-color: white;
+  box-shadow: inset -1px 1px 1px 0px rgba(0, 0, 0, 0.5);
+  /* padding-bottom: 10px; */
+  /* padding-left: 8px; */
+  border-radius: 16px;
+  width: 19.6rem;
+  cursor: pointer;
+  padding: 6px;
+  /* background-color: rebeccapurple; */
+  /* border: 2px solid white; */
+}
+#card_lower_anonyKey_first {
+  color: #515150;
+  font-family: sans-serif;
+}
+#card_lower_anonyKey_second {
+  font-size: larger;
+  margin-top: 5px;
+}
+#card_lower_org {
+  border-radius: 16px;
+  /* border: 2px solid; */
+  padding: 6px;
+  background-color: white;
+  box-shadow: inset -1px 1px 1px 0px rgba(0, 0, 0, 0.5);
+  width: 8.4rem;
+
+  margin-top: 10px;
+  /* border: 2px solid white; */
+  margin-left: 17px;
+  cursor: pointer;
+  /* width: 90%; */
+  /* background-color: rebeccapurple; */
+}
+#card_lower_org_first {
+  color: #515150;
+  font-family: sans-serif;
+}
+#card_lower_org_second {
+  font-size: larger;
+  margin-top: 5px;
+}
+#card_lower_dept {
+  margin-top: -57px;
+  margin-left: 12rem;
+  /* border: 2px solid white; */
+  /* width: 90%; */
+  box-shadow: inset -1px 1px 1px 0px rgba(0, 0, 0, 0.5);
+  /* background-color: rebeccapurple; */
+  border-radius: 16px;
+  /* border: 2px solid; */
+  background-color: white;
+  padding: 6px;
+  width: 8.4rem;
+  cursor: pointer;
+}
+#card_lower_dept_first {
+  color: #515150;
+  font-family: sans-serif;
+}
+#card_lower_dept_second {
+  font-size: larger;
+  margin-top: 5px;
+}
+#card_lower_preferences {
+  margin-top: 7px;
+  margin-left: 17px;
+
+  border-radius: 16px;
+  /* border: 2px solid; */
+  padding: 6px;
+  background-color: white;
+  width: 19.4rem;
+  cursor: pointer;
+  box-shadow: inset -1px 1px 1px 0px rgba(0, 0, 0, 0.5);
+  /* border: 2px solid white; */
+}
+#card_lower_preferences_first {
+  color: #515150;
+  font-family: sans-serif;
+}
+#card_lower_preferences_second {
+  font-size: larger;
+  margin-top: 5px;
+}
+
+#card_link {
+  font-size: larger;
+  margin-left: 12rem;
+  margin-top: 6px;
+  cursor: pointer;
+  font-weight: 700;
+  font-family: sans-serif;
+}
+#card_font {
+  left: 0px;
+  font-weight: 700;
+  /* width: 1rem; */
+  position: relative;
+  transition: left 0.3s;
+  top: 6px;
+}
+
+/* card
+card
+card */
 /* My Queries Container */
 /* My Queries Container */
 /* My Queries Container */

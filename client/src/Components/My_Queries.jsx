@@ -1,5 +1,8 @@
 import React, { useRef } from "react";
 
+import cardDataJson from "./cardJsonData.json";
+import CardQueryChild from "./CardQueryChild";
+
 const My_Queries = () => {
   const tagLine = useRef(null);
   const para = useRef(null);
@@ -408,6 +411,31 @@ const My_Queries = () => {
       <div id="my_queries_container_third_viewQueries">
         <div id="my_queries_container_third_viewQueries_showDirection">
           Your Sent Queries
+        </div>
+        <div id="my_queries_container_third_viewQueries_filter">
+          Filters
+          <span
+            id="my_queries_container_third_viewQueries_filter_font"
+            class="material-symbols-outlined"
+          >
+            filter_list
+          </span>
+        </div>
+        <div id="my_queries_container_third_viewQueries_data">
+          {cardDataJson.map((data, index) => {
+            return (
+              <CardQueryChild
+                key={index}
+                queryTitle={data.queryTitle}
+                queryDescription={data.queryDescription}
+                toName={data.toName}
+                toAnonyKey={data.toAnonyKey}
+                toOrganisation={data.toOrganisation}
+                toDepartment={data.toDepartment}
+                toPreferences={data.toPreferences}
+              />
+            );
+          })}
         </div>
       </div>
     </>

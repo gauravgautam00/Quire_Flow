@@ -1,0 +1,101 @@
+[
+  {
+    "queryTitle": "Product Enhancement Inquiry",
+    "queryDescription": "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Impedit, obcaecati.",
+    "toName": "Dr. Sarah Williams",
+    "toAnonyKey": "ABC123XYZ",
+    "toOrganisation": "Microsoft",
+    "toDepartment": "Product Development",
+    "toPreferences": "Normal"
+  },
+  {
+    "queryTitle": "Account Access Problem",
+    "queryDescription": "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Impedit, obcaecati.",
+    "toName": "John Doe",
+    "toAnonyKey": "ZYX321CBA",
+    "toOrganisation": "Facebook",
+    "toDepartment": "Customer Support",
+    "toPreferences": "High Priority"
+  },
+  {
+    "queryTitle": "Billing Inquiry",
+    "queryDescription": "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Impedit, obcaecati.",
+    "toName": "Dr. Emily Johnson",
+    "toAnonyKey": "PQR987LMN",
+    "toOrganisation": "Amazon",
+    "toDepartment": "Finance",
+    "toPreferences": "Normal"
+  },
+  {
+    "queryTitle": "Technical Support Request",
+    "queryDescription": "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Impedit, obcaecati.",
+    "toName": "Alice Smith",
+    "toAnonyKey": "LMN987PQR",
+    "toOrganisation": "Apple",
+    "toDepartment": "Technical Support",
+    "toPreferences": "Urgent"
+  },
+  {
+    "queryTitle": "Feature Suggestion",
+    "queryDescription": "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Impedit, obcaecati.",
+    "toName": "Bob Anderson",
+    "toAnonyKey": "XYZ789ABC",
+    "toOrganisation": "Twitter",
+    "toDepartment": "Product Management",
+    "toPreferences": "Normal"
+  },
+  {
+    "queryTitle": "Event Coordination Query",
+    "queryDescription": "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Impedit, obcaecati.",
+    "toName": "Dr. Michael Brown",
+    "toAnonyKey": "LMN789XYZ",
+    "toOrganisation": "LinkedIn",
+    "toDepartment": "Events",
+    "toPreferences": "High Priority"
+  },
+  {
+    "queryTitle": "Employee Feedback",
+    "queryDescription": "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Impedit, obcaecati.",
+    "toName": "Mary Taylor",
+    "toAnonyKey": "XYZ456ABC",
+    "toOrganisation": "Uber",
+    "toDepartment": "Human Resources",
+    "toPreferences": "Normal"
+  },
+  {
+    "queryTitle": "Software Bug Report",
+    "queryDescription": "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Impedit, obcaecati.",
+    "toName": "James Wilson",
+    "toAnonyKey": "ABC654XYZ",
+    "toOrganisation": "Netflix",
+    "toDepartment": "Quality Assurance",
+    "toPreferences": "Urgent"
+  },
+  {
+    "queryTitle": "Training Program Query",
+    "queryDescription": "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Impedit, obcaecati.",
+    "toName": "Sophia Lee",
+    "toAnonyKey": "PQR123LMN",
+    "toOrganisation": "Google",
+    "toDepartment": "Training",
+    "toPreferences": "Normal"
+  },
+  {
+    "queryTitle": "Internship Application Inquiry",
+    "queryDescription": "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Impedit, obcaecati.",
+    "toName": "David Clark",
+    "toAnonyKey": "XYZ321PQR",
+    "toOrganisation": "Facebook",
+    "toDepartment": "Human Resources",
+    "toPreferences": "High Priority"
+  },
+  {
+    "queryTitle": "Research Collaboration Request",
+    "queryDescription": "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Impedit, obcaecati.",
+    "toName": "Dr. Olivia Davis",
+    "toAnonyKey": "ABC789XYZ",
+    "toOrganisation": "Microsoft",
+    "toDepartment": "Research",
+    "toPreferences": "Urgent"
+  }
+]
