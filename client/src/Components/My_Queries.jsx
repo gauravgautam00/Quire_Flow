@@ -1,5 +1,5 @@
 import React, { useRef } from "react";
-
+import { Link } from "react-router-dom";
 import cardDataJson from "./cardJsonData.json";
 import CardQueryChild from "./CardQueryChild";
 
@@ -96,6 +96,7 @@ const My_Queries = () => {
         myQuerySecondImage.current.appendChild(img);
         img.setAttribute("height", "400px");
         img.setAttribute("width", "544px");
+        img.setAttribute("loading", "lazy");
         img.setAttribute(
           "src",
           "/Images/alex-kotliarskyi-QBpZGqEMsKg-unsplash.jpg"
@@ -424,16 +425,23 @@ const My_Queries = () => {
         <div id="my_queries_container_third_viewQueries_data">
           {cardDataJson.map((data, index) => {
             return (
-              <CardQueryChild
+              <Link
+                style={{ textDecoration: "none" }}
                 key={index}
-                queryTitle={data.queryTitle}
-                queryDescription={data.queryDescription}
-                toName={data.toName}
-                toAnonyKey={data.toAnonyKey}
-                toOrganisation={data.toOrganisation}
-                toDepartment={data.toDepartment}
-                toPreferences={data.toPreferences}
-              />
+                to={`/my-queries/${data.toAnonyKey}`}
+              >
+                {" "}
+                <CardQueryChild
+                  key={index}
+                  queryTitle={data.queryTitle}
+                  queryDescription={data.queryDescription}
+                  toName={data.toName}
+                  toAnonyKey={data.toAnonyKey}
+                  toOrganisation={data.toOrganisation}
+                  toDepartment={data.toDepartment}
+                  toPreferences={data.toPreferences}
+                />
+              </Link>
             );
           })}
         </div>
