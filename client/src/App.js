@@ -19,7 +19,7 @@ function App() {
           element={<Administrative_matter />}
         ></Route>
         <Route path="/my_queries" element={<My_Queries />}></Route>
-        <Route path="/my-queries/:id" element={<Single_Query />}></Route>
+        <Route path="/my_queries/:id" element={<Single_Query />}></Route>
       </Routes>
     </BrowserRouter>
   );

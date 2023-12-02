@@ -127,20 +127,7 @@ const My_Queries = () => {
         myQuerySecondHeader.current.style.position = "fixed";
         myQuerySecondHeader.current.style.top = "0rem";
       }
-    }
-    //   if (myQuerySecondImage.current) {
-    //     myQuerySecondImage.current.style.position = "relative";
-    //     myQuerySecondImage.current.style.top = "133rem";
-    //   }
-    //   if (myQuerySecondBottom.current) {
-    //     myQuerySecondBottom.current.style.marginTop = "-25.3rem";
-    //   }
-    //   if (myQuerySecondHeader.current) {
-    //     myQuerySecondHeader.current.style.position = "fixed";
-    //     myQuerySecondHeader.current.style.top = "0rem";
-    //   }
-    // }
-    else if (curScroll >= 729) {
+    } else if (curScroll >= 729) {
       if (myQuerySecondHeader.current) {
         myQuerySecondHeader.current.style.position = "fixed";
         myQuerySecondHeader.current.style.top = "0rem";
@@ -165,6 +152,7 @@ const My_Queries = () => {
         myQuerySecondBottom.current.style.marginTop = "-25.3rem";
       }
     }
+
     if (tagLine.current && tagLine_inner.current) {
       if (curScroll >= 440) {
         // root.current.appendChild(div);
@@ -173,27 +161,11 @@ const My_Queries = () => {
       } else if (curScroll >= 250) {
         tagLine.current.style.display = "block";
 
-        // tagLine.current.style.backgroundColor = "rgba(255, 255, 255, 0.01)";
         tagLine.current.style.transform = `translate(0px, ${window.scrollY}px)`;
-
-        // tagLine_inner.current.style.visibility = "hidden";
-
-        // tagLine_inner.current.style.opacity = "0";
-        // tagLine.current.style.border = "2px solid";
-        // tagLine.current.style.borderRadius =`${curScroll - 270}%`;
-        // tagLine.current.style.width = `calc(858px - ${1.5 * curScroll}px)`;
       } else {
         tagLine_inner.current.style.fontSize = "xxx-large";
         tagLine.current.style.backgroundColor = "rgba(255, 255, 255, 0.01)";
         tagLine.current.style.transform = `translate(0px, ${window.scrollY}px)`;
-
-        // tagLine.current.style.width = `calc(858px - ${curScroll}px`;
-        // tagLine_inner.current.style.visibility = "visible";
-        // tagLine_inner.current.style.opacity = "1";
-        // tagLine_inner.current.innerText =
-        //   "Your Questions, Your Space: Explore Your Sent Queries";
-
-        // tagLine.current.style.borderRadius = "0%";
         tagLine.current.style.height = "8rem";
       }
     }
@@ -428,7 +400,7 @@ const My_Queries = () => {
               <Link
                 style={{ textDecoration: "none" }}
                 key={index}
-                to={`/my-queries/${data.toAnonyKey}`}
+                to={`/my_queries/${data.toAnonyKey}`}
               >
                 {" "}
                 <CardQueryChild
