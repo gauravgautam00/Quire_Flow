@@ -162,7 +162,7 @@ const Administrative_matter = () => {
           </div>
         </div>
         <div id="administrator_container_frontRightPart">
-          <video height="500" width="500" autoPlay loop>
+          <video height="500" width="600" autoPlay loop>
             <source
               src="Videos/A user starting a huddle and recording a video clip with the Slack app.webm"
               type="video/webm"

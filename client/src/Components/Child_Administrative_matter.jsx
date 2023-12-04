@@ -214,7 +214,7 @@ const Child_Administrative_matter = (props) => {
             </div>
 
             <div id="child_administrative_matter_downBarBottom_second_completed">
-              Completed
+              Acknowledged
             </div>
 
             <div id="child_administrative_matter_downBarBottom_second_inProgress">
