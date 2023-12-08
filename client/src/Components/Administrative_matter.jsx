@@ -67,7 +67,7 @@ const Administrative_matter = () => {
 
   window.onscroll = () => {
     console.log(window.scrollY);
-    if (window.scrollY >= 1422) {
+    if (window.scrollY >= 1460) {
       if (filterup.current) {
         filterup.current.style.position = "fixed";
         filterup.current.style.width = "73.88rem";
