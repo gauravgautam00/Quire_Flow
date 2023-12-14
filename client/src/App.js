@@ -6,6 +6,7 @@ import Landing_Page from "./Components/Landing_Page";
 import My_Queries from "./Components/My_Queries";
 import Single_Query from "./Components/Single_Query";
 import "./App.css";
+import newQuery from "./Components/newQuery";
 
 function App() {
   return (
@@ -20,6 +21,7 @@ function App() {
         ></Route>
         <Route path="/my_queries" element={<My_Queries />}></Route>
         <Route path="/my_queries/:id" element={<Single_Query />}></Route>
+        <Route path="/new_query" element={<newQuery />}></Route>
       </Routes>
     </BrowserRouter>
   );
