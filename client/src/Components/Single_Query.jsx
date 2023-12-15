@@ -337,7 +337,7 @@ const Single_Query = () => {
               {" "}
               <img
                 class="single_queries_container_images_container_childImages"
-                src="/Images/bp-miller--TnlLhj46iQ-unsplash.jpg"
+                src="/Images/joshua-woroniecki-0289jpHHk0o-unsplash.jpg"
                 height="350"
                 width="650"
               />
