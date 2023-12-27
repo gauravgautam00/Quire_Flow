@@ -8,6 +8,7 @@ const Child_Administrative_matter = (props) => {
   const downArrowIcon = useRef(null);
   const arrowDown = useRef(null);
   const downData = useRef(null);
+  const bottomHideContainer = useRef(null);
   const downDataDelete = useRef(null);
 
   useEffect(() => {
@@ -59,26 +60,32 @@ const Child_Administrative_matter = (props) => {
       };
     }
 
-    if (arrowDown.current && downData.current && downArrowIcon.current) {
-      arrowDown.current.onmouseover = () => {
-        arrowDown.current.style.backgroundColor = "#DBDBDB";
-      };
-      arrowDown.current.onmouseout = () => {
-        arrowDown.current.style.backgroundColor = "#FFFFFF";
-      };
+    if (
+      arrowDown.current &&
+      downData.current &&
+      downArrowIcon.current &&
+      bottomHideContainer.current
+    ) {
+      // arrowDown.current.onmouseover = () => {
+      //   arrowDown.current.style.backgroundColor = "#DBDBDB";
+      // };
+      // arrowDown.current.onmouseout = () => {
+      //   arrowDown.current.style.backgroundColor = "#FFFFFF";
+      // };
       arrowDown.current.onclick = () => {
         if (downData.current.style.display == "flex") {
           downData.current.style.display = "none";
           downDataDelete.current.style.display = "none";
-          arrowDown.current.style.borderBottom = "2px solid #1937be";
+          // arrowDown.current.style.borderBottom = "2px solid #1937be";
           downArrowIcon.current.style.transform = "rotate(0deg)";
-
+          bottomHideContainer.current.style.border = "none";
           arrowDown.current.style.borderTop = "none";
         } else {
           downData.current.style.display = "flex";
+          bottomHideContainer.current.style.border = "2px solid";
+          bottomHideContainer.current.style.borderTop = "none";
           downArrowIcon.current.style.transform = "rotate(-180deg)";
           downDataDelete.current.style.display = "block";
-          arrowDown.current.style.borderTop = "2px solid #1937be";
           arrowDown.current.style.borderBottom = "none";
         }
         // downData.current.style.backgroundColor = "red";
@@ -88,116 +95,121 @@ const Child_Administrative_matter = (props) => {
 
   return (
     <div id="child_administrator_matter">
-      {/* first */}
-      {/* first */}
-      {/* first */}
-      {/* first */}
-      {/* first */}
-      {/* first */}
-      {/* first */}
-      {/* first */}
-      {/* first */}
-      <div id="child_administrative_matter_headingTop">
-        <div id="child_administrative_matter_headingTop_box1"></div>
-        <div id="child_administrative_matter_headingTop_box2"></div>
+      <div id="child_administrator_matter_firstPart">
+        {/* first */}
+        {/* first */}
+        {/* first */}
+        {/* first */}
+        {/* first */}
+        {/* first */}
+        {/* first */}
+        {/* first */}
+        {/* first */}
+        <div id="child_administrative_matter_headingTop">
+          <div id="child_administrative_matter_headingTop_box1"></div>
+          <div id="child_administrative_matter_headingTop_box2"></div>
 
-        <div id="child_administrative_matter_headingTop_real">
-          {props.queryTitle}
+          <div id="child_administrative_matter_headingTop_real">
+            {props.queryTitle}
+          </div>
+        </div>
+        {/* //second */}
+        {/* //second */}
+        {/* //second */}
+        {/* //second */}
+        {/* //second */}
+        {/* //second */}
+        {/* //second */}
+        <div id="child_administrative_matter_sideBarLeft">
+          <div id="child_administrative_matter_sideBarLeft_organisationHeading">
+            Organisation
+          </div>
+          <div id="child_administrative_matter_sideBarLeft_organisationName">
+            {props.queryOrganisation}
+          </div>
+          <div id="child_administrative_matter_sideBarLeft_departmentHeading">
+            Department
+          </div>
+          <div id="child_administrative_matter_sideBarLeft_departmentName">
+            {props.queryDepartment}
+          </div>
+          <div id="child_administrative_matter_sideBarLeft_dateHeading">
+            Recieved At
+          </div>
+          <div id="child_administrative_matter_sideBarLeft_dateName">
+            {props.dateSent}
+          </div>
+        </div>
+        {/* third */}
+        {/* third */}
+        {/* third */}
+        {/* third */}
+        {/* third */}
+        {/* third */}
+        {/* third */}
+        {/* third */}
+        <div id="child_administrative_matter_mainData">
+          {props.queryDescription}
+        </div>
+        {/* fourth */}
+        {/* fourth */}
+        {/* fourth */}
+        {/* fourth */}
+        {/* fourth */}
+        {/* fourth */}
+        {/* fourth */}
+        {/* fourth */}
+        {/* fourth */}
+        <div id="child_administrative_matter_sideBarRight">
+          <div
+            id="child_administrative_matter_sideBarRight_text"
+            ref={sidebarRightText}
+          >
+            TEXT
+          </div>
+          <div
+            id="child_administrative_matter_sideBarRight_links"
+            ref={sidebarRightLinks}
+          >
+            LINKS
+          </div>
+          <div
+            id="child_administrative_matter_sideBarRight_images"
+            ref={sidebarRightImages}
+          >
+            IMAGES
+          </div>
+          <div
+            id="child_administrative_matter_sideBarRight_videos"
+            ref={sidebarRightVideos}
+          >
+            VIDEOS
+          </div>
+        </div>
+        {/* fifth */}
+        {/* fifth */}
+        {/* fifth */}
+        {/* fifth */}
+        {/* fifth */}
+        {/* fifth */}
+        {/* fifth */}
+        {/* fifth */}
+        {/* fifth */}
+        {/* fifth */}
+        <div id="child_administrator_matter_downBarClicks" ref={arrowDown}>
+          <span
+            id="child_administrator_matter_downBarClicks_icon"
+            class="material-symbols-outlined"
+            ref={downArrowIcon}
+          >
+            arrow_drop_down
+          </span>
         </div>
       </div>
-      {/* //second */}
-      {/* //second */}
-      {/* //second */}
-      {/* //second */}
-      {/* //second */}
-      {/* //second */}
-      {/* //second */}
-      <div id="child_administrative_matter_sideBarLeft">
-        <div id="child_administrative_matter_sideBarLeft_organisationHeading">
-          Organisation
-        </div>
-        <div id="child_administrative_matter_sideBarLeft_organisationName">
-          {props.queryOrganisation}
-        </div>
-        <div id="child_administrative_matter_sideBarLeft_departmentHeading">
-          Department
-        </div>
-        <div id="child_administrative_matter_sideBarLeft_departmentName">
-          {props.queryDepartment}
-        </div>
-        <div id="child_administrative_matter_sideBarLeft_dateHeading">
-          Recieved At
-        </div>
-        <div id="child_administrative_matter_sideBarLeft_dateName">
-          {props.dateSent}
-        </div>
-      </div>
-      {/* third */}
-      {/* third */}
-      {/* third */}
-      {/* third */}
-      {/* third */}
-      {/* third */}
-      {/* third */}
-      {/* third */}
-      <div id="child_administrative_matter_mainData">
-        {props.queryDescription}
-      </div>
-      {/* fourth */}
-      {/* fourth */}
-      {/* fourth */}
-      {/* fourth */}
-      {/* fourth */}
-      {/* fourth */}
-      {/* fourth */}
-      {/* fourth */}
-      {/* fourth */}
-      <div id="child_administrative_matter_sideBarRight">
-        <div
-          id="child_administrative_matter_sideBarRight_text"
-          ref={sidebarRightText}
-        >
-          TEXT
-        </div>
-        <div
-          id="child_administrative_matter_sideBarRight_links"
-          ref={sidebarRightLinks}
-        >
-          LINKS
-        </div>
-        <div
-          id="child_administrative_matter_sideBarRight_images"
-          ref={sidebarRightImages}
-        >
-          IMAGES
-        </div>
-        <div
-          id="child_administrative_matter_sideBarRight_videos"
-          ref={sidebarRightVideos}
-        >
-          VIDEOS
-        </div>
-      </div>
-      {/* fifth */}
-      {/* fifth */}
-      {/* fifth */}
-      {/* fifth */}
-      {/* fifth */}
-      {/* fifth */}
-      {/* fifth */}
-      {/* fifth */}
-      {/* fifth */}
-      {/* fifth */}
-      <div id="child_administrator_matter_downBarClicks" ref={arrowDown}>
-        <span
-          id="child_administrator_matter_downBarClicks_icon"
-          class="material-symbols-outlined"
-          ref={downArrowIcon}
-        >
-          arrow_drop_down
-        </span>
-      </div>
-      <div id="child_administrative_matter_BottomHide">
+      <div
+        id="child_administrative_matter_BottomHide"
+        ref={bottomHideContainer}
+      >
         <div id="child_administrative_matter_downBarBottom" ref={downData}>
           {/* first */}
           <div id="child_administrative_matter_downBarBottom_first">
