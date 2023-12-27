@@ -110,11 +110,6 @@ code {
 /* main - page */
 /* main - page */
 
-#main_page_container {
-  /* border: 2px solid blue; */
-  /* height:20rem; */
-}
-
 #main_page_container_leftPart {
   width: 46%;
 
@@ -1486,91 +1481,169 @@ code {
   position: relative;
   background-color: white;
   z-index: 1;
+  border-radius: 10px;
 }
 
-#child_administrative_matter_headingTop_box1 {
-  /* border-radius: 50%; */
-  /* margin-left: 2px; */
-  height: 1rem;
-  border-radius: 10px;
-  /* margin-top: 2px;  */
-  display: none;
-  width: 1rem;
-  background-color: red;
-  cursor: pointer;
-}
-#child_administrative_matter_headingTop_box2 {
-  /* border-radius: 50%; */
-  margin-left: 65.75rem;
-  display: none;
-  height: 1rem;
-  margin-top: -1rem;
-  border-radius: 10px;
-  width: 1rem;
-  background-color: red;
-  cursor: pointer;
-}
 #child_administrative_matter_headingTop_real {
   /* border: 2px solid green; */
   margin-top: -0.2rem;
+  padding-top: 5px;
   font-size: xx-large;
   text-align: center;
 }
-
-#child_administrative_matter_sideBarLeft {
-  height: 24.8rem;
+#child_administrative_matter_headingTop_options {
+  border-radius: 3px;
+  width: 10.2rem;
+  margin-top: -28px;
   border: 1px solid #1937be;
-  width: 9rem;
+  text-align: center;
+  margin-left: 55rem;
+  cursor: pointer;
+  font-size: larger;
+  padding: 2px;
+  height: 2rem;
+}
+#child_administrative_matter_headingTop_options_downIcon {
+  position: relative;
+  margin-top: -1px;
+  margin-left: 5.8rem;
+  top: 4px;
+  transition: transform 1s;
+}
+#child_administrative_matter_headingTop_options_dropDown {
+  margin-left: 55rem;
+  /* border: 1px solid; */
+  height: 0rem;
+  width: 10.5rem;
+  transition: height 1s;
+  box-shadow: 0px 0px 6px 0px #c5c4c4;
+  overflow: hidden;
+  position: relative;
+}
+.child_administrative_matter_headingTop_options_dropDown_childClass {
+  text-align: center;
+  height: 2rem;
+  cursor: pointer;
+  font-size: larger;
+}
+.child_administrative_matter_headingTop_options_dropDown_childClass:hover {
+  background-color: #dbdbdb;
+}
+#child_administrative_matter_sideBarLeft {
+  height: 24.84rem;
+  border: 1px solid #1937be;
+  width: 3rem;
+  overflow: visible;
+  transition: width 1s;
   /* margin-top: -4.5rem; */
   background-color: white;
+  position: relative;
   margin-left: 0.2rem;
-  margin-top: 1rem;
+  margin-top: 0.6rem;
 }
-#child_administrative_matter_sideBarLeft_organisationHeading {
-  width: 6rem;
-  border: 1px solid;
-  margin-top: 1rem;
-}
-#child_administrative_matter_sideBarLeft_organisationName {
-  padding: 2px;
-  border: 1px solid;
-  margin-top: 3px;
-}
-#child_administrative_matter_sideBarLeft_departmentHeading {
-  width: 6rem;
-  border: 1px solid;
-  margin-top: 2rem;
-}
-#child_administrative_matter_sideBarLeft_departmentName {
-  padding: 2px;
-  border: 1px solid;
-  margin-top: 3px;
+#child_administrative_matter_sideBarLeft_hamburgerIcon {
+  margin-top: 5px;
+  margin-left: 4px;
+  width: 40px;
+  box-shadow: 0px 0px 6px 0px #c5c4c4;
+  height: 38px;
+  border-radius: 7px;
 }
 
-#child_administrative_matter_sideBarLeft_dateHeading {
-  width: 6rem;
-  border: 1px solid;
+#child_administrative_matter_sideBarLeft_hamburgerIcon_real {
+  font-size: xx-large;
+  margin-left: 4px;
+  cursor: pointer;
+  margin-top: 2px;
+}
+
+#child_administrator_matter_sideBarLeft_first {
+  border-radius: 8px;
+  margin-top: 1rem;
+  opacity: 0;
+  width: 95%;
+  margin-left: 6px;
+  box-shadow: 0px 0px 6px 0px #c5c4c4;
+  visibility: visible;
+  transition: visibility 0.5s, opacity 1s ease-in-out;
+  /* height: 5rem; */
+}
+#child_administrative_matter_sideBarLeft_organisationHeading {
+  font-size: large;
+  border-top-left-radius: 8px;
+  padding: 6px;
+  background-color: #dbdbdb;
+  border-top-right-radius: 8px;
+}
+#child_administrative_matter_sideBarLeft_organisationName {
+  padding: 6px;
+  margin-top: 3px;
+  font-size: larger;
+}
+#child_administrator_matter_sideBarLeft_second {
+  border-radius: 8px;
+  transition: visibility 0.5s, opacity 1s;
   margin-top: 2rem;
+  opacity: 0;
+  width: 95%;
+  visibility: visible;
+  margin-left: 6px;
+  box-shadow: 0px 0px 6px 0px #c5c4c4;
+  /* height: 5rem; */
+}
+#child_administrative_matter_sideBarLeft_departmentHeading {
+  font-size: large;
+  border-top-left-radius: 8px;
+  padding: 6px;
+  background-color: #dbdbdb;
+  border-top-right-radius: 8px;
+}
+#child_administrative_matter_sideBarLeft_departmentName {
+  padding: 6px;
+  margin-top: 3px;
+  font-size: larger;
+}
+#child_administrator_matter_sideBarLeft_third {
+  border-radius: 8px;
+  margin-top: 2rem;
+  width: 95%;
+  opacity: 0;
+  visibility: visible;
+  transition: visibility 0.5s, opacity 1s;
+  margin-left: 6px;
+  box-shadow: 0px 0px 6px 0px #c5c4c4;
+  /* height: 5rem; */
+}
+#child_administrative_matter_sideBarLeft_dateHeading {
+  font-size: large;
+  border-top-left-radius: 8px;
+  padding: 6px;
+  background-color: #dbdbdb;
+  border-top-right-radius: 8px;
 }
 #child_administrative_matter_sideBarLeft_dateName {
-  padding: 2px;
-  border: 1px solid;
+  padding: 6px;
   margin-top: 3px;
+  font-size: larger;
 }
 #child_administrative_matter_mainData {
-  height: 24.78rem;
+  height: 23.55rem;
   border: 1px solid #1937be;
-  margin-top: -24.84rem;
-  width: 46.6rem;
-  margin-left: 9.5rem;
+  margin-top: -24.9rem;
+  width: 61.6rem;
+  padding: 10px;
+  margin-left: 3.5rem;
+
   overflow-y: scroll;
 }
 #child_administrative_matter_sideBarRight {
-  margin-left: 56.5rem;
+  margin-left: 63.5rem;
   height: 24.79rem;
-  width: 10rem;
+  width: 3rem;
+  display: none;
   margin-top: -24.9rem;
   border: 1px solid #1937be;
+  position: relative;
   background-color: white;
 }
 #child_administrative_matter_sideBarRight_text {
@@ -1629,8 +1702,10 @@ code {
 #child_administrative_matter_downBarBottom {
   /* border: 2px solid #1937be; */
   margin-bottom: 1rem;
-  display: none;
-  margin-top: 17px;
+  /* display: none; */
+  margin-top: -11.5rem;
+  display: flex;
+  transition: margin-top 1s;
 
   height: 11.5rem;
 }
@@ -1719,7 +1794,7 @@ code {
 }
 #child_administrative_matter_downBottom_delete {
   color: #a40e26;
-  display: none;
+  /* display: none; */
   text-align: center;
   border-top: 3px solid #a40e26;
   font-size: 19px;

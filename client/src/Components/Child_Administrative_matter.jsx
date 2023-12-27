@@ -1,16 +1,29 @@
-import React, { useEffect, useRef } from "react";
+import React, { useEffect, useRef, useState } from "react";
 
 const Child_Administrative_matter = (props) => {
   const sidebarRightText = useRef(null);
   const sidebarRightLinks = useRef(null);
   const sidebarRightImages = useRef(null);
   const sidebarRightVideos = useRef(null);
-  const downArrowIcon = useRef(null);
+  const arrowDownIcon = useRef(null);
   const arrowDown = useRef(null);
   const downData = useRef(null);
   const bottomHideContainer = useRef(null);
   const downDataDelete = useRef(null);
+  const sideBarLeftHamburgerIcon = useRef(null);
+  const sideBarLeft = useRef(null);
+  const sideBarLeftFirst = useRef(null);
+  const sideBarLeftSecond = useRef(null);
+  const sideBarLeftThird = useRef(null);
+  const headingTopOptions = useRef(null);
+  const headingTopOptionsIcon = useRef(null);
+  const headingTopOptionsList = useRef(null);
+  const headingTopOptionsListFirst = useRef(null);
+  const headingTopOptionsListSecond = useRef(null);
+  const headingTopOptionsListThird = useRef(null);
 
+  const [icon, setIcon] = useState("menu");
+  const [typeOfData, setTypeOfData] = useState("Text");
   useEffect(() => {
     if (
       sidebarRightText.current &&
@@ -63,32 +76,88 @@ const Child_Administrative_matter = (props) => {
     if (
       arrowDown.current &&
       downData.current &&
-      downArrowIcon.current &&
+      arrowDownIcon.current &&
       bottomHideContainer.current
     ) {
-      // arrowDown.current.onmouseover = () => {
-      //   arrowDown.current.style.backgroundColor = "#DBDBDB";
-      // };
-      // arrowDown.current.onmouseout = () => {
-      //   arrowDown.current.style.backgroundColor = "#FFFFFF";
-      // };
+      downData.current.style.marginTop = "-15rem";
       arrowDown.current.onclick = () => {
-        if (downData.current.style.display == "flex") {
-          downData.current.style.display = "none";
-          downDataDelete.current.style.display = "none";
-          // arrowDown.current.style.borderBottom = "2px solid #1937be";
-          downArrowIcon.current.style.transform = "rotate(0deg)";
-          bottomHideContainer.current.style.border = "none";
-          arrowDown.current.style.borderTop = "none";
+        if (downData.current.style.marginTop == "-15rem") {
+          console.log("entering ");
+          arrowDownIcon.current.style.transform = "rotate(180deg)";
+          downData.current.style.marginTop = "1rem";
         } else {
-          downData.current.style.display = "flex";
-          bottomHideContainer.current.style.border = "2px solid";
-          bottomHideContainer.current.style.borderTop = "none";
-          downArrowIcon.current.style.transform = "rotate(-180deg)";
-          downDataDelete.current.style.display = "block";
-          arrowDown.current.style.borderBottom = "none";
+          downData.current.style.marginTop = "-15rem";
+          arrowDownIcon.current.style.transform = "rotate(0deg)";
         }
-        // downData.current.style.backgroundColor = "red";
+      };
+    }
+
+    if (
+      sideBarLeft.current &&
+      sideBarLeftHamburgerIcon.current &&
+      sideBarLeftFirst &&
+      sideBarLeftSecond &&
+      sideBarLeftThird
+    ) {
+      sideBarLeft.current.style.width = "3rem";
+      sideBarLeftHamburgerIcon.current.onclick = () => {
+        if (sideBarLeft.current.style.width == "3rem") {
+          sideBarLeft.current.style.width = "16rem";
+          sideBarLeftFirst.current.style.visibility = "visible";
+          sideBarLeftSecond.current.style.visibility = "visible";
+          sideBarLeftThird.current.style.visibility = "visible";
+          sideBarLeftFirst.current.style.opacity = "1";
+          setIcon("close");
+          sideBarLeftSecond.current.style.opacity = "1";
+          sideBarLeftThird.current.style.opacity = "1";
+        } else {
+          sideBarLeft.current.style.width = "3rem";
+          setIcon("menu");
+          sideBarLeftFirst.current.style.visibility = "hidden";
+          sideBarLeftSecond.current.style.visibility = "hidden";
+          sideBarLeftThird.current.style.visibility = "hidden";
+          sideBarLeftFirst.current.style.opacity = "0";
+          sideBarLeftSecond.current.style.opacity = "0";
+          sideBarLeftThird.current.style.opacity = "0";
+        }
+      };
+    }
+
+    if (
+      headingTopOptions.current &&
+      headingTopOptionsIcon.current &&
+      headingTopOptionsList.current
+    ) {
+      console.log(headingTopOptions.current);
+
+      headingTopOptionsList.current.style.height = "0rem";
+
+      headingTopOptions.current.onclick = () => {
+        if (headingTopOptionsList.current.style.height == "0rem") {
+          headingTopOptionsList.current.style.height = "7rem";
+          headingTopOptionsIcon.current.style.transform = "rotate(180deg)";
+          headingTopOptionsList.current.style.border = "1px solid #1937be";
+        } else {
+          headingTopOptionsList.current.style.height = "0rem";
+          headingTopOptionsIcon.current.style.transform = "rotate(0deg)";
+          headingTopOptionsList.current.style.border = "none";
+        }
+      };
+    }
+
+    if (
+      headingTopOptionsListFirst.current &&
+      headingTopOptionsListSecond.current &&
+      headingTopOptionsListThird.current
+    ) {
+      headingTopOptionsListFirst.current.onclick = () => {
+        setTypeOfData("Text");
+      };
+      headingTopOptionsListSecond.current.onclick = () => {
+        setTypeOfData("Images");
+      };
+      headingTopOptionsListThird.current.onclick = () => {
+        setTypeOfData("Videos");
       };
     }
   }, []);
@@ -106,11 +175,49 @@ const Child_Administrative_matter = (props) => {
         {/* first */}
         {/* first */}
         <div id="child_administrative_matter_headingTop">
-          <div id="child_administrative_matter_headingTop_box1"></div>
-          <div id="child_administrative_matter_headingTop_box2"></div>
-
           <div id="child_administrative_matter_headingTop_real">
             {props.queryTitle}
+          </div>
+
+          <div
+            id="child_administrative_matter_headingTop_options"
+            ref={headingTopOptions}
+          >
+            {typeOfData}
+
+            <span
+              id="child_administrative_matter_headingTop_options_downIcon"
+              class="material-symbols-outlined"
+              ref={headingTopOptionsIcon}
+            >
+              keyboard_arrow_down
+            </span>
+          </div>
+          <div
+            id="child_administrative_matter_headingTop_options_dropDown"
+            ref={headingTopOptionsList}
+          >
+            <div
+              class="child_administrative_matter_headingTop_options_dropDown_childClass"
+              id="child_administrative_matter_headingTop_options_dropDown_first"
+              ref={headingTopOptionsListFirst}
+            >
+              Text
+            </div>
+            <div
+              class="child_administrative_matter_headingTop_options_dropDown_childClass"
+              id="child_administrative_matter_headingTop_options_dropDown_second"
+              ref={headingTopOptionsListSecond}
+            >
+              Images
+            </div>
+            <div
+              class="child_administrative_matter_headingTop_options_dropDown_childClass"
+              id="child_administrative_matter_headingTop_options_dropDown_third"
+              ref={headingTopOptionsListThird}
+            >
+              Videos
+            </div>
           </div>
         </div>
         {/* //second */}
@@ -120,24 +227,50 @@ const Child_Administrative_matter = (props) => {
         {/* //second */}
         {/* //second */}
         {/* //second */}
-        <div id="child_administrative_matter_sideBarLeft">
-          <div id="child_administrative_matter_sideBarLeft_organisationHeading">
-            Organisation
+        <div id="child_administrative_matter_sideBarLeft" ref={sideBarLeft}>
+          <div
+            id="child_administrative_matter_sideBarLeft_hamburgerIcon"
+            ref={sideBarLeftHamburgerIcon}
+          >
+            <span
+              id="child_administrative_matter_sideBarLeft_hamburgerIcon_real"
+              class="material-symbols-outlined"
+            >
+              {icon}
+            </span>
           </div>
-          <div id="child_administrative_matter_sideBarLeft_organisationName">
-            {props.queryOrganisation}
+          <div
+            id="child_administrator_matter_sideBarLeft_first"
+            ref={sideBarLeftFirst}
+          >
+            <div id="child_administrative_matter_sideBarLeft_organisationHeading">
+              Organisation
+            </div>
+            <div id="child_administrative_matter_sideBarLeft_organisationName">
+              {props.queryOrganisation}
+            </div>
           </div>
-          <div id="child_administrative_matter_sideBarLeft_departmentHeading">
-            Department
+          <div
+            id="child_administrator_matter_sideBarLeft_second"
+            ref={sideBarLeftSecond}
+          >
+            <div id="child_administrative_matter_sideBarLeft_departmentHeading">
+              Department
+            </div>
+            <div id="child_administrative_matter_sideBarLeft_departmentName">
+              {props.queryDepartment}
+            </div>
           </div>
-          <div id="child_administrative_matter_sideBarLeft_departmentName">
-            {props.queryDepartment}
-          </div>
-          <div id="child_administrative_matter_sideBarLeft_dateHeading">
-            Recieved At
-          </div>
-          <div id="child_administrative_matter_sideBarLeft_dateName">
-            {props.dateSent}
+          <div
+            id="child_administrator_matter_sideBarLeft_third"
+            ref={sideBarLeftThird}
+          >
+            <div id="child_administrative_matter_sideBarLeft_dateHeading">
+              Recieved At
+            </div>
+            <div id="child_administrative_matter_sideBarLeft_dateName">
+              {props.dateSent}
+            </div>
           </div>
         </div>
         {/* third */}
@@ -160,32 +293,7 @@ const Child_Administrative_matter = (props) => {
         {/* fourth */}
         {/* fourth */}
         {/* fourth */}
-        <div id="child_administrative_matter_sideBarRight">
-          <div
-            id="child_administrative_matter_sideBarRight_text"
-            ref={sidebarRightText}
-          >
-            TEXT
-          </div>
-          <div
-            id="child_administrative_matter_sideBarRight_links"
-            ref={sidebarRightLinks}
-          >
-            LINKS
-          </div>
-          <div
-            id="child_administrative_matter_sideBarRight_images"
-            ref={sidebarRightImages}
-          >
-            IMAGES
-          </div>
-          <div
-            id="child_administrative_matter_sideBarRight_videos"
-            ref={sidebarRightVideos}
-          >
-            VIDEOS
-          </div>
-        </div>
+        <div id="child_administrative_matter_sideBarRight"></div>
         {/* fifth */}
         {/* fifth */}
         {/* fifth */}
@@ -200,7 +308,7 @@ const Child_Administrative_matter = (props) => {
           <span
             id="child_administrator_matter_downBarClicks_icon"
             class="material-symbols-outlined"
-            ref={downArrowIcon}
+            ref={arrowDownIcon}
           >
             arrow_drop_down
           </span>
