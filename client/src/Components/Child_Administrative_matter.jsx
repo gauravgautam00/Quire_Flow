@@ -5,7 +5,7 @@ const Child_Administrative_matter = (props) => {
   const sidebarRightLinks = useRef(null);
   const sidebarRightImages = useRef(null);
   const sidebarRightVideos = useRef(null);
-
+  const downArrowIcon = useRef(null);
   const arrowDown = useRef(null);
   const downData = useRef(null);
   const downDataDelete = useRef(null);
@@ -59,7 +59,7 @@ const Child_Administrative_matter = (props) => {
       };
     }
 
-    if (arrowDown.current && downData.current) {
+    if (arrowDown.current && downData.current && downArrowIcon.current) {
       arrowDown.current.onmouseover = () => {
         arrowDown.current.style.backgroundColor = "#DBDBDB";
       };
@@ -70,9 +70,16 @@ const Child_Administrative_matter = (props) => {
         if (downData.current.style.display == "flex") {
           downData.current.style.display = "none";
           downDataDelete.current.style.display = "none";
+          arrowDown.current.style.borderBottom = "2px solid #1937be";
+          downArrowIcon.current.style.transform = "rotate(0deg)";
+
+          arrowDown.current.style.borderTop = "none";
         } else {
           downData.current.style.display = "flex";
+          downArrowIcon.current.style.transform = "rotate(-180deg)";
           downDataDelete.current.style.display = "block";
+          arrowDown.current.style.borderTop = "2px solid #1937be";
+          arrowDown.current.style.borderBottom = "none";
         }
         // downData.current.style.backgroundColor = "red";
       };
@@ -185,6 +192,7 @@ const Child_Administrative_matter = (props) => {
         <span
           id="child_administrator_matter_downBarClicks_icon"
           class="material-symbols-outlined"
+          ref={downArrowIcon}
         >
           arrow_drop_down
         </span>

@@ -221,13 +221,21 @@ const Main_page = () => {
         video3.autoplay = true;
         video3.loop = true;
         video3.muted = true;
-        freed.current.appendChild(video3);
-        freed_inner.current.style.visibility = "hidden";
-        freed.current.style.backgroundColor = "white";
+        if (freed.current) {
+          freed.current.appendChild(video3);
+          freed_inner.current.style.visibility = "hidden";
+          freed.current.style.backgroundColor = "white";
+        }
       }, 2000);
 
       setTimeout(() => {
-        if (freed.current) {
+        if (
+          freed.current &&
+          encap.current &&
+          respo_inner &&
+          respo.current &&
+          freed_line.current
+        ) {
           freed.current.style.transform = "rotate(90deg)";
           freed.current.style.borderRadius = "50%";
 
