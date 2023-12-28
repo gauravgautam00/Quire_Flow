@@ -66,7 +66,7 @@ const Administrative_matter = () => {
   }, []);
 
   window.onscroll = () => {
-    console.log(window.scrollY);
+    // console.log(window.scrollY);
     if (window.scrollY >= 1460) {
       if (filterup.current) {
         filterup.current.style.position = "fixed";
@@ -402,6 +402,8 @@ const Administrative_matter = () => {
               preferences={data.preferences}
               dateSent={data.dateSent}
               status={data.status}
+              queryImages={data.queryImages}
+              queryVideos={data.queryVideos}
             />
           );
         })}

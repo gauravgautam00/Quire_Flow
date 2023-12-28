@@ -23,8 +23,10 @@ const Child_Administrative_matter = (props) => {
   const headingTopOptionsListThird = useRef(null);
 
   const [icon, setIcon] = useState("menu");
+  const [queryData, setQueryData] = useState(props.queryDescription);
   const [typeOfData, setTypeOfData] = useState("Text");
   useEffect(() => {
+    console.log(props.queryImages);
     if (
       sidebarRightText.current &&
       sidebarRightLinks.current &&
@@ -82,7 +84,7 @@ const Child_Administrative_matter = (props) => {
       downData.current.style.marginTop = "-15rem";
       arrowDown.current.onclick = () => {
         if (downData.current.style.marginTop == "-15rem") {
-          console.log("entering ");
+          // console.log("entering ");
           arrowDownIcon.current.style.transform = "rotate(180deg)";
           downData.current.style.marginTop = "1rem";
         } else {
@@ -128,7 +130,7 @@ const Child_Administrative_matter = (props) => {
       headingTopOptionsIcon.current &&
       headingTopOptionsList.current
     ) {
-      console.log(headingTopOptions.current);
+      // console.log(headingTopOptions.current);
 
       headingTopOptionsList.current.style.height = "0rem";
 
@@ -152,12 +154,15 @@ const Child_Administrative_matter = (props) => {
     ) {
       headingTopOptionsListFirst.current.onclick = () => {
         setTypeOfData("Text");
+        setQueryData(props.queryDescription);
       };
       headingTopOptionsListSecond.current.onclick = () => {
         setTypeOfData("Images");
+        setQueryData(props.queryImages);
       };
       headingTopOptionsListThird.current.onclick = () => {
         setTypeOfData("Videos");
+        setQueryData(props.queryVideos);
       };
     }
   }, []);
@@ -281,9 +286,7 @@ const Child_Administrative_matter = (props) => {
         {/* third */}
         {/* third */}
         {/* third */}
-        <div id="child_administrative_matter_mainData">
-          {props.queryDescription}
-        </div>
+        <div id="child_administrative_matter_mainData">{queryData}</div>
         {/* fourth */}
         {/* fourth */}
         {/* fourth */}

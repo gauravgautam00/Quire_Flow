@@ -1,4 +1,4 @@
-import React, { useRef } from "react";
+import React, { useEffect, useRef } from "react";
 import { Link } from "react-router-dom";
 import cardDataJson from "./cardJsonData.json";
 import CardQueryChild from "./CardQueryChild";
@@ -16,6 +16,8 @@ const My_Queries = () => {
   const upperFlexThird = useRef(null);
   const upperFlexFourth = useRef(null);
   const upperFlexFifth = useRef(null);
+  const viewQueriesFilter = useRef(null);
+  const viewQueriesFilterTitle = useRef(null);
 
   const img = document.createElement("img");
 
@@ -25,10 +27,16 @@ const My_Queries = () => {
 
     if (curScroll >= 2575) {
       if (upperFlexFourth.current && upperFlexFifth.current) {
-        upperFlexFifth.current.style.backgroundColor = "black";
+        upperFlexFifth.current.style.backgroundColor = "#16252d";
         upperFlexFifth.current.style.color = "white";
         upperFlexFourth.current.style.backgroundColor = "white";
-        upperFlexFourth.current.style.color = "black";
+        upperFlexFourth.current.style.color = "#16252d";
+        upperFlexThird.current.style.backgroundColor = "white";
+        upperFlexThird.current.style.color = "#16252d";
+        upperFlexSecond.current.style.backgroundColor = "white";
+        upperFlexSecond.current.style.color = "#16252d";
+        upperFlexFirst.current.style.backgroundColor = "white";
+        upperFlexFirst.current.style.color = "#16252d";
         img.setAttribute(
           "src",
           "/Images/annie-spratt-QckxruozjRg-unsplash.jpg"
@@ -40,12 +48,16 @@ const My_Queries = () => {
         upperFlexThird.current &&
         upperFlexFifth.current
       ) {
-        upperFlexFourth.current.style.backgroundColor = "black";
+        upperFlexFourth.current.style.backgroundColor = "#16252d";
         upperFlexFourth.current.style.color = "white";
         upperFlexThird.current.style.backgroundColor = "white";
-        upperFlexThird.current.style.color = "black";
+        upperFlexThird.current.style.color = "#16252d";
+        upperFlexSecond.current.style.backgroundColor = "white";
+        upperFlexSecond.current.style.color = "#16252d";
+        upperFlexFirst.current.style.backgroundColor = "white";
+        upperFlexFirst.current.style.color = "#16252d";
         upperFlexFifth.current.style.backgroundColor = "white";
-        upperFlexFifth.current.style.color = "black";
+        upperFlexFifth.current.style.color = "#16252d";
         img.setAttribute(
           "src",
           "/Images/campaign-creators-gMsnXqILjp4-unsplash.jpg"
@@ -57,12 +69,16 @@ const My_Queries = () => {
         upperFlexThird.current &&
         upperFlexFourth.current
       ) {
-        upperFlexThird.current.style.backgroundColor = "black";
+        upperFlexThird.current.style.backgroundColor = "#16252d";
         upperFlexThird.current.style.color = "white";
         upperFlexSecond.current.style.backgroundColor = "white";
-        upperFlexSecond.current.style.color = "black";
+        upperFlexSecond.current.style.color = "#16252d";
         upperFlexFourth.current.style.backgroundColor = "white";
-        upperFlexFourth.current.style.color = "black";
+        upperFlexFourth.current.style.color = "#16252d";
+        upperFlexFirst.current.style.backgroundColor = "white";
+        upperFlexFirst.current.style.color = "#16252d";
+        upperFlexFifth.current.style.backgroundColor = "white";
+        upperFlexFifth.current.style.color = "#16252d";
         img.setAttribute(
           "src",
           "/Images/thestandingdesk-sGdVTZ0wt0s-unsplash.jpg"
@@ -74,12 +90,16 @@ const My_Queries = () => {
         upperFlexFirst.current &&
         upperFlexThird.current
       ) {
-        upperFlexSecond.current.style.backgroundColor = "black";
+        upperFlexSecond.current.style.backgroundColor = "#16252d";
         upperFlexSecond.current.style.color = "white";
+        upperFlexFourth.current.style.backgroundColor = "white";
+        upperFlexFourth.current.style.color = "#16252d";
         upperFlexFirst.current.style.backgroundColor = "white";
-        upperFlexFirst.current.style.color = "black";
+        upperFlexFirst.current.style.color = "#16252d";
+        upperFlexFifth.current.style.backgroundColor = "white";
+        upperFlexFifth.current.style.color = "#16252d";
         upperFlexThird.current.style.backgroundColor = "white";
-        upperFlexThird.current.style.color = "black";
+        upperFlexThird.current.style.color = "#16252d";
         img.setAttribute(
           "src",
           "/Images/tim-van-der-kuip-CPs2X8JYmS8-unsplash.jpg"
@@ -88,15 +108,20 @@ const My_Queries = () => {
     } else {
       if (upperFlexSecond.current && upperFlexFirst.current) {
         upperFlexSecond.current.style.backgroundColor = "white";
-        upperFlexSecond.current.style.color = "black";
-        upperFlexFirst.current.style.backgroundColor = "black";
+        upperFlexSecond.current.style.color = "#16252d";
+        upperFlexFirst.current.style.backgroundColor = "#16252d";
         upperFlexFirst.current.style.color = "white";
+        upperFlexFifth.current.style.backgroundColor = "white";
+        upperFlexFifth.current.style.color = "#16252d";
+        upperFlexFourth.current.style.backgroundColor = "white";
+        upperFlexFourth.current.style.color = "#16252d";
+        upperFlexThird.current.style.backgroundColor = "white";
+        upperFlexThird.current.style.color = "#16252d";
       }
       if (myQuerySecondImage.current) {
         myQuerySecondImage.current.appendChild(img);
         img.setAttribute("height", "400px");
         img.setAttribute("width", "544px");
-        img.setAttribute("loading", "lazy");
         img.setAttribute(
           "src",
           "/Images/alex-kotliarskyi-QBpZGqEMsKg-unsplash.jpg"
@@ -194,6 +219,23 @@ const My_Queries = () => {
       }
     }
   };
+
+  useEffect(() => {
+    if (viewQueriesFilter.current && viewQueriesFilterTitle.current) {
+      viewQueriesFilter.current.style.width = "7rem";
+      viewQueriesFilterTitle.current.onclick = () => {
+        console.log("ll");
+
+        if (viewQueriesFilter.current.style.width == "7rem") {
+          viewQueriesFilter.current.style.height = "7rem";
+          viewQueriesFilter.current.style.width = "78rem";
+        } else {
+          viewQueriesFilter.current.style.height = "2rem";
+          viewQueriesFilter.current.style.width = "7rem";
+        }
+      };
+    }
+  }, []);
 
   return (
     <>
@@ -385,14 +427,35 @@ const My_Queries = () => {
         <div id="my_queries_container_third_viewQueries_showDirection">
           Your Sent Queries
         </div>
-        <div id="my_queries_container_third_viewQueries_filter">
-          Filters
-          <span
-            id="my_queries_container_third_viewQueries_filter_font"
-            class="material-symbols-outlined"
+
+        <div
+          id="my_queries_container_third_viewQueries_filter"
+          ref={viewQueriesFilter}
+        >
+          <div
+            id="my_queries_container_third_viewQueries_filter_title"
+            ref={viewQueriesFilterTitle}
           >
-            filter_list
-          </span>
+            Filters
+            <span
+              id="my_queries_container_third_viewQueries_filter_font"
+              class="material-symbols-outlined"
+            >
+              filter_list
+            </span>
+          </div>
+          <div id="my_queries_container_third_viewQueries_filter_queryTitle">
+            <input placeholder="Enter title" type="text" />
+          </div>
+          <div id="my_queries_container_third_viewQueries_filter_queryPara">
+            <input placeholder="Enter para" type="text" />
+          </div>
+          <div id="my_queries_container_third_viewQueries_filter_anonyKey">
+            <input placeholder="Enter anonyKey" type="text" />
+          </div>
+          <div id="my_queries_container_third_viewQueries_filter_organisation"></div>
+          <div id="my_queries_container_third_viewQueries_filter_department"></div>
+          <div id="my_queries_container_third_viewQueries_filter_preferences"></div>
         </div>
         <div id="my_queries_container_third_viewQueries_data">
           {cardDataJson.map((data, index) => {
