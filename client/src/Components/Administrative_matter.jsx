@@ -1,4 +1,5 @@
 import React, { useState, useRef, useEffect } from "react";
+import { Link } from "react-router-dom";
 import Administrative_matter_JSON from "./administrativeMatter.json";
 import Child_Administrative_matter from "./Child_Administrative_matter";
 import SecondInfo_Child_administrator_container from "./secondInfo_Child_administrator_container";
@@ -104,7 +105,7 @@ const Administrative_matter = () => {
     ) {
       // console.log("dd")
       filterUpInProgressQuery.current.onclick = () => {
-        filterUpInProgressQuery.current.style.backgroundColor = "#1937BE";
+        filterUpInProgressQuery.current.style.backgroundColor = "#16252D";
         filterUpInProgressQuery.current.style.color = "white";
         filterUpCompleteQuery.current.style.backgroundColor = "white";
         filterUpCompleteQuery.current.style.color = "black";
@@ -114,7 +115,7 @@ const Administrative_matter = () => {
       filterUpCompleteQuery.current.onclick = () => {
         filterUpInProgressQuery.current.style.backgroundColor = "white";
         filterUpInProgressQuery.current.style.color = "black";
-        filterUpCompleteQuery.current.style.backgroundColor = "#1937BE";
+        filterUpCompleteQuery.current.style.backgroundColor = "#16252D";
         filterUpCompleteQuery.current.style.color = "white";
         filterUpAll.current.style.backgroundColor = "white";
         filterUpAll.current.style.color = "black";
@@ -124,7 +125,7 @@ const Administrative_matter = () => {
         filterUpInProgressQuery.current.style.color = "black";
         filterUpCompleteQuery.current.style.backgroundColor = "white";
         filterUpCompleteQuery.current.style.color = "black";
-        filterUpAll.current.style.backgroundColor = "#1937BE";
+        filterUpAll.current.style.backgroundColor = "#16252D";
         filterUpAll.current.style.color = "white";
       };
     }
@@ -404,6 +405,7 @@ const Administrative_matter = () => {
               status={data.status}
               queryImages={data.queryImages}
               queryVideos={data.queryVideos}
+              uniqueNum={data.uniqueNum}
             />
           );
         })}

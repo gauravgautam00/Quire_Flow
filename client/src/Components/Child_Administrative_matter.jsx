@@ -1,5 +1,5 @@
 import React, { useEffect, useRef, useState } from "react";
-
+import { Link, NavLink } from "react-router-dom";
 const Child_Administrative_matter = (props) => {
   const sidebarRightText = useRef(null);
   const sidebarRightLinks = useRef(null);
@@ -180,6 +180,24 @@ const Child_Administrative_matter = (props) => {
         {/* first */}
         {/* first */}
         <div id="child_administrative_matter_headingTop">
+          <div id="child_administrator_matter_headingTop_expand">
+            <NavLink
+              to={`/administrative_matter/${props.uniqueNum}`}
+              style={{
+                textDecoration: "none",
+                color: "white",
+              }}
+            >
+              Expand
+            </NavLink>
+            <span
+              id="child_administrator_matter_headingTop_expandIcon"
+              class="material-symbols-outlined"
+            >
+              pan_zoom
+            </span>
+          </div>
+
           <div id="child_administrative_matter_headingTop_real">
             {props.queryTitle}
           </div>

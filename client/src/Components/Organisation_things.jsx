@@ -66,7 +66,7 @@ const Organisation_things = () => {
             {value}
             <div id="OrgThings_container_filter_selectDepartment_dropDown_expandMore">
               <span
-                style={{ fontSize: "x-large" }}
+                id="OrgThings_container_filter_selectDepartment_dropDown_icons"
                 className="material-symbols-outlined"
               >
                 expand_{icon}

@@ -9,7 +9,13 @@ const Main_page = () => {
   const freed_inner = useRef(null);
   const encap_line = useRef(null);
   const respo_line = useRef(null);
-
+  const titleFirst = useRef(null);
+  const titleSecond = useRef(null);
+  const titleThird = useRef(null);
+  // background-color: #16252D;
+  // color: white;
+  // padding: 6px;
+  // border-radius: 10px;
   const freed_line = useRef(null);
 
   //video for first ellipse
@@ -19,7 +25,7 @@ const Main_page = () => {
   const source1 = document.createElement("source");
   video1.appendChild(source1);
 
-  source1.src = "Videos/173522 (1080p).mp4";
+  source1.src = "Videos/pexels-rodnae-productions-7821852 (Original).mp4";
 
   source1.type = "video/mp4";
 
@@ -43,10 +49,32 @@ const Main_page = () => {
 
   const coolEncapsulation = () => {
     return new Promise((resolve, reject) => {
-      if (encap.current && respo.current && freed.current) {
+      if (
+        encap.current &&
+        respo.current &&
+        freed.current &&
+        titleFirst.current &&
+        titleSecond.current &&
+        titleThird.current
+      ) {
+        titleFirst.current.style.backgroundColor = "#16252D";
+        titleFirst.current.style.color = "white";
+        titleFirst.current.style.padding = "6px";
+        titleFirst.current.style.borderRadius = "10px";
+
+        titleSecond.current.style.backgroundColor = "white";
+        titleSecond.current.style.color = "#16252D";
+        titleSecond.current.style.padding = "6px";
+        titleSecond.current.style.borderRadius = "10px";
+
+        titleThird.current.style.backgroundColor = "white";
+        titleThird.current.style.color = "#16252D";
+        titleThird.current.style.padding = "6px";
+        titleThird.current.style.borderRadius = "10px";
+
         encap.current.style.transform =
           "translate(11.1rem, 9rem) scale(2.87,5.6)";
-        encap.current.style.borderRadius = "0px";
+        encap.current.style.borderRadius = "10px";
 
         encap.current.style.transition = "transform 2s , border-radius 2s";
 
@@ -69,7 +97,8 @@ const Main_page = () => {
         setTimeout(() => {
           video1.width = "140";
           video1.height = "80";
-          video1.style.marginTop = "-1.9rem";
+          video1.style.borderRadius = "10px";
+          video1.style.marginTop = "-1.7rem";
           video1.style.marginLeft = "-0.3rem";
 
           video1.autoplay = true;
@@ -120,10 +149,32 @@ const Main_page = () => {
 
   const coolResponsibility = () => {
     return new Promise((resolve, reject) => {
-      if (encap.current && respo.current && freed.current) {
+      if (
+        encap.current &&
+        respo.current &&
+        freed.current &&
+        titleFirst.current &&
+        titleSecond.current &&
+        titleThird.current
+      ) {
+        titleSecond.current.style.backgroundColor = "#16252D";
+        titleSecond.current.style.color = "white";
+        titleSecond.current.style.padding = "6px";
+        titleSecond.current.style.borderRadius = "10px";
+
+        titleFirst.current.style.backgroundColor = "white";
+        titleFirst.current.style.color = "#16252D";
+        titleFirst.current.style.padding = "6px";
+        titleFirst.current.style.borderRadius = "10px";
+
+        titleThird.current.style.backgroundColor = "white";
+        titleThird.current.style.color = "#16252D";
+        titleThird.current.style.padding = "6px";
+        titleThird.current.style.borderRadius = "10px";
+
         respo.current.style.transform =
           "translate(-10.1rem, 9rem) scale(2.87,5.6) ";
-        respo.current.style.borderRadius = "0px";
+        respo.current.style.borderRadius = "10px";
 
         respo.current.style.transition = "transform 2s  , border-radius 2s";
         respo.current.style.zIndex = "2";
@@ -144,7 +195,7 @@ const Main_page = () => {
           video2.height = "80";
           video2.style.marginTop = "-1.9rem";
           video2.style.marginLeft = "-0.3rem";
-
+          video2.style.borderRadius = "10px";
           video2.autoplay = true;
           video2.loop = true;
           video2.muted = true;
@@ -192,74 +243,104 @@ const Main_page = () => {
   };
 
   const coolFreedom = () => {
-    if (encap.current && respo.current && freed.current) {
-      freed.current.style.transform =
-        "translate(1rem, -8.6rem) scale(2.87,5.6) ";
-      freed.current.style.borderRadius = "0px";
+    return new Promise((resolve, reject) => {
+      if (
+        encap.current &&
+        respo.current &&
+        freed.current &&
+        titleFirst.current &&
+        titleSecond.current &&
+        titleThird.current
+      ) {
+        titleThird.current.style.backgroundColor = "#16252D";
+        titleThird.current.style.color = "white";
+        titleThird.current.style.padding = "6px";
+        titleThird.current.style.borderRadius = "10px";
 
-      freed.current.style.transition = "transform 2s  , border-radius 2s";
-      freed.current.style.zIndex = "2";
-      freed.current.style.position = "relative";
-      freed.current.style.border = "0px";
+        titleSecond.current.style.backgroundColor = "white";
+        titleSecond.current.style.color = "#16252D";
+        titleSecond.current.style.padding = "6px";
+        titleSecond.current.style.borderRadius = "10px";
 
-      encap.current.style.visibility = "hidden";
-      respo.current.style.visibility = "hidden";
+        titleFirst.current.style.backgroundColor = "white";
+        titleFirst.current.style.color = "#16252D";
+        titleFirst.current.style.padding = "6px";
+        titleFirst.current.style.borderRadius = "10px";
 
-      respo_inner.current.style.visibility = "hidden";
-      encap_inner.current.style.visibility = "hidden";
+        freed.current.style.transform =
+          "translate(1rem, -8.6rem) scale(2.87,5.6) ";
+        freed.current.style.borderRadius = "10px";
 
-      encap_line.current.style.visibility = "hidden";
-      respo_line.current.style.visibility = "hidden";
-      freed_line.current.style.visibility = "hidden";
+        freed.current.style.transition = "transform 2s  , border-radius 2s";
+        freed.current.style.zIndex = "2";
+        freed.current.style.position = "relative";
+        freed.current.style.border = "0px";
 
-      setTimeout(() => {
-        video3.width = "140";
-        video3.height = "80";
-        video3.style.marginTop = "-1.9rem";
-        video3.style.marginLeft = "-0.3rem";
+        encap.current.style.visibility = "hidden";
+        respo.current.style.visibility = "hidden";
 
-        video3.autoplay = true;
-        video3.loop = true;
-        video3.muted = true;
-        if (freed.current) {
-          freed.current.appendChild(video3);
-          freed_inner.current.style.visibility = "hidden";
-          freed.current.style.backgroundColor = "white";
-        }
-      }, 2000);
+        respo_inner.current.style.visibility = "hidden";
+        encap_inner.current.style.visibility = "hidden";
 
-      setTimeout(() => {
-        if (
-          freed.current &&
-          encap.current &&
-          respo_inner &&
-          respo.current &&
-          freed_line.current
-        ) {
-          freed.current.style.transform = "rotate(90deg)";
-          freed.current.style.borderRadius = "50%";
+        encap_line.current.style.visibility = "hidden";
+        respo_line.current.style.visibility = "hidden";
+        freed_line.current.style.visibility = "hidden";
 
-          freed.current.style.transition = "transform 2s  , border-radius 2s ";
-          freed.current.style.zIndex = "2";
-          freed.current.style.position = "relative";
-          freed.current.style.backgroundColor = "#FFDB58";
+        setTimeout(() => {
+          video3.width = "140";
+          video3.height = "80";
+          video3.style.marginTop = "-1.7rem";
+          video3.style.marginLeft = "-0.3rem";
+          video3.style.borderRadius = "10px";
 
-          freed.current.style.border = "3px solid black";
+          video3.autoplay = true;
+          video3.loop = true;
+          video3.muted = true;
+          if (freed.current) {
+            freed.current.appendChild(video3);
+            freed_inner.current.style.visibility = "hidden";
+            freed.current.style.backgroundColor = "white";
+          }
+        }, 2000);
 
-          freed_inner.current.style.visibility = "visible";
-          encap.current.style.visibility = "visible";
-          respo.current.style.visibility = "visible";
+        setTimeout(() => {
+          if (
+            freed.current &&
+            encap.current &&
+            respo_inner &&
+            respo.current &&
+            freed_line.current
+          ) {
+            freed.current.style.transform = "rotate(90deg)";
+            freed.current.style.borderRadius = "50%";
 
-          respo_inner.current.style.visibility = "visible";
-          encap_inner.current.style.visibility = "visible";
-          encap_line.current.style.visibility = "visible";
-          respo_line.current.style.visibility = "visible";
-          freed_line.current.style.visibility = "visible";
+            freed.current.style.transition =
+              "transform 2s  , border-radius 2s ";
+            freed.current.style.zIndex = "2";
+            freed.current.style.position = "relative";
+            freed.current.style.backgroundColor = "#FFDB58";
 
-          if (freed.current.contains(video3)) freed.current.removeChild(video3);
-        }
-      }, 10000);
-    }
+            freed.current.style.border = "3px solid black";
+
+            freed_inner.current.style.visibility = "visible";
+            encap.current.style.visibility = "visible";
+            respo.current.style.visibility = "visible";
+
+            respo_inner.current.style.visibility = "visible";
+            encap_inner.current.style.visibility = "visible";
+            encap_line.current.style.visibility = "visible";
+            respo_line.current.style.visibility = "visible";
+            freed_line.current.style.visibility = "visible";
+
+            if (freed.current.contains(video3))
+              freed.current.removeChild(video3);
+            resolve();
+          }
+        }, 10000);
+      } else {
+        reject();
+      }
+    });
   };
 
   const runIt = async () => {
@@ -267,7 +348,28 @@ const Main_page = () => {
       setTimeout(() => {
         coolResponsibility().then(() => {
           setTimeout(() => {
-            coolFreedom();
+            coolFreedom().then(() => {
+              if (
+                titleFirst.current &&
+                titleSecond.current &&
+                titleThird.current
+              ) {
+                titleThird.current.style.backgroundColor = "white";
+                titleThird.current.style.color = "#16252D";
+                titleThird.current.style.padding = "6px";
+                titleThird.current.style.borderRadius = "10px";
+
+                titleSecond.current.style.backgroundColor = "white";
+                titleSecond.current.style.color = "#16252D";
+                titleSecond.current.style.padding = "6px";
+                titleSecond.current.style.borderRadius = "10px";
+
+                titleFirst.current.style.backgroundColor = "white";
+                titleFirst.current.style.color = "#16252D";
+                titleFirst.current.style.padding = "6px";
+                titleFirst.current.style.borderRadius = "10px";
+              }
+            });
           }, 2000);
         });
       }, 2000);
@@ -287,9 +389,25 @@ const Main_page = () => {
     <div className="for_footer_color" id="main_page_container">
       <div id="main_page_container_leftPart">
         <div id="main_page_container_leftPart_title">
-          Where Anonymity Meets <br />
-          Elevation,
-          <br /> Accountability Leads the Way
+          Where{" "}
+          <span id="main_page_container_leftPart_title_first" ref={titleFirst}>
+            Anonymity{" "}
+          </span>
+          Meets <br />
+          <span
+            id="main_page_container_leftPart_title_second"
+            ref={titleSecond}
+          >
+            {" "}
+            Elevation
+          </span>
+          ,
+          <br />{" "}
+          <span id="main_page_container_leftPart_title_third" ref={titleThird}>
+            Accountability
+            <br />
+          </span>
+          Leads the Way
         </div>
       </div>
       <div id="main_page_container_rightPart">

@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 
-import newQuery from "./newQuery";
+import newQuery from "./New_Query";
 
 const Add_Query_page = () => {
   return (
@@ -18,7 +18,7 @@ const Add_Query_page = () => {
         management. Explore the possibilities, enhance communication, and unlock
         the potential for growth with QuireFlow.
       </div>
-      <Link to="/add_query">
+      <Link to="/new_query" style={{ textDecoration: "none" }}>
         <div id="askQuery_container_leftPart">
           <div id="askQuery_container_leftPart_realtitle">ADD YOUR QUERY</div>
         </div>{" "}

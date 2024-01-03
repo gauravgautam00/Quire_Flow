@@ -8,7 +8,8 @@
     "dateSent": "2023-11-03",
     "status": "inProgress",
     "queryImages": "no image availaible",
-    "queryVideos": "no videos availaible"
+    "queryVideos": "no videos availaible",
+    "uniqueNum": "AB12CD"
   },
   {
     "queryTitle": "Technical Issue",
@@ -19,7 +20,8 @@
     "dateSent": "2023-10-25",
     "status": "inProgress",
     "queryImages": "no image availaible",
-    "queryVideos": "no videos availaible"
+    "queryVideos": "no videos availaible",
+    "uniqueNum": "EF45GH"
   },
   {
     "queryTitle": "Billing Inquiry",
@@ -30,7 +32,8 @@
     "dateSent": "2023-10-26",
     "status": "completed",
     "queryImages": "no image availaible",
-    "queryVideos": "no videos availaible"
+    "queryVideos": "no videos availaible",
+    "uniqueNum": "IJ67KL"
   },
   {
     "queryTitle": "Product Feedback",
@@ -41,7 +44,8 @@
     "dateSent": "2023-10-27",
     "status": "completed",
     "queryImages": "no image availaible",
-    "queryVideos": "no videos availaible"
+    "queryVideos": "no videos availaible",
+    "uniqueNum": "MN90OP"
   },
   {
     "queryTitle": "HR Policy Question",
@@ -52,7 +56,8 @@
     "dateSent": "2023-10-28",
     "status": "inProgress",
     "queryImages": "no image availaible",
-    "queryVideos": "no videos availaible"
+    "queryVideos": "no videos availaible",
+    "uniqueNum": "QR11ST"
   },
   {
     "queryTitle": "Facility Maintenance Request",
@@ -63,7 +68,8 @@
     "dateSent": "2023-10-29",
     "status": "inProgress",
     "queryImages": "no image availaible",
-    "queryVideos": "no videos availaible"
+    "queryVideos": "no videos availaible",
+    "uniqueNum": "UV21WX"
   },
   {
     "queryTitle": "Feature Request",
@@ -74,7 +80,8 @@
     "dateSent": "2023-10-30",
     "status": "inProgress",
     "queryImages": "no image availaible",
-    "queryVideos": "no videos availaible"
+    "queryVideos": "no videos availaible",
+    "uniqueNum": "ww33ee"
   },
   {
     "queryTitle": "Compliance Issue",
@@ -85,7 +92,8 @@
     "dateSent": "2023-10-31",
     "status": "discarded",
     "queryImages": "no image availaible",
-    "queryVideos": "no videos availaible"
+    "queryVideos": "no videos availaible",
+    "uniqueNum": "mm09mk"
   },
   {
     "queryTitle": "Training Request",
@@ -96,7 +104,8 @@
     "dateSent": "2023-11-01",
     "status": "completed",
     "queryImages": "no image availaible",
-    "queryVideos": "no videos availaible"
+    "queryVideos": "no videos availaible",
+    "uniqueNum": "op09op"
   },
   {
     "queryTitle": "Feedback on Event",
@@ -107,7 +116,8 @@
     "dateSent": "2023-11-02",
     "status": "inProgress",
     "queryImages": "no image availaible",
-    "queryVideos": "no videos availaible"
+    "queryVideos": "no videos availaible",
+    "uniqueNum": "kf88fk"
   },
   {
     "queryTitle": "Suggestion for Improvement",
@@ -118,6 +128,7 @@
     "dateSent": "2023-11-03",
     "status": "inProgress",
     "queryImages": "no image availaible",
-    "queryVideos": "no videos availaible"
+    "queryVideos": "no videos availaible",
+    "uniqueNum": "mknb9"
   }
 ]

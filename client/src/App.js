@@ -6,7 +6,10 @@ import Landing_Page from "./Components/Landing_Page";
 import My_Queries from "./Components/My_Queries";
 import Single_Query from "./Components/Single_Query";
 import "./App.css";
-import newQuery from "./Components/newQuery";
+import Deeper_Dive from "./Components/Deeper_Dive";
+import New_Query from "./Components/New_Query";
+import Administrative_matter_singleQuery from "./Components/Administrative_matter_singleQuery";
+import Public_Queries_singleQuery from "./Components/Public_Queries_singleQuery";
 
 function App() {
   return (
@@ -21,7 +24,19 @@ function App() {
         ></Route>
         <Route path="/my_queries" element={<My_Queries />}></Route>
         <Route path="/my_queries/:id" element={<Single_Query />}></Route>
-        <Route path="/new_query" element={<newQuery />}></Route>
+        <Route path="/new_query" element={<New_Query />}></Route>
+        <Route
+          path="/administrative_matter/deeper_dive"
+          element={<Deeper_Dive />}
+        ></Route>
+        <Route
+          path="/administrative_matter/:id"
+          element={<Administrative_matter_singleQuery />}
+        ></Route>
+        <Route
+          path="/public_queries/:id"
+          element={<Public_Queries_singleQuery />}
+        ></Route>
       </Routes>
     </BrowserRouter>
   );

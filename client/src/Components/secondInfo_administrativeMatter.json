@@ -1,26 +1,26 @@
 [
-    {
-        "url":"Images/secondInfo_FirstImage.png",
-        "title1":"Event",
-        "title2":"Ready for the future of AI in Quire-Flow",
-        "footer":"Watch on Demand"
-    },
-    {
-        "url":"Images/secondInfo_SecondImage.png",
-        "title1":"On Demand",
-        "title2":"Big Things are launching Relive the highlights of World tour NEW YORK",
-        "footer":"Watch Now"
-    },
-    {
-        "url":"Images/secondInfo_ThirdImage.png",
-        "title1":"Customer Story",
-        "title2":"See Customer Satisfaction for this management of queries",
-        "footer":"Read More"
-    },
-    {
-        "url":"Images/secondInfo_Fourthmage.png",
-        "title1":"Webinar",
-        "title2":"Top Quire-Flow tips to boost productivity",
-        "footer":"Watch Row"
-    }
+  {
+    "url": "Images/ux-indonesia-qC2n6RQU4Vw-unsplash.jpg",
+    "title1": "Research",
+    "title2": "Ready for the future of AI in Quire-Flow",
+    "footer": "Read research"
+  },
+  {
+    "url": "Images/andrew-moca-yAGNjU4rtss-unsplash.jpg",
+    "title1": "Open participation",
+    "title2": "Your ideas can shape the next generation of our website",
+    "footer": "Participate"
+  },
+  {
+    "url": "Images/absolutvision-82TpEld0_e4-unsplash.jpg",
+    "title1": "Customer Story",
+    "title2": "See Customer Satisfaction for this management of queries",
+    "footer": "Read Stories"
+  },
+  {
+    "url": "Images/chris-montgomery-smgTvepind4-unsplash.jpg",
+    "title1": "Online Webinar",
+    "title2": "Top Quire-Flow tips to boost productivity",
+    "footer": "Take a look"
+  }
 ]

@@ -25,22 +25,15 @@ const Footer = () => {
         </div>
         {/* Third */}
         <div id="footer_container_beforeLine_third">
-          <div id="footer_container_beforeLine_third_title1">
-            Random Again Text1
+          <div id="footer_container_beforeLine_third_feedbackTitle">
+            Feedback Area
           </div>
-          <div id="footer_container_beforeLine_third_para1">
-            8:20am & 9:00am
+          <div id="footer_container_beforeLine_third_feedbackPara">
+            Your feedback is the secret ingredient to our success!
           </div>
-
-          <div id="footer_container_beforeLine_third_title2">
-            Random Ne Text2
+          <div id="footer_container_beforeLine_third_feedbackSubmit">
+            Share Your feedback
           </div>
-          <div id="footer_container_beforeLine_third_para2">8:20am</div>
-
-          <div id="footer_container_beforeLine_third_title3">
-            Random Loremipsum Next
-          </div>
-          <div id="footer_container_beforeLine_third_para3">8:20am</div>
         </div>
         {/* Fourth */}
         <div id="footer_container_beforeLine_fourth">
