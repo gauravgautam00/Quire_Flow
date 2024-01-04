@@ -33,9 +33,10 @@ const My_Queries = () => {
 
   const [orgOpen, setOrgOpen] = useState(false);
   const [depOpen, setDepOpen] = useState(false);
-
   const [prefOpen, setPrefOpen] = useState(false);
-
+  const [orgValue, setOrgValue] = useState("Select Organisation");
+  const [depValue, setDepValue] = useState("Select Department");
+  const [prefValue, setPrefValue] = useState("Select Preferences");
   const img = document.createElement("img");
 
   window.onscroll = () => {
@@ -322,6 +323,16 @@ const My_Queries = () => {
     }
   }, []);
 
+  const setOrganisationValue = (val) => {
+    setOrgValue(val);
+  };
+  const setDepartmentValue = (val) => {
+    setDepValue(val);
+  };
+  const setPreferencesValue = (val) => {
+    setPrefValue(val);
+  };
+
   return (
     <>
       <div id="my_queries_container">
@@ -554,7 +565,7 @@ const My_Queries = () => {
             id="my_queries_container_third_viewQueries_filter_organisation"
             ref={filterOrganisation}
           >
-            Select Organisation
+            {orgValue}
             <span
               class="material-symbols-outlined my_queries_container_third_viewQueries_filter_iconClass"
               ref={filterOrganisationIcon}
@@ -567,7 +578,7 @@ const My_Queries = () => {
             id="my_queries_container_third_viewQueries_filter_department"
             ref={filterDepartment}
           >
-            Select Department
+            {depValue}{" "}
             <span
               class="material-symbols-outlined my_queries_container_third_viewQueries_filter_iconClass"
               ref={filterDepartmentIcon}
@@ -579,7 +590,7 @@ const My_Queries = () => {
             id="my_queries_container_third_viewQueries_filter_preferences"
             ref={filterPreferences}
           >
-            Select Preferences
+            {prefValue}
             <span
               class="material-symbols-outlined my_queries_container_third_viewQueries_filter_iconClass"
               ref={filterPreferencesIcon}
@@ -597,60 +608,70 @@ const My_Queries = () => {
             ref={filterOrganisationExpand}
           >
             <div
+              onClick={() => setOrganisationValue("Microsoft")}
               className="my_queries_container_third_viewQueries_filter_organisation_expandChild"
               id="my_queries_container_third_viewQueries_filter_organisation_expandChild_first"
             >
               Microsoft
             </div>
             <div
+              onClick={() => setOrganisationValue("Amazon")}
               className="my_queries_container_third_viewQueries_filter_organisation_expandChild"
               id="my_queries_container_third_viewQueries_filter_organisation_expandChild_second"
             >
               Amazon
             </div>
             <div
+              onClick={() => setOrganisationValue("Google")}
               className="my_queries_container_third_viewQueries_filter_organisation_expandChild"
               id="my_queries_container_third_viewQueries_filter_organisation_expandChild_third"
             >
               Google
             </div>
             <div
+              onClick={() => setOrganisationValue("Apple")}
               className="my_queries_container_third_viewQueries_filter_organisation_expandChild"
               id="my_queries_container_third_viewQueries_filter_organisation_expandChild_fourth"
             >
               Apple
             </div>
             <div
+              onClick={() => setOrganisationValue("Swiggy")}
               className="my_queries_container_third_viewQueries_filter_organisation_expandChild"
               id="my_queries_container_third_viewQueries_filter_organisation_expandChild_fifth"
             >
               Swiggy
             </div>
             <div
+              onClick={() => setOrganisationValue("Zomato")}
               className="my_queries_container_third_viewQueries_filter_organisation_expandChild"
               id="my_queries_container_third_viewQueries_filter_organisation_expandChild_sixth"
             >
               Zomato
             </div>
             <div
+              onClick={() => setOrganisationValue("Snapchat")}
               className="my_queries_container_third_viewQueries_filter_organisation_expandChild"
               id="my_queries_container_third_viewQueries_filter_organisation_expandChild_seventh"
             >
               Snapchat
             </div>
             <div
+              onClick={() => setOrganisationValue("Atlassian")}
               className="my_queries_container_third_viewQueries_filter_organisation_expandChild"
               id="my_queries_container_third_viewQueries_filter_organisation_expandChild_eight"
             >
               Atlassian
             </div>
             <div
+              onClick={() => setOrganisationValue("Goldman SAchs")}
               className="my_queries_container_third_viewQueries_filter_organisation_expandChild"
               id="my_queries_container_third_viewQueries_filter_organisation_expandChild_ninth"
             >
               Goldman Sachs
             </div>
             <div
+              onClick={() => setOrganisationValue("Tower Research")}
               className="my_queries_container_third_viewQueries_filter_organisation_expandChild"
               id="my_queries_container_third_viewQueries_filter_organisation_expandChild_tenth"
             >
@@ -658,6 +679,7 @@ const My_Queries = () => {
             </div>
 
             <div
+              onClick={() => setOrganisationValue("Select Organisation")}
               className="my_queries_container_third_viewQueries_filter_organisation_expandChild"
               id="my_queries_container_third_viewQueries_filter_organisation_expandChild_eleventh5"
             >
@@ -674,66 +696,77 @@ const My_Queries = () => {
             ref={filterDepartmentExpand}
           >
             <div
+              onClick={() => setDepartmentValue("product Development")}
               className="my_queries_container_third_viewQueries_filter_department_expandChild"
               id="my_queries_container_third_viewQueries_filter_department_expandChild_first"
             >
               Product Development
             </div>
             <div
+              onClick={() => setDepartmentValue("Technical Support")}
               className="my_queries_container_third_viewQueries_filter_department_expandChild"
               id="my_queries_container_third_viewQueries_filter_department_expandChild_second"
             >
               Technical Support
             </div>
             <div
+              onClick={() => setDepartmentValue("Human Resources")}
               className="my_queries_container_third_viewQueries_filter_department_expandChild"
               id="my_queries_container_third_viewQueries_filter_department_expandChild_third"
             >
               Human Resources
             </div>
             <div
+              onClick={() => setDepartmentValue("Quality Assurance")}
               className="my_queries_container_third_viewQueries_filter_department_expandChild"
               id="my_queries_container_third_viewQueries_filter_department_expandChild_fourth"
             >
               Quality Assurance
             </div>
             <div
+              onClick={() => setDepartmentValue("Research")}
               className="my_queries_container_third_viewQueries_filter_department_expandChild"
               id="my_queries_container_third_viewQueries_filter_department_expandChild_fifth"
             >
               Research
             </div>
             <div
+              onClick={() => setDepartmentValue("Training")}
               className="my_queries_container_third_viewQueries_filter_department_expandChild"
               id="my_queries_container_third_viewQueries_filter_department_expandChild_sixth"
             >
               Training
             </div>
             <div
+              onClick={() => setDepartmentValue("Events")}
               className="my_queries_container_third_viewQueries_filter_department_expandChild"
               id="my_queries_container_third_viewQueries_filter_department_expandChild_seventh"
             >
               Events
             </div>
             <div
+              onClick={() => setDepartmentValue("PRoduct Development")}
               className="my_queries_container_third_viewQueries_filter_department_expandChild"
               id="my_queries_container_third_viewQueries_filter_department_expandChild_eight"
             >
               Product Development
             </div>
             <div
+              onClick={() => setDepartmentValue("Finance")}
               className="my_queries_container_third_viewQueries_filter_department_expandChild"
               id="my_queries_container_third_viewQueries_filter_department_expandChild_ninth"
             >
               Finance
             </div>
             <div
+              onClick={() => setDepartmentValue("Customer Support")}
               className="my_queries_container_third_viewQueries_filter_department_expandChild"
               id="my_queries_container_third_viewQueries_filter_department_expandChild_tenth"
             >
               Customer Support
             </div>
             <div
+              onClick={() => setDepartmentValue("Select Department")}
               className="my_queries_container_third_viewQueries_filter_department_expandChild"
               id="my_queries_container_third_viewQueries_filter_department_expandChild_eleventh"
             >
@@ -750,18 +783,21 @@ const My_Queries = () => {
             ref={filterPreferencesExpand}
           >
             <div
+              onClick={() => setPreferencesValue("Urgent")}
               className="my_queries_container_third_viewQueries_filter_preferences_expandChild"
               id="my_queries_container_third_viewQueries_filter_preferences_expandChild_first"
             >
               Urgent
             </div>
             <div
+              onClick={() => setPreferencesValue("Research Required")}
               className="my_queries_container_third_viewQueries_filter_preferences_expandChild"
               id="my_queries_container_third_viewQueries_filter_preferences_expandChild_second"
             >
               Research Required
             </div>
             <div
+              onClick={() => setPreferencesValue("Select Preferences")}
               className="my_queries_container_third_viewQueries_filter_preferences_expandChild"
               id="my_queries_container_third_viewQueries_filter_preferences_expandChild_third"
             >

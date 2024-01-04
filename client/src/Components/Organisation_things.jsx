@@ -1,4 +1,4 @@
-import React, { useRef, useState } from "react";
+import React, { useRef, useState, useEffect } from "react";
 import jsonData from "./My_Organisation.json";
 import Child_Organisation_things from "./Child_Organisation_things";
 
@@ -7,69 +7,82 @@ const submitForm = () => {};
 const Organisation_things = () => {
   const toggleBox = useRef(null);
 
-  const [value, setValue] = useState("All");
-  const [icon, setIcon] = useState("more");
-
+  const [value, setValue] = useState("Select Department");
+  const expandMore = useRef(null);
   const scrollContainer = useRef(null);
   const chevron_left = useRef(null);
   const chevron_right = useRef(null);
+  const selectDepartmentIcon = useRef(null);
 
-  const selectDepartmentClicked = () => {
-    if (toggleBox.current) {
-      if (toggleBox.current.style.display == "none") {
-        toggleBox.current.style.display = "block";
-        setIcon("less");
-      } else {
-        toggleBox.current.style.display = "none";
-        setIcon("more");
-      }
-    }
-  };
-  const selectingIt = (e) => {
-    setValue(e.target.innerHTML);
-    if (toggleBox.current) {
-      toggleBox.current.style.display = "none";
-      setIcon("more");
-    }
-  };
+  useEffect(() => {
+    if (
+      toggleBox.current &&
+      selectDepartmentIcon.current &&
+      expandMore.current
+    ) {
+      toggleBox.current.style.height = "0rem";
+      toggleBox.current.style.border = "none";
+      expandMore.current.onclick = () => {
+        console.log("hello");
 
-  const leftClicked = (e) => {
-    if (scrollContainer.current) {
-      scrollContainer.current.scrollBy({
-        left: 1059.3333740234375,
-        behavior: "smooth",
-      });
+        if (toggleBox.current.style.height == "0rem") {
+          toggleBox.current.style.height = "17rem";
+          selectDepartmentIcon.current.style.transform = "rotate(180deg)";
+          toggleBox.current.style.border = "1px solid #16252D";
+          toggleBox.current.style.borderTop = "none";
+        } else {
+          toggleBox.current.style.height = "0rem";
+          selectDepartmentIcon.current.style.transform = "rotate(0deg)";
+          // toggleBox.current.style.border = "none";
+        }
+      };
     }
-  };
 
-  const rightClicked = (e) => {
-    if (scrollContainer.current) {
-      scrollContainer.current.scrollBy({
-        left: -1059.3333740234375,
-        behavior: "smooth",
-      });
+    if (scrollContainer.current && chevron_right.current) {
+      chevron_right.current.onclick = () => {
+        scrollContainer.current.scrollBy({
+          left: 1059.3333740234375,
+          behavior: "smooth",
+        });
+      };
     }
-  };
 
+    if (scrollContainer.current && chevron_left.current) {
+      chevron_left.current.onclick = () => {
+        scrollContainer.current.scrollBy({
+          left: -1059.3333740234375,
+          behavior: "smooth",
+        });
+      };
+    }
+  }, []);
+
+  const setTheValue = (val) => {
+    setValue(val);
+  };
   return (
     <div className="for_footer_color" id="OrgThings_container">
       <div id="OrgThings_container_title">My Organisation - Google</div>
       <div id="Org_things_container_leftPart">
         <div id="OrgThings_container_filter">
-          <div id="OrgThings_container_filter_selectDepartment_title">
+          {/* <div
+            id="OrgThings_container_filter_selectDepartment_title"
+        
+          >
             Select Department
-          </div>
+          </div> */}
           <div
-            onClick={selectDepartmentClicked}
             id="OrgThings_container_filter_selectDepartment_dropDown"
+            ref={expandMore}
           >
             {value}
             <div id="OrgThings_container_filter_selectDepartment_dropDown_expandMore">
               <span
                 id="OrgThings_container_filter_selectDepartment_dropDown_icons"
                 className="material-symbols-outlined"
+                ref={selectDepartmentIcon}
               >
-                expand_{icon}
+                expand_more
               </span>
             </div>
           </div>
@@ -78,42 +91,42 @@ const Organisation_things = () => {
             ref={toggleBox}
           >
             <div
-              onClick={selectingIt}
+              onClick={() => setTheValue("Select Department")}
               className="OrgThings_container_filter_selectDepartment_box_class"
               id="OrgThings_container_filter_selectDepartment_box_1"
             >
-              All
+              Select Department
             </div>
             <div
-              onClick={selectingIt}
+              onClick={() => setTheValue("Finance")}
               className="OrgThings_container_filter_selectDepartment_box_class"
               id="OrgThings_container_filter_selectDepartment_box_1"
             >
               Finance
             </div>
             <div
-              onClick={selectingIt}
+              onClick={() => setTheValue("IT")}
               className="OrgThings_container_filter_selectDepartment_box_class"
               id="OrgThings_container_filter_selectDepartment_box_2"
             >
               IT
             </div>
             <div
-              onClick={selectingIt}
+              onClick={() => setTheValue("DevOps")}
               className="OrgThings_container_filter_selectDepartment_box_class"
               id="OrgThings_container_filter_selectDepartment_box_3"
             >
               DevOps
             </div>
             <div
-              onClick={selectingIt}
+              onClick={() => setTheValue("Product Management")}
               className="OrgThings_container_filter_selectDepartment_box_class"
               id="OrgThings_container_filter_selectDepartment_box_4"
             >
               Product Management
             </div>
             <div
-              onClick={selectingIt}
+              onClick={() => setTheValue("Marketing")}
               className="OrgThings_container_filter_selectDepartment_box_class"
               id="OrgThings_container_filter_selectDepartment_box_5"
             >
@@ -140,11 +153,7 @@ const Organisation_things = () => {
         </div>
       </div>
       <div id="OrgThings_container_rightPart">
-        <div
-          onClick={rightClicked}
-          id="OrgThings_container_leftArrow"
-          ref={chevron_right}
-        >
+        <div id="OrgThings_container_leftArrow" ref={chevron_left}>
           <span
             id="OrgThings_container_leftArrow_symbol"
             className="material-symbols-outlined"
@@ -165,11 +174,7 @@ const Organisation_things = () => {
             );
           })}
         </div>
-        <div
-          onClick={leftClicked}
-          id="OrgThings_container_rightArrow"
-          ref={chevron_left}
-        >
+        <div id="OrgThings_container_rightArrow" ref={chevron_right}>
           <span
             id="OrgThings_container_rightArrow_symbol"
             className="material-symbols-outlined"

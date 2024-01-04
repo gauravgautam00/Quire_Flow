@@ -436,41 +436,45 @@ code {
   border-radius: 4px;
   cursor: pointer;
 }
-#OrgThings_container_filter_selectDepartment_dropDown_icon {
+#OrgThings_container_filter_selectDepartment_dropDown_icons {
   font-size: x-large;
   position: relative;
+  transition: transform 1s;
   top: 2px;
 }
 #OrgThings_container_filter_selectDepartment_dropDown_expandMore {
   position: relative;
   top: -1.4rem;
   left: 13.5rem;
-
+  width: 1rem;
   font-size: unset;
-  /* border:2px solid red; */
 }
 #OrgThings_container_filter_selectDepartment_box {
-  /* display: block; */
-  background-color: #080908;
+  overflow-y: scroll;
+  display: block;
+  margin-left: 7.59rem;
+  margin-top: 3.1rem;
+  border: 2px solid;
+  background-color: white;
   position: absolute;
-  color: white;
-  width: 10.2rem;
+  width: 16.1rem;
+  font-size: large;
+  height: 0rem;
+  transition: height 1s, border 2s;
+  z-index: 2;
   cursor: pointer;
-  display: none;
 }
 .selectDepartmentToggle {
   display: none;
 }
 
 .OrgThings_container_filter_selectDepartment_box_class {
-  margin-top: 10px;
-  /* margin-left:10px; */
-  border-bottom: 1px solid;
+  text-align: center;
+  padding: 12px;
 }
 
 .OrgThings_container_filter_selectDepartment_box_class:hover {
-  background-color: white;
-  color: black;
+  background-color: #c5c4c4;
 }
 
 #OrgThings_container_filter_searchSpecific {
@@ -707,41 +711,41 @@ code {
 }
 #child_OrgThings_container_sideBar_second_vote_upvotes {
   border-radius: 10px;
-  width: 10rem;
-  height: 41px;
+  width: 8rem;
+  height: 33px;
   cursor: pointer;
   padding: 0.1px;
-  margin-top: 4px;
+  margin-top: 9px;
   box-shadow: 0px 0px 6px 0px #c5c4c4;
   margin-left: 8px;
 }
 #child_OrgThings_container_sideBar_second_vote_upvotes_first {
-  margin-top: 9px;
+  margin-top: 5px;
   width: 2rem;
-  margin-left: 6px;
+  margin-left: 7px;
 }
 #child_OrgThings_container_sideBar_second_vote_upvotes_first_icon {
-  font-size: x-large;
+  font-size: larger;
 }
 #child_OrgThings_container_sideBar_second_vote_upvotes_second {
-  margin-top: -31px;
-  margin-left: 44px;
+  margin-top: -23px;
+  margin-left: 43px;
   width: 0px;
-  height: 28px;
+  height: 20px;
   border: 1px solid;
 }
 #child_OrgThings_container_sideBar_second_vote_upvotes_third {
-  margin-left: 5rem;
-  font-size: larger;
-  margin-top: -26px;
+  margin-left: 4rem;
+  font-size: large;
+  margin-top: -20px;
 }
 #child_OrgThings_container_sideBar_second_vote_downvotes {
   border-radius: 10px;
   cursor: pointer;
-  width: 10rem;
-  height: 41px;
+  width: 8rem;
+  height: 33px;
   padding: 0.1px;
-  margin-top: -42px;
+  margin-top: -35px;
   box-shadow: 0px 0px 6px 0px #c5c4c4;
   margin-left: 13rem;
 }
@@ -751,19 +755,19 @@ code {
   margin-left: 6px;
 }
 #child_OrgThings_container_sideBar_second_vote_downvotes_first_icon {
-  font-size: x-large;
+  font-size: larger;
 }
 #child_OrgThings_container_sideBar_second_vote_downvotes_second {
-  margin-top: -31px;
-  margin-left: 44px;
+  margin-top: -26px;
+  margin-left: 43px;
   width: 0px;
-  height: 28px;
+  height: 20px;
   border: 1px solid;
 }
 #child_OrgThings_container_sideBar_second_vote_downvotes_third {
-  margin-left: 5rem;
-  font-size: larger;
-  margin-top: -26px;
+  margin-left: 4rem;
+  font-size: large;
+  margin-top: -20px;
 }
 #child_OrgThings_container_hamburger_second {
   box-shadow: 0px 0px 6px 0px #c5c4c4;
@@ -891,6 +895,7 @@ code {
   border: 2px solid black;
   height: 30.7rem;
   width: 25%;
+  overflow-y: scroll;
   margin-top: 4px;
 }
 #publically_shared_container_expandMore {
@@ -918,10 +923,37 @@ code {
   font-family: sans-serif;
 }
 #publically_shared_container_left_selectOrganisation_expand {
+  padding-left: 13px;
   height: 1.5rem;
-  width: 80%;
+  width: 76%;
+  padding-bottom: 8px;
+  margin-top: 10px;
   margin-left: 10px;
-  border: 2px solid;
+  cursor: pointer;
+  border: 1px solid;
+}
+#publically_shared_container_left_selectOrganisation_expandIcon {
+  position: relative;
+  top: 5px;
+  transition: transform 1s;
+  left: 11rem;
+}
+#publically_shared_container_left_selectOrganisation_expandBox {
+  overflow-y: scroll;
+  border: 1px solid;
+  width: 15.05rem;
+  margin-left: 10px;
+  height: 0rem;
+  transition: height 1s;
+}
+.publically_shared_container_left_selectOrganisation_expandBoxClass {
+  font-size: large;
+  text-align: center;
+  cursor: pointer;
+  padding: 11px;
+}
+.publically_shared_container_left_selectOrganisation_expandBoxClass:hover {
+  background-color: #f5f5f5;
 }
 #publically_shared_container_left_selectDepartment {
   font-size: large;
@@ -930,10 +962,37 @@ code {
   font-family: sans-serif;
 }
 #publically_shared_container_left_selectDepartment_expand {
+  padding-left: 13px;
   height: 1.5rem;
-  width: 80%;
-  border: 2px solid;
+  width: 76%;
+  cursor: pointer;
+  margin-top: 10px;
+  padding-bottom: 8px;
   margin-left: 10px;
+  border: 1px solid;
+}
+#publically_shared_container_left_selectDepartment_expanIcon {
+  position: relative;
+  top: 5px;
+  left: 11rem;
+  transition: transform 1s;
+}
+#publically_shared_container_left_selectDepartment_expandBox {
+  overflow-y: scroll;
+  border: 1px solid;
+  width: 15.05rem;
+  margin-left: 10px;
+  height: 0rem;
+  transition: height 1s;
+}
+.publically_shared_container_left_selectDepartment_expandBoxClass {
+  font-size: large;
+  text-align: center;
+  padding: 11px;
+  cursor: pointer;
+}
+.publically_shared_container_left_selectDepartment_expandBoxClass:hover {
+  background-color: #f5f5f5;
 }
 #publically_shared_container_left_specific {
   height: 1.5rem;
@@ -941,6 +1000,7 @@ code {
   /* font-size: large; */
   margin-left: 10px;
   width: 78.5%;
+  margin-bottom: 1rem;
 }
 #publically_shared_container_right {
   border: 2px solid #16252d;
@@ -1509,13 +1569,13 @@ code {
   text-align: center;
 }
 #child_administrator_matter_headingTop_expand {
-  box-shadow: 0px 0px 6px 0px inset #c5c4c4;
+  background-color: #1937be;
   width: 6rem;
-  /* text-align: center; */
   font-size: larger;
+  border-radius: 6px;
   padding: 7px;
   margin-left: 12px;
-  border-radius: 5px;
+  color: white;
   cursor: pointer;
   margin-top: 14px;
   font-family: sans-serif;
