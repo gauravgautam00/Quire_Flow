@@ -2,6 +2,7 @@ import React from "react";
 import { useEffect } from "react";
 import { useRef } from "react";
 import { useParams } from "react-router-dom";
+import { useState } from "react";
 
 const Single_Query_Global = () => {
   const { id } = useParams();
@@ -12,6 +13,15 @@ const Single_Query_Global = () => {
   const videosMainContainer = useRef(null);
   const videosMainLeftArrow = useRef(null);
   const videosMainRightArrow = useRef(null);
+  const queryMarkUpperBox = useRef(null);
+  const queryMarkBottomBox = useRef(null);
+  const queryMarkUpperBoxIcon = useRef(null);
+  const [preference, setPreference] = useState();
+  const [toShowPreference, setToShowPreference] = useState("Mark it as");
+  const extraDetailsUpperBox = useRef(null);
+  const extraDetailsBottomBox = useRef(null);
+  const extraDetailsIcon = useRef(null);
+
   useEffect(() => {
     if (
       photosMainContainer.current &&
@@ -52,8 +62,46 @@ const Single_Query_Global = () => {
         });
       };
     }
+
+    if (
+      queryMarkBottomBox.current &&
+      queryMarkUpperBox.current &&
+      queryMarkUpperBoxIcon.current
+    ) {
+      queryMarkBottomBox.current.style.height = "0rem";
+      queryMarkUpperBox.current.onclick = () => {
+        if (queryMarkBottomBox.current.style.height == "0rem") {
+          queryMarkBottomBox.current.style.height = "9rem";
+          queryMarkUpperBoxIcon.current.style.transform = "rotate(-180deg)";
+        } else {
+          queryMarkBottomBox.current.style.height = "0rem";
+          queryMarkUpperBoxIcon.current.style.transform = "rotate(0deg)";
+        }
+      };
+    }
+
+    if (
+      extraDetailsUpperBox.current &&
+      extraDetailsBottomBox.current &&
+      extraDetailsIcon.current
+    ) {
+      extraDetailsBottomBox.current.style.height = "0rem";
+      extraDetailsUpperBox.current.onclick = () => {
+        if (extraDetailsBottomBox.current.style.height == "0rem") {
+          extraDetailsBottomBox.current.style.height = "10rem";
+          extraDetailsIcon.current.style.transform = "rotate(-180deg)";
+        } else {
+          extraDetailsBottomBox.current.style.height = "0rem";
+          extraDetailsIcon.current.style.transform = "rotate(0deg)";
+        }
+      };
+    }
   }, []);
 
+  const setValue = (val) => {
+    setPreference(val);
+    setToShowPreference(val);
+  };
   return (
     <div id="single_query_global">
       <div id="single_query_global_back">
@@ -66,13 +114,48 @@ const Single_Query_Global = () => {
         Back
       </div>
       <div id="single_query_global_extraDetails">
-        Extra Details
-        <span
-          id="single_query_global_extraDetailsIcon"
-          class="material-symbols-outlined"
+        <div
+          id="single_query_global_extraDetails_upperBox"
+          ref={extraDetailsUpperBox}
         >
-          expand_more
-        </span>
+          Extra Details
+          <span
+            id="single_query_global_extraDetailsIcon"
+            class="material-symbols-outlined"
+            ref={extraDetailsIcon}
+          >
+            expand_more
+          </span>
+        </div>
+        <div
+          id="single_query_global_extraDetails_bottomBox"
+          ref={extraDetailsBottomBox}
+        >
+          <div
+            className="single_query_global_extraDetails_bottomBox_child"
+            id="single_query_global_extraDetails_bottomBox_child1"
+          >
+            Organisation - Google
+          </div>
+          <div
+            className="single_query_global_extraDetails_bottomBox_child"
+            id="single_query_global_extraDetails_bottomBox_child2"
+          >
+            Department - Google Search
+          </div>
+          <div
+            className="single_query_global_extraDetails_bottomBox_child"
+            id="single_query_global_extraDetails_bottomBox_child3"
+          >
+            Recieved at - 11 may 2004
+          </div>
+          <div
+            className="single_query_global_extraDetails_bottomBox_child"
+            id="single_query_global_extraDetails_bottomBox_child4"
+          >
+            Preferences - {preference}
+          </div>
+        </div>
       </div>
       <div id="single_query_global_queryDescription">
         <div id="single_query_global_queryDescription_title">
@@ -401,8 +484,66 @@ const Single_Query_Global = () => {
         </div>
       </div>
       <div id="single_query_global_queryMark">
-        <div id="single_query_global_queryMark_upperBox">Mark it as</div>
-        <div id="single_query_global_queryMark_bottomBox"></div>
+        <div
+          id="single_query_global_queryMark_upperBox"
+          ref={queryMarkUpperBox}
+        >
+          {toShowPreference}
+          <span
+            id="single_query_global_queryMark_upperBoxIcon"
+            class="material-symbols-outlined"
+            ref={queryMarkUpperBoxIcon}
+          >
+            expand_more
+          </span>
+        </div>
+        <div
+          id="single_query_global_queryMark_bottomBox"
+          ref={queryMarkBottomBox}
+        >
+          <div
+            className="single_query_global_queryMark_bottomBox_child"
+            id="single_query_global_queryMark_bottomBox_child1"
+            onclick={() => {
+              setValue("Completed");
+            }}
+          >
+            Completed
+          </div>
+          <div
+            className="single_query_global_queryMark_bottomBox_child"
+            id="single_query_global_queryMark_bottomBox_child2"
+            onclick={() => {
+              setValue("Research Required");
+            }}
+          >
+            Research required
+          </div>
+          <div
+            className="single_query_global_queryMark_bottomBox_child"
+            id="single_query_global_queryMark_bottomBox_child3"
+            onclick={() => {
+              setValue("Review Later");
+            }}
+          >
+            Review later
+          </div>
+          <div
+            className="single_query_global_queryMark_bottomBox_child"
+            id="single_query_global_queryMark_bottomBox_child4"
+            onclick={() => {
+              setValue("Special One");
+            }}
+          >
+            Special one
+          </div>
+          <div
+            className="single_query_global_queryMark_bottomBox_child"
+            id="single_query_global_queryMark_bottomBox_child1"
+          >
+            Mark it as
+          </div>
+        </div>
         <div id="single_query_global_queryMark_button">Done</div>
       </div>
       <div id="single_query_global_queryDelete">Delete query</div>

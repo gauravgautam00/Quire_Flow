@@ -1231,7 +1231,7 @@ code {
 #single_query_global {
   background-color: #f2f2f7;
   padding: 0.1px;
-  height: 162rem;
+  height: 170rem;
 }
 #single_query_global_back {
   margin-left: 3rem;
@@ -1246,7 +1246,7 @@ code {
   top: 4px;
   left: -3px;
 }
-#single_query_global_extraDetails {
+#single_query_global_extraDetails_upperBox {
   border-radius: 7px;
   padding: 8px;
   width: 14rem;
@@ -1254,11 +1254,29 @@ code {
   font-size: larger;
   border: 1px solid #16252d;
   margin-left: 59.7rem;
+  background-color: white;
 }
 #single_query_global_extraDetailsIcon {
   left: 6rem;
   position: relative;
   top: 6px;
+  transition: transform 1s;
+}
+#single_query_global_extraDetails_bottomBox {
+  overflow-y: scroll;
+  height: 12rem;
+  width: 14.9rem;
+  margin-left: 59.8rem;
+  transition: height 1s;
+  border: 1px solid;
+}
+.single_query_global_extraDetails_bottomBox_child {
+  text-align: center;
+  padding: 19px;
+  cursor: pointer;
+}
+.single_query_global_extraDetails_bottomBox_child:hover {
+  background-color: #dbdbdb;
 }
 #single_query_global_queryDescription {
   border-radius: 10px;
@@ -1448,7 +1466,8 @@ code {
   border-top-left-radius: 10px;
   text-align: center;
   padding: 10px;
-  background-color: #f0f0f0;
+  background-color: #1937be;
+  color: white;
   border-top-right-radius: 10px;
 }
 #single_query_global_queryComment_main {
@@ -1480,15 +1499,16 @@ code {
 }
 
 #single_Query_global_queryComment_leftPart_textarea_real {
-  width: 324px;
+  width: 327px;
   border-radius: 10px;
-  height: 272px;
+  height: 295px;
 }
 #single_query_global_queryComment_leftPart_send {
   margin-top: 7px;
   text-align: center;
   margin-left: 14rem;
   border-radius: 4px;
+  cursor: pointer;
   color: white;
   width: 6.5rem;
   margin-bottom: 3px;
@@ -1530,24 +1550,63 @@ code {
 #single_query_global_queryMark {
   margin-top: 1rem;
   border-radius: 10px;
+  padding: 7px;
+  background-color: white;
   margin-left: 3.9rem;
-  border: 2px solid red;
   width: 34rem;
+  box-shadow: 0px 0px 6px 0px #c5c4c4;
 }
 #single_query_global_queryMark_upperBox {
+  border-radius: 5px;
+  padding: 5px;
+  border: 1px solid;
+  cursor: pointer;
+  font-size: larger;
+  width: 20rem;
+}
+#single_query_global_queryMark_upperBoxIcon {
+  transition: transform 1s;
+  position: relative;
+  left: 13rem;
+  top: 5px;
 }
 #single_query_global_queryMark_bottomBox {
+  transition: height 1s;
+  border: 1px solid;
+  overflow-y: scroll;
+  height: 0rem;
+  width: 20.6rem;
+}
+.single_query_global_queryMark_bottomBox_child {
+  text-align: center;
+  cursor: pointer;
+  padding: 13px;
+}
+.single_query_global_queryMark_bottomBox_child:hover {
+  background-color: #dbdbdb;
 }
 #single_query_global_queryMark_button {
+  font-size: larger;
+  cursor: pointer;
+  margin-left: 25rem;
+  border: 1px solid;
+  border-radius: 4px;
+  width: 7rem;
+  text-align: center;
+  padding: 5px;
+  margin-top: -2.1rem;
 }
 #single_query_global_queryDelete {
+  color: white;
+  background-color: red;
   text-align: center;
-  padding: 6px;
-  margin-top: -2.51rem;
-  width: 35rem;
-  margin-left: 39rem;
+  padding: 16px;
+  box-shadow: 0px 0px 6px 0px #c5c4c4;
+  margin-top: -3.4rem;
+  cursor: pointer;
+  width: 25rem;
+  margin-left: 45rem;
   border-radius: 10px;
-  border: 2px solid red;
   font-size: larger;
 }
 
