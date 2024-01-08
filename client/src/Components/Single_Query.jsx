@@ -1,4 +1,5 @@
 import React, { useRef, useEffect } from "react";
+import Single_Query_Images from "./Single_Query_Images";
 import { useParams, useNavigate } from "react-router-dom";
 
 const Single_Query = () => {
@@ -289,6 +290,7 @@ const Single_Query = () => {
           voluptatibus molestiae praesentium eveniet cons
         </div>
         {/* <div id="single_query_container_fillerFirst"></div> */}
+
         <div id="single_queries_container_images">
           <div id="single_queries_container_images_header">Attached Images</div>
 
@@ -457,6 +459,7 @@ const Single_Query = () => {
             </span>
           </div>
         </div>
+
         {/* <div id="single_query_container_fillerSecond"></div> */}
 
         <div id="single_queries_container_links">

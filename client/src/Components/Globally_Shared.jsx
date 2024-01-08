@@ -41,6 +41,13 @@ const Globally_Shared = () => {
       };
     }
   }, []);
+
+  const setOrganisation = (val) => {
+    setOrgValue(val);
+  };
+  const setDepartMent = (val) => {
+    setDepValue(val);
+  };
   return (
     <div className="for_footer_color" id="publically_shared_container">
       <div id="publically_shared_container_title">Public Queries</div>
@@ -52,177 +59,244 @@ const Globally_Shared = () => {
         {/* Organisation */}
         {/* Organisation */}
         {/* Organisation */}
-        <div id="publically_shared_container_left_selectOrganisation">
-          Select Organisation
-        </div>
-        <div
-          id="publically_shared_container_left_selectOrganisation_expand"
-          ref={orgExpand}
-        >
-          {orgValue}
-          <span
-            id="publically_shared_container_left_selectOrganisation_expandIcon"
-            class="material-symbols-outlined"
-            ref={orgExpandIcon}
-          >
-            expand_more
-          </span>
-        </div>
-        <div
-          id="publically_shared_container_left_selectOrganisation_expandBox"
-          ref={orgExpandBox}
-        >
-          <div
-            class="publically_shared_container_left_selectOrganisation_expandBoxClass"
-            id="publically_shared_container_left_selectOrganisation_expandBox_1"
-          >
-            Amazon
+        <div id="publically_shared_container_left_title">Filters</div>
+        <div id="publically_shared_container_leftSecondPart">
+          <div id="publically_shared_container_left_selectOrganisation">
+            Select Organisation
           </div>
           <div
-            class="publically_shared_container_left_selectOrganisation_expandBoxClass"
-            id="publically_shared_container_left_selectOrganisation_expandBox_2"
+            id="publically_shared_container_left_selectOrganisation_expand"
+            ref={orgExpand}
           >
-            Google
+            <div id="publically_shared_container_left_selectOrganisation_expand_titleOnly">
+              {orgValue}
+            </div>
+            <span
+              id="publically_shared_container_left_selectOrganisation_expandIcon"
+              class="material-symbols-outlined"
+              ref={orgExpandIcon}
+            >
+              expand_more
+            </span>
           </div>
           <div
-            class="publically_shared_container_left_selectOrganisation_expandBoxClass"
-            id="publically_shared_container_left_selectOrganisation_expandBox_3"
+            id="publically_shared_container_left_selectOrganisation_expandBox"
+            ref={orgExpandBox}
           >
-            Microsoft
+            <div
+              onClick={() => {
+                setOrganisation("Amazon");
+              }}
+              class="publically_shared_container_left_selectOrganisation_expandBoxClass"
+              id="publically_shared_container_left_selectOrganisation_expandBox_1"
+            >
+              Amazon
+            </div>
+            <div
+              onClick={() => {
+                setOrganisation("Google");
+              }}
+              class="publically_shared_container_left_selectOrganisation_expandBoxClass"
+              id="publically_shared_container_left_selectOrganisation_expandBox_2"
+            >
+              Google
+            </div>
+            <div
+              onClick={() => {
+                setOrganisation("Microsoft");
+              }}
+              class="publically_shared_container_left_selectOrganisation_expandBoxClass"
+              id="publically_shared_container_left_selectOrganisation_expandBox_3"
+            >
+              Microsoft
+            </div>
+            <div
+              onClick={() => {
+                setOrganisation("Apple");
+              }}
+              class="publically_shared_container_left_selectOrganisation_expandBoxClass"
+              id="publically_shared_container_left_selectOrganisation_expandBox_4"
+            >
+              Apple
+            </div>
+            <div
+              onClick={() => {
+                setOrganisation("Meta");
+              }}
+              class="publically_shared_container_left_selectOrganisation_expandBoxClass"
+              id="publically_shared_container_left_selectOrganisation_expandBox_5"
+            >
+              Meta
+            </div>
+            <div
+              onClick={() => {
+                setOrganisation("Atlassian");
+              }}
+              class="publically_shared_container_left_selectOrganisation_expandBoxClass"
+              id="publically_shared_container_left_selectOrganisation_expandBox_6"
+            >
+              Atlassian
+            </div>
+            <div
+              onClick={() => {
+                setOrganisation("Tower Research");
+              }}
+              class="publically_shared_container_left_selectOrganisation_expandBoxClass"
+              id="publically_shared_container_left_selectOrganisation_expandBox_7"
+            >
+              TowerResearch
+            </div>
+            <div
+              onClick={() => {
+                setOrganisation("Zomato");
+              }}
+              class="publically_shared_container_left_selectOrganisation_expandBoxClass"
+              id="publically_shared_container_left_selectOrganisation_expandBox_8"
+            >
+              Zomato
+            </div>
+            <div
+              onClick={() => {
+                setOrganisation("Netspend");
+              }}
+              class="publically_shared_container_left_selectOrganisation_expandBoxClass"
+              id="publically_shared_container_left_selectOrganisation_expandBox_9"
+            >
+              Netspend
+            </div>
+            <div
+              onClick={() => {
+                setOrganisation("All");
+              }}
+              class="publically_shared_container_left_selectOrganisation_expandBoxClass"
+              id="publically_shared_container_left_selectOrganisation_expandBox_10"
+            >
+              All
+            </div>
           </div>
-          <div
-            class="publically_shared_container_left_selectOrganisation_expandBoxClass"
-            id="publically_shared_container_left_selectOrganisation_expandBox_4"
-          >
-            Apple
-          </div>
-          <div
-            class="publically_shared_container_left_selectOrganisation_expandBoxClass"
-            id="publically_shared_container_left_selectOrganisation_expandBox_5"
-          >
-            Meta
-          </div>
-          <div
-            class="publically_shared_container_left_selectOrganisation_expandBoxClass"
-            id="publically_shared_container_left_selectOrganisation_expandBox_6"
-          >
-            Atlassian
-          </div>
-          <div
-            class="publically_shared_container_left_selectOrganisation_expandBoxClass"
-            id="publically_shared_container_left_selectOrganisation_expandBox_7"
-          >
-            TowerResearch
-          </div>
-          <div
-            class="publically_shared_container_left_selectOrganisation_expandBoxClass"
-            id="publically_shared_container_left_selectOrganisation_expandBox_8"
-          >
-            Zomato
-          </div>
-          <div
-            class="publically_shared_container_left_selectOrganisation_expandBoxClass"
-            id="publically_shared_container_left_selectOrganisation_expandBox_9"
-          >
-            Netspend
-          </div>
-          <div
-            class="publically_shared_container_left_selectOrganisation_expandBoxClass"
-            id="publically_shared_container_left_selectOrganisation_expandBox_10"
-          >
-            All
-          </div>
-        </div>
 
-        {/* //department */}
-        {/* //department */}
-        {/* //department */}
-        <div id="publically_shared_container_left_selectDepartment">
-          Select Department
+          {/* //department */}
+          {/* //department */}
+          {/* //department */}
+          <div id="publically_shared_container_left_selectDepartment">
+            Select Department
+          </div>
+          <div
+            id="publically_shared_container_left_selectDepartment_expand"
+            ref={depExpand}
+          >
+            <div id="publically_shared_container_left_selectDepartment_expand_titleOnly">
+              {depValue}
+            </div>
+            <span
+              id="publically_shared_container_left_selectDepartment_expanIcon"
+              class="material-symbols-outlined"
+              ref={depExpandIcon}
+            >
+              expand_more
+            </span>
+          </div>
+          <div
+            id="publically_shared_container_left_selectDepartment_expandBox"
+            ref={depExpandBox}
+          >
+            <div
+              onClick={() => {
+                setDepartMent("Customer Support");
+              }}
+              className="publically_shared_container_left_selectDepartment_expandBoxClass"
+              id="publically_shared_container_left_selectDepartment_expandBox1"
+            >
+              Customer Support
+            </div>
+            <div
+              onClick={() => {
+                setDepartMent("Product Development");
+              }}
+              className="publically_shared_container_left_selectDepartment_expandBoxClass"
+              id="publically_shared_container_left_selectDepartment_expandBox2"
+            >
+              Product Development
+            </div>
+            <div
+              onClick={() => {
+                setDepartMent("Human Resources");
+              }}
+              className="publically_shared_container_left_selectDepartment_expandBoxClass"
+              id="publically_shared_container_left_selectDepartment_expandBox3"
+            >
+              Human Resources
+            </div>
+            <div
+              onClick={() => {
+                setDepartMent("Quality Assurance");
+              }}
+              className="publically_shared_container_left_selectDepartment_expandBoxClass"
+              id="publically_shared_container_left_selectDepartment_expandBox4"
+            >
+              Quality Assurance
+            </div>
+            <div
+              onClick={() => {
+                setDepartMent("Research");
+              }}
+              className="publically_shared_container_left_selectDepartment_expandBoxClass"
+              id="publically_shared_container_left_selectDepartment_expandBox5"
+            >
+              Research
+            </div>
+            <div
+              onClick={() => {
+                setDepartMent("Training");
+              }}
+              className="publically_shared_container_left_selectDepartment_expandBoxClass"
+              id="publically_shared_container_left_selectDepartment_expandBox6"
+            >
+              Training
+            </div>
+            <div
+              onClick={() => {
+                setDepartMent("Events");
+              }}
+              className="publically_shared_container_left_selectDepartment_expandBoxClass"
+              id="publically_shared_container_left_selectDepartment_expandBox7"
+            >
+              Events
+            </div>
+            <div
+              onClick={() => {
+                setDepartMent("Finance");
+              }}
+              className="publically_shared_container_left_selectDepartment_expandBoxClass"
+              id="publically_shared_container_left_selectDepartment_expandBox8"
+            >
+              Finance
+            </div>
+            <div
+              onClick={() => {
+                setDepartMent("Customer Support");
+              }}
+              className="publically_shared_container_left_selectDepartment_expandBoxClass"
+              id="publically_shared_container_left_selectDepartment_expandBox9"
+            >
+              Customer Support
+            </div>
+            <div
+              onClick={() => {
+                setDepartMent("All");
+              }}
+              className="publically_shared_container_left_selectDepartment_expandBoxClass"
+              id="publically_shared_container_left_selectDepartment_expandBox10"
+            >
+              All
+            </div>
+          </div>
+          <input
+            id="publically_shared_container_left_specific"
+            type="text"
+            placeholder="Search for specific string to search for"
+          />
         </div>
-        <div
-          id="publically_shared_container_left_selectDepartment_expand"
-          ref={depExpand}
-        >
-          {depValue}
-          <span
-            id="publically_shared_container_left_selectDepartment_expanIcon"
-            class="material-symbols-outlined"
-            ref={depExpandIcon}
-          >
-            expand_more
-          </span>
-        </div>
-        <div
-          id="publically_shared_container_left_selectDepartment_expandBox"
-          ref={depExpandBox}
-        >
-          <div
-            className="publically_shared_container_left_selectDepartment_expandBoxClass"
-            id="publically_shared_container_left_selectDepartment_expandBox1"
-          >
-            Customer Support
-          </div>
-          <div
-            className="publically_shared_container_left_selectDepartment_expandBoxClass"
-            id="publically_shared_container_left_selectDepartment_expandBox2"
-          >
-            Customer Support
-          </div>
-          <div
-            className="publically_shared_container_left_selectDepartment_expandBoxClass"
-            id="publically_shared_container_left_selectDepartment_expandBox3"
-          >
-            Customer Support
-          </div>
-          <div
-            className="publically_shared_container_left_selectDepartment_expandBoxClass"
-            id="publically_shared_container_left_selectDepartment_expandBox4"
-          >
-            Customer Support
-          </div>
-          <div
-            className="publically_shared_container_left_selectDepartment_expandBoxClass"
-            id="publically_shared_container_left_selectDepartment_expandBox5"
-          >
-            Customer Support
-          </div>
-          <div
-            className="publically_shared_container_left_selectDepartment_expandBoxClass"
-            id="publically_shared_container_left_selectDepartment_expandBox6"
-          >
-            Customer Support
-          </div>
-          <div
-            className="publically_shared_container_left_selectDepartment_expandBoxClass"
-            id="publically_shared_container_left_selectDepartment_expandBox7"
-          >
-            Customer Support
-          </div>
-          <div
-            className="publically_shared_container_left_selectDepartment_expandBoxClass"
-            id="publically_shared_container_left_selectDepartment_expandBox8"
-          >
-            Customer Support
-          </div>
-          <div
-            className="publically_shared_container_left_selectDepartment_expandBoxClass"
-            id="publically_shared_container_left_selectDepartment_expandBox9"
-          >
-            Customer Support
-          </div>
-          <div
-            className="publically_shared_container_left_selectDepartment_expandBoxClass"
-            id="publically_shared_container_left_selectDepartment_expandBox10"
-          >
-            All
-          </div>
-        </div>
-        <input
-          id="publically_shared_container_left_specific"
-          type="text"
-          placeholder="Search for specific string to search for"
-        />
       </div>
 
       {/* right part */}

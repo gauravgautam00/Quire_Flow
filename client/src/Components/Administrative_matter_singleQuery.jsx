@@ -1,7 +1,11 @@
 import React from "react";
-
+import Single_Query_Global from "./Single_Query_Global";
 const Administrative_matter_singleQuery = () => {
-  return <div>this is administrative matter single query</div>;
+  return (
+    <>
+      <Single_Query_Global />
+    </>
+  );
 };
 
 export default Administrative_matter_singleQuery;

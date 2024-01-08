@@ -8,6 +8,11 @@ const Administrative_matter = () => {
   const takeToTheViewQueries = useRef(null);
   const filterup = useRef(null);
   const filterleft = useRef(null);
+
+  const [orgValue, setOrgValue] = useState("Select Organisation");
+  const [depValue, setDepValue] = useState("Select Department");
+  const [prefValue, setPrefValue] = useState("Select Preferences");
+
   const filterLeftOrganisationHeadingReference = useRef(null);
   const filterLeftDepartmentHeadingReference = useRef(null);
   const filterLeftPreferenceHeadingReference = useRef(null);
@@ -131,6 +136,15 @@ const Administrative_matter = () => {
     }
   }, []);
 
+  const setOrganisation = (val) => {
+    setOrgValue(val);
+  };
+  const setDepartment = (val) => {
+    setDepValue(val);
+  };
+  const setPreferences = (val) => {
+    setPrefValue(val);
+  };
   return (
     <div id="administrator_container">
       {/* FIRST PART */}
@@ -261,7 +275,10 @@ const Administrative_matter = () => {
             id="administrator_container_filterLeft_organisationHeading"
             ref={filterLeftOrganisationHeadingReference}
           >
-            Select Organisation
+            <div id="administrator_container_filterLeft_organisationTitle">
+              {orgValue}
+            </div>
+
             <span
               id="administrator_container_filterLeft_organisationHeading_expand"
               class="material-symbols-outlined"
@@ -273,43 +290,83 @@ const Administrative_matter = () => {
             id="administrator_container_filterLeft_organisationHeadingSelect"
             ref={filterLeftOrganisationSelectReference}
           >
-            <div class="administrator_container_filterLeft_organisationHeadingSelect_childClass">
-              {" "}
+            <div
+              onClick={() => {
+                setOrganisation("ABC Inc.");
+              }}
+              class="administrator_container_filterLeft_organisationHeadingSelect_childClass"
+            >
               ABC Inc.
             </div>
-            <div class="administrator_container_filterLeft_organisationHeadingSelect_childClass">
-              {" "}
+            <div
+              onClick={() => {
+                setOrganisation("XYZ Corporation");
+              }}
+              class="administrator_container_filterLeft_organisationHeadingSelect_childClass"
+            >
               XYZ Corporation
             </div>
 
-            <div class="administrator_container_filterLeft_organisationHeadingSelect_childClass">
-              {" "}
+            <div
+              onClick={() => {
+                setOrganisation("Tech Innovators Ltd.");
+              }}
+              class="administrator_container_filterLeft_organisationHeadingSelect_childClass"
+            >
               Tech Innovators Ltd.
             </div>
 
-            <div class="administrator_container_filterLeft_organisationHeadingSelect_childClass">
-              {" "}
+            <div
+              onClick={() => {
+                setOrganisation("Global Corp");
+              }}
+              class="administrator_container_filterLeft_organisationHeadingSelect_childClass"
+            >
               Global Corp
             </div>
 
-            <div class="administrator_container_filterLeft_organisationHeadingSelect_childClass">
-              {" "}
+            <div
+              onClick={() => {
+                setOrganisation("City Properties Inc.");
+              }}
+              class="administrator_container_filterLeft_organisationHeadingSelect_childClass"
+            >
               City Properties Inc.
             </div>
 
-            <div class="administrator_container_filterLeft_organisationHeadingSelect_childClass">
-              {" "}
+            <div
+              onClick={() => {
+                setOrganisation("Tech Solutions Ltd.");
+              }}
+              class="administrator_container_filterLeft_organisationHeadingSelect_childClass"
+            >
               Tech Solutions Ltd.
             </div>
 
-            <div class="administrator_container_filterLeft_organisationHeadingSelect_childClass">
-              {" "}
+            <div
+              onClick={() => {
+                setOrganisation("Regulatory Corp");
+              }}
+              class="administrator_container_filterLeft_organisationHeadingSelect_childClass"
+            >
               Regulatory Corp
             </div>
 
-            <div class="administrator_container_filterLeft_organisationHeadingSelect_childClass">
-              {" "}
+            <div
+              onClick={() => {
+                setOrganisation("Learning Academy");
+              }}
+              class="administrator_container_filterLeft_organisationHeadingSelect_childClass"
+            >
               Learning Academy
+            </div>
+            <div
+              onClick={() => {
+                setOrganisation("Select Organisation");
+              }}
+              class="administrator_container_filterLeft_organisationHeadingSelect_childClass"
+            >
+              Select Organisation
             </div>
           </div>
 
@@ -317,7 +374,10 @@ const Administrative_matter = () => {
             id="administrator_container_filterLeft_departmentHeading"
             ref={filterLeftDepartmentHeadingReference}
           >
-            Select Department
+            <div id="administrator_container_filterLeft_departmentTitle">
+              {depValue}
+            </div>
+
             <span
               id="administrator_container_filterLeft_departmentHeading_expand"
               class="material-symbols-outlined"
@@ -329,39 +389,96 @@ const Administrative_matter = () => {
             id="administrator_container_filterLeft_departmentHeadingSelect"
             ref={filterLeftDepartmentSelectReference}
           >
-            <div className="administrator_container_filterLeft_departmentHeadingSelect_childClass">
+            <div
+              onClick={() => {
+                setDepartment("IT Support");
+              }}
+              className="administrator_container_filterLeft_departmentHeadingSelect_childClass"
+            >
               IT Support
             </div>
-            <div className="administrator_container_filterLeft_departmentHeadingSelect_childClass">
+            <div
+              onClick={() => {
+                setDepartment("Finance");
+              }}
+              className="administrator_container_filterLeft_departmentHeadingSelect_childClass"
+            >
               Finance
             </div>
-            <div className="administrator_container_filterLeft_departmentHeadingSelect_childClass">
+            <div
+              onClick={() => {
+                setDepartment("Product Development");
+              }}
+              className="administrator_container_filterLeft_departmentHeadingSelect_childClass"
+            >
               Product Development
             </div>
-            <div className="administrator_container_filterLeft_departmentHeadingSelect_childClass">
+            <div
+              onClick={() => {
+                setDepartment("Human Resource");
+              }}
+              className="administrator_container_filterLeft_departmentHeadingSelect_childClass"
+            >
               Human Resources
             </div>
-            <div className="administrator_container_filterLeft_departmentHeadingSelect_childClass">
+            <div
+              onClick={() => {
+                setDepartment("Facilities Management");
+              }}
+              className="administrator_container_filterLeft_departmentHeadingSelect_childClass"
+            >
               Facilities Management
             </div>
-            <div className="administrator_container_filterLeft_departmentHeadingSelect_childClass">
+            <div
+              onClick={() => {
+                setDepartment("Software Development");
+              }}
+              className="administrator_container_filterLeft_departmentHeadingSelect_childClass"
+            >
               Software Development
             </div>
-            <div className="administrator_container_filterLeft_departmentHeadingSelect_childClass">
+            <div
+              onClick={() => {
+                setDepartment("Legal and Compliance");
+              }}
+              className="administrator_container_filterLeft_departmentHeadingSelect_childClass"
+            >
               Legal and Compliance
             </div>
-            <div className="administrator_container_filterLeft_departmentHeadingSelect_childClass">
+            <div
+              onClick={() => {
+                setDepartment("Learning and Development");
+              }}
+              className="administrator_container_filterLeft_departmentHeadingSelect_childClass"
+            >
               Learning and Development
             </div>
-            <div className="administrator_container_filterLeft_departmentHeadingSelect_childClass">
-              Learning and Development
+            <div
+              onClick={() => {
+                setDepartment("Development");
+              }}
+              className="administrator_container_filterLeft_departmentHeadingSelect_childClass"
+            >
+              Development
+            </div>
+            <div
+              onClick={() => {
+                setDepartment("Select Department");
+              }}
+              className="administrator_container_filterLeft_departmentHeadingSelect_childClass"
+            >
+              Select Department
             </div>
           </div>
           <div
             id="administrator_container_filterLeft_preferencesHeading"
             ref={filterLeftPreferenceHeadingReference}
           >
-            Select Preferences
+            <div id="administrator_container_filterLeft_preferencesTitle">
+              {" "}
+              {prefValue}
+            </div>
+
             <span
               id="administrator_container_filterLeft_preferencesHeading_expand"
               class="material-symbols-outlined"
@@ -373,17 +490,45 @@ const Administrative_matter = () => {
             id="administrator_container_filterLeft_preferencesHeadingSelect"
             ref={filterLeftPreferenceSelectReference}
           >
-            <div className="administrator_container_filterLeft_preferencesHeadingSelect_childClass">
+            <div
+              onClick={() => {
+                setPreferences("Urgent");
+              }}
+              className="administrator_container_filterLeft_preferencesHeadingSelect_childClass"
+            >
               Urgent
             </div>
-            <div className="administrator_container_filterLeft_preferencesHeadingSelect_childClass">
+            <div
+              onClick={() => {
+                setPreferences("Normal");
+              }}
+              className="administrator_container_filterLeft_preferencesHeadingSelect_childClass"
+            >
               Normal
             </div>
-            <div className="administrator_container_filterLeft_preferencesHeadingSelect_childClass">
+            <div
+              onClick={() => {
+                setPreferences("Important");
+              }}
+              className="administrator_container_filterLeft_preferencesHeadingSelect_childClass"
+            >
               Important
             </div>
-            <div className="administrator_container_filterLeft_preferencesHeadingSelect_childClass">
+            <div
+              onClick={() => {
+                setPreferences("Completed");
+              }}
+              className="administrator_container_filterLeft_preferencesHeadingSelect_childClass"
+            >
               Completed
+            </div>
+            <div
+              onClick={() => {
+                setPreferences("Select Preferences");
+              }}
+              className="administrator_container_filterLeft_preferencesHeadingSelect_childClass"
+            >
+              Select Preferences
             </div>
           </div>
         </div>

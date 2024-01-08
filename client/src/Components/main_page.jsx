@@ -59,17 +59,17 @@ const Main_page = () => {
       ) {
         titleFirst.current.style.backgroundColor = "#16252D";
         titleFirst.current.style.color = "white";
-        titleFirst.current.style.padding = "6px";
+        // titleFirst.current.style.padding = "6px";
         titleFirst.current.style.borderRadius = "10px";
 
         titleSecond.current.style.backgroundColor = "white";
         titleSecond.current.style.color = "#16252D";
-        titleSecond.current.style.padding = "6px";
+        // titleSecond.current.style.padding = "6px";
         titleSecond.current.style.borderRadius = "10px";
 
         titleThird.current.style.backgroundColor = "white";
         titleThird.current.style.color = "#16252D";
-        titleThird.current.style.padding = "6px";
+        // titleThird.current.style.padding = "6px";
         titleThird.current.style.borderRadius = "10px";
 
         encap.current.style.transform =
@@ -159,17 +159,17 @@ const Main_page = () => {
       ) {
         titleSecond.current.style.backgroundColor = "#16252D";
         titleSecond.current.style.color = "white";
-        titleSecond.current.style.padding = "6px";
+        // titleSecond.current.style.padding = "6px";
         titleSecond.current.style.borderRadius = "10px";
 
         titleFirst.current.style.backgroundColor = "white";
         titleFirst.current.style.color = "#16252D";
-        titleFirst.current.style.padding = "6px";
+        // titleFirst.current.style.padding = "6px";
         titleFirst.current.style.borderRadius = "10px";
 
         titleThird.current.style.backgroundColor = "white";
         titleThird.current.style.color = "#16252D";
-        titleThird.current.style.padding = "6px";
+        // titleThird.current.style.padding = "6px";
         titleThird.current.style.borderRadius = "10px";
 
         respo.current.style.transform =
@@ -254,17 +254,17 @@ const Main_page = () => {
       ) {
         titleThird.current.style.backgroundColor = "#16252D";
         titleThird.current.style.color = "white";
-        titleThird.current.style.padding = "6px";
+        // titleThird.current.style.padding = "6px";
         titleThird.current.style.borderRadius = "10px";
 
         titleSecond.current.style.backgroundColor = "white";
         titleSecond.current.style.color = "#16252D";
-        titleSecond.current.style.padding = "6px";
+        // titleSecond.current.style.padding = "6px";
         titleSecond.current.style.borderRadius = "10px";
 
         titleFirst.current.style.backgroundColor = "white";
         titleFirst.current.style.color = "#16252D";
-        titleFirst.current.style.padding = "6px";
+        // titleFirst.current.style.padding = "6px";
         titleFirst.current.style.borderRadius = "10px";
 
         freed.current.style.transform =
@@ -356,17 +356,18 @@ const Main_page = () => {
               ) {
                 titleThird.current.style.backgroundColor = "white";
                 titleThird.current.style.color = "#16252D";
-                titleThird.current.style.padding = "6px";
+                // titleThird.current.style.padding = "6px";
                 titleThird.current.style.borderRadius = "10px";
 
                 titleSecond.current.style.backgroundColor = "white";
                 titleSecond.current.style.color = "#16252D";
-                titleSecond.current.style.padding = "6px";
+                // titleSecond.current.style.padding = "6px";
                 titleSecond.current.style.borderRadius = "10px";
 
                 titleFirst.current.style.backgroundColor = "white";
                 titleFirst.current.style.color = "#16252D";
-                titleFirst.current.style.padding = "6px";
+                // titleFirst.current.style.padding = "6px";/
+
                 titleFirst.current.style.borderRadius = "10px";
               }
             });

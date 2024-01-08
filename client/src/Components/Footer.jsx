@@ -69,7 +69,7 @@ const Footer = () => {
         <div id="footer_container_afterLine_container_fifth">Contact Us</div>
         <div id="footer_container_afterLine_container_sixth">Terms</div>
         <div id="footer_container_afterLine_container_seventh">
-          © 2023 Quire Flow
+          © 2024 Quire Flow
         </div>
         <div id="footer_container_afterLine_container_eight">Privacy</div>
       </div>
