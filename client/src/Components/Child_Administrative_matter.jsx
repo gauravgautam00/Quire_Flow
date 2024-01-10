@@ -21,7 +21,8 @@ const Child_Administrative_matter = (props) => {
   const headingTopOptionsListFirst = useRef(null);
   const headingTopOptionsListSecond = useRef(null);
   const headingTopOptionsListThird = useRef(null);
-
+  const downBarBottomSecondCompleted = useRef(null);
+  const downBarBottomSecondInProgress = useRef(null);
   const [icon, setIcon] = useState("menu");
   const [queryData, setQueryData] = useState(props.queryDescription);
   const [typeOfData, setTypeOfData] = useState("Text");
@@ -163,6 +164,24 @@ const Child_Administrative_matter = (props) => {
       headingTopOptionsListThird.current.onclick = () => {
         setTypeOfData("Videos");
         setQueryData(props.queryVideos);
+      };
+    }
+
+    if (
+      downBarBottomSecondCompleted.current &&
+      downBarBottomSecondInProgress.current
+    ) {
+      downBarBottomSecondCompleted.current.onclick = () => {
+        downBarBottomSecondCompleted.current.style.backgroundColor = "#1937be";
+        downBarBottomSecondCompleted.current.style.color = "white";
+        downBarBottomSecondInProgress.current.style.backgroundColor = "white";
+        downBarBottomSecondInProgress.current.style.color = "#16252D";
+      };
+      downBarBottomSecondInProgress.current.onclick = () => {
+        downBarBottomSecondInProgress.current.style.backgroundColor = "#1937be";
+        downBarBottomSecondInProgress.current.style.color = "white";
+        downBarBottomSecondCompleted.current.style.backgroundColor = "white";
+        downBarBottomSecondCompleted.current.style.color = "#16252D";
       };
     }
   }, []);
@@ -362,11 +381,17 @@ const Child_Administrative_matter = (props) => {
               Mark as
             </div>
 
-            <div id="child_administrative_matter_downBarBottom_second_completed">
+            <div
+              id="child_administrative_matter_downBarBottom_second_completed"
+              ref={downBarBottomSecondCompleted}
+            >
               Acknowledged
             </div>
 
-            <div id="child_administrative_matter_downBarBottom_second_inProgress">
+            <div
+              id="child_administrative_matter_downBarBottom_second_inProgress"
+              ref={downBarBottomSecondInProgress}
+            >
               IN-Progress
             </div>
             <div id="child_administrative_matter_downBarBottom_second_save">

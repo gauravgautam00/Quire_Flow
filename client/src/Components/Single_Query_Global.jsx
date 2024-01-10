@@ -99,8 +99,10 @@ const Single_Query_Global = () => {
   }, []);
 
   const setValue = (val) => {
-    setPreference(val);
     setToShowPreference(val);
+  };
+  const setExtraDetail = (val) => {
+    setPreference(val == "Mark it as" ? "null" : val);
   };
   return (
     <div id="single_query_global">
@@ -389,7 +391,7 @@ const Single_Query_Global = () => {
             >
               <video height="468px" width="900px" muted controls>
                 <source
-                  src="client\public\Videos\Video featuring a Slack customer,_.mp4"
+                  src="client\public\Videos\pexels-mikhail-nilov-6962343 (Original).mp4"
                   type="video/mp4"
                 />
               </video>
@@ -400,8 +402,8 @@ const Single_Query_Global = () => {
             >
               <video height="468px" width="900px" muted controls>
                 <source
-                  src="Videos\pexels-kindel-media-6774633 (Original).mp4"
-                  type="video/mp4"
+                  src="Videos/pexels-mikhail-nilov-6962343 (Original).webm"
+                  type="video/webm"
                 />
               </video>
             </div>
@@ -411,7 +413,7 @@ const Single_Query_Global = () => {
             >
               <video height="468px" width="900px" muted controls>
                 <source
-                  src="Videos/pexels-kindel-media-6774633 (Original).mp4"
+                  src="Videos/pexels-mikhail-nilov-6962343 (Original).mp4"
                   type="video/mp4"
                 />
               </video>
@@ -488,7 +490,10 @@ const Single_Query_Global = () => {
           id="single_query_global_queryMark_upperBox"
           ref={queryMarkUpperBox}
         >
-          {toShowPreference}
+          <div id="single_query_global_queryMark_upperBox_heading">
+            {toShowPreference}
+          </div>
+
           <span
             id="single_query_global_queryMark_upperBoxIcon"
             class="material-symbols-outlined"
@@ -504,7 +509,7 @@ const Single_Query_Global = () => {
           <div
             className="single_query_global_queryMark_bottomBox_child"
             id="single_query_global_queryMark_bottomBox_child1"
-            onclick={() => {
+            onClick={() => {
               setValue("Completed");
             }}
           >
@@ -513,7 +518,7 @@ const Single_Query_Global = () => {
           <div
             className="single_query_global_queryMark_bottomBox_child"
             id="single_query_global_queryMark_bottomBox_child2"
-            onclick={() => {
+            onClick={() => {
               setValue("Research Required");
             }}
           >
@@ -522,7 +527,7 @@ const Single_Query_Global = () => {
           <div
             className="single_query_global_queryMark_bottomBox_child"
             id="single_query_global_queryMark_bottomBox_child3"
-            onclick={() => {
+            onClick={() => {
               setValue("Review Later");
             }}
           >
@@ -531,7 +536,7 @@ const Single_Query_Global = () => {
           <div
             className="single_query_global_queryMark_bottomBox_child"
             id="single_query_global_queryMark_bottomBox_child4"
-            onclick={() => {
+            onClick={() => {
               setValue("Special One");
             }}
           >
@@ -540,11 +545,21 @@ const Single_Query_Global = () => {
           <div
             className="single_query_global_queryMark_bottomBox_child"
             id="single_query_global_queryMark_bottomBox_child1"
+            onClick={() => {
+              setValue("Mark it as");
+            }}
           >
             Mark it as
           </div>
         </div>
-        <div id="single_query_global_queryMark_button">Done</div>
+        <div
+          onClick={() => {
+            setExtraDetail(toShowPreference);
+          }}
+          id="single_query_global_queryMark_button"
+        >
+          Done
+        </div>
       </div>
       <div id="single_query_global_queryDelete">Delete query</div>
     </div>

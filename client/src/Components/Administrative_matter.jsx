@@ -162,12 +162,11 @@ const Administrative_matter = () => {
             Unlocking Insights, Managing Queries
           </div>
           <div id="administrator_container_frontLeftPart_para">
-            Welcome to our administrative hub, where we believe in the power of
-            organized information. Our platform is designed to be your trusted
-            companion in managing queries, tracking responses, and gaining
-            valuable insights. We understand that effective administration is
-            built upon transparency and efficiency, and that's exactly what we
-            offer
+            Explore and manage all incoming queries and administrative matters
+            efficiently. This section serves as a central hub for all anonymized
+            interactions, allowing you to review, respond, and organize queries
+            received from users. Stay informed and in control of administrative
+            tasks with ease.
           </div>
           <div
             id="administrator_container_frontLeftPart_viewQueryButton"
@@ -254,7 +253,7 @@ const Administrative_matter = () => {
             id="administrator_container_filterUp_boxCompleted"
             ref={filterUpCompleteQuery}
           >
-            Completed query
+            Acknowledged query
           </div>
           <div
             id="administrator_container_filterUp_selectAll"
