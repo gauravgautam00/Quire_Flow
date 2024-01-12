@@ -1427,8 +1427,7 @@ code {
   border-top-right-radius: 10px;
   background-color: #1937be;
 }
-#single_query_global_queryVideos_main {
-}
+
 #single_query_global_queryVideos_main_leftArrow {
   border-radius: 6px;
   margin-top: 14rem;
@@ -3695,8 +3694,6 @@ card */
 /* new query */
 /* new query */
 
-#new_query_container {
-}
 #new_query_container_back {
   margin-top: 1rem;
   margin-left: 2rem;
@@ -3814,8 +3811,7 @@ card */
   font-family: sans-serif;
   padding: 10px;
 }
-#new_query_container_main_right_content {
-}
+
 #new_query_container_main_right_content_description_first {
   padding: 10px;
   margin-top: 1rem;
