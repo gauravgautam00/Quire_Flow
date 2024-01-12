@@ -25,7 +25,7 @@ const Main_page = () => {
   const source1 = document.createElement("source");
   video1.appendChild(source1);
 
-  source1.src = "Videos/pexels-rodnae-productions-7821852 (Original).mp4";
+  source1.src = "Videos/pexels_videos_2670 (1080p).mp4";
 
   source1.type = "video/mp4";
 
@@ -34,7 +34,7 @@ const Main_page = () => {
 
   const source2 = document.createElement("source");
   video2.appendChild(source2);
-  source2.src = "Videos/Video featuring a Slack customer,_.mp4";
+  source2.src = "Videos/pexels-cottonbro-5244396 (2160p).mp4";
 
   source2.type = "video/mp4";
 
@@ -43,7 +43,7 @@ const Main_page = () => {
 
   const source3 = document.createElement("source");
   video3.appendChild(source3);
-  source3.src = "Videos/160767 (1080p).mp4";
+  source3.src = "Videos/pexels-rodnae-productions-7822017 (1080p).mp4";
 
   source3.type = "video/mp4";
 

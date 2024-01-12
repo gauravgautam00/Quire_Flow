@@ -515,11 +515,11 @@ const Administrative_matter = () => {
             </div>
             <div
               onClick={() => {
-                setPreferences("Completed");
+                setPreferences("Research Required");
               }}
               className="administrator_container_filterLeft_preferencesHeadingSelect_childClass"
             >
-              Completed
+              Research Required
             </div>
             <div
               onClick={() => {

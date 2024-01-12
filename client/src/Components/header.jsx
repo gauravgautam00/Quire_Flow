@@ -40,7 +40,7 @@ const header = () => {
       >
         <div id="header_container_myQueries">My Queries</div>{" "}
       </NavLink>
-      <div id="header_container_account_logo">photo</div>
+      <div id="header_container_account_logo">SignUp</div>
     </div>
   );
 };

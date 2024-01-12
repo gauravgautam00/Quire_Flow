@@ -1,14 +1,10 @@
 import React from "react";
-
+import Single_Query_Global from "./Single_Query_Global";
 const Public_Queries_singleQuery = () => {
   return (
-    <div>
-      <br />
-      <br />
-      <br />
-      <br />
-      public query single query
-    </div>
+    <>
+      <Single_Query_Global isPublicQuery={true} />
+    </>
   );
 };
 

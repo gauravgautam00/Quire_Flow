@@ -3,9 +3,11 @@ import { useEffect } from "react";
 import { useRef } from "react";
 import { useParams } from "react-router-dom";
 import { useState } from "react";
-
-const Single_Query_Global = () => {
-  const { id } = useParams();
+import { useNavigate } from "react-router-dom";
+const Single_Query_Global = (props) => {
+  // const { id } = useParams();
+  const navigate = useNavigate();
+  const singleQueryBack = useRef(null);
 
   const photosMainContainer = useRef(null);
   const photosMainLeftArrow = useRef(null);
@@ -70,7 +72,7 @@ const Single_Query_Global = () => {
     ) {
       queryMarkBottomBox.current.style.height = "0rem";
       queryMarkUpperBox.current.onclick = () => {
-        if (queryMarkBottomBox.current.style.height == "0rem") {
+        if (queryMarkBottomBox.current.style.height === "0rem") {
           queryMarkBottomBox.current.style.height = "9rem";
           queryMarkUpperBoxIcon.current.style.transform = "rotate(-180deg)";
         } else {
@@ -87,7 +89,7 @@ const Single_Query_Global = () => {
     ) {
       extraDetailsBottomBox.current.style.height = "0rem";
       extraDetailsUpperBox.current.onclick = () => {
-        if (extraDetailsBottomBox.current.style.height == "0rem") {
+        if (extraDetailsBottomBox.current.style.height === "0rem") {
           extraDetailsBottomBox.current.style.height = "10rem";
           extraDetailsIcon.current.style.transform = "rotate(-180deg)";
         } else {
@@ -96,17 +98,24 @@ const Single_Query_Global = () => {
         }
       };
     }
+    if (singleQueryBack.current) {
+      console.log("outers");
+      singleQueryBack.current.onclick = () => {
+        console.log("ll");
+        navigate("/");
+      };
+    }
   }, []);
 
   const setValue = (val) => {
     setToShowPreference(val);
   };
   const setExtraDetail = (val) => {
-    setPreference(val == "Mark it as" ? "null" : val);
+    setPreference(val === "Mark it as" ? "null" : val);
   };
   return (
     <div id="single_query_global">
-      <div id="single_query_global_back">
+      <div id="single_query_global_back" ref={singleQueryBack}>
         <span
           id="single_query_global_backIcons"
           class="material-symbols-outlined"
@@ -115,6 +124,7 @@ const Single_Query_Global = () => {
         </span>
         Back
       </div>
+
       <div id="single_query_global_extraDetails">
         <div
           id="single_query_global_extraDetails_upperBox"
@@ -151,13 +161,20 @@ const Single_Query_Global = () => {
           >
             Recieved at - 11 may 2004
           </div>
-          <div
-            className="single_query_global_extraDetails_bottomBox_child"
-            id="single_query_global_extraDetails_bottomBox_child4"
-          >
-            Preferences - {preference}
-          </div>
+          {!props.isPublicQuery ? (
+            <div
+              className="single_query_global_extraDetails_bottomBox_child"
+              id="single_query_global_extraDetails_bottomBox_child4"
+            >
+              Preferences - {preference}
+            </div>
+          ) : (
+            ""
+          )}
         </div>
+      </div>
+      <div id="single_query_global_isPublicQuery">
+        {props.isPublicQuery ? "Public Query" : "Query For You"}
       </div>
       <div id="single_query_global_queryDescription">
         <div id="single_query_global_queryDescription_title">
@@ -306,6 +323,7 @@ const Single_Query_Global = () => {
                 src="/Images/dennis-eusebio-2ihYdRZgyWw-unsplash.jpg"
                 height="468"
                 width="900"
+                alt="queryPhoto"
               />
             </div>
             <div
@@ -317,6 +335,7 @@ const Single_Query_Global = () => {
                 src="/Images/dennis-eusebio-2ihYdRZgyWw-unsplash.jpg"
                 height="468"
                 width="900"
+                alt="queryPhoto"
               />
             </div>
             <div
@@ -328,6 +347,7 @@ const Single_Query_Global = () => {
                 src="/Images/dennis-eusebio-2ihYdRZgyWw-unsplash.jpg"
                 height="468"
                 width="900"
+                alt="queryPhoto"
               />
             </div>
             <div
@@ -339,6 +359,7 @@ const Single_Query_Global = () => {
                 src="/Images/dennis-eusebio-2ihYdRZgyWw-unsplash.jpg"
                 height="468"
                 width="900"
+                alt="queryPhoto"
               />
             </div>
             <div
@@ -350,6 +371,7 @@ const Single_Query_Global = () => {
                 src="/Images/dennis-eusebio-2ihYdRZgyWw-unsplash.jpg"
                 height="468"
                 width="900"
+                alt="queryPhoto"
               />
             </div>
           </div>
@@ -366,7 +388,6 @@ const Single_Query_Global = () => {
           </div>
         </div>
       </div>
-
       <div id="single_query_global_queryVideos">
         <div id="single_query_global_queryVideos_heading">Attached Video</div>
         <div id="single_query_global_queryVideos_main">
@@ -389,9 +410,9 @@ const Single_Query_Global = () => {
               className="single_query_global_queryVideos_main_container_childClass"
               id="single_query_global_queryVideos_main_container_child1"
             >
-              <video height="468px" width="900px" muted controls>
+              <video height="468px" width="900px" muted controls autoPlay>
                 <source
-                  src="client\public\Videos\pexels-mikhail-nilov-6962343 (Original).mp4"
+                  src="/Videos/pexels-mehmet-kılınç-18856748 (2160p).mp4"
                   type="video/mp4"
                 />
               </video>
@@ -402,7 +423,7 @@ const Single_Query_Global = () => {
             >
               <video height="468px" width="900px" muted controls>
                 <source
-                  src="Videos/pexels-mikhail-nilov-6962343 (Original).webm"
+                  src="/Videos/pexels-mikhail-nilov-6962343 (Original).webm"
                   type="video/webm"
                 />
               </video>
@@ -413,7 +434,7 @@ const Single_Query_Global = () => {
             >
               <video height="468px" width="900px" muted controls>
                 <source
-                  src="Videos/pexels-mikhail-nilov-6962343 (Original).mp4"
+                  src="/Videos/pexels-mikhail-nilov-6962343 (Original).mp4"
                   type="video/mp4"
                 />
               </video>
@@ -438,7 +459,7 @@ const Single_Query_Global = () => {
         <div id="single_query_global_queryComment_main">
           <div id="single_query_global_queryComment_leftPart">
             <div id="single_query_global_queryComment_leftPart_addComment">
-              Add Comment
+              Add Your Comment
             </div>
             <div id="single_query_global_queryComment_leftPart_textarea">
               <textarea
@@ -450,7 +471,7 @@ const Single_Query_Global = () => {
           </div>
           <div id="single_query_global_queryComment_rightPart">
             <div id="single_query_global_queryComment_rightPart_heading">
-              View your previous comments
+              View {!props.isPublicQuery ? "your previous" : "all"} comments
             </div>
             <div id="single_query_global_queryComment_rightPart_main">
               <div
@@ -485,83 +506,89 @@ const Single_Query_Global = () => {
           </div>
         </div>
       </div>
-      <div id="single_query_global_queryMark">
-        <div
-          id="single_query_global_queryMark_upperBox"
-          ref={queryMarkUpperBox}
-        >
-          <div id="single_query_global_queryMark_upperBox_heading">
-            {toShowPreference}
-          </div>
+      {!props.isPublicQuery ? (
+        <div>
+          <div id="single_query_global_queryMark">
+            <div
+              id="single_query_global_queryMark_upperBox"
+              ref={queryMarkUpperBox}
+            >
+              <div id="single_query_global_queryMark_upperBox_heading">
+                {toShowPreference}
+              </div>
 
-          <span
-            id="single_query_global_queryMark_upperBoxIcon"
-            class="material-symbols-outlined"
-            ref={queryMarkUpperBoxIcon}
-          >
-            expand_more
-          </span>
+              <span
+                id="single_query_global_queryMark_upperBoxIcon"
+                class="material-symbols-outlined"
+                ref={queryMarkUpperBoxIcon}
+              >
+                expand_more
+              </span>
+            </div>
+            <div
+              id="single_query_global_queryMark_bottomBox"
+              ref={queryMarkBottomBox}
+            >
+              <div
+                className="single_query_global_queryMark_bottomBox_child"
+                id="single_query_global_queryMark_bottomBox_child1"
+                onClick={() => {
+                  setValue("Completed");
+                }}
+              >
+                Completed
+              </div>
+              <div
+                className="single_query_global_queryMark_bottomBox_child"
+                id="single_query_global_queryMark_bottomBox_child2"
+                onClick={() => {
+                  setValue("Research Required");
+                }}
+              >
+                Research required
+              </div>
+              <div
+                className="single_query_global_queryMark_bottomBox_child"
+                id="single_query_global_queryMark_bottomBox_child3"
+                onClick={() => {
+                  setValue("Review Later");
+                }}
+              >
+                Review later
+              </div>
+              <div
+                className="single_query_global_queryMark_bottomBox_child"
+                id="single_query_global_queryMark_bottomBox_child4"
+                onClick={() => {
+                  setValue("Special One");
+                }}
+              >
+                Special one
+              </div>
+              <div
+                className="single_query_global_queryMark_bottomBox_child"
+                id="single_query_global_queryMark_bottomBox_child1"
+                onClick={() => {
+                  setValue("Mark it as");
+                }}
+              >
+                Mark it as
+              </div>
+            </div>
+            <div
+              onClick={() => {
+                setExtraDetail(toShowPreference);
+              }}
+              id="single_query_global_queryMark_button"
+            >
+              Done
+            </div>
+          </div>
+          <div id="single_query_global_queryDelete">Delete query</div>
         </div>
-        <div
-          id="single_query_global_queryMark_bottomBox"
-          ref={queryMarkBottomBox}
-        >
-          <div
-            className="single_query_global_queryMark_bottomBox_child"
-            id="single_query_global_queryMark_bottomBox_child1"
-            onClick={() => {
-              setValue("Completed");
-            }}
-          >
-            Completed
-          </div>
-          <div
-            className="single_query_global_queryMark_bottomBox_child"
-            id="single_query_global_queryMark_bottomBox_child2"
-            onClick={() => {
-              setValue("Research Required");
-            }}
-          >
-            Research required
-          </div>
-          <div
-            className="single_query_global_queryMark_bottomBox_child"
-            id="single_query_global_queryMark_bottomBox_child3"
-            onClick={() => {
-              setValue("Review Later");
-            }}
-          >
-            Review later
-          </div>
-          <div
-            className="single_query_global_queryMark_bottomBox_child"
-            id="single_query_global_queryMark_bottomBox_child4"
-            onClick={() => {
-              setValue("Special One");
-            }}
-          >
-            Special one
-          </div>
-          <div
-            className="single_query_global_queryMark_bottomBox_child"
-            id="single_query_global_queryMark_bottomBox_child1"
-            onClick={() => {
-              setValue("Mark it as");
-            }}
-          >
-            Mark it as
-          </div>
-        </div>
-        <div
-          onClick={() => {
-            setExtraDetail(toShowPreference);
-          }}
-          id="single_query_global_queryMark_button"
-        >
-          Done
-        </div>
-      </div>
-      <div id="single_query_global_queryDelete">Delete query</div>
+      ) : (
+        ""
+      )}
     </div>
   );
 };

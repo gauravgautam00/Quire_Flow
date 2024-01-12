@@ -21,18 +21,18 @@ const Deeper_Dive = () => {
 
   window.onscroll = () => {
     const curScroll = window.scrollY;
-    if (curScroll >= 87) {
-      if (leftContainer.current && rightContainer.current) {
+    if (leftContainer.current && rightContainer.current) {
+      if (curScroll >= 87) {
         leftContainer.current.style.position = "fixed";
         leftContainer.current.style.marginTop = "-70px";
         rightContainer.current.style.marginTop = "1rem";
         rightContainer.current.style.marginLeft = "21.43rem";
+      } else {
+        leftContainer.current.style.position = "static";
+        leftContainer.current.style.marginTop = "17px";
+        rightContainer.current.style.marginTop = "1rem";
+        rightContainer.current.style.marginLeft = "1rem";
       }
-    } else {
-      leftContainer.current.style.position = "static";
-      leftContainer.current.style.marginTop = "17px";
-      rightContainer.current.style.marginTop = "1rem";
-      rightContainer.current.style.marginLeft = "1rem";
     }
   };
 
@@ -228,17 +228,15 @@ const Deeper_Dive = () => {
         </div>
       </div>
       <div id="deeper_dive_container_right" ref={rightContainer}>
-        <div id="deeper_dive_container_right_content">
-          {turn == 3 ? (
-            <OnlineWebinar_Child_Deeper_dive />
-          ) : turn == 2 ? (
-            <CustomerStory_Child_Deeper_dive />
-          ) : turn == 1 ? (
-            <OpenParticipation_Child_Deeper_dive />
-          ) : (
-            <Research_Child_Deeper_dive />
-          )}
-        </div>
+        {turn == 3 ? (
+          <OnlineWebinar_Child_Deeper_dive />
+        ) : turn == 2 ? (
+          <CustomerStory_Child_Deeper_dive />
+        ) : turn == 1 ? (
+          <OpenParticipation_Child_Deeper_dive />
+        ) : (
+          <Research_Child_Deeper_dive />
+        )}
       </div>
     </div>
   );
