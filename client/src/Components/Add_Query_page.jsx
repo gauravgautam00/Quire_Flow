@@ -10,13 +10,15 @@ const Add_Query_page = () => {
         Welcome to QuireFlow: Your Gateway to Seamless Queries
       </div>
       <div id="askQuery_container_desc">
-        At QuireFlow, we simplify the way you handle queries and feedback. Our
-        platform empowers you to effortlessly manage and respond to user
-        inquiries, streamlining communication and fostering a more connected and
-        responsive environment. With intuitive features and a user-friendly
-        interface, QuireFlow is your go-to solution for effective query
-        management. Explore the possibilities, enhance communication, and unlock
-        the potential for growth with QuireFlow.
+        QuireFlow revolutionizes communication by providing an anonymous query
+        feature. Seamlessly raise questions or share feedback without revealing
+        your identity. Enjoy the freedom to express yourself openly, fostering a
+        candid and constructive environment. Our platform ensures your queries
+        are treated with utmost privacy, empowering you to engage without
+        constraints. Experience the liberating essence of anonymous interaction,
+        making QuireFlow your go-to platform for open and confidential
+        communication. Join us today and unlock a world of unrestricted
+        expression.
       </div>
       <Link to="/new_query" style={{ textDecoration: "none" }}>
         <div id="askQuery_container_leftPart">

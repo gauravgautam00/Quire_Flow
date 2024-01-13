@@ -5,14 +5,16 @@ const GlobalSharing_concept = () => {
     <div className="for_footer_color" id="GlobalSharing_concept_container">
       <div id="GlobalSharing_concept_container_title">Public Sharing</div>
       <div id="GlobalSharing_concept_container_message">
-        Our global feedback platform serves as a hub for individuals to provide
-        anonymous feedback and queries about various organizations and specific
-        departments. It introduces a unique approach by allowing users to not
-        only express their thoughts and concerns but also to access and engage
-        with feedback from departments across the globe. This global
-        accessibility offers several advantages. First, it enhances
-        transparency, as users can view and learn from feedback shared within
-        other organizations, gaining insights
+        QuireFlow goes beyond one-on-one interactions with its innovative public
+        sharing feature. Elevate your queries to a broader audience, inviting
+        diverse perspectives and insights. By opting for public sharing, your
+        questions become part of a collective conversation, opening the door to
+        a wealth of ideas. Embrace the collaborative spirit as the QuireFlow
+        community comes together to offer valuable input and varied viewpoints.
+        Experience the power of shared knowledge and foster a community that
+        thrives on collective intelligence. Join QuireFlow, where your queries
+        transcend individual conversations and become catalysts for shared
+        learning and growth.
       </div>
       <div id="GlobalSharing_concept_container_arrow">
         <div id="GlobalSharing_concept_container_arrow_first">
