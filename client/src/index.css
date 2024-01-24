@@ -2488,19 +2488,19 @@ code {
 #deeper_dive_container_left_research_bottom_para {
   margin-top: 1rem;
 
-  font-family: sans-serif;
+  /* font-family: sans-serif; */
 }
 #deeper_dive_container_left_openParticipation_bottom_para {
   margin-top: 1rem;
-  font-family: sans-serif;
+  /* font-family: sans-serif; */
 }
 #deeper_dive_container_left_customStory_bottom_para {
   margin-top: 1rem;
-  font-family: sans-serif;
+  /* font-family: sans-serif; */
 }
 #deeper_dive_container_left_onlineWebinar_bottom_para {
   margin-top: 1rem;
-  font-family: sans-serif;
+  /* font-family: sans-serif; */
 }
 #deeper_dive_container_left_researchIcon {
   left: 11rem;
@@ -2592,33 +2592,34 @@ code {
 /* child deeper dive -research */
 
 #child_research_container {
-  margin-top: 1rem;
-}
-#child_research_container_first {
-  height: 15rem;
-  margin-top: 17px;
-  background-color: aqua;
-  border: 2px solid;
-}
-#child_research_container_second {
-  height: 14rem;
-  margin-top: 17px;
-  background-color: aqua;
-  border: 2px solid;
-}
-#child_research_container_third {
-  height: 18rem;
-  margin-top: 17px;
-  background-color: aqua;
-  border: 2px solid;
-}
-#child_research_container_fourth {
-  height: 6rem;
-  margin-top: 17px;
-  background-color: aqua;
-  border: 2px solid;
+  /* margin-top: 1rem; */
 }
 
+#child_research_container_first {
+  text-align: center;
+  margin-top: 1rem;
+  margin-left: 20px;
+  width: 95%;
+}
+
+#child_research_container_images {
+  display: flex;
+}
+
+#child_research_container_image1 {
+  margin-top: 1rem;
+  margin-left: 1rem;
+}
+
+#child_research_container_image2 {
+  margin-top: 2rem;
+  margin-left: 9rem;
+}
+#child_research_container_second {
+  margin-top: 2rem;
+  margin-left: 20px;
+  width: 95%;
+}
 /* child deeper dive -open participation */
 /* child deeper dive -open participation */
 /* child deeper dive -open participation */

@@ -142,7 +142,7 @@ const Main_page = () => {
         }, 10000);
       } else {
         // Reject the promise if there's an error
-        reject(new Error("encap.current is not available"));
+        // reject(new Error("encap.current is not available"));
       }
     });
   };
@@ -237,7 +237,7 @@ const Main_page = () => {
         }, 10000);
       } else {
         // Reject the promise if there's an error
-        reject(new Error("respo.current is not available"));
+        // reject(new Error("respo.current is not available"));
       }
     });
   };
