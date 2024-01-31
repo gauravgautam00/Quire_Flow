@@ -23,7 +23,7 @@ const Organisation_things = () => {
       toggleBox.current.style.height = "0rem";
       toggleBox.current.style.border = "none";
       expandMore.current.onclick = () => {
-        console.log("hello");
+        console.log("expandMore.current");
 
         if (toggleBox.current.style.height == "0rem") {
           toggleBox.current.style.height = "17rem";
