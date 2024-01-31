@@ -229,11 +229,14 @@ const Deeper_Dive = () => {
       </div>
       <div id="deeper_dive_container_right" ref={rightContainer}>
         {turn == 3 ? (
-          <OnlineWebinar_Child_Deeper_dive />
+          // <OnlineWebinar_Child_Deeper_dive />
+          <Research_Child_Deeper_dive />
         ) : turn == 2 ? (
-          <CustomerStory_Child_Deeper_dive />
+          // <CustomerStory_Child_Deeper_dive />
+          <Research_Child_Deeper_dive />
         ) : turn == 1 ? (
-          <OpenParticipation_Child_Deeper_dive />
+          // <OpenParticipation_Child_Deeper_dive />
+          <Research_Child_Deeper_dive />
         ) : (
           <Research_Child_Deeper_dive />
         )}

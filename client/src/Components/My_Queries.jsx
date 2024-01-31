@@ -409,7 +409,7 @@ const My_Queries = () => {
                 className="my_queries_container_second_bottom_dataChildFirst_class"
                 id="my_queries_container_second_bottom_first_data_first"
               >
-                Keep tabs on all your queries effortlessly FIRST
+                Keep tabs on all your queries effortlessly
               </div>
               <div
                 className="my_queries_container_second_bottom_dataChildSecond_class"
@@ -433,15 +433,15 @@ const My_Queries = () => {
                 className="my_queries_container_second_bottom_dataChildFirst_class"
                 id="my_queries_container_second_bottom_second_data_first"
               >
-                Keep tabs on all your queries effortlessly SECOND
+                Track, review, and learn from past queries.
               </div>
               <div
                 className="my_queries_container_second_bottom_dataChildSecond_class"
                 id="my_queries_container_second_bottom_second_data_second"
               >
-                Our streamlined interface allows you to track the status,
-                responses, and updates on every query you've sent, ensuring
-                you're always in the loop.
+                Explore your past queries in a structured and organized manner
+                to gain insights and track your communication history
+                effortlessly
               </div>
             </div>
           </div>
@@ -457,15 +457,15 @@ const My_Queries = () => {
                 className="my_queries_container_second_bottom_dataChildFirst_class"
                 id="my_queries_container_second_bottom_third_data_first"
               >
-                Keep tabs on all your queries effortlessly THIRd
+                Efficiently manage and access your queries
               </div>
               <div
                 className="my_queries_container_second_bottom_dataChildSecond_class"
                 id="my_queries_container_second_bottom_third_data_second"
               >
-                Our streamlined interface allows you to track the status,
-                responses, and updates on every query you've sent, ensuring
-                you're always in the loop.
+                Seamlessly manage your queries with our smart organization
+                feature, streamlining your workflow for optimal efficiency and
+                clarity
               </div>
             </div>
           </div>
@@ -481,15 +481,16 @@ const My_Queries = () => {
                 className="my_queries_container_second_bottom_dataChildFirst_class"
                 id="my_queries_container_second_bottom_fourth_data_first"
               >
-                Keep tabs on all your queries effortlessly FOURTH
+                Queries with our priority-based system
               </div>
               <div
                 className="my_queries_container_second_bottom_dataChildSecond_class"
                 id="my_queries_container_second_bottom_fourth_data_second"
               >
-                Our streamlined interface allows you to track the status,
-                responses, and updates on every query you've sent, ensuring
-                you're always in the loop.
+                Our priority-based query handling system ensures that urgent
+                matters receive immediate attention, streamlining workflow and
+                enhancing productivity. Easily prioritize, track, and resolve
+                queries for seamless communication and swift resolution
               </div>
             </div>
           </div>
@@ -505,15 +506,14 @@ const My_Queries = () => {
                 className="my_queries_container_second_bottom_dataChildFirst_class"
                 id="my_queries_container_second_bottom_fifth_data_first"
               >
-                Keep tabs on all your queries effortlessly FIFTH
+                Tailored Query Insights
               </div>
               <div
                 className="my_queries_container_second_bottom_dataChildSecond_class"
                 id="my_queries_container_second_bottom_fifth_data_second"
               >
-                Our streamlined interface allows you to track the status,
-                responses, and updates on every query you've sent, ensuring
-                you're always in the loop.
+                Gain valuable insights into your queries with personalized
+                analytics, enhancing your understanding and decision-making.
               </div>
             </div>
           </div>
