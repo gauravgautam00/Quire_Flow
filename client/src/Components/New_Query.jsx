@@ -56,42 +56,6 @@ const NewQuery = () => {
           <div id="new_query_container_main_left_heading">Enter Details</div>
           <div id="new_query_container_main_left_content">
             <div
-              class="new_query_container_main_left_childClass"
-              id="new_query_container_main_leftOrganisation"
-            >
-              <div
-                class="new_query_container_main_left_headingClass"
-                id="new_query_container_main_leftOrganisation_heading"
-              >
-                Enter Your Organisation(Optional)
-              </div>
-              <div id="new_query_container_main_leftOrganisation_input">
-                <input
-                  id="new_query_container_main_leftOrganisation_inputReal"
-                  className="new_query_container_main_child_inputReal"
-                  type="text"
-                />
-              </div>
-            </div>
-            <div
-              id="new_query_container_main_leftDepartment"
-              class="new_query_container_main_left_childClass"
-            >
-              <div
-                class="new_query_container_main_left_headingClass"
-                id="new_query_container_main_leftDepartment_heading"
-              >
-                Enter Your Department(Optional)
-              </div>
-              <div id="new_query_container_main_leftDepartment_input">
-                <input
-                  id="new_query_container_main_leftDepartment_inputReal"
-                  className="new_query_container_main_child_inputReal"
-                  type="text"
-                />
-              </div>
-            </div>
-            <div
               id="new_query_container_main_leftPreferences"
               class="new_query_container_main_left_childClass"
             >
@@ -191,6 +155,27 @@ const NewQuery = () => {
                   type="text"
                   required
                 />
+              </div>
+            </div>
+            <div id="new_query_container_main_leftAds">
+              <div
+                class="new_query_container_main_leftAds_child"
+                id="new_query_container_main_leftAds_first"
+              >
+                Advertisement
+              </div>
+              <div
+                class="new_query_container_main_leftAds_child"
+                id="new_query_container_main_leftAds_second"
+              >
+                Advertisement
+              </div>
+
+              <div
+                class="new_query_container_main_leftAds_child"
+                id="new_query_container_main_leftAds_third"
+              >
+                Advertisement
               </div>
             </div>
           </div>

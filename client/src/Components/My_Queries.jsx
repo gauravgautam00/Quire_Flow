@@ -818,9 +818,8 @@ const My_Queries = () => {
               <Link
                 style={{ textDecoration: "none" }}
                 key={index}
-                to={`/my_queries/${data.toAnonyKey}`}
+                to={`/my_queries/query`}
               >
-                {" "}
                 <CardQueryChild
                   key={index}
                   queryTitle={data.queryTitle}

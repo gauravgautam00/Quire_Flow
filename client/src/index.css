@@ -3729,7 +3729,7 @@ card */
 #new_query_container_main_left {
   margin-left: 1rem;
   border-radius: 10px;
-  height: 26rem;
+  /* height: 26rem; */
   /* border: 2px solid red; */
   /* overflow-y: scroll; */
   box-shadow: 0px 0px 6px 0px #c5c4c4;
@@ -3744,10 +3744,7 @@ card */
   font-family: sans-serif;
   padding: 12px;
 }
-#new_query_container_main_left_content {
-  overflow-y: scroll;
-  height: 23rem;
-}
+
 .new_query_container_main_left_headingClass {
   font-size: smaller;
   font-family: sans-serif;
@@ -3759,7 +3756,7 @@ card */
   margin-top: 1rem;
 }
 .new_query_container_main_child_inputReal {
-  width: 19.2rem;
+  width: 93%;
   height: 1.6rem;
 }
 #new_query_container_main_leftPreferences_dropDown {
@@ -3768,6 +3765,7 @@ card */
   position: relative;
   height: 27px;
   cursor: pointer;
+  width: 95%;
   padding-top: 9px;
 }
 #new_query_container_main_leftPreferences_dropDown_heading {
@@ -3785,6 +3783,7 @@ card */
   overflow-y: scroll;
   border: 1px solid;
   height: 0rem;
+  width: 95%;
   transition: height 1s;
 }
 .new_query_container_main_leftPreferences_bottomBox_childClass {
@@ -3795,6 +3794,17 @@ card */
 .new_query_container_main_leftPreferences_bottomBox_childClass:hover {
   background-color: #f5f5f5;
 }
+
+.new_query_container_main_leftAds_child {
+  height: 12rem;
+  margin-top: 2rem;
+  background-color: #f0f0f0;
+  margin-left: 10px;
+  color: grey;
+  border: 1px solid;
+  width: 90%;
+}
+
 #new_query_container_main_right {
   margin-left: 2rem;
   margin-top: 0rem;
@@ -3898,6 +3908,162 @@ card */
 /* new query */
 /* new query */
 /* new query */
+
+/* Authentication */
+/* Authentication */
+/* Authentication */
+/* Authentication */
+
+#authentication_container {
+  /* border: 2px solid red; */
+  display: flex;
+  background: url("../public/Images/paul-earle-wVjd0eWNqI8-unsplash.jpg") center
+    center;
+}
+#authentication_container_signUp {
+  box-shadow: 0px 0px 6px 0px #c5c4c4;
+  width: 48%;
+  margin-left: 3rem;
+  margin-bottom: 5rem;
+  border-radius: 10px;
+  background-color: white;
+  margin-top: 3rem;
+}
+
+#authentication_container_signUp_heading {
+  margin-top: 1rem;
+  margin-left: 4rem;
+}
+
+#authentication_container_signUp_heading_image {
+  height: 50px;
+  width: 50px;
+  border-radius: 10px;
+}
+#authentication_container_signUp_heading_title {
+  font-size: xx-large;
+  font-family: sans-serif;
+  margin-top: 5px;
+}
+#authentication_container_signUp_heading_desc {
+  margin-top: 6px;
+  font-size: 18px;
+}
+#authentication_container_signUp_details {
+  margin-left: 1rem;
+  flex-wrap: wrap;
+  margin-top: 1rem;
+  display: flex;
+  width: 37rem;
+}
+.authentication_container_signUp_detailsChild {
+  width: 30.5rem;
+  margin-top: 10px;
+  margin-left: 47px;
+  height: 4rem;
+  font-size: large;
+}
+#authentication_container_signUp_details_confirmPassword {
+  margin-top: -4rem;
+  width: 15rem;
+  margin-left: 18rem;
+}
+.authentication_container_signUp_detailsChild_input {
+  width: 28rem;
+  height: 2rem;
+}
+#authentication_container_signUp_detailsChild_input_password {
+  width: 13rem;
+}
+#authentication_container_signUp_detailsChild_input_confirmPassword {
+  width: 13rem;
+}
+#authentication_container_signUp_details_but {
+  margin-bottom: 1rem;
+  margin-left: 8rem;
+  font-size: large;
+  cursor: pointer;
+  width: 20rem;
+  /* height: 2rem; */
+  border-radius: 5px;
+  color: #ffdb58;
+  padding: 11px;
+  background-color: black;
+  margin-top: 1rem;
+}
+
+#authentication_container_login {
+  margin-top: 3rem;
+  width: 30rem;
+  height: 32rem;
+  background-color: white;
+  border-radius: 10px;
+  margin-left: 5rem;
+}
+#authentication_container_login_heading {
+  text-align: center;
+}
+#authentication_container_login_heading_image {
+  margin-top: 1rem;
+}
+#authentication_container_login_heading_imageReal {
+  width: 50px;
+  height: 50px;
+  border-radius: 10px;
+}
+#authentication_container_login_heading_title {
+  font-size: xx-large;
+  font-family: sans-serif;
+}
+#authentication_container_login_heading_desc {
+  width: 14rem;
+  margin-left: 8.5rem;
+  text-align: center;
+  font-size: large;
+  margin-top: 6px;
+}
+#authentication_container_login_heading_google {
+  margin-left: 4rem;
+  width: 21rem;
+  padding: 6px;
+  border: 1px solid grey;
+  margin-top: 2rem;
+}
+
+#authentication_container_login_details_email {
+  margin-top: 3rem;
+  margin-left: 4rem;
+}
+#authentication_container_login_details_email_input {
+  height: 2rem;
+  width: 21.3rem;
+}
+#authentication_container_login_details_password {
+  margin-top: 1rem;
+  margin-left: 4rem;
+}
+
+#authentication_container_login_details_password_input {
+  width: 21.4rem;
+  height: 2rem;
+}
+#authentication_container_login_details_but {
+  color: #ffdb58;
+  margin-bottom: 1rem;
+  background-color: black;
+  border-radius: 5px;
+  margin-left: 5rem;
+  padding: 11px;
+  font-size: large;
+  cursor: pointer;
+  width: 20rem;
+  margin-top: 2rem;
+}
+
+/* Authentication */
+/* Authentication */
+/* Authentication */
+/* Authentication */
 
 /* GLOBAL CSS */ /* GLOBAL CSS */ /* GLOBAL CSS */ /* GLOBAL CSS */ /* GLOBAL CSS */ /* GLOBAL CSS */ /* GLOBAL CSS */ /* GLOBAL CSS */ /* GLOBAL CSS */ /* GLOBAL CSS */ /* GLOBAL CSS */
 

@@ -10,7 +10,7 @@ import Deeper_Dive from "./Components/Deeper_Dive";
 import New_Query from "./Components/New_Query";
 import Administrative_matter_singleQuery from "./Components/Administrative_matter_singleQuery";
 import Public_Queries_singleQuery from "./Components/Public_Queries_singleQuery";
-
+import Authentication from "./Components/Authentication";
 function App() {
   return (
     <BrowserRouter>
@@ -23,18 +23,19 @@ function App() {
           element={<Administrative_matter />}
         ></Route>
         <Route path="/my_queries" element={<My_Queries />}></Route>
-        <Route path="/my_queries/:id" element={<Single_Query />}></Route>
+        <Route path="/my_queries/query" element={<Single_Query />}></Route>
+        <Route path="/authentication" element={<Authentication />}></Route>
         <Route path="/new_query" element={<New_Query />}></Route>
         <Route
           path="/administrative_matter/deeper_dive"
           element={<Deeper_Dive />}
         ></Route>
         <Route
-          path="/administrative_matter/:id"
+          path="/administrative_matter/query"
           element={<Administrative_matter_singleQuery />}
         ></Route>
         <Route
-          path="/public_queries/:id"
+          path="/public_queries/query"
           element={<Public_Queries_singleQuery />}
         ></Route>
       </Routes>

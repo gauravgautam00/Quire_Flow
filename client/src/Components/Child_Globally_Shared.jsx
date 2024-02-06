@@ -20,7 +20,7 @@ const Child_Globally_Shared = (props) => {
       <div id="publically_shared_container_expandMore">
         <Link
           style={{ color: "white", textDecoration: "none" }}
-          to={`/public_queries/${props.uniqueNum}`}
+          to={`/public_queries/query`}
         >
           Expand
         </Link>

@@ -201,7 +201,7 @@ const Child_Administrative_matter = (props) => {
         <div id="child_administrative_matter_headingTop">
           <div id="child_administrator_matter_headingTop_expand">
             <NavLink
-              to={`/administrative_matter/${props.uniqueNum}`}
+              to={`/administrative_matter/query`}
               style={{
                 textDecoration: "none",
                 color: "white",

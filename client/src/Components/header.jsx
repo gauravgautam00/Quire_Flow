@@ -40,7 +40,12 @@ const header = () => {
       >
         <div id="header_container_myQueries">My Queries</div>{" "}
       </NavLink>
-      <div id="header_container_account_logo">SignUp</div>
+      <Link
+        to="/authentication"
+        style={{ textDecoration: "none", color: "inherit" }}
+      >
+        <div id="header_container_account_logo">Sign Up</div>
+      </Link>
     </div>
   );
 };
