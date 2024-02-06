@@ -18,7 +18,7 @@ const Single_Query_Global = (props) => {
   const queryMarkUpperBox = useRef(null);
   const queryMarkBottomBox = useRef(null);
   const queryMarkUpperBoxIcon = useRef(null);
-  const [preference, setPreference] = useState();
+  const [preference, setPreference] = useState("Pending");
   const [toShowPreference, setToShowPreference] = useState("Mark it as");
   const extraDetailsUpperBox = useRef(null);
   const extraDetailsBottomBox = useRef(null);
@@ -111,7 +111,7 @@ const Single_Query_Global = (props) => {
     setToShowPreference(val);
   };
   const setExtraDetail = (val) => {
-    setPreference(val === "Mark it as" ? "null" : val);
+    setPreference(val);
   };
   return (
     <div id="single_query_global">
@@ -536,7 +536,7 @@ const Single_Query_Global = (props) => {
                   setValue("Completed");
                 }}
               >
-                Completed
+                Acknowledged Query
               </div>
               <div
                 className="single_query_global_queryMark_bottomBox_child"
@@ -554,7 +554,7 @@ const Single_Query_Global = (props) => {
                   setValue("Review Later");
                 }}
               >
-                Review later
+                In progress
               </div>
               <div
                 className="single_query_global_queryMark_bottomBox_child"
@@ -569,10 +569,10 @@ const Single_Query_Global = (props) => {
                 className="single_query_global_queryMark_bottomBox_child"
                 id="single_query_global_queryMark_bottomBox_child1"
                 onClick={() => {
-                  setValue("Mark it as");
+                  setValue("Pending");
                 }}
               >
-                Mark it as
+                Pending(Default)
               </div>
             </div>
             <div

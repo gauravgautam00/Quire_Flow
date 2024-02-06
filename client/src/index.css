@@ -1253,7 +1253,7 @@ code {
 #single_query_global {
   background-color: #f2f2f7;
   padding: 0.1px;
-  height: 170rem;
+  height: 172rem;
 }
 #single_query_global_back {
   margin-left: 3rem;
@@ -1800,17 +1800,37 @@ code {
   margin-top: 0.3rem;
   margin-left: 1rem;
 }
-#administrator_container_filterUp_boxProgress {
+#administrator_container_filterUp_markAs {
+  margin-left: 41rem;
+  gap: 21px;
+  justify-content: center;
+  display: flex;
+  flex-wrap: wrap;
+  margin-top: -2rem;
+}
+.administrator_container_filterUp_markAsChildClass {
   text-align: center;
   border: 2px solid #16252d;
-  width: 10rem;
-  margin-left: 7rem;
-  margin-top: 1.1rem;
+  width: 9rem;
+  flex-grow: 0;
+  flex-shrink: 0;
   font-size: 16px;
   height: 1.3rem;
   padding: 4px;
   border-radius: 3px;
   cursor: pointer;
+}
+/* #administrator_container_filterUp_boxProgress {
+     text-align: center;
+    border: 2px solid #16252d;
+    width: 10rem;
+    flex-grow: 0;
+    flex-shrink: 0;
+    font-size: 16px;
+    height: 1.3rem;
+    padding: 4px;
+    border-radius: 3px;
+    cursor: pointer;
 }
 #administrator_container_filterUp_boxCompleted {
   height: 1.3rem;
@@ -1824,29 +1844,8 @@ code {
   margin-left: 19rem;
   border-radius: 3px;
 }
-#administrator_container_filterUp_selectAll {
-  height: 1.3rem;
-  width: 4rem;
-  border: 2px solid #16252d;
-  text-align: center;
-  font-size: 16px;
-  padding: 4px;
-  background-color: #16252d;
-  color: white;
-  margin-top: -2rem;
-  cursor: pointer;
-  margin-left: 31rem;
-  border-radius: 3px;
-}
-#administrator_container_filterUp_sort {
-  text-align: center;
-  width: 17rem;
-  margin-top: -4rem;
-  border: 2px solid #16252d;
-  margin-left: 42rem;
-  font-size: larger;
-  cursor: pointer;
-}
+*/
+
 #administrator_container_filterUp_firstSeparation {
   margin-top: -5rem;
   margin-left: 40rem;
@@ -1854,35 +1853,29 @@ code {
   height: 5rem;
   width: 0rem;
 }
-#administrator_container_filterUp_secondSeparation {
-  margin-top: -2.8rem;
-  margin-left: 62rem;
-  border: 1px solid #16252d;
-  height: 5rem;
-  width: 0rem;
-}
+
 #administrator_container_filterUp_search {
   font-size: 14px;
   padding: 5px;
   text-align: center;
   border: 2px solid #16252d;
-  width: 5rem;
+  width: 12rem;
   cursor: pointer;
   border-radius: 3px;
-  margin-left: 66rem;
-  margin-top: -80px;
+  margin-left: 9rem;
+  margin-top: -2rem;
   font-family: sans-serif;
 }
 #administrator_container_filterUp_reset {
   font-size: 14px;
   text-align: center;
   border: 2px solid #16252d;
-  width: 5rem;
+  width: 12rem;
   padding: 5px;
   cursor: pointer;
   border-radius: 3px;
-  margin-left: 66rem;
-  margin-top: 15px;
+  margin-left: 25rem;
+  margin-top: -1.89rem;
   font-family: sans-serif;
 }
 

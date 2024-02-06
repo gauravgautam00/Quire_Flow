@@ -125,12 +125,12 @@ const NewQuery = () => {
                 </div>
                 <div
                   onClick={() => {
-                    setPreference("Not Specified");
+                    setPreference("None");
                   }}
                   className="new_query_container_main_leftPreferences_bottomBox_childClass"
                   id="new_query_container_main_leftPreferences_bottomBox_child5"
                 >
-                  Not Specified
+                  None
                 </div>
               </div>
             </div>

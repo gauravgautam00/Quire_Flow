@@ -20,7 +20,9 @@ const Administrative_matter = () => {
   const filterLeftDepartmentSelectReference = useRef(null);
   const filterLeftPreferenceSelectReference = useRef(null);
   const filterUpInProgressQuery = useRef(null);
-  const filterUpCompleteQuery = useRef(null);
+  const filterUpAcknowledgedQuery = useRef(null);
+  const filterUpResearchQuery = useRef(null);
+  const filterUpSpecialQuery = useRef(null);
   const filterUpAll = useRef(null);
 
   const queryContainer = useRef(null);
@@ -105,33 +107,71 @@ const Administrative_matter = () => {
   useEffect(() => {
     if (
       filterUpInProgressQuery.current &&
-      filterUpCompleteQuery.current &&
-      filterUpAll.current
+      filterUpAcknowledgedQuery.current &&
+      filterUpAll.current &&
+      filterUpResearchQuery.current &&
+      filterUpSpecialQuery.current
     ) {
       // console.log("dd")
       filterUpInProgressQuery.current.onclick = () => {
         filterUpInProgressQuery.current.style.backgroundColor = "#16252D";
         filterUpInProgressQuery.current.style.color = "white";
-        filterUpCompleteQuery.current.style.backgroundColor = "white";
-        filterUpCompleteQuery.current.style.color = "black";
+        filterUpAcknowledgedQuery.current.style.backgroundColor = "white";
+        filterUpAcknowledgedQuery.current.style.color = "black";
         filterUpAll.current.style.backgroundColor = "white";
         filterUpAll.current.style.color = "black";
+        filterUpResearchQuery.current.style.backgroundColor = "white";
+        filterUpResearchQuery.current.style.color = "black";
+        filterUpSpecialQuery.current.style.backgroundColor = "white";
+        filterUpSpecialQuery.current.style.color = "black";
       };
-      filterUpCompleteQuery.current.onclick = () => {
+      filterUpAcknowledgedQuery.current.onclick = () => {
         filterUpInProgressQuery.current.style.backgroundColor = "white";
         filterUpInProgressQuery.current.style.color = "black";
-        filterUpCompleteQuery.current.style.backgroundColor = "#16252D";
-        filterUpCompleteQuery.current.style.color = "white";
+        filterUpAcknowledgedQuery.current.style.backgroundColor = "#16252D";
+        filterUpAcknowledgedQuery.current.style.color = "white";
         filterUpAll.current.style.backgroundColor = "white";
         filterUpAll.current.style.color = "black";
+        filterUpResearchQuery.current.style.backgroundColor = "white";
+        filterUpResearchQuery.current.style.color = "black";
+        filterUpSpecialQuery.current.style.backgroundColor = "white";
+        filterUpSpecialQuery.current.style.color = "black";
       };
       filterUpAll.current.onclick = () => {
         filterUpInProgressQuery.current.style.backgroundColor = "white";
         filterUpInProgressQuery.current.style.color = "black";
-        filterUpCompleteQuery.current.style.backgroundColor = "white";
-        filterUpCompleteQuery.current.style.color = "black";
+        filterUpAcknowledgedQuery.current.style.backgroundColor = "white";
+        filterUpAcknowledgedQuery.current.style.color = "black";
         filterUpAll.current.style.backgroundColor = "#16252D";
         filterUpAll.current.style.color = "white";
+        filterUpResearchQuery.current.style.backgroundColor = "white";
+        filterUpResearchQuery.current.style.color = "black";
+        filterUpSpecialQuery.current.style.backgroundColor = "white";
+        filterUpSpecialQuery.current.style.color = "black";
+      };
+      filterUpResearchQuery.current.onclick = () => {
+        filterUpInProgressQuery.current.style.backgroundColor = "white";
+        filterUpInProgressQuery.current.style.color = "black";
+        filterUpAcknowledgedQuery.current.style.backgroundColor = "white";
+        filterUpAcknowledgedQuery.current.style.color = "black";
+        filterUpAll.current.style.backgroundColor = "white";
+        filterUpAll.current.style.color = "black";
+        filterUpResearchQuery.current.style.backgroundColor = "#16252D";
+        filterUpResearchQuery.current.style.color = "white";
+        filterUpSpecialQuery.current.style.backgroundColor = "white";
+        filterUpSpecialQuery.current.style.color = "black";
+      };
+      filterUpSpecialQuery.current.onclick = () => {
+        filterUpInProgressQuery.current.style.backgroundColor = "white";
+        filterUpInProgressQuery.current.style.color = "black";
+        filterUpAcknowledgedQuery.current.style.backgroundColor = "white";
+        filterUpAcknowledgedQuery.current.style.color = "black";
+        filterUpAll.current.style.backgroundColor = "white";
+        filterUpAll.current.style.color = "black";
+        filterUpResearchQuery.current.style.backgroundColor = "white";
+        filterUpResearchQuery.current.style.color = "black";
+        filterUpSpecialQuery.current.style.backgroundColor = "#16252D";
+        filterUpSpecialQuery.current.style.color = "white";
       };
     }
   }, []);
@@ -243,27 +283,44 @@ const Administrative_matter = () => {
             type="text"
             placeholder="Search specific description"
           />
-          <div
-            id="administrator_container_filterUp_boxProgress"
-            ref={filterUpInProgressQuery}
-          >
-            In-Progress Query
-          </div>
-          <div
-            id="administrator_container_filterUp_boxCompleted"
-            ref={filterUpCompleteQuery}
-          >
-            Acknowledged query
-          </div>
-          <div
-            id="administrator_container_filterUp_selectAll"
-            ref={filterUpAll}
-          >
-            All
+          <div id="administrator_container_filterUp_markAs">
+            <div
+              class="administrator_container_filterUp_markAsChildClass"
+              id="administrator_container_filterUp_boxProgress"
+              ref={filterUpInProgressQuery}
+            >
+              In-Progress Query
+            </div>
+            <div
+              class="administrator_container_filterUp_markAsChildClass"
+              id="administrator_container_filterUp_boxAcknowledged"
+              ref={filterUpAcknowledgedQuery}
+            >
+              Acknowledged query
+            </div>
+            <div
+              class="administrator_container_filterUp_markAsChildClass"
+              id="administrator_container_filterUp_boxResearch"
+              ref={filterUpResearchQuery}
+            >
+              Research Required
+            </div>
+            <div
+              class="administrator_container_filterUp_markAsChildClass"
+              id="administrator_container_filterUp_boxSpecial"
+              ref={filterUpSpecialQuery}
+            >
+              Special one
+            </div>
+            <div
+              class="administrator_container_filterUp_markAsChildClass"
+              id="administrator_container_filterUp_selectAll"
+              ref={filterUpAll}
+            >
+              All
+            </div>
           </div>
           <div id="administrator_container_filterUp_firstSeparation"></div>
-          <div id="administrator_container_filterUp_sort">Sort By</div>
-          <div id="administrator_container_filterUp_secondSeparation"></div>
 
           <div id="administrator_container_filterUp_search">Search</div>
           <div id="administrator_container_filterUp_reset">Reset</div>
@@ -523,11 +580,11 @@ const Administrative_matter = () => {
             </div>
             <div
               onClick={() => {
-                setPreferences("Select Preferences");
+                setPreferences("None");
               }}
               className="administrator_container_filterLeft_preferencesHeadingSelect_childClass"
             >
-              Select Preferences
+              None
             </div>
           </div>
         </div>
