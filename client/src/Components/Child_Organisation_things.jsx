@@ -16,7 +16,7 @@ const Child_Organisation_things = (props) => {
       childOrgThingsHamburgerIcon.current
     ) {
       childOrgThingsHamBurger.current.onclick = () => {
-        if (childOrgThingsSideBar.current.style.marginLeft == "0rem") {
+        if (childOrgThingsSideBar.current.style.marginLeft === "0rem") {
           childOrgThingsSideBar.current.style.marginLeft = "-20rem";
           childOrgThingsHamburgerIcon.current.style.transform = "rotate(0deg)";
         } else {
@@ -32,7 +32,7 @@ const Child_Organisation_things = (props) => {
       childOrgThingsHamburgerSecondIcon.current
     ) {
       childOrgThingsHamBurgerSecond.current.onclick = () => {
-        if (childOrgThingsSideBarSecond.current.style.marginLeft == "20rem") {
+        if (childOrgThingsSideBarSecond.current.style.marginLeft === "20rem") {
           childOrgThingsSideBarSecond.current.style.marginLeft = "62rem";
           childOrgThingsHamburgerSecondIcon.current.style.transform =
             "rotate(0deg)";

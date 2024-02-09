@@ -1,6 +1,100 @@
 import React from "react";
-
+import { useNavigate } from "react-router-dom";
 const Authentication = () => {
+  const navigate = useNavigate();
+  const signUpFormSubmit = (e) => {
+    e.preventDefault();
+    // const { name, email, password, confirmPassword, organisation, department } =
+    const name = e.target.name.value;
+    const email = e.target.email.value;
+    const password = e.target.password.value;
+    const confirmPassword = e.target.confirmPassword.value;
+    const organisation = e.target.organisation.value;
+    const department = e.target.department.value;
+
+    console.log(password, confirmPassword);
+    if (password !== confirmPassword) {
+      alert("Password and Confirm password is not same");
+      return;
+    }
+    const curData = {
+      name,
+      email,
+      password,
+      organisation,
+      department,
+    };
+    console.log(curData);
+
+    fetch("http://localhost:2300/signup", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(curData),
+    })
+      .then((res) => {
+        res.json();
+        if (!res.ok) {
+          alert(res.message);
+          throw new Error("Network response was not ok");
+        }
+        return res;
+      })
+      .then((response) => {
+        console.log(response);
+        localStorage.setItem("token", response.userToken);
+        localStorage.setItem("userName", name);
+        alert("Sign up successfulll taking you to the home page");
+
+        navigate("/");
+        window.location.reload();
+      })
+      .catch((error) => {
+        console.log("Some error occurred while signing up", error);
+      });
+  };
+
+  const loginFormSubmit = (e) => {
+    e.preventDefault();
+    const email = e.target.email.value;
+    const password = e.target.password.value;
+
+    const data = {
+      email,
+      password,
+    };
+    console.log(JSON.stringify(data));
+    fetch("http://localhost:2300/login", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(data),
+    })
+      .then((res) => {
+        if (!res.ok) {
+          return res.json().then((err) => {
+            alert(err.message);
+            throw new Error("Network response was not ok");
+          });
+        }
+        return res.json();
+      })
+      .then((response) => {
+        console.log(response);
+        localStorage.setItem("token", response.userToken);
+        localStorage.setItem("userName", response.User.name);
+        alert("Successfully logged in");
+
+        navigate("/");
+        window.location.reload();
+      })
+      .catch((err) => {
+        console.error("Error:", err);
+      });
+  };
+
   return (
     <div id="authentication_container">
       <div id="authentication_container_signUp">
@@ -16,7 +110,10 @@ const Authentication = () => {
           </div>
         </div>
         <div>
-          <form id="authentication_container_signUp_details">
+          <form
+            id="authentication_container_signUp_details"
+            onSubmit={signUpFormSubmit}
+          >
             <div
               class="authentication_container_signUp_detailsChild"
               id="authentication_container_signUp_details_name"
@@ -29,6 +126,7 @@ const Authentication = () => {
                   class="authentication_container_signUp_detailsChild_input"
                   type="text"
                   placeholder="Enter..."
+                  name="name"
                 />
               </div>
             </div>
@@ -44,6 +142,7 @@ const Authentication = () => {
                   class="authentication_container_signUp_detailsChild_input"
                   type="text"
                   placeholder="Enter..."
+                  name="email"
                 />
               </div>
             </div>
@@ -59,6 +158,7 @@ const Authentication = () => {
                   class="authentication_container_signUp_detailsChild_input"
                   type="text"
                   placeholder="Enter..."
+                  name="organisation"
                 />
               </div>
             </div>
@@ -74,6 +174,7 @@ const Authentication = () => {
                   class="authentication_container_signUp_detailsChild_input"
                   type="text"
                   placeholder="Enter..."
+                  name="department"
                 />
               </div>
             </div>
@@ -90,6 +191,7 @@ const Authentication = () => {
                   class="authentication_container_signUp_detailsChild_input"
                   type="password"
                   placeholder="Enter..."
+                  name="password"
                 />
               </div>
             </div>
@@ -107,6 +209,7 @@ const Authentication = () => {
                   type="password"
                   placeholder="
                   Enter..."
+                  name="confirmPassword"
                 />
               </div>
             </div>
@@ -138,7 +241,10 @@ const Authentication = () => {
             Continue with Google
           </div> */}
         </div>
-        <form id="authentication_container_login_details">
+        <form
+          id="authentication_container_login_details"
+          onSubmit={loginFormSubmit}
+        >
           <div id="authentication_container_login_details_email">
             <div id="authentication_container_login_details_email_first">
               Email
@@ -149,6 +255,7 @@ const Authentication = () => {
                 type="text"
                 placeholder="
                 Enter email..."
+                name="email"
               ></input>
             </div>
           </div>
@@ -162,6 +269,7 @@ const Authentication = () => {
                 id="authentication_container_login_details_password_input"
                 type="text"
                 placeholder="Enter password..."
+                name="password"
               ></input>
             </div>
           </div>

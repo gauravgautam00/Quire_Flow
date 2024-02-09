@@ -27,7 +27,10 @@ code {
   display: flex;
   border: 2px solid #ffdb58;
   padding: 13px;
+  z-index: 4;
   height: 42px;
+  position: relative;
+  background-color: white;
 }
 #header_container_logo {
   font-size: large;
@@ -109,6 +112,46 @@ code {
   background-color: #1034a6;
   color: white;
   cursor: pointer;
+}
+#header_container_accountHamburger {
+  border-radius: 50%;
+  height: 2.7rem;
+  border: 2px solid red;
+  margin-left: 4rem;
+  width: 3rem;
+  cursor: pointer;
+}
+#header_container_accountHamburger_bottomBox {
+  border-bottom-right-radius: 10px;
+  overflow: hidden;
+  z-index: 3;
+  width: 13rem;
+  border-bottom-left-radius: 10px;
+  transition: height 1s;
+  background-color: white;
+  position: absolute;
+  height: 0rem;
+  border: 2px solid black;
+  margin-top: -4px;
+  margin-left: 83.2%;
+}
+#header_container_accountHamburger_bottomBox_name {
+  padding: 12px;
+  background-color: beige;
+  font-size: x-large;
+  text-align: center;
+}
+#header_container_accountHamburger_bottomBox_profile {
+  font-size: larger;
+  text-align: center;
+  cursor: pointer;
+  margin-top: 1rem;
+}
+#header_container_accountHamburger_bottomBox_logout {
+  text-align: center;
+  font-size: larger;
+  cursor: pointer;
+  margin-top: 1.3rem;
 }
 
 /* header */
@@ -1253,7 +1296,7 @@ code {
 #single_query_global {
   background-color: #f2f2f7;
   padding: 0.1px;
-  height: 172rem;
+  /* height: 181rem; */
 }
 #single_query_global_back {
   margin-left: 3rem;
@@ -1314,7 +1357,7 @@ code {
 }
 #single_query_global_queryDescription {
   border-radius: 10px;
-  height: 34rem;
+  /* height: 34rem; */
   width: 90%;
   margin-left: 4rem;
   box-shadow: 0px 0px 6px 0px #c5c4c4;
@@ -1332,7 +1375,7 @@ code {
 }
 #single_query_global_queryDescription_para {
   border-bottom-left-radius: 10px;
-  height: 28.6rem;
+  max-height: 28.6rem;
   overflow-y: scroll;
   border-bottom-right-radius: 10px;
   padding: 16px;
@@ -1390,6 +1433,7 @@ code {
 }
 .single_query_global_queryPhotos_main_container_childClass {
   height: 10rem;
+  width: 56.25rem;
   flex-shrink: 0;
   flex-grow: 0;
   margin-top: 1rem;
@@ -1611,7 +1655,7 @@ code {
   transition: height 1s;
   border: 1px solid;
   overflow-y: scroll;
-  height: 0rem;
+  height: 8rem;
   width: 20.6rem;
 }
 .single_query_global_queryMark_bottomBox_child {
@@ -1625,14 +1669,24 @@ code {
 #single_query_global_queryMark_button {
   font-size: larger;
   cursor: pointer;
-  margin-left: 25rem;
+  margin-left: 23.8rem;
   border: 1px solid;
   border-radius: 4px;
   width: 7rem;
   text-align: center;
   padding: 5px;
-  margin-top: -2.1rem;
+  margin-top: 2.9rem;
 }
+#single_query_global_queryMark_button:hover {
+  background-color: #f2f2f7;
+}
+#single_query_global_queryMark_disclaimer {
+  width: 10rem;
+  margin-left: 23rem;
+  margin-top: -9rem;
+  font-size: large;
+}
+
 #single_query_global_queryDelete {
   color: white;
   background-color: red;
@@ -1646,7 +1700,9 @@ code {
   border-radius: 10px;
   font-size: larger;
 }
-
+#single_query_global_queryLastPart {
+  margin-bottom: 2rem;
+}
 /* Global Child Query */
 /* Global Child Query */
 /* Global Child Query */
@@ -1817,8 +1873,13 @@ code {
   font-size: 16px;
   height: 1.3rem;
   padding: 4px;
+  background-color: white;
   border-radius: 3px;
   cursor: pointer;
+}
+#administrator_container_filterUp_boxPending {
+  background-color: #16252d;
+  color: white;
 }
 /* #administrator_container_filterUp_boxProgress {
      text-align: center;
@@ -1863,6 +1924,7 @@ code {
   cursor: pointer;
   border-radius: 3px;
   margin-left: 9rem;
+  background-color: white;
   margin-top: -2rem;
   font-family: sans-serif;
 }
@@ -1873,6 +1935,7 @@ code {
   width: 12rem;
   padding: 5px;
   cursor: pointer;
+  background-color: white;
   border-radius: 3px;
   margin-left: 25rem;
   margin-top: -1.89rem;
@@ -2015,6 +2078,17 @@ code {
   margin-top: -29.4rem;
   /* border: 2px solid brown; */
 }
+#noQueryFilter {
+  border: 2px solid;
+  margin-top: 3rem;
+  height: 34rem;
+  font-size: x-large;
+}
+#noToken_Administrative_matter {
+  margin-top: 1rem;
+  margin-bottom: 2rem;
+  font-size: large;
+}
 
 /* Child administrative matter */
 /* Child administrative matter */
@@ -2046,10 +2120,11 @@ code {
   padding: 0.1px;
 }
 #child_administrative_matter_headingTop_real {
-  /* border: 2px solid green; */
-  margin-top: -3.2rem;
+  margin-top: -2.2rem;
   padding-top: 5px;
-  font-size: xx-large;
+  font-size: x-large;
+  width: 48rem;
+  margin-left: 8rem;
   text-align: center;
 }
 #child_administrator_matter_headingTop_expand {
@@ -2112,11 +2187,12 @@ code {
 #child_administrative_matter_sideBarLeft {
   height: 24.84rem;
   border: 1px solid #16252d;
-  width: 3rem;
+  width: 4rem;
   overflow: visible;
   transition: width 1s;
   /* margin-top: -4.5rem; */
   background-color: white;
+  overflow-y: scroll;
   position: relative;
   margin-left: 0.2rem;
   margin-top: 0.6rem;
@@ -2145,6 +2221,7 @@ code {
   margin-left: 6px;
   box-shadow: 0px 0px 6px 0px #c5c4c4;
   visibility: visible;
+  display: none;
   transition: visibility 0.5s, opacity 1s ease-in-out;
   /* height: 5rem; */
 }
@@ -2165,6 +2242,7 @@ code {
   transition: visibility 0.5s, opacity 1s;
   margin-top: 2rem;
   opacity: 0;
+  display: none;
   width: 95%;
   visibility: visible;
   margin-left: 6px;
@@ -2186,6 +2264,7 @@ code {
 #child_administrator_matter_sideBarLeft_third {
   border-radius: 8px;
   margin-top: 2rem;
+  display: none;
   width: 95%;
   opacity: 0;
   visibility: visible;
@@ -2210,9 +2289,9 @@ code {
   height: 23.55rem;
   border: 1px solid #16252d;
   margin-top: -24.9rem;
-  width: 61.6rem;
+  width: 60.6rem;
   padding: 10px;
-  margin-left: 3.5rem;
+  margin-left: 4.5rem;
   color: #16252d;
   overflow-y: scroll;
 }

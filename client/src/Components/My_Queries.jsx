@@ -37,6 +37,7 @@ const My_Queries = () => {
   const [orgValue, setOrgValue] = useState("Select Organisation");
   const [depValue, setDepValue] = useState("Select Department");
   const [prefValue, setPrefValue] = useState("Select Preferences");
+  const [allQueryArr, setAllQueryArr] = useState([]);
   const img = document.createElement("img");
 
   window.onscroll = () => {
@@ -332,6 +333,32 @@ const My_Queries = () => {
   const setPreferencesValue = (val) => {
     setPrefValue(val);
   };
+  useEffect(() => {
+    if (localStorage.getItem("token")) {
+      fetch("http://localhost:2300/viewQuery/myQueries", {
+        method: "GET",
+        headers: {
+          "Content-Type": "application/json",
+          authorization: `Bearer ${localStorage.getItem("token")}`,
+        },
+      })
+        .then((res) => res.json())
+        .then((response) => {
+          const arr = [];
+          response.allQuery.forEach((item) => {
+            arr.push(item.query);
+          });
+          console.log("response", arr);
+          setAllQueryArr(arr);
+        })
+        .catch((error) => {
+          console.log(
+            "Some error occurred while fetching the administrative matter query",
+            error
+          );
+        });
+    }
+  }, []);
 
   return (
     <>

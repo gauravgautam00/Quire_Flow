@@ -8,10 +8,124 @@ const Administrative_matter = () => {
   const takeToTheViewQueries = useRef(null);
   const filterup = useRef(null);
   const filterleft = useRef(null);
+  const searchFilters = useRef(null);
+  const resetFilters = useRef(null);
+  const titleValue = useRef(null);
+  const descriptionValue = useRef(null);
 
   const [orgValue, setOrgValue] = useState("Select Organisation");
   const [depValue, setDepValue] = useState("Select Department");
   const [prefValue, setPrefValue] = useState("Select Preferences");
+  const [markAsValue, setMarkAsValue] = useState("Pending");
+  const [allQueryArr, setAllQueryArr] = useState([]);
+  const [globalQueryFullArr, setGlobalQueryFullArr] = useState([]);
+
+  useEffect(() => {
+    if (
+      searchFilters.current &&
+      titleValue.current &&
+      descriptionValue.current
+    ) {
+      searchFilters.current.onclick = () => {
+        const titleFilterValue = titleValue.current.value.toLowerCase();
+        const descriptionFilterValue =
+          descriptionValue.current.value.toLowerCase();
+        console.log("global arr", globalQueryFullArr);
+        const filteredData = globalQueryFullArr.filter((item) => {
+          console.log("single item", item);
+          const orgMatch =
+            orgValue === "All" ||
+            orgValue === "Select Organisation" ||
+            item.organisation.toLowerCase().includes(orgValue.toLowerCase());
+          const depMatch =
+            depValue === "All" ||
+            depValue === "Select Department" ||
+            item.department.toLowerCase().includes(depValue.toLowerCase());
+          const prefMatch =
+            prefValue === "Select Preferences" ||
+            prefValue === "None" ||
+            item.preferences.toLowerCase().includes(prefValue.toLowerCase());
+          const markAsMatch =
+            markAsValue === "All" ||
+            item.markAs.toLowerCase().includes(markAsValue.toLowerCase());
+
+          const titleMatch =
+            !titleFilterValue ||
+            item.title.toLowerCase().includes(titleFilterValue);
+          const descriptionMatch =
+            !descriptionFilterValue ||
+            item.description.toLowerCase().includes(descriptionFilterValue);
+
+          console.log(
+            "orgMatch",
+            orgMatch,
+            orgValue.toLowerCase(),
+            "depMatch",
+            depMatch,
+            depValue.toLowerCase(),
+            "prefMatch",
+            prefMatch,
+            prefValue.toLowerCase(),
+            "markAsMatch",
+            markAsMatch,
+            markAsValue.toLowerCase(),
+            "titleMatch",
+            titleMatch,
+            titleFilterValue,
+            "descriptionMatch",
+            descriptionMatch,
+            descriptionFilterValue
+          );
+          return (
+            orgMatch &&
+            depMatch &&
+            prefMatch &&
+            markAsMatch &&
+            titleMatch &&
+            descriptionMatch
+          );
+        });
+
+        console.log(filteredData);
+        setAllQueryArr(filteredData);
+      };
+    }
+
+    if (
+      resetFilters.current &&
+      titleValue.current &&
+      descriptionValue.current &&
+      filterUpInProgressQuery.current &&
+      filterUpAcknowledgedQuery.current &&
+      filterUpAll.current &&
+      filterUpResearchQuery.current &&
+      filterUpSpecialQuery.current &&
+      filterUpPending.current
+    ) {
+      resetFilters.current.onclick = () => {
+        setOrgValue("Select Organisation");
+        setDepValue("Select Department");
+        setPrefValue("Select Preferences");
+        setMarkAsValue("Pending");
+        titleValue.current.value = "";
+        descriptionValue.current.value = "";
+        filterUpInProgressQuery.current.style.backgroundColor = "white";
+        filterUpInProgressQuery.current.style.color = "black";
+        filterUpAcknowledgedQuery.current.style.backgroundColor = "white";
+        filterUpAcknowledgedQuery.current.style.color = "black";
+        filterUpAll.current.style.backgroundColor = "white";
+        filterUpAll.current.style.color = "black";
+        filterUpResearchQuery.current.style.backgroundColor = "white";
+        filterUpResearchQuery.current.style.color = "black";
+        filterUpSpecialQuery.current.style.backgroundColor = "white";
+        filterUpSpecialQuery.current.style.color = "black";
+        filterUpPending.current.style.backgroundColor = "#16252D";
+        filterUpPending.current.style.color = "white";
+        console.log("on resetting", globalQueryFullArr);
+        setAllQueryArr(globalQueryFullArr);
+      };
+    }
+  });
 
   const filterLeftOrganisationHeadingReference = useRef(null);
   const filterLeftDepartmentHeadingReference = useRef(null);
@@ -24,6 +138,7 @@ const Administrative_matter = () => {
   const filterUpResearchQuery = useRef(null);
   const filterUpSpecialQuery = useRef(null);
   const filterUpAll = useRef(null);
+  const filterUpPending = useRef(null);
 
   const queryContainer = useRef(null);
   useEffect(() => {
@@ -110,7 +225,8 @@ const Administrative_matter = () => {
       filterUpAcknowledgedQuery.current &&
       filterUpAll.current &&
       filterUpResearchQuery.current &&
-      filterUpSpecialQuery.current
+      filterUpSpecialQuery.current &&
+      filterUpPending.current
     ) {
       // console.log("dd")
       filterUpInProgressQuery.current.onclick = () => {
@@ -124,6 +240,8 @@ const Administrative_matter = () => {
         filterUpResearchQuery.current.style.color = "black";
         filterUpSpecialQuery.current.style.backgroundColor = "white";
         filterUpSpecialQuery.current.style.color = "black";
+        filterUpPending.current.style.backgroundColor = "white";
+        filterUpPending.current.style.color = "black";
       };
       filterUpAcknowledgedQuery.current.onclick = () => {
         filterUpInProgressQuery.current.style.backgroundColor = "white";
@@ -136,6 +254,8 @@ const Administrative_matter = () => {
         filterUpResearchQuery.current.style.color = "black";
         filterUpSpecialQuery.current.style.backgroundColor = "white";
         filterUpSpecialQuery.current.style.color = "black";
+        filterUpPending.current.style.backgroundColor = "white";
+        filterUpPending.current.style.color = "black";
       };
       filterUpAll.current.onclick = () => {
         filterUpInProgressQuery.current.style.backgroundColor = "white";
@@ -148,6 +268,8 @@ const Administrative_matter = () => {
         filterUpResearchQuery.current.style.color = "black";
         filterUpSpecialQuery.current.style.backgroundColor = "white";
         filterUpSpecialQuery.current.style.color = "black";
+        filterUpPending.current.style.backgroundColor = "white";
+        filterUpPending.current.style.color = "black";
       };
       filterUpResearchQuery.current.onclick = () => {
         filterUpInProgressQuery.current.style.backgroundColor = "white";
@@ -160,6 +282,8 @@ const Administrative_matter = () => {
         filterUpResearchQuery.current.style.color = "white";
         filterUpSpecialQuery.current.style.backgroundColor = "white";
         filterUpSpecialQuery.current.style.color = "black";
+        filterUpPending.current.style.backgroundColor = "white";
+        filterUpPending.current.style.color = "black";
       };
       filterUpSpecialQuery.current.onclick = () => {
         filterUpInProgressQuery.current.style.backgroundColor = "white";
@@ -172,9 +296,61 @@ const Administrative_matter = () => {
         filterUpResearchQuery.current.style.color = "black";
         filterUpSpecialQuery.current.style.backgroundColor = "#16252D";
         filterUpSpecialQuery.current.style.color = "white";
+        filterUpPending.current.style.backgroundColor = "white";
+        filterUpPending.current.style.color = "black";
+      };
+      filterUpPending.current.onclick = () => {
+        filterUpInProgressQuery.current.style.backgroundColor = "white";
+        filterUpInProgressQuery.current.style.color = "black";
+        filterUpAcknowledgedQuery.current.style.backgroundColor = "white";
+        filterUpAcknowledgedQuery.current.style.color = "black";
+        filterUpAll.current.style.backgroundColor = "white";
+        filterUpAll.current.style.color = "black";
+        filterUpResearchQuery.current.style.backgroundColor = "white";
+        filterUpResearchQuery.current.style.color = "black";
+        filterUpSpecialQuery.current.style.backgroundColor = "white";
+        filterUpSpecialQuery.current.style.color = "black";
+        filterUpPending.current.style.backgroundColor = "#16252D";
+        filterUpPending.current.style.color = "white";
       };
     }
   }, []);
+
+  useEffect(() => {
+    if (localStorage.getItem("token")) {
+      fetch("http://localhost:2300/viewQuery/administrativeMatter", {
+        method: "GET",
+        headers: {
+          "Content-Type": "application/json",
+          authorization: `Bearer ${localStorage.getItem("token")}`,
+        },
+      })
+        .then((res) => res.json())
+        .then((response) => {
+          const filteredData = [];
+          response.queries.forEach((item) => {
+            item.forEach((childItem) => {
+              filteredData.push(childItem);
+              console.log(new Date(childItem.createdAt));
+              console.log(childItem.createdAt);
+            });
+          });
+          setAllQueryArr(filteredData);
+          setGlobalQueryFullArr(filteredData);
+          console.log("response", globalQueryFullArr, filteredData);
+        })
+        .catch((error) => {
+          console.log(
+            "Some error occurred while fetching the administrative matter query",
+            error
+          );
+        });
+    }
+  }, []);
+
+  useEffect(() => {
+    console.log(markAsValue);
+  });
 
   const setOrganisation = (val) => {
     setOrgValue(val);
@@ -184,6 +360,9 @@ const Administrative_matter = () => {
   };
   const setPreferences = (val) => {
     setPrefValue(val);
+  };
+  const setMarkAs = (val) => {
+    setMarkAsValue(val);
   };
   return (
     <div id="administrator_container">
@@ -203,10 +382,10 @@ const Administrative_matter = () => {
           </div>
           <div id="administrator_container_frontLeftPart_para">
             Explore and manage all incoming queries and administrative matters
-            efficiently. This section serves as a central hub for all anonymized
-            interactions, allowing you to review, respond, and organize queries
-            received from users. Stay informed and in control of administrative
-            tasks with ease.
+            efficiently. This section serves as the central hub for all
+            anonymized interactions, allowing you to review, respond, and
+            organize queries received from users. Stay informed and in control
+            of administrative tasks with ease.
           </div>
           <div
             id="administrator_container_frontLeftPart_viewQueryButton"
@@ -269,348 +448,408 @@ const Administrative_matter = () => {
       {/* //FOURTH PART */}
 
       {/* //FOURTH PART */}
-
       <div id="administrator_container_viewQueries">Received Queries</div>
-      <div id="administrator_container_allQueriesContainer">
-        <div id="administrator_container_filterUp" ref={filterup}>
-          <input
-            id="administrator_container_filterUp_inputTitle"
-            type="text"
-            placeholder="Search specific title"
-          />
-          <input
-            id="administrator_container_filterUp_inputDesc"
-            type="text"
-            placeholder="Search specific description"
-          />
-          <div id="administrator_container_filterUp_markAs">
-            <div
-              class="administrator_container_filterUp_markAsChildClass"
-              id="administrator_container_filterUp_boxProgress"
-              ref={filterUpInProgressQuery}
-            >
-              In-Progress Query
+      {localStorage.getItem("token") !== null ? (
+        <>
+          <div id="administrator_container_allQueriesContainer">
+            <div id="administrator_container_filterUp" ref={filterup}>
+              <input
+                id="administrator_container_filterUp_inputTitle"
+                type="text"
+                placeholder="Search specific title"
+                ref={titleValue}
+              />
+              <input
+                id="administrator_container_filterUp_inputDesc"
+                type="text"
+                placeholder="Search specific description"
+                ref={descriptionValue}
+              />
+              <div id="administrator_container_filterUp_markAs">
+                <div
+                  class="administrator_container_filterUp_markAsChildClass"
+                  id="administrator_container_filterUp_boxProgress"
+                  ref={filterUpInProgressQuery}
+                  onClick={() => {
+                    setMarkAs("InProgress query");
+                  }}
+                >
+                  InProgress Query
+                </div>
+                <div
+                  class="administrator_container_filterUp_markAsChildClass"
+                  id="administrator_container_filterUp_boxAcknowledged"
+                  ref={filterUpAcknowledgedQuery}
+                  onClick={() => {
+                    setMarkAs("Acknowledged query");
+                  }}
+                >
+                  Acknowledged query
+                </div>
+                <div
+                  class="administrator_container_filterUp_markAsChildClass"
+                  id="administrator_container_filterUp_boxResearch"
+                  ref={filterUpResearchQuery}
+                  onClick={() => {
+                    setMarkAs("Research Required");
+                  }}
+                >
+                  Research Required
+                </div>
+                <div
+                  class="administrator_container_filterUp_markAsChildClass"
+                  id="administrator_container_filterUp_boxSpecial"
+                  ref={filterUpSpecialQuery}
+                  onClick={() => {
+                    setMarkAs("Special One");
+                  }}
+                >
+                  Special one
+                </div>
+                <div
+                  class="administrator_container_filterUp_markAsChildClass"
+                  id="administrator_container_filterUp_boxPending"
+                  ref={filterUpPending}
+                  onClick={() => {
+                    setMarkAs("Pending");
+                  }}
+                >
+                  Pending
+                </div>
+                <div
+                  class="administrator_container_filterUp_markAsChildClass"
+                  id="administrator_container_filterUp_selectAll"
+                  ref={filterUpAll}
+                  onClick={() => {
+                    setMarkAs("All");
+                  }}
+                >
+                  All
+                </div>
+              </div>
+              <div id="administrator_container_filterUp_firstSeparation"></div>
+
+              <div
+                id="administrator_container_filterUp_search"
+                ref={searchFilters}
+              >
+                Search
+              </div>
+              <div
+                id="administrator_container_filterUp_reset"
+                ref={resetFilters}
+              >
+                Reset
+              </div>
             </div>
-            <div
-              class="administrator_container_filterUp_markAsChildClass"
-              id="administrator_container_filterUp_boxAcknowledged"
-              ref={filterUpAcknowledgedQuery}
-            >
-              Acknowledged query
-            </div>
-            <div
-              class="administrator_container_filterUp_markAsChildClass"
-              id="administrator_container_filterUp_boxResearch"
-              ref={filterUpResearchQuery}
-            >
-              Research Required
-            </div>
-            <div
-              class="administrator_container_filterUp_markAsChildClass"
-              id="administrator_container_filterUp_boxSpecial"
-              ref={filterUpSpecialQuery}
-            >
-              Special one
-            </div>
-            <div
-              class="administrator_container_filterUp_markAsChildClass"
-              id="administrator_container_filterUp_selectAll"
-              ref={filterUpAll}
-            >
-              All
+
+            <div id="administrator_container_filterLeft" ref={filterleft}>
+              <div
+                id="administrator_container_filterLeft_organisationHeading"
+                ref={filterLeftOrganisationHeadingReference}
+              >
+                <div id="administrator_container_filterLeft_organisationTitle">
+                  {orgValue}
+                </div>
+
+                <span
+                  id="administrator_container_filterLeft_organisationHeading_expand"
+                  class="material-symbols-outlined"
+                >
+                  expand_more
+                </span>
+              </div>
+              <div
+                id="administrator_container_filterLeft_organisationHeadingSelect"
+                ref={filterLeftOrganisationSelectReference}
+              >
+                <div
+                  onClick={() => {
+                    setOrganisation("ABC Inc.");
+                  }}
+                  class="administrator_container_filterLeft_organisationHeadingSelect_childClass"
+                >
+                  ABC Inc.
+                </div>
+                <div
+                  onClick={() => {
+                    setOrganisation("XYZ Corporation");
+                  }}
+                  class="administrator_container_filterLeft_organisationHeadingSelect_childClass"
+                >
+                  XYZ Corporation
+                </div>
+                <div
+                  onClick={() => {
+                    setOrganisation("Chitkara University");
+                  }}
+                  class="administrator_container_filterLeft_organisationHeadingSelect_childClass"
+                >
+                  Chitkara University
+                </div>
+                <div
+                  onClick={() => {
+                    setOrganisation("Tech Innovators Ltd.");
+                  }}
+                  class="administrator_container_filterLeft_organisationHeadingSelect_childClass"
+                >
+                  Tech Innovators Ltd.
+                </div>
+
+                <div
+                  onClick={() => {
+                    setOrganisation("Global Corp");
+                  }}
+                  class="administrator_container_filterLeft_organisationHeadingSelect_childClass"
+                >
+                  Global Corp
+                </div>
+
+                <div
+                  onClick={() => {
+                    setOrganisation("City Properties Inc.");
+                  }}
+                  class="administrator_container_filterLeft_organisationHeadingSelect_childClass"
+                >
+                  City Properties Inc.
+                </div>
+
+                <div
+                  onClick={() => {
+                    setOrganisation("Tech Solutions Ltd.");
+                  }}
+                  class="administrator_container_filterLeft_organisationHeadingSelect_childClass"
+                >
+                  Tech Solutions Ltd.
+                </div>
+
+                <div
+                  onClick={() => {
+                    setOrganisation("Regulatory Corp");
+                  }}
+                  class="administrator_container_filterLeft_organisationHeadingSelect_childClass"
+                >
+                  Regulatory Corp
+                </div>
+
+                <div
+                  onClick={() => {
+                    setOrganisation("Learning Academy");
+                  }}
+                  class="administrator_container_filterLeft_organisationHeadingSelect_childClass"
+                >
+                  Learning Academy
+                </div>
+                <div
+                  onClick={() => {
+                    setOrganisation("All");
+                  }}
+                  class="administrator_container_filterLeft_organisationHeadingSelect_childClass"
+                >
+                  All
+                </div>
+              </div>
+
+              <div
+                id="administrator_container_filterLeft_departmentHeading"
+                ref={filterLeftDepartmentHeadingReference}
+              >
+                <div id="administrator_container_filterLeft_departmentTitle">
+                  {depValue}
+                </div>
+
+                <span
+                  id="administrator_container_filterLeft_departmentHeading_expand"
+                  class="material-symbols-outlined"
+                >
+                  expand_more
+                </span>
+              </div>
+              <div
+                id="administrator_container_filterLeft_departmentHeadingSelect"
+                ref={filterLeftDepartmentSelectReference}
+              >
+                <div
+                  onClick={() => {
+                    setDepartment("IT Support");
+                  }}
+                  className="administrator_container_filterLeft_departmentHeadingSelect_childClass"
+                >
+                  IT Support
+                </div>
+                <div
+                  onClick={() => {
+                    setDepartment("Finance");
+                  }}
+                  className="administrator_container_filterLeft_departmentHeadingSelect_childClass"
+                >
+                  Finance
+                </div>
+                <div
+                  onClick={() => {
+                    setDepartment("Product Development");
+                  }}
+                  className="administrator_container_filterLeft_departmentHeadingSelect_childClass"
+                >
+                  Product Development
+                </div>
+                <div
+                  onClick={() => {
+                    setDepartment("Human Resource");
+                  }}
+                  className="administrator_container_filterLeft_departmentHeadingSelect_childClass"
+                >
+                  Human Resources
+                </div>
+                <div
+                  onClick={() => {
+                    setDepartment("Facilities Management");
+                  }}
+                  className="administrator_container_filterLeft_departmentHeadingSelect_childClass"
+                >
+                  Facilities Management
+                </div>
+                <div
+                  onClick={() => {
+                    setDepartment("Software Development");
+                  }}
+                  className="administrator_container_filterLeft_departmentHeadingSelect_childClass"
+                >
+                  Software Development
+                </div>
+                <div
+                  onClick={() => {
+                    setDepartment("Legal and Compliance");
+                  }}
+                  className="administrator_container_filterLeft_departmentHeadingSelect_childClass"
+                >
+                  Legal and Compliance
+                </div>
+                <div
+                  onClick={() => {
+                    setDepartment("Learning and Development");
+                  }}
+                  className="administrator_container_filterLeft_departmentHeadingSelect_childClass"
+                >
+                  Learning and Development
+                </div>
+                <div
+                  onClick={() => {
+                    setDepartment("Development");
+                  }}
+                  className="administrator_container_filterLeft_departmentHeadingSelect_childClass"
+                >
+                  Development
+                </div>
+                <div
+                  onClick={() => {
+                    setDepartment("All");
+                  }}
+                  className="administrator_container_filterLeft_departmentHeadingSelect_childClass"
+                >
+                  All
+                </div>
+              </div>
+              <div
+                id="administrator_container_filterLeft_preferencesHeading"
+                ref={filterLeftPreferenceHeadingReference}
+              >
+                <div id="administrator_container_filterLeft_preferencesTitle">
+                  {" "}
+                  {prefValue}
+                </div>
+
+                <span
+                  id="administrator_container_filterLeft_preferencesHeading_expand"
+                  class="material-symbols-outlined"
+                >
+                  expand_more
+                </span>
+              </div>
+              <div
+                id="administrator_container_filterLeft_preferencesHeadingSelect"
+                ref={filterLeftPreferenceSelectReference}
+              >
+                <div
+                  onClick={() => {
+                    setPreferences("Urgent");
+                  }}
+                  className="administrator_container_filterLeft_preferencesHeadingSelect_childClass"
+                >
+                  Urgent
+                </div>
+                <div
+                  onClick={() => {
+                    setPreferences("Normal");
+                  }}
+                  className="administrator_container_filterLeft_preferencesHeadingSelect_childClass"
+                >
+                  Normal
+                </div>
+                <div
+                  onClick={() => {
+                    setPreferences("Important");
+                  }}
+                  className="administrator_container_filterLeft_preferencesHeadingSelect_childClass"
+                >
+                  Important
+                </div>
+                <div
+                  onClick={() => {
+                    setPreferences("Research Required");
+                  }}
+                  className="administrator_container_filterLeft_preferencesHeadingSelect_childClass"
+                >
+                  Research Required
+                </div>
+                <div
+                  onClick={() => {
+                    setPreferences("None");
+                  }}
+                  className="administrator_container_filterLeft_preferencesHeadingSelect_childClass"
+                >
+                  None
+                </div>
+              </div>
             </div>
           </div>
-          <div id="administrator_container_filterUp_firstSeparation"></div>
 
-          <div id="administrator_container_filterUp_search">Search</div>
-          <div id="administrator_container_filterUp_reset">Reset</div>
+          {/* //Child container */}
+          {/* Child container */}
+          <div
+            id="administrator_container_queriesContainer"
+            ref={queryContainer}
+          >
+            {allQueryArr.length == 0 ? (
+              <div id="noQueryFilter">
+                No such query for these filters , try to change some filter
+              </div>
+            ) : (
+              allQueryArr.map((data, index) => {
+                return (
+                  <Child_Administrative_matter
+                    key={index}
+                    queryTitle={data.title}
+                    queryOrganisation={data.organisation}
+                    queryDepartment={data.department}
+                    queryDescription={data.description}
+                    preferences={data.preferences}
+                    dateSent={data.createdAt}
+                    queryImages={data.image}
+                    queryVideos={data.video}
+                    queryObjectId={data._id}
+                  />
+                );
+              })
+            )}
+          </div>
+        </>
+      ) : (
+        <div id="noToken_Administrative_matter">
+          Please <Link to="/authentication">Login/SignUp</Link> to see all the
+          received queries
         </div>
-
-        <div id="administrator_container_filterLeft" ref={filterleft}>
-          <div
-            id="administrator_container_filterLeft_organisationHeading"
-            ref={filterLeftOrganisationHeadingReference}
-          >
-            <div id="administrator_container_filterLeft_organisationTitle">
-              {orgValue}
-            </div>
-
-            <span
-              id="administrator_container_filterLeft_organisationHeading_expand"
-              class="material-symbols-outlined"
-            >
-              expand_more
-            </span>
-          </div>
-          <div
-            id="administrator_container_filterLeft_organisationHeadingSelect"
-            ref={filterLeftOrganisationSelectReference}
-          >
-            <div
-              onClick={() => {
-                setOrganisation("ABC Inc.");
-              }}
-              class="administrator_container_filterLeft_organisationHeadingSelect_childClass"
-            >
-              ABC Inc.
-            </div>
-            <div
-              onClick={() => {
-                setOrganisation("XYZ Corporation");
-              }}
-              class="administrator_container_filterLeft_organisationHeadingSelect_childClass"
-            >
-              XYZ Corporation
-            </div>
-
-            <div
-              onClick={() => {
-                setOrganisation("Tech Innovators Ltd.");
-              }}
-              class="administrator_container_filterLeft_organisationHeadingSelect_childClass"
-            >
-              Tech Innovators Ltd.
-            </div>
-
-            <div
-              onClick={() => {
-                setOrganisation("Global Corp");
-              }}
-              class="administrator_container_filterLeft_organisationHeadingSelect_childClass"
-            >
-              Global Corp
-            </div>
-
-            <div
-              onClick={() => {
-                setOrganisation("City Properties Inc.");
-              }}
-              class="administrator_container_filterLeft_organisationHeadingSelect_childClass"
-            >
-              City Properties Inc.
-            </div>
-
-            <div
-              onClick={() => {
-                setOrganisation("Tech Solutions Ltd.");
-              }}
-              class="administrator_container_filterLeft_organisationHeadingSelect_childClass"
-            >
-              Tech Solutions Ltd.
-            </div>
-
-            <div
-              onClick={() => {
-                setOrganisation("Regulatory Corp");
-              }}
-              class="administrator_container_filterLeft_organisationHeadingSelect_childClass"
-            >
-              Regulatory Corp
-            </div>
-
-            <div
-              onClick={() => {
-                setOrganisation("Learning Academy");
-              }}
-              class="administrator_container_filterLeft_organisationHeadingSelect_childClass"
-            >
-              Learning Academy
-            </div>
-            <div
-              onClick={() => {
-                setOrganisation("Select Organisation");
-              }}
-              class="administrator_container_filterLeft_organisationHeadingSelect_childClass"
-            >
-              Select Organisation
-            </div>
-          </div>
-
-          <div
-            id="administrator_container_filterLeft_departmentHeading"
-            ref={filterLeftDepartmentHeadingReference}
-          >
-            <div id="administrator_container_filterLeft_departmentTitle">
-              {depValue}
-            </div>
-
-            <span
-              id="administrator_container_filterLeft_departmentHeading_expand"
-              class="material-symbols-outlined"
-            >
-              expand_more
-            </span>
-          </div>
-          <div
-            id="administrator_container_filterLeft_departmentHeadingSelect"
-            ref={filterLeftDepartmentSelectReference}
-          >
-            <div
-              onClick={() => {
-                setDepartment("IT Support");
-              }}
-              className="administrator_container_filterLeft_departmentHeadingSelect_childClass"
-            >
-              IT Support
-            </div>
-            <div
-              onClick={() => {
-                setDepartment("Finance");
-              }}
-              className="administrator_container_filterLeft_departmentHeadingSelect_childClass"
-            >
-              Finance
-            </div>
-            <div
-              onClick={() => {
-                setDepartment("Product Development");
-              }}
-              className="administrator_container_filterLeft_departmentHeadingSelect_childClass"
-            >
-              Product Development
-            </div>
-            <div
-              onClick={() => {
-                setDepartment("Human Resource");
-              }}
-              className="administrator_container_filterLeft_departmentHeadingSelect_childClass"
-            >
-              Human Resources
-            </div>
-            <div
-              onClick={() => {
-                setDepartment("Facilities Management");
-              }}
-              className="administrator_container_filterLeft_departmentHeadingSelect_childClass"
-            >
-              Facilities Management
-            </div>
-            <div
-              onClick={() => {
-                setDepartment("Software Development");
-              }}
-              className="administrator_container_filterLeft_departmentHeadingSelect_childClass"
-            >
-              Software Development
-            </div>
-            <div
-              onClick={() => {
-                setDepartment("Legal and Compliance");
-              }}
-              className="administrator_container_filterLeft_departmentHeadingSelect_childClass"
-            >
-              Legal and Compliance
-            </div>
-            <div
-              onClick={() => {
-                setDepartment("Learning and Development");
-              }}
-              className="administrator_container_filterLeft_departmentHeadingSelect_childClass"
-            >
-              Learning and Development
-            </div>
-            <div
-              onClick={() => {
-                setDepartment("Development");
-              }}
-              className="administrator_container_filterLeft_departmentHeadingSelect_childClass"
-            >
-              Development
-            </div>
-            <div
-              onClick={() => {
-                setDepartment("Select Department");
-              }}
-              className="administrator_container_filterLeft_departmentHeadingSelect_childClass"
-            >
-              Select Department
-            </div>
-          </div>
-          <div
-            id="administrator_container_filterLeft_preferencesHeading"
-            ref={filterLeftPreferenceHeadingReference}
-          >
-            <div id="administrator_container_filterLeft_preferencesTitle">
-              {" "}
-              {prefValue}
-            </div>
-
-            <span
-              id="administrator_container_filterLeft_preferencesHeading_expand"
-              class="material-symbols-outlined"
-            >
-              expand_more
-            </span>
-          </div>
-          <div
-            id="administrator_container_filterLeft_preferencesHeadingSelect"
-            ref={filterLeftPreferenceSelectReference}
-          >
-            <div
-              onClick={() => {
-                setPreferences("Urgent");
-              }}
-              className="administrator_container_filterLeft_preferencesHeadingSelect_childClass"
-            >
-              Urgent
-            </div>
-            <div
-              onClick={() => {
-                setPreferences("Normal");
-              }}
-              className="administrator_container_filterLeft_preferencesHeadingSelect_childClass"
-            >
-              Normal
-            </div>
-            <div
-              onClick={() => {
-                setPreferences("Important");
-              }}
-              className="administrator_container_filterLeft_preferencesHeadingSelect_childClass"
-            >
-              Important
-            </div>
-            <div
-              onClick={() => {
-                setPreferences("Research Required");
-              }}
-              className="administrator_container_filterLeft_preferencesHeadingSelect_childClass"
-            >
-              Research Required
-            </div>
-            <div
-              onClick={() => {
-                setPreferences("None");
-              }}
-              className="administrator_container_filterLeft_preferencesHeadingSelect_childClass"
-            >
-              None
-            </div>
-          </div>
-        </div>
-      </div>
-
-      {/* //Child container */}
-      {/* Child container */}
-      <div id="administrator_container_queriesContainer" ref={queryContainer}>
-        {Administrative_matter_JSON.map((data, index) => {
-          return (
-            <Child_Administrative_matter
-              key={index}
-              queryTitle={data.queryTitle}
-              queryOrganisation={data.queryOrganisation}
-              queryDepartment={data.queryDepartment}
-              queryDescription={data.queryDescription}
-              preferences={data.preferences}
-              dateSent={data.dateSent}
-              status={data.status}
-              queryImages={data.queryImages}
-              queryVideos={data.queryVideos}
-              uniqueNum={data.uniqueNum}
-            />
-          );
-        })}
-      </div>
+      )}
     </div>
   );
 };

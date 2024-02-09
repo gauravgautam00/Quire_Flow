@@ -1,7 +1,7 @@
-import React, { useState } from "react";
+import React from "react";
 import { Link } from "react-router-dom";
 
-import newQuery from "./New_Query";
+// import newQuery from "./New_Query";
 
 const Add_Query_page = () => {
   return (

@@ -2,9 +2,9 @@ import React from "react";
 import { useRef, useState, useEffect } from "react";
 
 import Research_Child_Deeper_dive from "./Research_Child_Deeper_dive";
-import OnlineWebinar_Child_Deeper_dive from "./OnlineWebinar_Child_Deeper_dive";
-import OpenParticipation_Child_Deeper_dive from "./OpenParticipation_Child_Deeper_dive";
-import CustomerStory_Child_Deeper_dive from "./CustomerStory_Child_Deeper_dive";
+// import OnlineWebinar_Child_Deeper_dive from "./OnlineWebinar_Child_Deeper_dive";
+// import OpenParticipation_Child_Deeper_dive from "./OpenParticipation_Child_Deeper_dive";
+// import CustomerStory_Child_Deeper_dive from "./CustomerStory_Child_Deeper_dive";
 const Deeper_Dive = () => {
   const leftContainer = useRef(null);
   const rightContainer = useRef(null);

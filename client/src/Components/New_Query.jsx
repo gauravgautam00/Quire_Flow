@@ -8,8 +8,12 @@ const NewQuery = () => {
   const leftPreferencesDropDown = useRef(null);
   const leftPreferencesDropDownIcon = useRef(null);
   const leftPreferencesBottomBox = useRef(null);
-  const [preferenceValue, setPreferenceValue] = useState("Not Specified");
+  const anonyKeyInput = useRef(null);
+  const titleInput = useRef(null);
+  const descriptionInput = useRef(null);
+  const [preferenceValue, setPreferenceValue] = useState("None");
 
+  const submitButton = useRef(null);
   const setPreference = (val) => {
     setPreferenceValue(val);
   };
@@ -36,6 +40,49 @@ const NewQuery = () => {
     if (newQueryBack.current) {
       newQueryBack.current.onclick = () => {
         navigate("/");
+      };
+    }
+
+    if (
+      submitButton.current &&
+      anonyKeyInput.current &&
+      titleInput.current &&
+      descriptionInput.current
+    ) {
+      submitButton.current.onclick = () => {
+        if (!anonyKeyInput.current.value) {
+          alert("Please add anonyKey");
+          return;
+        }
+        const dataToSend = {
+          preferences: preferenceValue,
+          receiverAnonyKey: anonyKeyInput.current.value,
+          title: titleInput.current.value,
+          image: "Not specified",
+          video: "Not specified",
+          description: descriptionInput.current.value,
+          isPublic: false,
+        };
+        console.log("datatosend in new_Query.jsx", dataToSend);
+
+        fetch("http://localhost:2300/addQuery", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+            authorization: `Bearer ${localStorage.getItem("token")}`,
+          },
+          body: JSON.stringify(dataToSend),
+        })
+          .then((res) => res.json())
+          .then((response) => {
+            console.log("response", response);
+            alert(
+              "Successfully made a query , You can view all your queries in My Query Section on top navbar"
+            );
+          })
+          .catch((err) => {
+            console.log("Some error occurred", err);
+          });
       };
     }
   }, []);
@@ -154,6 +201,7 @@ const NewQuery = () => {
                   className="new_query_container_main_child_inputReal"
                   type="text"
                   required
+                  ref={anonyKeyInput}
                 />
               </div>
             </div>
@@ -196,6 +244,7 @@ const NewQuery = () => {
                     type="text"
                     placeholder="Enter query title"
                     required
+                    ref={titleInput}
                   />
                 </div>
               </div>
@@ -209,6 +258,7 @@ const NewQuery = () => {
                     id="new_query_container_main_right_content_description_second_paraTextarea"
                     placeholder="Enter query description here"
                     required
+                    ref={descriptionInput}
                   />
                 </div>
               </div>
@@ -236,7 +286,9 @@ const NewQuery = () => {
           </div>
         </div>
       </div>
-      <div id="new_query_container_submit">Submit</div>
+      <div id="new_query_container_submit" ref={submitButton}>
+        Submit
+      </div>
     </div>
   );
 };

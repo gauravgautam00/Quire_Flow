@@ -11,8 +11,12 @@ const signUpController = async (req, res) => {
     email: email,
   });
 
+  // console.log("Got the sign up request", req.body);
+
   if (userPresent) {
-    return res.status(400).send("User already exist . Please login");
+    return res
+      .status(400)
+      .json({ message: "User already exist . Please login" });
   }
   if (!organisation) {
     organisation = "not specified";
@@ -33,11 +37,14 @@ const signUpController = async (req, res) => {
   const token = jwt.sign(
     {
       anonyKey: anonyKey,
+      organisation,
+      department,
+      objectId: curUser._id,
     },
     process.env.SECRET_KEY
   );
 
-  res.status(200).json({
+  return res.status(200).json({
     message: "user registered successfully",
     userToken: token,
     User: curUser,
@@ -45,32 +52,40 @@ const signUpController = async (req, res) => {
 };
 
 const logInController = async (req, res) => {
+  // console.log("login request");
   const { email, password } = req.body;
   const curUser = await User.findOne({ email });
 
   if (curUser) {
-    console.log(curUser);
+    // console.log(curUser);
 
     const check = await bcrypt.compare(password, curUser.password);
-    console.log("bcrypt reply", check);
     if (!check) {
-      return res.status(401).send("Unauthorized user wrong password");
+      return res
+        .status(401)
+        .json({ message: "Unauthorized user wrong password" });
     }
 
     const token = jwt.sign(
       {
         anonyKey: curUser.anonyKey,
+        organisation: curUser.organisation,
+        department: curUser.department,
+        objectId: curUser._id,
       },
       process.env.SECRET_KEY
     );
-
-    res.status(200).json({
+    const curUserDetails = {
       message: "user login successfully",
       userToken: token,
       User: curUser,
-    });
+    };
+    // console.log(curUserDetails);
+    return res.status(200).json(curUserDetails);
   } else {
-    return res.status(404).send("User not found , Kindly sign up first");
+    return res
+      .status(404)
+      .json({ message: "User not found , Kindly sign up first" });
   }
 };
 

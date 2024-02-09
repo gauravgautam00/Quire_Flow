@@ -102,23 +102,29 @@ const Child_Administrative_matter = (props) => {
       sideBarLeftSecond &&
       sideBarLeftThird
     ) {
-      sideBarLeft.current.style.width = "3rem";
+      sideBarLeft.current.style.width = "4rem";
       sideBarLeftHamburgerIcon.current.onclick = () => {
-        if (sideBarLeft.current.style.width == "3rem") {
+        if (sideBarLeft.current.style.width == "4rem") {
           sideBarLeft.current.style.width = "16rem";
           sideBarLeftFirst.current.style.visibility = "visible";
           sideBarLeftSecond.current.style.visibility = "visible";
           sideBarLeftThird.current.style.visibility = "visible";
+          sideBarLeftFirst.current.style.display = "block";
+          sideBarLeftSecond.current.style.display = "block";
+          sideBarLeftThird.current.style.display = "block";
           sideBarLeftFirst.current.style.opacity = "1";
           setIcon("close");
           sideBarLeftSecond.current.style.opacity = "1";
           sideBarLeftThird.current.style.opacity = "1";
         } else {
-          sideBarLeft.current.style.width = "3rem";
+          sideBarLeft.current.style.width = "4rem";
           setIcon("menu");
           sideBarLeftFirst.current.style.visibility = "hidden";
           sideBarLeftSecond.current.style.visibility = "hidden";
           sideBarLeftThird.current.style.visibility = "hidden";
+          sideBarLeftFirst.current.style.display = "none";
+          sideBarLeftSecond.current.style.display = "none";
+          sideBarLeftThird.current.style.display = "none";
           sideBarLeftFirst.current.style.opacity = "0";
           sideBarLeftSecond.current.style.opacity = "0";
           sideBarLeftThird.current.style.opacity = "0";
@@ -201,7 +207,7 @@ const Child_Administrative_matter = (props) => {
         <div id="child_administrative_matter_headingTop">
           <div id="child_administrator_matter_headingTop_expand">
             <NavLink
-              to={`/administrative_matter/query`}
+              to={`/administrative_matter/${props.queryObjectId}`}
               style={{
                 textDecoration: "none",
                 color: "white",
@@ -311,7 +317,7 @@ const Child_Administrative_matter = (props) => {
               Recieved At
             </div>
             <div id="child_administrative_matter_sideBarLeft_dateName">
-              {props.dateSent}
+              {new Date(props.dateSent).toString()}
             </div>
           </div>
         </div>

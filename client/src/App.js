@@ -1,5 +1,5 @@
 import Header from "./Components/header";
-import Footer from "./Components/Footer";
+// import Footer from "./Components/Footer";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Administrative_matter from "./Components/Administrative_matter";
 import Landing_Page from "./Components/Landing_Page";
@@ -31,7 +31,7 @@ function App() {
           element={<Deeper_Dive />}
         ></Route>
         <Route
-          path="/administrative_matter/query"
+          path="/administrative_matter/:objectId"
           element={<Administrative_matter_singleQuery />}
         ></Route>
         <Route

@@ -1,8 +1,8 @@
 import React from "react";
-import { useEffect } from "react";
+// import { useEffect } from "react";
 import { useRef } from "react";
 import { useParams } from "react-router-dom";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 const Single_Query_Global = (props) => {
   // const { id } = useParams();
@@ -18,8 +18,7 @@ const Single_Query_Global = (props) => {
   const queryMarkUpperBox = useRef(null);
   const queryMarkBottomBox = useRef(null);
   const queryMarkUpperBoxIcon = useRef(null);
-  const [preference, setPreference] = useState("Pending");
-  const [toShowPreference, setToShowPreference] = useState("Mark it as");
+  const [markAsValue, setMarkAsValue] = useState("Mark it as");
   const extraDetailsUpperBox = useRef(null);
   const extraDetailsBottomBox = useRef(null);
   const extraDetailsIcon = useRef(null);
@@ -66,23 +65,6 @@ const Single_Query_Global = (props) => {
     }
 
     if (
-      queryMarkBottomBox.current &&
-      queryMarkUpperBox.current &&
-      queryMarkUpperBoxIcon.current
-    ) {
-      queryMarkBottomBox.current.style.height = "0rem";
-      queryMarkUpperBox.current.onclick = () => {
-        if (queryMarkBottomBox.current.style.height === "0rem") {
-          queryMarkBottomBox.current.style.height = "9rem";
-          queryMarkUpperBoxIcon.current.style.transform = "rotate(-180deg)";
-        } else {
-          queryMarkBottomBox.current.style.height = "0rem";
-          queryMarkUpperBoxIcon.current.style.transform = "rotate(0deg)";
-        }
-      };
-    }
-
-    if (
       extraDetailsUpperBox.current &&
       extraDetailsBottomBox.current &&
       extraDetailsIcon.current
@@ -99,7 +81,6 @@ const Single_Query_Global = (props) => {
       };
     }
     if (singleQueryBack.current) {
-      console.log("outers");
       singleQueryBack.current.onclick = () => {
         console.log("ll");
         navigate("/");
@@ -107,12 +88,40 @@ const Single_Query_Global = (props) => {
     }
   }, []);
 
-  const setValue = (val) => {
-    setToShowPreference(val);
+  const callDBToSaveMarkAs = () => {
+    if (localStorage.getItem("token")) {
+      console.log(markAsValue);
+      fetch("http://localhost:2300/setMarkAs", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          authorization: `Bearer ${localStorage.getItem("token")}`,
+        },
+        body: JSON.stringify({
+          markAsValue,
+          query_id: props.query._id,
+        }),
+      })
+        .then((res) => {
+          if (!res.ok) {
+            return new Error(res.json().message);
+          }
+          res.json();
+        })
+        .then((response) => {
+          console.log("callDBToSaveMarkAs", response);
+          // window.location.reload();
+        })
+        .catch((err) => {
+          console.log("error occurred", err);
+        });
+    }
   };
-  const setExtraDetail = (val) => {
-    setPreference(val);
+  const setValueMarkAs = (val) => {
+    setMarkAsValue(val);
+    console.log(markAsValue);
   };
+
   return (
     <div id="single_query_global">
       <div id="single_query_global_back" ref={singleQueryBack}>
@@ -147,153 +156,49 @@ const Single_Query_Global = (props) => {
             className="single_query_global_extraDetails_bottomBox_child"
             id="single_query_global_extraDetails_bottomBox_child1"
           >
-            Organisation - Google
+            Organisation - {props.query.organisation}
           </div>
           <div
             className="single_query_global_extraDetails_bottomBox_child"
             id="single_query_global_extraDetails_bottomBox_child2"
           >
-            Department - Google Search
+            Department - {props.query.department}
           </div>
           <div
             className="single_query_global_extraDetails_bottomBox_child"
             id="single_query_global_extraDetails_bottomBox_child3"
           >
-            Recieved at - 11 may 2004
+            Recieved at - {new Date(props.query.createdAt).toString()}
           </div>
-          {!props.isPublicQuery ? (
-            <div
-              className="single_query_global_extraDetails_bottomBox_child"
-              id="single_query_global_extraDetails_bottomBox_child4"
-            >
-              Preferences - {preference}
-            </div>
+          {!props.isPublic ? (
+            <>
+              <div
+                className="single_query_global_extraDetails_bottomBox_child"
+                id="single_query_global_extraDetails_bottomBox_child4"
+              >
+                Preferences - {props.query.preferences}
+              </div>
+              <div
+                className="single_query_global_extraDetails_bottomBox_child"
+                id="single_query_global_extraDetails_bottomBox_child5"
+              >
+                Marked As - {props.query.markAs}
+              </div>
+            </>
           ) : (
             ""
           )}
         </div>
       </div>
       <div id="single_query_global_isPublicQuery">
-        {props.isPublicQuery ? "Public Query" : "Query For You"}
+        {props.isPublic ? "Public Query" : "Query For You"}
       </div>
       <div id="single_query_global_queryDescription">
         <div id="single_query_global_queryDescription_title">
-          Account Access Problem Billing Inquiry
+          {props.query.title}
         </div>
         <div id="single_query_global_queryDescription_para">
-          Lorem ipsum dolor, sit amet consectetur adipisicing elit. Doloribus
-          quis asperiores, corporis vitae aspernatur accusantium velit fugiat?
-          Quia natus reiciendis vitae minus delectus repudiandae earum
-          laboriosam, iste molestias placeat? Molestias mollitia maiores, sed
-          exercitationem veniam aut error voluptatibus iusto, vero tenetur quia!
-          Blanditiis illo laborum quod doloremque, suscipit eligendi. Inventore
-          dignissimos ullam rerum quisquam fugit laboriosam magni magnam esse,
-          sequi, autem, veritatis exercitationem vero! Nihil esse eaque nobis
-          qui, earum eius expedita facilis? Odio ducimus vitae mollitia
-          assumenda eveniet laborum, ipsum beatae perferendis architecto
-          eligendi minus cupiditate hic minima magni et explicabo facilis
-          pariatur iste necessitatibus veniam vero perspiciatis aut libero
-          tempore? Consequuntur fugit laboriosam maxime quas quo quidem iusto,
-          non quam cupiditate exercitationem repellat aperiam minus saepe
-          quibusdam praesentium incidunt fuga? Cupiditate rem nam ratione sunt
-          quos provident officiis excepturi ad hic, eius, voluptatibus molestiae
-          praesentium eveniet consequuntur exercitationem earum ipsam dolor
-          labore placeat nesciunt modi perspiciatis illum. Officia mollitia,
-          aliquam repellendus, adipisci odit, doloribus fugit laboriosam maxime
-          quas quo quidem iusto, non quam cupiditate exercitationem repellat
-          aperiam minus saepe quibusdam praesentium incidunt fuga? Cupiditate
-          rem nam ratione sunt quos provident officiis excepturi ad hic, eius,
-          voluptatibus molestiae praesentium eveniet cons Lorem ipsum dolor, sit
-          amet consectetur adipisicing elit. Doloribus quis asperiores, corporis
-          vitae aspernatur accusantium velit fugiat? Quia natus reiciendis vitae
-          minus delectus repudiandae earum laboriosam, iste molestias placeat?
-          Molestias mollitia maiores, sed exercitationem veniam aut error
-          voluptatibus iusto, vero tenetur quia! Blanditiis illo laborum quod
-          doloremque, suscipit eligendi. Inventore dignissimos ullam rerum
-          quisquam fugit laboriosam magni magnam esse, sequi, autem, veritatis
-          exercitationem vero! Nihil esse eaque nobis qui, earum eius expedita
-          facilis? Odio ducimus vitae mollitia assumenda eveniet laborum, ipsum
-          beatae perferendis architecto eligendi minus cupiditate hic minima
-          magni et explicabo facilis pariatur iste necessitatibus veniam vero
-          perspiciatis aut libero tempore? Consequuntur fugit laboriosam maxime
-          quas quo quidem iusto, non quam cupiditate exercitationem repellat
-          aperiam minus saepe quibusdam praesentium incidunt fuga? Cupiditate
-          rem nam ratione sunt quos provident officiis excepturi ad hic, eius,
-          voluptatibus molestiae praesentium eveniet consequuntur exercitationem
-          earum ipsam dolor labore placeat nesciunt modi perspiciatis illum.
-          Officia mollitia, aliquam repellendus, adipisci odit, doloribus fugit
-          laboriosam maxime quas quo quidem iusto, non quam cupiditate
-          exercitationem repellat aperiam minus saepe quibusdam praesentium
-          incidunt fuga? Cupiditate rem nam ratione sunt quos provident officiis
-          excepturi ad hic, eius, voluptatibus molestiae praesentium eveniet
-          cons Lorem ipsum dolor, sit amet consectetur adipisicing elit.
-          Doloribus quis asperiores, corporis vitae aspernatur accusantium velit
-          fugiat? Quia natus reiciendis vitae minus delectus repudiandae earum
-          laboriosam, iste molestias placeat? Molestias mollitia maiores, sed
-          exercitationem veniam aut error voluptatibus iusto, vero tenetur quia!
-          Blanditiis illo laborum quod doloremque, suscipit eligendi. Inventore
-          dignissimos ullam rerum quisquam fugit laboriosam magni magnam esse,
-          sequi, autem, veritatis exercitationem vero! Nihil esse eaque nobis
-          qui, earum eius expedita facilis? Odio ducimus vitae mollitia
-          assumenda eveniet laborum, ipsum beatae perferendis architecto
-          eligendi minus cupiditate hic minima magni et explicabo facilis
-          pariatur iste necessitatibus veniam vero perspiciatis aut libero
-          tempore? Consequuntur fugit laboriosam maxime quas quo quidem iusto,
-          non quam cupiditate exercitationem repellat aperiam minus saepe
-          quibusdam praesentium incidunt fuga? Cupiditate rem nam ratione sunt
-          quos provident officiis excepturi ad hic, eius, voluptatibus molestiae
-          praesentium eveniet consequuntur exercitationem earum ipsam dolor
-          labore placeat nesciunt modi perspiciatis illum. Officia mollitia,
-          aliquam repellendus, adipisci odit, doloribus fugit laboriosam maxime
-          quas quo quidem iusto, non quam cupiditate exercitationem repellat
-          aperiam minus saepe quibusdam praesentium incidunt fuga? Cupiditate
-          rem nam ratione sunt quos provident officiis excepturi ad hic, eius,
-          voluptatibus molestiae praesentium eveniet cons Lorem ipsum dolor, sit
-          amet consectetur adipisicing elit. Doloribus quis asperiores, corporis
-          vitae aspernatur accusantium velit fugiat? Quia natus reiciendis vitae
-          minus delectus repudiandae earum laboriosam, iste molestias placeat?
-          Molestias mollitia maiores, sed exercitationem veniam aut error
-          voluptatibus iusto, vero tenetur quia! Blanditiis illo laborum quod
-          doloremque, suscipit eligendi. Inventore dignissimos ullam rerum
-          quisquam fugit laboriosam magni magnam esse, sequi, autem, veritatis
-          exercitationem vero! Nihil esse eaque nobis qui, earum eius expedita
-          facilis? Odio ducimus vitae mollitia assumenda eveniet laborum, ipsum
-          beatae perferendis architecto eligendi minus cupiditate hic minima
-          magni et explicabo facilis pariatur iste necessitatibus veniam vero
-          perspiciatis aut libero tempore? Consequuntur fugit laboriosam maxime
-          quas quo quidem iusto, non quam cupiditate exercitationem repellat
-          aperiam minus saepe quibusdam praesentium incidunt fuga? Cupiditate
-          rem nam ratione sunt quos provident officiis excepturi ad hic, eius,
-          voluptatibus molestiae praesentium eveniet consequuntur exercitationem
-          earum ipsam dolor labore placeat nesciunt modi perspiciatis illum.
-          Officia mollitia, aliquam repellendus, adipisci odit, doloribus fugit
-          laboriosam maxime quas quo quidem iusto, non quam cupiditate
-          exercitationem repellat aperiam minus saepe quibusdam praesentium
-          incidunt fuga? Cupiditate rem nam ratione sunt quos provident officiis
-          excepturi ad hic, eius, voluptatibus molestiae praesentium eveniet
-          cons Lorem ipsum dolor, sit amet consectetur adipisicing elit.
-          Doloribus quis asperiores, corporis vitae aspernatur accusantium velit
-          fugiat? Quia natus reiciendis vitae minus delectus repudiandae earum
-          laboriosam, iste molestias placeat? Molestias mollitia maiores, sed
-          exercitationem veniam aut error voluptatibus iusto, vero tenetur quia!
-          Blanditiis illo laborum quod doloremque, suscipit eligendi. Inventore
-          dignissimos ullam rerum quisquam fugit laboriosam magni magnam esse,
-          sequi, autem, veritatis exercitationem vero! Nihil esse eaque nobis
-          qui, earum eius expedita facilis? Odio ducimus vitae mollitia
-          assumenda eveniet laborum, ipsum beatae perferendis architecto
-          eligendi minus cupiditate hic minima magni et explicabo facilis
-          pariatur iste necessitatibus veniam vero perspiciatis aut libero
-          tempore? Consequuntur fugit laboriosam maxime quas quo quidem iusto,
-          non quam cupiditate exercitationem repellat aperiam minus saepe
-          quibusdam praesentium incidunt fuga? Cupiditate rem nam ratione sunt
-          quos provident officiis excepturi ad hic, eius, voluptatibus molestiae
-          praesentium eveniet consequuntur exercitationem earum ipsam dolor
-          labore placeat nesciunt modi perspiciatis illum. Officia mollitia,
-          aliquam repellendus, adipisci odit, doloribus fugit laboriosam maxime
-          quas quo quidem iusto, non quam cupiditate exercitationem repellat
-          aperiam minus saepe quibusdam praesentium incidunt fuga? Cupiditate
-          rem nam ratione sunt quos provident officiis excepturi ad hic, eius,
-          voluptatibus molestiae praesentium eveniet cons
+          {props.query.description}
         </div>
       </div>
       <div id="single_query_global_queryPhotos">
@@ -320,10 +225,10 @@ const Single_Query_Global = (props) => {
             >
               <img
                 class="single_queries_global_queryPhotos_main_container_childImageClass"
-                src="/Images/dennis-eusebio-2ihYdRZgyWw-unsplash.jpg"
+                src="/Imagess/dennis-eusebio-2ihYdRZgyWw-unsplash.jpg"
                 height="468"
                 width="900"
-                alt="queryPhoto"
+                alt="Photo attached with this query"
               />
             </div>
             <div
@@ -332,10 +237,10 @@ const Single_Query_Global = (props) => {
             >
               <img
                 class="single_queries_global_queryPhotos_main_container_childImageClass"
-                src="/Images/dennis-eusebio-2ihYdRZgyWw-unsplash.jpg"
+                src="/Imagess/dennis-eusebio-2ihYdRZgyWw-unsplash.jpg"
                 height="468"
                 width="900"
-                alt="queryPhoto"
+                alt="Photo attached with this query"
               />
             </div>
             <div
@@ -344,10 +249,10 @@ const Single_Query_Global = (props) => {
             >
               <img
                 class="single_queries_global_queryPhotos_main_container_childImageClass"
-                src="/Images/dennis-eusebio-2ihYdRZgyWw-unsplash.jpg"
+                src="/Imagess/dennis-eusebio-2ihYdRZgyWw-unsplash.jpg"
                 height="468"
                 width="900"
-                alt="queryPhoto"
+                alt="Photo attached with this query"
               />
             </div>
             <div
@@ -356,10 +261,10 @@ const Single_Query_Global = (props) => {
             >
               <img
                 class="single_queries_global_queryPhotos_main_container_childImageClass"
-                src="/Images/dennis-eusebio-2ihYdRZgyWw-unsplash.jpg"
+                src="/Imagess/dennis-eusebio-2ihYdRZgyWw-unsplash.jpg"
                 height="468"
                 width="900"
-                alt="queryPhoto"
+                alt="Photo attached with this query"
               />
             </div>
             <div
@@ -368,10 +273,10 @@ const Single_Query_Global = (props) => {
             >
               <img
                 class="single_queries_global_queryPhotos_main_container_childImageClass"
-                src="/Images/dennis-eusebio-2ihYdRZgyWw-unsplash.jpg"
+                src="/Imagess/dennis-eusebio-2ihYdRZgyWw-unsplash.jpg"
                 height="468"
                 width="900"
-                alt="queryPhoto"
+                alt="Photo attached with this query"
               />
             </div>
           </div>
@@ -412,8 +317,9 @@ const Single_Query_Global = (props) => {
             >
               <video height="468px" width="900px" muted controls autoPlay>
                 <source
-                  src="/Videos/pexels-mehmet-kılınç-18856748 (2160p).mp4"
+                  src="/Videoss/pexels-mehmet-kılınç-18856748 (2160p).mp4"
                   type="video/mp4"
+                  alt="query Video"
                 />
               </video>
             </div>
@@ -423,8 +329,9 @@ const Single_Query_Global = (props) => {
             >
               <video height="468px" width="900px" muted controls>
                 <source
-                  src="/Videos/pexels-mikhail-nilov-6962343 (Original).webm"
+                  src="/Videoss/pexels-mikhail-nilov-6962343 (Original).webm"
                   type="video/webm"
+                  alt="query Video"
                 />
               </video>
             </div>
@@ -434,8 +341,9 @@ const Single_Query_Global = (props) => {
             >
               <video height="468px" width="900px" muted controls>
                 <source
-                  src="/Videos/pexels-mikhail-nilov-6962343 (Original).mp4"
+                  src="/Videoss/pexels-mikhail-nilov-6962343 (Original).mp4"
                   type="video/mp4"
+                  alt="query Video"
                 />
               </video>
             </div>
@@ -471,7 +379,7 @@ const Single_Query_Global = (props) => {
           </div>
           <div id="single_query_global_queryComment_rightPart">
             <div id="single_query_global_queryComment_rightPart_heading">
-              View {!props.isPublicQuery ? "your previous" : "all"} comments
+              View {!props.isPublic ? "your previous" : "all"} comments
             </div>
             <div id="single_query_global_queryComment_rightPart_main">
               <div
@@ -506,15 +414,15 @@ const Single_Query_Global = (props) => {
           </div>
         </div>
       </div>
-      {!props.isPublicQuery ? (
-        <div>
+      {!props.isPublic ? (
+        <div id="single_query_global_queryLastPart">
           <div id="single_query_global_queryMark">
             <div
               id="single_query_global_queryMark_upperBox"
               ref={queryMarkUpperBox}
             >
               <div id="single_query_global_queryMark_upperBox_heading">
-                {toShowPreference}
+                {markAsValue}
               </div>
 
               <span
@@ -533,7 +441,7 @@ const Single_Query_Global = (props) => {
                 className="single_query_global_queryMark_bottomBox_child"
                 id="single_query_global_queryMark_bottomBox_child1"
                 onClick={() => {
-                  setValue("Completed");
+                  setValueMarkAs("Acknowledged Query");
                 }}
               >
                 Acknowledged Query
@@ -542,7 +450,7 @@ const Single_Query_Global = (props) => {
                 className="single_query_global_queryMark_bottomBox_child"
                 id="single_query_global_queryMark_bottomBox_child2"
                 onClick={() => {
-                  setValue("Research Required");
+                  setValueMarkAs("Research Required");
                 }}
               >
                 Research required
@@ -551,16 +459,16 @@ const Single_Query_Global = (props) => {
                 className="single_query_global_queryMark_bottomBox_child"
                 id="single_query_global_queryMark_bottomBox_child3"
                 onClick={() => {
-                  setValue("Review Later");
+                  setValueMarkAs("InProgress Query");
                 }}
               >
-                In progress
+                InProgress Query
               </div>
               <div
                 className="single_query_global_queryMark_bottomBox_child"
                 id="single_query_global_queryMark_bottomBox_child4"
                 onClick={() => {
-                  setValue("Special One");
+                  setValueMarkAs("Special One");
                 }}
               >
                 Special one
@@ -569,15 +477,18 @@ const Single_Query_Global = (props) => {
                 className="single_query_global_queryMark_bottomBox_child"
                 id="single_query_global_queryMark_bottomBox_child1"
                 onClick={() => {
-                  setValue("Pending");
+                  setValueMarkAs("Pending");
                 }}
               >
                 Pending(Default)
               </div>
             </div>
+            <div id="single_query_global_queryMark_disclaimer">
+              Please click on Done to save your Marked As for this query
+            </div>
             <div
               onClick={() => {
-                setExtraDetail(toShowPreference);
+                callDBToSaveMarkAs();
               }}
               id="single_query_global_queryMark_button"
             >
