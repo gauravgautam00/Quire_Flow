@@ -14,7 +14,7 @@ const viewMyQueryController = async (req, res) => {
     .populate("receiver")
     .populate("query")
     .then((populatedQuery) => {
-      res.status(200).json({
+      return res.status(200).json({
         allQuery: populatedQuery,
       });
     })

@@ -21,7 +21,7 @@ const auth = (req, res, next) => {
       req.organisation = payload.organisation;
       req.department = payload.department;
       req.senderObjectId = payload.objectId;
-      //   console.log("payload", payload);
+      // console.log("payload", payload);
     }
 
     next();

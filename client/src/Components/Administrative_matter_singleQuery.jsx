@@ -6,7 +6,6 @@ const Administrative_matter_singleQuery = () => {
   const [query, setQuery] = useState();
   console.log(objectId);
   useEffect(() => {
-    console.log("llll");
     fetch(`http://localhost:2300/viewSingleQuery/${objectId}`, {
       method: "GET",
       headers: {

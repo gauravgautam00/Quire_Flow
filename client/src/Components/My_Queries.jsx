@@ -306,7 +306,7 @@ const My_Queries = () => {
       };
 
       filterPreferences.current.onclick = () => {
-        console.log("preferences", orgOpen, depOpen, prefOpen);
+        // console.log("preferences", orgOpen, depOpen, prefOpen);
 
         if (filterPreferencesExpand.current.style.height == "0rem") {
           filterDepartmentExpand.current.style.height = "0rem";
@@ -346,16 +346,28 @@ const My_Queries = () => {
         .then((response) => {
           const arr = [];
           response.allQuery.forEach((item) => {
-            arr.push(item.query);
+            item.query.forEach((itemnext) => {
+              const curEle = {
+                organisation: item.receiver.organisation,
+                department: item.receiver.department,
+                name: item.receiver.name,
+                anonyKey: item.receiver.anonyKey,
+                preferences: itemnext.preferences,
+                markAs: itemnext.markAs,
+                title: itemnext.title,
+                description: itemnext.description,
+                image: itemnext.image,
+                video: itemnext.video,
+                _id: itemnext._id,
+              };
+              arr.push(curEle);
+            });
           });
-          console.log("response", arr);
+          console.log("response", response, arr);
           setAllQueryArr(arr);
         })
         .catch((error) => {
-          console.log(
-            "Some error occurred while fetching the administrative matter query",
-            error
-          );
+          console.log("Some error occurred while fetching my query", error);
         });
     }
   }, []);
@@ -706,11 +718,11 @@ const My_Queries = () => {
             </div>
 
             <div
-              onClick={() => setOrganisationValue("Select Organisation")}
+              onClick={() => setOrganisationValue("All")}
               className="my_queries_container_third_viewQueries_filter_organisation_expandChild"
               id="my_queries_container_third_viewQueries_filter_organisation_expandChild_eleventh5"
             >
-              Select Organisation
+              All
             </div>
           </div>
           {/* expand of DEPARTMENT */}
@@ -793,11 +805,11 @@ const My_Queries = () => {
               Customer Support
             </div>
             <div
-              onClick={() => setDepartmentValue("Select Department")}
+              onClick={() => setDepartmentValue("All")}
               className="my_queries_container_third_viewQueries_filter_department_expandChild"
               id="my_queries_container_third_viewQueries_filter_department_expandChild_eleventh"
             >
-              Select Department
+              All
             </div>
           </div>
           {/* expand of PREFERENCES */}
@@ -817,6 +829,20 @@ const My_Queries = () => {
               Urgent
             </div>
             <div
+              onClick={() => setPreferencesValue("Normal")}
+              className="my_queries_container_third_viewQueries_filter_preferences_expandChild"
+              id="my_queries_container_third_viewQueries_filter_preferences_expandChild_first"
+            >
+              Normal
+            </div>
+            <div
+              onClick={() => setPreferencesValue("Important")}
+              className="my_queries_container_third_viewQueries_filter_preferences_expandChild"
+              id="my_queries_container_third_viewQueries_filter_preferences_expandChild_first"
+            >
+              Important
+            </div>
+            <div
               onClick={() => setPreferencesValue("Research Required")}
               className="my_queries_container_third_viewQueries_filter_preferences_expandChild"
               id="my_queries_container_third_viewQueries_filter_preferences_expandChild_second"
@@ -824,11 +850,11 @@ const My_Queries = () => {
               Research Required
             </div>
             <div
-              onClick={() => setPreferencesValue("Select Preferences")}
+              onClick={() => setPreferencesValue("None")}
               className="my_queries_container_third_viewQueries_filter_preferences_expandChild"
               id="my_queries_container_third_viewQueries_filter_preferences_expandChild_third"
             >
-              Select Preferences
+              None
             </div>
           </div>
 
@@ -840,26 +866,24 @@ const My_Queries = () => {
           </div>
         </div>
         <div id="my_queries_container_third_viewQueries_data">
-          {cardDataJson.map((data, index) => {
-            return (
-              <Link
-                style={{ textDecoration: "none" }}
-                key={index}
-                to={`/my_queries/query`}
-              >
-                <CardQueryChild
+          {localStorage.getItem("token") ? (
+            allQueryArr.map((data, index) => {
+              return (
+                <Link
+                  style={{ textDecoration: "none" }}
                   key={index}
-                  queryTitle={data.queryTitle}
-                  queryDescription={data.queryDescription}
-                  toName={data.toName}
-                  toAnonyKey={data.toAnonyKey}
-                  toOrganisation={data.toOrganisation}
-                  toDepartment={data.toDepartment}
-                  toPreferences={data.toPreferences}
-                />
-              </Link>
-            );
-          })}
+                  to={`/my_queries/${data._id}`}
+                >
+                  <CardQueryChild query={data} key={index} />
+                </Link>
+              );
+            })
+          ) : (
+            <div id="noToken_global">
+              Please <Link to="/authentication">Login/SignUp</Link> to see all
+              the received queries
+            </div>
+          )}
         </div>
       </div>
     </>

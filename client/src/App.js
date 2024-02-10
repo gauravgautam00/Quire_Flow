@@ -23,7 +23,7 @@ function App() {
           element={<Administrative_matter />}
         ></Route>
         <Route path="/my_queries" element={<My_Queries />}></Route>
-        <Route path="/my_queries/query" element={<Single_Query />}></Route>
+        <Route path="/my_queries/:objectId" element={<Single_Query />}></Route>
         <Route path="/authentication" element={<Authentication />}></Route>
         <Route path="/new_query" element={<New_Query />}></Route>
         <Route

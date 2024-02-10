@@ -845,7 +845,7 @@ const Administrative_matter = () => {
           </div>
         </>
       ) : (
-        <div id="noToken_Administrative_matter">
+        <div id="noToken_global">
           Please <Link to="/authentication">Login/SignUp</Link> to see all the
           received queries
         </div>

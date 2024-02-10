@@ -1,11 +1,15 @@
-import React, { useRef, useEffect } from "react";
+import React, { useRef, useEffect, useState } from "react";
 import Single_Query_Images from "./Single_Query_Images";
 import { useParams, useNavigate } from "react-router-dom";
 
 const Single_Query = () => {
+  const { objectId } = useParams();
+  const [query, setQuery] = useState([]);
   useEffect(() => {
     window.scrollTo(0, 0);
+    console.log(objectId);
   }, []);
+
   const navigate = useNavigate();
   const backClick = useRef(null);
 
@@ -201,7 +205,7 @@ const Single_Query = () => {
 
   window.onscroll = () => {
     const scroll = window.scrollY;
-    console.log(scroll);
+    // console.log(scroll);/
 
     if (scroll >= 1119) {
       if (headerRight.current) {
@@ -209,7 +213,7 @@ const Single_Query = () => {
         headerRight.current.style.marginTop = "-38.0rem";
       }
     } else if (scroll >= 145 && scroll < 1119) {
-      console.log("scroll here");
+      // console.log("scroll here");
       if (headerRight.current) {
         headerRight.current.style.position = "fixed";
         headerRight.current.style.top = "136rem";
@@ -239,7 +243,7 @@ const Single_Query = () => {
       };
     }
     const handleClick = () => {
-      console.log("running");
+      // console.log("running");
       navigate("/my_queries");
     };
 
@@ -247,7 +251,28 @@ const Single_Query = () => {
       backClick.current.addEventListener("click", handleClick);
     }
   });
-  const { id } = useParams();
+
+  useEffect(() => {
+    fetch(`http://localhost:2300/viewSingleQuery/${objectId}`, {
+      method: "GET",
+      headers: {
+        "Content-Type": "application/json",
+        authorization: `Bearer ${localStorage.getItem("token")}`,
+      },
+    })
+      .then((res) => res.json())
+      .then((response) => {
+        setQuery(response.curQuery);
+        console.log(response);
+      })
+      .catch((error) => {
+        console.log(
+          "Some error occurred while fetching the singleQueryData ",
+          error
+        );
+      });
+  }, [objectId]);
+
   return (
     // <>
     <div id="single_query_container">
@@ -260,35 +285,9 @@ const Single_Query = () => {
         </span>
         To All Queries
       </div>
-      <div id="single_query_container_headerFront">
-        Account Access Problem Billing Inquiry
-      </div>
+      <div id="single_query_container_headerFront">{query.title}</div>
       <div id="single_queries_container_data">
-        <div id="single_queries_container_text">
-          Lorem ipsum dolor, sit amet consectetur adipisicing elit. Doloribus
-          quis asperiores, corporis vitae aspernatur accusantium velit fugiat?
-          Quia natus reiciendis vitae minus delectus repudiandae earum
-          laboriosam, iste molestias placeat? Molestias mollitia maiores, sed
-          exercitationem veniam aut error voluptatibus iusto, vero tenetur quia!
-          Blanditiis illo laborum quod doloremque, suscipit eligendi. Inventore
-          dignissimos ullam rerum quisquam fugit laboriosam magni magnam esse,
-          sequi, autem, veritatis exercitationem vero! Nihil esse eaque nobis
-          qui, earum eius expedita facilis? Odio ducimus vitae mollitia
-          assumenda eveniet laborum, ipsum beatae perferendis architecto
-          eligendi minus cupiditate hic minima magni et explicabo facilis
-          pariatur iste necessitatibus veniam vero perspiciatis aut libero
-          tempore? Consequuntur fugit laboriosam maxime quas quo quidem iusto,
-          non quam cupiditate exercitationem repellat aperiam minus saepe
-          quibusdam praesentium incidunt fuga? Cupiditate rem nam ratione sunt
-          quos provident officiis excepturi ad hic, eius, voluptatibus molestiae
-          praesentium eveniet consequuntur exercitationem earum ipsam dolor
-          labore placeat nesciunt modi perspiciatis illum. Officia mollitia,
-          aliquam repellendus, adipisci odit, doloribus fugit laboriosam maxime
-          quas quo quidem iusto, non quam cupiditate exercitationem repellat
-          aperiam minus saepe quibusdam praesentium incidunt fuga? Cupiditate
-          rem nam ratione sunt quos provident officiis excepturi ad hic, eius,
-          voluptatibus molestiae praesentium eveniet cons
-        </div>
+        <div id="single_queries_container_text">{query.description}</div>
         {/* <div id="single_query_container_fillerFirst"></div> */}
 
         <div id="single_queries_container_images">
@@ -761,20 +760,20 @@ const Single_Query = () => {
         <div id="single_query_container_headerRight_heading">
           Reciever Details
         </div>
-        <div id="single_query_container_headerRight_name">
+        {/* <div id="single_query_container_headerRight_name">
           <div id="single_query_container_headerRight_name_first">
             Name/Designation
           </div>
           <div id="single_query_container_headerRight_name_second">
             Dr. A.K. Sharma
           </div>
-        </div>
+        </div> */}
         <div id="single_query_container_headerRight_anonyKey">
           <div id="single_query_container_headerRight_anonyKey_first">
             Anony Key
           </div>
           <div id="single_query_container_headerRight_anonyKey_second">
-            {id}
+            {query.anonyKey}
           </div>
         </div>
 
@@ -783,7 +782,7 @@ const Single_Query = () => {
             Organisation
           </div>
           <div id="single_query_container_headerRight_organisation_second">
-            Google
+            {query.organisation}
           </div>
         </div>
         <div id="single_query_container_headerRight_department">
@@ -791,7 +790,7 @@ const Single_Query = () => {
             Department
           </div>
           <div id="single_query_container_headerRight_department_second">
-            Search Team
+            {query.department}
           </div>
         </div>
         <div id="single_query_container_headerRight_preferences">
@@ -799,7 +798,7 @@ const Single_Query = () => {
             Preferences
           </div>
           <div id="single_query_container_headerRight_preferences_second">
-            Urgent
+            {query.preferences}
           </div>
         </div>
         <div id="single_query_container_headerRight_status">Pending</div>

@@ -4,6 +4,7 @@ import { useRef } from "react";
 import { useParams } from "react-router-dom";
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
+import Single_Comment from "./Single_Comment";
 const Single_Query_Global = (props) => {
   // const { id } = useParams();
   const navigate = useNavigate();
@@ -83,7 +84,7 @@ const Single_Query_Global = (props) => {
     if (singleQueryBack.current) {
       singleQueryBack.current.onclick = () => {
         console.log("ll");
-        navigate("/");
+        props.isPublic ? navigate("/") : navigate("/administrative_matter");
       };
     }
   }, []);
@@ -121,6 +122,74 @@ const Single_Query_Global = (props) => {
     setMarkAsValue(val);
     console.log(markAsValue);
   };
+
+  //for comments
+  //for comments
+  //for comments
+
+  const textareaContainingComment = useRef(null);
+  const commentSendButton = useRef(null);
+  const [allComments, setAllComments] = useState([]);
+
+  useEffect(() => {
+    if (localStorage.getItem("token")) {
+      console.log("on line 136 in viewComment", props.query, props.query._id);
+      fetch(`http://localhost:2300/viewComment/${props.query._id}`, {
+        method: "GET",
+        headers: {
+          "Content-Type": "application/json",
+          authorization: `Bearer ${localStorage.getItem("token")}`,
+        },
+      })
+        .then((res) => res.json())
+        .then((response) => {
+          console.log("in line 146", response);
+          setAllComments(response.comments);
+          allComments.map((data, index) => {
+            console.log("in map", data.content);
+          });
+          console.log("allComments", response.comments.length);
+        })
+        .catch((error) => {
+          console.log("Some error occurred", error);
+        });
+    }
+  }, []);
+
+  useEffect(() => {
+    if (commentSendButton.current && textareaContainingComment.current) {
+      commentSendButton.current.onclick = () => {
+        const value = textareaContainingComment.current.value;
+        if (!value) {
+          alert("Comment is empty");
+          return;
+        }
+        fetch("http://localhost:2300/addComment", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+            authorization: `Bearer ${localStorage.getItem("token")}`,
+          },
+          body: JSON.stringify({
+            query_id: props.query._id,
+            content: value,
+          }),
+        })
+          .then((res) => res.json())
+          .then((response) => {
+            setAllComments(response.comments);
+            textareaContainingComment.current.value = "";
+          })
+
+          .catch((error) => {
+            console.log(
+              "some error occurred hile adding the comment in the client side",
+              error
+            );
+          });
+      };
+    }
+  }, []);
 
   return (
     <div id="single_query_global">
@@ -373,43 +442,29 @@ const Single_Query_Global = (props) => {
               <textarea
                 id="single_Query_global_queryComment_leftPart_textarea_real"
                 name="leftPart"
+                ref={textareaContainingComment}
               ></textarea>
             </div>
-            <div id="single_query_global_queryComment_leftPart_send"> Send</div>
+            <div
+              id="single_query_global_queryComment_leftPart_send"
+              ref={commentSendButton}
+            >
+              {" "}
+              Send
+            </div>
           </div>
           <div id="single_query_global_queryComment_rightPart">
             <div id="single_query_global_queryComment_rightPart_heading">
               View {!props.isPublic ? "your previous" : "all"} comments
             </div>
             <div id="single_query_global_queryComment_rightPart_main">
-              <div
-                className="single_query_global_queryComment_rightPart_main_child"
-                id="single_query_global_queryComment_rightPart_main_child1"
-              >
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime,
-                asperiores.
-              </div>
-              <div
-                className="single_query_global_queryComment_rightPart_main_child"
-                id="single_query_global_queryComment_rightPart_main_child2"
-              >
-                Lorem ipsum dolor sit amet consectetur, adipisicing elit. Natus,
-                voluptas illo ipsum nesciunt ut explicabo cupiditate asperiores
-                velit ratione dolorum.
-              </div>
-              <div
-                className="single_query_global_queryComment_rightPart_main_child"
-                id="single_query_global_queryComment_rightPart_main_child3"
-              >
-                Lorem ipsum dolor sit amet.
-              </div>
-              <div
-                className="single_query_global_queryComment_rightPart_main_child"
-                id="single_query_global_queryComment_rightPart_main_child4"
-              >
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-                Dolorum consequuntur dolor provident, laudantium expedita ex.
-              </div>
+              {allComments ? (
+                allComments.map((data, item) => {
+                  return <Single_Comment key={item} content={data.content} />;
+                })
+              ) : (
+                <div>No comments</div>
+              )}
             </div>
           </div>
         </div>
