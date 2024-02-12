@@ -13,8 +13,10 @@ const addQueryController = async (req, res) => {
       isPublic,
       receiverAnonyKey,
     } = req.body;
+    console.log(preferences);
 
     const senderAnonyKey = req.senderAnonyKey;
+    // const receiverUser = await User.findOne({anonyKey:RTCEn})
     const organisation = req.organisation;
     const department = req.department;
 
@@ -37,6 +39,10 @@ const addQueryController = async (req, res) => {
       video,
       preferences,
       isPublic,
+      receiverAnonyKey: receiverUser.anonyKey,
+      receiverOrganisation: receiverUser.organisation,
+      receiverDepartment: receiverUser.department,
+      receiverName: receiverUser.name,
     });
     // console.log("query", newQuery);
 

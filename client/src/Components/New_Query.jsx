@@ -16,6 +16,7 @@ const NewQuery = () => {
   const submitButton = useRef(null);
   const setPreference = (val) => {
     setPreferenceValue(val);
+    console.log(preferenceValue);
   };
 
   useEffect(() => {
@@ -54,6 +55,7 @@ const NewQuery = () => {
           alert("Please add anonyKey");
           return;
         }
+        console.log("before sending", preferenceValue);
         const dataToSend = {
           preferences: preferenceValue,
           receiverAnonyKey: anonyKeyInput.current.value,
@@ -85,7 +87,7 @@ const NewQuery = () => {
           });
       };
     }
-  }, []);
+  }, [preferenceValue]);
   return (
     <div id="new_query_container">
       <div id="new_query_container_back" ref={newQueryBack}>

@@ -7,7 +7,6 @@ const CardQueryChild = (props) => {
     const randomIndex = Math.floor(Math.random() * colors.length);
     return colors[randomIndex];
   };
-
   return (
     <div id="card">
       <div style={{ backgroundColor: getRandomColor() }} id="card_upper">

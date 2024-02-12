@@ -33,9 +33,9 @@ const Administrative_matter_singleQuery = () => {
       ) : localStorage.getItem("token") ? (
         <div>Loading...</div>
       ) : (
-        <div id="noToken_Administrative_matter">
+        <div id="noToken_global">
           Please <Link to="/authentication">Login/SignUp</Link> to see expand
-          version of the query
+          version of the query <br /> OR <br /> No such query present
         </div>
       )}
     </>

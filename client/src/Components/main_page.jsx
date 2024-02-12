@@ -20,32 +20,22 @@ const Main_page = () => {
 
   //video for first ellipse
   useEffect(() => {}, []);
-  const video1 = document.createElement("video");
+  const img1 = document.createElement("img");
 
-  const source1 = document.createElement("source");
-  video1.appendChild(source1);
+  // const source1 = document.createElement("source");
+  // video1.appendChild(source1);
 
-  source1.src = "Videos/pexels_videos_2670 (1080p).mp4";
-
-  source1.type = "video/mp4";
+  img1.src = "Images/my_favicon.ico";
 
   //video for second ellipse
-  const video2 = document.createElement("video");
+  const img2 = document.createElement("img");
 
-  const source2 = document.createElement("source");
-  video2.appendChild(source2);
-  source2.src = "Videos/pexels-cottonbro-5244396 (2160p).mp4";
-
-  source2.type = "video/mp4";
+  img2.src = "Images/my_favicon.ico";
 
   //video for third ellipse
-  const video3 = document.createElement("video");
+  const img3 = document.createElement("img");
 
-  const source3 = document.createElement("source");
-  video3.appendChild(source3);
-  source3.src = "Videos/pexels-rodnae-productions-7822017 (1080p).mp4";
-
-  source3.type = "video/mp4";
+  img3.src = "Images/my_favicon.ico";
 
   const coolEncapsulation = () => {
     return new Promise((resolve, reject) => {
@@ -95,17 +85,14 @@ const Main_page = () => {
         encap.current.style.border = "0px";
 
         setTimeout(() => {
-          video1.width = "140";
-          video1.height = "80";
-          video1.style.borderRadius = "10px";
-          video1.style.marginTop = "-1.7rem";
-          video1.style.marginLeft = "-0.3rem";
+          img1.width = "140";
+          img1.height = "80";
+          img1.style.borderRadius = "10px";
+          img1.style.marginTop = "-1.7rem";
+          img1.style.marginLeft = "-0.3rem";
 
-          video1.autoplay = true;
-          video1.loop = true;
-          video1.muted = true;
           if (encap.current) {
-            encap.current.appendChild(video1);
+            encap.current.appendChild(img1);
             encap_inner.current.style.visibility = "hidden";
             encap.current.style.backgroundColor = "white";
           }
@@ -132,8 +119,8 @@ const Main_page = () => {
             respo.current.style.visibility = "visible";
             freed.current.style.visibility = "visible";
 
-            if (encap.current && encap.current.contains(video1)) {
-              encap.current.removeChild(video1);
+            if (encap.current && encap.current.contains(img1)) {
+              encap.current.removeChild(img1);
             }
 
             // Resolve the promise when everything is done
@@ -191,16 +178,14 @@ const Main_page = () => {
         freed_line.current.style.visibility = "hidden";
 
         setTimeout(() => {
-          video2.width = "140";
-          video2.height = "80";
-          video2.style.marginTop = "-1.9rem";
-          video2.style.marginLeft = "-0.3rem";
-          video2.style.borderRadius = "10px";
-          video2.autoplay = true;
-          video2.loop = true;
-          video2.muted = true;
+          img2.width = "140";
+          img2.height = "80";
+          img2.style.marginTop = "-1.9rem";
+          img2.style.marginLeft = "-0.3rem";
+          img2.style.borderRadius = "10px";
+
           if (respo.current) {
-            respo.current.appendChild(video2);
+            respo.current.appendChild(img2);
             respo_inner.current.style.visibility = "hidden";
             respo.current.style.backgroundColor = "white";
           }
@@ -229,8 +214,7 @@ const Main_page = () => {
             respo_line.current.style.visibility = "visible";
             freed_line.current.style.visibility = "visible";
 
-            if (respo.current.contains(video2))
-              respo.current.removeChild(video2);
+            if (respo.current.contains(img2)) respo.current.removeChild(img2);
 
             resolve();
           }
@@ -287,17 +271,14 @@ const Main_page = () => {
         freed_line.current.style.visibility = "hidden";
 
         setTimeout(() => {
-          video3.width = "140";
-          video3.height = "80";
-          video3.style.marginTop = "-1.7rem";
-          video3.style.marginLeft = "-0.3rem";
-          video3.style.borderRadius = "10px";
+          img3.width = "140";
+          img3.height = "80";
+          img3.style.marginTop = "-1.7rem";
+          img3.style.marginLeft = "-0.3rem";
+          img3.style.borderRadius = "10px";
 
-          video3.autoplay = true;
-          video3.loop = true;
-          video3.muted = true;
           if (freed.current) {
-            freed.current.appendChild(video3);
+            freed.current.appendChild(img3);
             freed_inner.current.style.visibility = "hidden";
             freed.current.style.backgroundColor = "white";
           }
@@ -332,8 +313,7 @@ const Main_page = () => {
             respo_line.current.style.visibility = "visible";
             freed_line.current.style.visibility = "visible";
 
-            if (freed.current.contains(video3))
-              freed.current.removeChild(video3);
+            if (freed.current.contains(img3)) freed.current.removeChild(img3);
             resolve();
           }
         }, 10000);

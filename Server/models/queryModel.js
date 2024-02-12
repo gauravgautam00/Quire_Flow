@@ -18,6 +18,22 @@ const querySchema = new mongoose.Schema(
       type: String,
       required: true,
     },
+    receiverOrganisation: {
+      type: String,
+      require: true,
+    },
+    receiverDepartment: {
+      type: String,
+      required: true,
+    },
+    receiverAnonyKey: {
+      type: String,
+      required: true,
+    },
+    receiverName: {
+      type: String,
+      required: true,
+    },
     image: {
       type: String,
       required: true,

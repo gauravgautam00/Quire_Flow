@@ -11,7 +11,7 @@ const Footer = () => {
         <div id="footer_container_beforeLine_first">
           <img
             id="footer_container_beforeLine_first_image"
-            src="/Images/284280fe2f484eaabc362670e44a9fc4 (1).png"
+            src="/Images/my_favicon.ico"
           />
         </div>
 

@@ -6,9 +6,19 @@ const viewSingleQueryController = async (req, res) => {
   const curQuery = await Query.findOne({ _id: queryId });
 
   if (curQuery) {
-    return res.status(200).json({
-      curQuery,
-    });
+    Query.findOne({ _id: queryId })
+      .populate("comments")
+      .then((populatedItem) => {
+        return res.status(200).json({
+          curQuery: populatedItem,
+        });
+      })
+      .catch((err) => {
+        return res.status(500).json({
+          message: "Some error occurred while fetching the query",
+          err,
+        });
+      });
   } else {
     return res.status(500).json({
       message: "Some error occurred while finding the query in server",

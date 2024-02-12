@@ -75,18 +75,66 @@ const Organisation_things = () => {
             id="OrgThings_container_filter_selectDepartment_dropDown"
             ref={expandMore}
           >
-            {value}
-            <div id="OrgThings_container_filter_selectDepartment_dropDown_expandMore">
-              <span
-                id="OrgThings_container_filter_selectDepartment_dropDown_icons"
-                className="material-symbols-outlined"
-                ref={selectDepartmentIcon}
+            <div id="OrgThings_container_filter_selectDepartment_dropDown_title">
+              {value}
+            </div>
+
+            <span
+              id="OrgThings_container_filter_selectDepartment_dropDown_icons"
+              className="material-symbols-outlined"
+              ref={selectDepartmentIcon}
+            >
+              expand_more
+            </span>
+            <div
+              id="OrgThings_container_filter_selectDepartment_dropDown_expandMore"
+              ref={toggleBox}
+            >
+              <div
+                onClick={() => setTheValue("Select Department")}
+                className="OrgThings_container_filter_selectDepartment_box_class"
+                id="OrgThings_container_filter_selectDepartment_box_1"
               >
-                expand_more
-              </span>
+                Select Department
+              </div>
+              <div
+                onClick={() => setTheValue("Finance")}
+                className="OrgThings_container_filter_selectDepartment_box_class"
+                id="OrgThings_container_filter_selectDepartment_box_1"
+              >
+                Finance
+              </div>
+              <div
+                onClick={() => setTheValue("IT")}
+                className="OrgThings_container_filter_selectDepartment_box_class"
+                id="OrgThings_container_filter_selectDepartment_box_2"
+              >
+                IT
+              </div>
+              <div
+                onClick={() => setTheValue("DevOps")}
+                className="OrgThings_container_filter_selectDepartment_box_class"
+                id="OrgThings_container_filter_selectDepartment_box_3"
+              >
+                DevOps
+              </div>
+              <div
+                onClick={() => setTheValue("Product Management")}
+                className="OrgThings_container_filter_selectDepartment_box_class"
+                id="OrgThings_container_filter_selectDepartment_box_4"
+              >
+                Product Management
+              </div>
+              <div
+                onClick={() => setTheValue("Marketing")}
+                className="OrgThings_container_filter_selectDepartment_box_class"
+                id="OrgThings_container_filter_selectDepartment_box_5"
+              >
+                Marketing
+              </div>
             </div>
           </div>
-          <div
+          {/* <div
             id="OrgThings_container_filter_selectDepartment_box"
             ref={toggleBox}
           >
@@ -132,7 +180,7 @@ const Organisation_things = () => {
             >
               Marketing
             </div>
-          </div>
+          </div> */}
 
           <div id="OrgThings_container_filter_searchSpecific">
             <input

@@ -293,24 +293,25 @@ code {
   /* margin-top: 2rem; */
   background-color: #f0f0f0;
   padding: 0.1px;
+  text-align: center;
 }
 
 #askQuery_container_header {
   border-radius: 10px;
-  margin-left: 16rem;
+  margin-left: 17vw;
   text-align: center;
   box-shadow: 0px 0px 6px 0px #c5c4c4 inset;
   padding: 10px;
   font-size: 30px;
   background-color: white;
-  width: 45rem;
+  width: 59vw;
   margin-top: 29px;
 }
 #askQuery_container_desc {
   font-family: sans-serif;
   text-align: center;
   width: 80%;
-  margin-left: 7rem;
+  margin-left: 10vw;
   margin-top: 3rem;
   font-size: 20px;
   line-height: 39px;
@@ -322,12 +323,11 @@ code {
   text-align: center;
   height: 3rem;
   background-color: #1937be;
-  width: 50rem;
+  width: 68vw;
   margin-top: 3rem;
   color: white;
   margin-bottom: 3rem;
-  /* text-align: center; */
-  margin-left: 13.5rem;
+  margin-left: 13vw;
 }
 
 #askQuery_container_leftPart_realtitle {
@@ -476,10 +476,12 @@ code {
 #OrgThings_container_filter {
   border-radius: 10px;
   height: 4rem;
-  width: 77.7rem;
+  /* width: 77.7rem; */
   margin-top: 0px;
+  justify-content: center;
+  /* text-align: center; */
   display: flex;
-  margin-left: 0.6rem;
+  /* margin-left: 1%; */
   border: 1px solid black;
 }
 #OrgThings_container_filter_selectDepartment_title {
@@ -493,6 +495,8 @@ code {
   height: 2rem;
   width: 15.5rem;
   margin-top: 1rem;
+  z-index: 2;
+  background-color: white;
   margin-left: 7.61rem;
   border: 1px solid;
   font-size: larger;
@@ -504,14 +508,23 @@ code {
   font-size: x-large;
   position: relative;
   transition: transform 1s;
-  top: 2px;
+  top: -21px;
+  left: 14rem;
 }
 #OrgThings_container_filter_selectDepartment_dropDown_expandMore {
   position: relative;
-  top: -1.4rem;
-  left: 13.5rem;
-  width: 1rem;
+  border: 1px solid;
+  top: -1.2rem;
+  left: -0.6rem;
+  width: 16.1rem;
+  height: 0rem;
+  overflow-y: scroll;
   font-size: unset;
+  transition: height 1s;
+  background-color: white;
+}
+#OrgThings_container_filter_selectDepartment_dropDown_title {
+  width: 13rem;
 }
 #OrgThings_container_filter_selectDepartment_box {
   overflow-y: scroll;
@@ -587,7 +600,7 @@ code {
   width: 83.9%;
   margin-top: -15.8rem;
   border-radius: 10px;
-  margin-left: 6.1rem;
+  margin-left: 7.5vw;
   overflow-x: scroll;
   background-color: white;
   white-space: nowrap;
@@ -603,7 +616,9 @@ code {
   box-shadow: 0px 0px 6px 0px #c5c4c4;
   margin-top: -15.5rem;
   cursor: pointer;
-  margin-left: 74rem;
+  margin-left: 93vw;
+  position: relative;
+  background-color: white;
 }
 #OrgThings_container_rightArrow_symbol {
   padding-left: 6px;
@@ -909,6 +924,7 @@ code {
 }
 #GlobalSharing_concept_container_arrow {
   margin-top: 3rem;
+  text-align: center;
   padding: 0.1px;
 }
 #GlobalSharing_concept_container_arrow_first {
@@ -916,7 +932,7 @@ code {
   color: white;
   width: 50%;
   padding: 64px;
-  margin-left: 20rem;
+  margin-left: 24vw;
   /* height: 2rem; */
   font-family: sans-serif;
   padding: 7px 24px 10px 0px;
@@ -2085,8 +2101,8 @@ code {
   font-size: x-large;
 }
 #noToken_global {
-  margin-top: 1rem;
-  margin-bottom: 2rem;
+  margin-top: 3rem;
+  margin-bottom: 10rem;
   font-size: large;
 }
 
@@ -3332,6 +3348,9 @@ card */
   /* border: 2px solid green; */
   color: #16252d;
   width: 49rem;
+  overflow-y: scroll;
+  word-wrap: break-word;
+  /* overflow-x: hidden; */
   margin-top: 15px;
   padding-bottom: 26px;
   padding-top: 16px;
@@ -3347,12 +3366,15 @@ card */
 }
 #single_queries_container_text {
   overflow-y: scroll;
-  height: 23rem;
+  height: 24rem;
+  word-wrap: break-word;
   padding-left: 35px;
   box-shadow: 0px 0px 6px 0px #c5c4c4;
   padding-right: 29px;
   color: #16252d;
   background-color: white;
+  font-size: large;
+  width: 47.1rem;
   padding-bottom: 26px;
   padding-top: 6px;
   border-bottom-left-radius: 10px;
@@ -3740,6 +3762,7 @@ card */
   margin-top: 4rem;
   margin-left: 3rem;
   height: 19rem;
+  overflow-y: scroll;
   width: 70.5rem;
   border-radius: 10px;
   box-shadow: 0px 0px 6px 0px #c5c4c4;

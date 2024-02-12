@@ -822,7 +822,10 @@ const Administrative_matter = () => {
           >
             {allQueryArr.length == 0 ? (
               <div id="noQueryFilter">
-                No such query for these filters , try to change some filter
+                No such query for these filters , try to change some filter{" "}
+                <br />
+                OR
+                <br /> You have not received any query
               </div>
             ) : (
               allQueryArr.map((data, index) => {
