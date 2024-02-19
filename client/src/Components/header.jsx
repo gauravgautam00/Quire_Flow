@@ -138,9 +138,14 @@ const Header = () => {
               {localStorage.getItem("userName")}
               {/* Gaurav Gautam */}
             </div>
-            <div id="header_container_accountHamburger_bottomBox_profile">
-              My profile
-            </div>
+            <Link
+              to="/my_profile"
+              style={{ textDecoration: "none", color: "inherit" }}
+            >
+              <div id="header_container_accountHamburger_bottomBox_profile">
+                My profile
+              </div>
+            </Link>
             <div
               id="header_container_accountHamburger_bottomBox_logout"
               ref={bottomBoxLogout}

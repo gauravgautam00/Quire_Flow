@@ -48,6 +48,7 @@ const signUpController = async (req, res) => {
     message: "user registered successfully",
     userToken: token,
     User: curUser,
+    anonyKey: anonyKey,
   });
 };
 
@@ -79,6 +80,7 @@ const logInController = async (req, res) => {
       message: "user login successfully",
       userToken: token,
       User: curUser,
+      anonyKey: curUser.anonyKey,
     };
     // console.log(curUserDetails);
     return res.status(200).json(curUserDetails);

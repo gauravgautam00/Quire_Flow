@@ -11,6 +11,7 @@ import New_Query from "./Components/New_Query";
 import Administrative_matter_singleQuery from "./Components/Administrative_matter_singleQuery";
 import Public_Queries_singleQuery from "./Components/Public_Queries_singleQuery";
 import Authentication from "./Components/Authentication";
+import My_Profile from "./Components/My_Profile";
 function App() {
   return (
     <BrowserRouter>
@@ -38,6 +39,7 @@ function App() {
           path="/public_queries/query"
           element={<Public_Queries_singleQuery />}
         ></Route>
+        <Route path="/my_profile" element={<My_Profile />} />
       </Routes>
     </BrowserRouter>
   );

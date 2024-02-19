@@ -45,6 +45,7 @@ const Authentication = () => {
         console.log(response);
         localStorage.setItem("token", response.userToken);
         localStorage.setItem("userName", name);
+        localStorage.setItem("anonyKey", response.anonyKey);
         alert("Sign up successfulll taking you to the home page");
 
         navigate("/");
@@ -85,6 +86,8 @@ const Authentication = () => {
         console.log(response);
         localStorage.setItem("token", response.userToken);
         localStorage.setItem("userName", response.User.name);
+
+        localStorage.setItem("anonyKey", response.anonyKey);
         alert("Successfully logged in");
 
         navigate("/");

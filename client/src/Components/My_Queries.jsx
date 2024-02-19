@@ -322,7 +322,7 @@ const My_Queries = () => {
         }
       };
     }
-  }, []);
+  });
 
   const setOrganisationValue = (val) => {
     setOrgValue(val);
