@@ -17,9 +17,7 @@ const addCommentRoutes = require("./routes/addCommentRoutes");
 const viewCommentRoutes = require("./routes/viewCommentRoutes");
 const publicQueryRoutes = require("./routes/publicQueryRoutes");
 app.use("/", authRoutes);
-app.get("/debug", (req, res) => {
-  res.send("completed");
-});
+
 app.use("/addQuery", addQueryRoutes);
 app.use("/viewQuery", viewQueryRoutes);
 app.use("/viewSingleQuery", viewSingleQueryRoutes);

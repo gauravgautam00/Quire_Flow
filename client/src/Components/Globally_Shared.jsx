@@ -45,14 +45,22 @@ const Globally_Shared = () => {
   }, []);
 
   useState(() => {
-    fetch("https://quire-flow-4.onrender.com/public/all")
-      .then((res) => res.json())
-      .then((response) => {
-        setAllPublicQueryArr(response.requiredQueryData);
+    if (localStorage.getItem("token") != null) {
+      fetch("https://quire-flow-4.onrender.com/public/all", {
+        method: "GET",
+        headers: {
+          "Content-Type": "application/json",
+          authentication: `Bearer ${localStorage.token}`,
+        },
       })
-      .catch((err) => {
-        console.log("Some error occurred while fetching all public queries");
-      });
+        .then((res) => res.json())
+        .then((response) => {
+          setAllPublicQueryArr(response.requiredQueryData);
+        })
+        .catch((err) => {
+          console.log("Some error occurred while fetching all public queries");
+        });
+    }
   });
 
   const setOrganisation = (val) => {
@@ -336,7 +344,7 @@ const Globally_Shared = () => {
             </>
           )
         ) : (
-          "Loading"
+          "Loading...  You must login to view your all public query"
         )}
       </div>
     </div>

@@ -17,17 +17,25 @@ const Organisation_things = () => {
   const selectDepartmentIcon = useRef(null);
 
   useEffect(() => {
-    fetch("https://quire-flow-4.onrender.com/public/myOrganisation")
-      .then((res) => res.json())
-      .then((response) => {
-        setQueryArr(response.requiredQueryData);
+    if (localStorage.getItem("token") != null) {
+      fetch("https://quire-flow-4.onrender.com/public/myOrganisation", {
+        method: "GET",
+        headers: {
+          "Content-Type": "application/json",
+          authentication: `Bearer ${localStorage.token}`,
+        },
       })
-      .catch((err) => {
-        console.log(
-          "Some error occurred in client when fetching the public organisation query",
-          err
-        );
-      });
+        .then((res) => res.json())
+        .then((response) => {
+          setQueryArr(response.requiredQueryData);
+        })
+        .catch((err) => {
+          console.log(
+            "Some error occurred in client when fetching the public organisation query",
+            err
+          );
+        });
+    }
   });
   useEffect(() => {
     if (
@@ -246,7 +254,7 @@ const Organisation_things = () => {
               </>
             )
           ) : (
-            "Loading"
+            "Loading...  You must login to view your organisation's public query"
           )}
         </div>
         <div id="OrgThings_container_rightArrow" ref={chevron_right}>
