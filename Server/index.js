@@ -16,7 +16,7 @@ const setMarkAsRoutes = require("./routes/setMarkAsRoutes");
 const addCommentRoutes = require("./routes/addCommentRoutes");
 const viewCommentRoutes = require("./routes/viewCommentRoutes");
 app.use("/", authRoutes);
-app.use("/debug", (req, res) => {
+app.get("/debug", (req, res) => {
   res.send("completed");
 });
 app.use("/addQuery", addQueryRoutes);
