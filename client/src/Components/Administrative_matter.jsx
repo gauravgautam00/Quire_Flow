@@ -1,6 +1,6 @@
 import React, { useState, useRef, useEffect } from "react";
 import { Link } from "react-router-dom";
-import Administrative_matter_JSON from "./administrativeMatter.json";
+// import Administrative_matter_JSON from "./administrativeMatter.json";
 import Child_Administrative_matter from "./Child_Administrative_matter";
 import SecondInfo_Child_administrator_container from "./secondInfo_Child_administrator_container";
 import secondInfo_administrativeMatter from "./secondInfo_administrativeMatter.json";

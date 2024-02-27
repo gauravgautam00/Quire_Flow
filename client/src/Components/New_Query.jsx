@@ -10,9 +10,10 @@ const NewQuery = () => {
   const leftPreferencesBottomBox = useRef(null);
   const anonyKeyInput = useRef(null);
   const titleInput = useRef(null);
+  const refPublicQuery = useRef(null);
   const descriptionInput = useRef(null);
   const [preferenceValue, setPreferenceValue] = useState("None");
-
+  const [publicQuery, setPublicQuery] = useState(false);
   const submitButton = useRef(null);
   const setPreference = (val) => {
     setPreferenceValue(val);
@@ -27,7 +28,10 @@ const NewQuery = () => {
     ) {
       leftPreferencesBottomBox.current.style.height = "0rem";
       leftPreferencesDropDown.current.onclick = () => {
-        if (leftPreferencesBottomBox.current.style.height == "0rem") {
+        if (
+          leftPreferencesBottomBox.current.style.height == "0rem" &&
+          !publicQuery
+        ) {
           leftPreferencesBottomBox.current.style.height = "9rem";
           leftPreferencesDropDownIcon.current.style.transform =
             "rotate(-180deg)";
@@ -58,12 +62,12 @@ const NewQuery = () => {
         console.log("before sending", preferenceValue);
         const dataToSend = {
           preferences: preferenceValue,
-          receiverAnonyKey: anonyKeyInput.current.value,
+          receiverAnonyKey: publicQuery ? 0 : anonyKeyInput.current.value,
           title: titleInput.current.value,
           image: "Not specified",
           video: "Not specified",
           description: descriptionInput.current.value,
-          isPublic: false,
+          isPublic: publicQuery,
         };
         console.log("datatosend in new_Query.jsx", dataToSend);
 
@@ -87,7 +91,28 @@ const NewQuery = () => {
           });
       };
     }
-  }, [preferenceValue]);
+  });
+
+  useEffect(() => {
+    if (refPublicQuery.current && anonyKeyInput.current) {
+      refPublicQuery.current.onclick = () => {
+        if (refPublicQuery.current.style.color == "black") {
+          refPublicQuery.current.style.color = "white";
+          refPublicQuery.current.style.backgroundColor = "black";
+          setPublicQuery(true);
+          anonyKeyInput.current.readOnly = true;
+          anonyKeyInput.current.value = "";
+          setPreference("none");
+        } else {
+          refPublicQuery.current.style.color = "black";
+          refPublicQuery.current.style.backgroundColor = "white";
+          setPublicQuery(false);
+          anonyKeyInput.current.readOnly = false;
+        }
+      };
+    }
+  });
+
   return (
     <div id="new_query_container">
       <div id="new_query_container_back" ref={newQueryBack}>
@@ -206,6 +231,9 @@ const NewQuery = () => {
                   ref={anonyKeyInput}
                 />
               </div>
+            </div>
+            <div id="new_query_container_main_leftPublic" ref={refPublicQuery}>
+              {publicQuery ? "Marked" : "Mark"} as Public query
             </div>
             <div id="new_query_container_main_leftAds">
               <div

@@ -1,6 +1,7 @@
 import React, { useRef, useState, useEffect } from "react";
-import jsonData from "./My_Organisation.json";
+
 import Child_Organisation_things from "./Child_Organisation_things";
+// import { set } from "mongoose";
 
 const submitForm = () => {};
 
@@ -8,12 +9,26 @@ const Organisation_things = () => {
   const toggleBox = useRef(null);
 
   const [value, setValue] = useState("Select Department");
+  const [queryArr, setQueryArr] = useState([]);
   const expandMore = useRef(null);
   const scrollContainer = useRef(null);
   const chevron_left = useRef(null);
   const chevron_right = useRef(null);
   const selectDepartmentIcon = useRef(null);
 
+  useEffect(() => {
+    fetch("https://quire-flow-4.onrender.com/public/myOrganisation")
+      .then((res) => res.json())
+      .then((response) => {
+        setQueryArr(response.requiredQueryData);
+      })
+      .catch((err) => {
+        console.log(
+          "Some error occurred in client when fetching the public organisation query",
+          err
+        );
+      });
+  });
   useEffect(() => {
     if (
       toggleBox.current &&
@@ -210,17 +225,25 @@ const Organisation_things = () => {
           </span>
         </div>
         <div id="OrgThings_container_scrollContainer" ref={scrollContainer}>
-          {jsonData.map((data, index) => {
-            return (
-              <Child_Organisation_things
-                key={index}
-                queryTitle={data.queryTitle}
-                queryDescription={data.queryDescription}
-                noOfLikes={data.noOfLikes}
-                noOfDislikes={data.noOfDislikes}
-              />
-            );
-          })}
+          {queryArr.length > 0 ? (
+            queryArr.map((data, index) => {
+              return (
+                <Child_Organisation_things
+                  key={index}
+                  queryTitle={data.title}
+                  queryDescription={data.description}
+                  comments={data.comments}
+                />
+              );
+            })
+          ) : (
+            <>
+              <div id="nosuchdata">
+                No public query is availaible from your organisation . Checkout
+                all the public queries below
+              </div>
+            </>
+          )}
         </div>
         <div id="OrgThings_container_rightArrow" ref={chevron_right}>
           <span

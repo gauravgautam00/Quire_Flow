@@ -1,6 +1,6 @@
 import React, { useDeferredValue, useEffect, useRef, useState } from "react";
 import { Link } from "react-router-dom";
-import cardDataJson from "./cardJsonData.json";
+// import cardDataJson from "./cardJsonData.json";
 import CardQueryChild from "./CardQueryChild";
 
 const My_Queries = () => {

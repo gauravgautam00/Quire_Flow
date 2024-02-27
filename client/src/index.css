@@ -3890,6 +3890,17 @@ card */
 .new_query_container_main_leftPreferences_bottomBox_childClass:hover {
   background-color: #f5f5f5;
 }
+#new_query_container_main_leftPublic {
+  cursor: pointer;
+  border-radius: 4px;
+  text-align: center;
+  margin-left: 3rem;
+  color: black;
+  border: 1px solid;
+  padding: 0.5rem;
+  margin-top: 1rem;
+  width: 60%;
+}
 
 .new_query_container_main_leftAds_child {
   height: 12rem;
@@ -4173,4 +4184,11 @@ card */
 
 #randomSpace {
   margin-top: 90rem;
+}
+#nosuchdata {
+  font-size: large;
+
+  font-family: sans-serif;
+  margin-top: 1rem;
+  margin-left: 1rem;
 }

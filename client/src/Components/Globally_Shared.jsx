@@ -6,6 +6,8 @@ const Globally_Shared = () => {
   const [orgValue, setOrgValue] = useState("All");
   const [depValue, setDepValue] = useState("All");
 
+  const [allPublicQueryArr, setAllPublicQueryArr] = useState([]);
+
   const orgExpand = useRef(null);
   const orgExpandBox = useRef(null);
   const orgExpandIcon = useRef(null);
@@ -41,6 +43,17 @@ const Globally_Shared = () => {
       };
     }
   }, []);
+
+  useState(() => {
+    fetch("https://quire-flow-4.onrender.com/public/all")
+      .then((res) => res.json())
+      .then((response) => {
+        setAllPublicQueryArr(response.requiredQueryData);
+      })
+      .catch((err) => {
+        console.log("Some error occurred while fetching all public queries");
+      });
+  });
 
   const setOrganisation = (val) => {
     setOrgValue(val);
@@ -303,17 +316,24 @@ const Globally_Shared = () => {
       {/* right part */}
       {/* right part */}
       <div id="publically_shared_container_right">
-        {Public_Queries_json.map((data, index) => {
-          return (
-            <Child_Globally_Shared
-              key={index}
-              organisation={data.organisation}
-              department={data.department}
-              query={data.query}
-              uniqueNum={index}
-            />
-          );
-        })}
+        {allPublicQueryArr.length > 0 ? (
+          allPublicQueryArr.map((data, index) => {
+            return (
+              <Child_Globally_Shared
+                key={index}
+                organisation={data.organisation}
+                department={data.department}
+                title={data.title}
+                description={data.description}
+                uniqueNum={index}
+              />
+            );
+          })
+        ) : (
+          <>
+            <div id="nosuchdata">No public query availaible .</div>
+          </>
+        )}
       </div>
     </div>
   );
