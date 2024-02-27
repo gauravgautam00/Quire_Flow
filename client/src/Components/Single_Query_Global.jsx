@@ -92,7 +92,7 @@ const Single_Query_Global = (props) => {
   const callDBToSaveMarkAs = () => {
     if (localStorage.getItem("token")) {
       console.log(markAsValue);
-      fetch("http://localhost:2300/setMarkAs", {
+      fetch("https://quire-flow-4.onrender.com/setMarkAs", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -134,13 +134,16 @@ const Single_Query_Global = (props) => {
   useEffect(() => {
     if (localStorage.getItem("token")) {
       console.log("on line 136 in viewComment", props.query, props.query._id);
-      fetch(`http://localhost:2300/viewComment/${props.query._id}`, {
-        method: "GET",
-        headers: {
-          "Content-Type": "application/json",
-          authorization: `Bearer ${localStorage.getItem("token")}`,
-        },
-      })
+      fetch(
+        `https://quire-flow-4.onrender.com/viewComment/${props.query._id}`,
+        {
+          method: "GET",
+          headers: {
+            "Content-Type": "application/json",
+            authorization: `Bearer ${localStorage.getItem("token")}`,
+          },
+        }
+      )
         .then((res) => res.json())
         .then((response) => {
           console.log("in line 146", response);
@@ -164,7 +167,7 @@ const Single_Query_Global = (props) => {
           alert("Comment is empty");
           return;
         }
-        fetch("http://localhost:2300/addComment", {
+        fetch("https://quire-flow-4.onrender.com/addComment", {
           method: "POST",
           headers: {
             "Content-Type": "application/json",

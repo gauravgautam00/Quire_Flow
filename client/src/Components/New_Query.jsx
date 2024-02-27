@@ -67,7 +67,7 @@ const NewQuery = () => {
         };
         console.log("datatosend in new_Query.jsx", dataToSend);
 
-        fetch("http://localhost:2300/addQuery", {
+        fetch("https://quire-flow-4.onrender.com/addQuery", {
           method: "POST",
           headers: {
             "Content-Type": "application/json",

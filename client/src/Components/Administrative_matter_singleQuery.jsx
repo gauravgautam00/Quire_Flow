@@ -6,7 +6,7 @@ const Administrative_matter_singleQuery = () => {
   const [query, setQuery] = useState();
   console.log(objectId);
   useEffect(() => {
-    fetch(`http://localhost:2300/viewSingleQuery/${objectId}`, {
+    fetch(`https://quire-flow-4.onrender.com/${objectId}`, {
       method: "GET",
       headers: {
         "Content-Type": "application/json",

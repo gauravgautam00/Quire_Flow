@@ -318,13 +318,16 @@ const Administrative_matter = () => {
 
   useEffect(() => {
     if (localStorage.getItem("token")) {
-      fetch("http://localhost:2300/viewQuery/administrativeMatter", {
-        method: "GET",
-        headers: {
-          "Content-Type": "application/json",
-          authorization: `Bearer ${localStorage.getItem("token")}`,
-        },
-      })
+      fetch(
+        "https://quire-flow-4.onrender.com/viewQuery/administrativeMatter",
+        {
+          method: "GET",
+          headers: {
+            "Content-Type": "application/json",
+            authorization: `Bearer ${localStorage.getItem("token")}`,
+          },
+        }
+      )
         .then((res) => res.json())
         .then((response) => {
           const filteredData = [];
