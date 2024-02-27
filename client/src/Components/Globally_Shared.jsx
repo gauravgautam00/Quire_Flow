@@ -316,23 +316,27 @@ const Globally_Shared = () => {
       {/* right part */}
       {/* right part */}
       <div id="publically_shared_container_right">
-        {allPublicQueryArr.length > 0 ? (
-          allPublicQueryArr.map((data, index) => {
-            return (
-              <Child_Globally_Shared
-                key={index}
-                organisation={data.organisation}
-                department={data.department}
-                title={data.title}
-                description={data.description}
-                uniqueNum={index}
-              />
-            );
-          })
+        {allPublicQueryArr ? (
+          allPublicQueryArr.length > 0 ? (
+            allPublicQueryArr.map((data, index) => {
+              return (
+                <Child_Globally_Shared
+                  key={index}
+                  organisation={data.organisation}
+                  department={data.department}
+                  title={data.title}
+                  description={data.description}
+                  uniqueNum={index}
+                />
+              );
+            })
+          ) : (
+            <>
+              <div id="nosuchdata">No public query availaible .</div>
+            </>
+          )
         ) : (
-          <>
-            <div id="nosuchdata">No public query availaible .</div>
-          </>
+          "Loading"
         )}
       </div>
     </div>

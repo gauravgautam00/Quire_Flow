@@ -225,24 +225,28 @@ const Organisation_things = () => {
           </span>
         </div>
         <div id="OrgThings_container_scrollContainer" ref={scrollContainer}>
-          {queryArr.length > 0 ? (
-            queryArr.map((data, index) => {
-              return (
-                <Child_Organisation_things
-                  key={index}
-                  queryTitle={data.title}
-                  queryDescription={data.description}
-                  comments={data.comments}
-                />
-              );
-            })
+          {queryArr ? (
+            queryArr.length > 0 ? (
+              queryArr.map((data, index) => {
+                return (
+                  <Child_Organisation_things
+                    key={index}
+                    queryTitle={data.title}
+                    queryDescription={data.description}
+                    comments={data.comments}
+                  />
+                );
+              })
+            ) : (
+              <>
+                <div id="nosuchdata">
+                  No public query is availaible from your organisation .
+                  Checkout all the public queries below
+                </div>
+              </>
+            )
           ) : (
-            <>
-              <div id="nosuchdata">
-                No public query is availaible from your organisation . Checkout
-                all the public queries below
-              </div>
-            </>
+            "Loading"
           )}
         </div>
         <div id="OrgThings_container_rightArrow" ref={chevron_right}>
