@@ -133,7 +133,6 @@ const Single_Query_Global = (props) => {
 
   useEffect(() => {
     if (localStorage.getItem("token")) {
-      console.log("on line 136 in viewComment", props.query, props.query._id);
       fetch(
         `https://quire-flow-4.onrender.com/viewComment/${props.query._id}`,
         {
@@ -146,7 +145,6 @@ const Single_Query_Global = (props) => {
       )
         .then((res) => res.json())
         .then((response) => {
-          console.log("in line 146", response);
           setAllComments(response.comments);
           allComments.map((data, index) => {
             console.log("in map", data.content);

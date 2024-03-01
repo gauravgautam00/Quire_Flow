@@ -5,7 +5,15 @@ dotenv.config();
 const connectDB = require("./config/db");
 connectDB();
 const cors = require("cors");
-app.use(cors());
+app.use(
+  cors({
+    origin: "https://quire-flow-fk1u.vercel.app/",
+    methods: ["GET", "POST"],
+    allowedHeaders: ["my-custom-header"],
+    credentials: true,
+  })
+);
+
 app.use(express.json());
 
 const authRoutes = require("./routes/authRoutes");
