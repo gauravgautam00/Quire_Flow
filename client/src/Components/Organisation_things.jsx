@@ -19,8 +19,8 @@ const Organisation_things = () => {
   useEffect(() => {
     // console.log(localStorage.getItem("token"));
     if (localStorage.getItem("token") != null) {
-      // fetch("https://quire-flow-4.onrender.com/public/myOrganisation", {
-      fetch("http://localhost:2300/public/myOrganisation", {
+      fetch("https://quire-flow-4.onrender.com/public/myOrganisation", {
+        // fetch("http://localhost:2300/public/myOrganisation", {
         method: "GET",
         headers: {
           "Content-Type": "application/json",

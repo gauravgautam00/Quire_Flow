@@ -26,8 +26,8 @@ const Authentication = () => {
     };
     console.log(curData);
 
-    // fetch("https://quire-flow-4.onrender.com/signup", {
-    fetch("http://localhost:2300/signup", {
+    fetch("https://quire-flow-4.onrender.com/signup", {
+      // fetch("http://localhost:2300/signup", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -67,9 +67,8 @@ const Authentication = () => {
       password,
     };
     console.log(JSON.stringify(data));
-    // fetch("https://quire-flow-4.onrender.com/login", {
-
-    fetch("http://localhost:2300/login", {
+    fetch("https://quire-flow-4.onrender.com/login", {
+      // fetch("http://localhost:2300/login", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

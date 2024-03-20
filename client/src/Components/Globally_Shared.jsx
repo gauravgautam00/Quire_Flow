@@ -47,9 +47,8 @@ const Globally_Shared = () => {
   useState(() => {
     console.log(localStorage.getItem("token"));
     if (localStorage.getItem("token")) {
-      console.log("coming in /public.all");
-
-      fetch("http://localhost:2300/public/all", {
+      fetch("https://quire-flow-4.onrender.com/public/all", {
+        // fetch("http://localhost:2300/public/all", {
         method: "GET",
         headers: {
           "Content-Type": "application/json",

@@ -255,8 +255,8 @@ const Single_Query = () => {
   });
 
   useEffect(() => {
-    // fetch(`https://quire-flow-4.onrender.com/viewSingleQuery/${objectId}`, {
-    fetch(`http://localhost:2300/viewSingleQuery/${objectId}`, {
+    fetch(`https://quire-flow-4.onrender.com/viewSingleQuery/${objectId}`, {
+      // fetch(`http://localhost:2300/viewSingleQuery/${objectId}`, {
       method: "GET",
       headers: {
         "Content-Type": "application/json",
