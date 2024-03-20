@@ -335,7 +335,8 @@ const My_Queries = () => {
   };
   useEffect(() => {
     if (localStorage.getItem("token")) {
-      fetch("https://quire-flow-4.onrender.com/viewQuery/myQueries", {
+      // fetch("https://quire-flow-4.onrender.com/viewQuery/myQueries", {
+      fetch("http://localhost:2300/viewQuery/myQueries", {
         method: "GET",
         headers: {
           "Content-Type": "application/json",

@@ -5,6 +5,7 @@ const viewOrganisationPublicController = async (req, res) => {
     const requiredQueryData = await Query.find({
       isPublic: true,
     });
+    // console.log("required query data", requiredQueryData);
     res.status(200).json({
       requiredQueryData,
     });

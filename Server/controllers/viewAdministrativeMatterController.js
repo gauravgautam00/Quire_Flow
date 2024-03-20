@@ -3,6 +3,7 @@ const User = require("../models/userModel");
 
 const viewAdministrativeMatterController = async (req, res) => {
   const senderAnonyKey = req.senderAnonyKey;
+  console.log(senderAnonyKey);
   const curUser = await User.findOne({ anonyKey: senderAnonyKey });
   //   console.log(req);
   if (curUser) {

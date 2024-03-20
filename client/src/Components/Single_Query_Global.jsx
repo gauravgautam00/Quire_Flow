@@ -11,11 +11,7 @@ const Single_Query_Global = (props) => {
   const singleQueryBack = useRef(null);
 
   const photosMainContainer = useRef(null);
-  const photosMainLeftArrow = useRef(null);
-  const photosMainRightArrow = useRef(null);
-  const videosMainContainer = useRef(null);
-  const videosMainLeftArrow = useRef(null);
-  const videosMainRightArrow = useRef(null);
+
   const queryMarkUpperBox = useRef(null);
   const queryMarkBottomBox = useRef(null);
   const queryMarkUpperBoxIcon = useRef(null);
@@ -25,46 +21,6 @@ const Single_Query_Global = (props) => {
   const extraDetailsIcon = useRef(null);
 
   useEffect(() => {
-    if (
-      photosMainContainer.current &&
-      photosMainLeftArrow.current &&
-      photosMainRightArrow.current
-    ) {
-      photosMainLeftArrow.current.onclick = () => {
-        photosMainContainer.current.scrollBy({
-          left: -917,
-          behavior: "smooth",
-        });
-      };
-
-      photosMainRightArrow.current.onclick = () => {
-        photosMainContainer.current.scrollBy({
-          left: 917,
-          behavior: "smooth",
-        });
-      };
-    }
-
-    if (
-      videosMainContainer.current &&
-      videosMainLeftArrow.current &&
-      videosMainRightArrow.current
-    ) {
-      videosMainLeftArrow.current.onclick = () => {
-        videosMainContainer.current.scrollBy({
-          left: -911,
-          behavior: "smooth",
-        });
-      };
-
-      videosMainRightArrow.current.onclick = () => {
-        videosMainContainer.current.scrollBy({
-          left: 911,
-          behavior: "smooth",
-        });
-      };
-    }
-
     if (
       extraDetailsUpperBox.current &&
       extraDetailsBottomBox.current &&
@@ -92,7 +48,8 @@ const Single_Query_Global = (props) => {
   const callDBToSaveMarkAs = () => {
     if (localStorage.getItem("token")) {
       console.log(markAsValue);
-      fetch("https://quire-flow-4.onrender.com/setMarkAs", {
+      // fetch("https://quire-flow-4.onrender.com/setMarkAs", {
+      fetch("http://localhost:2300/setMarkAs", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -133,16 +90,15 @@ const Single_Query_Global = (props) => {
 
   useEffect(() => {
     if (localStorage.getItem("token")) {
-      fetch(
-        `https://quire-flow-4.onrender.com/viewComment/${props.query._id}`,
-        {
-          method: "GET",
-          headers: {
-            "Content-Type": "application/json",
-            authorization: `Bearer ${localStorage.getItem("token")}`,
-          },
-        }
-      )
+      // fetch(
+      //   `https://quire-flow-4.onrender.com/viewComment/${props.query._id}`,
+      fetch(`http://localhost:2300/viewComment/${props.query._id}`, {
+        method: "GET",
+        headers: {
+          "Content-Type": "application/json",
+          authorization: `Bearer ${localStorage.getItem("token")}`,
+        },
+      })
         .then((res) => res.json())
         .then((response) => {
           setAllComments(response.comments);
@@ -165,7 +121,8 @@ const Single_Query_Global = (props) => {
           alert("Comment is empty");
           return;
         }
-        fetch("https://quire-flow-4.onrender.com/addComment", {
+        // fetch("https://quire-flow-4.onrender.com/addComment", {
+        fetch("http://localhost:2300/addComment", {
           method: "POST",
           headers: {
             "Content-Type": "application/json",
@@ -272,19 +229,8 @@ const Single_Query_Global = (props) => {
         </div>
       </div>
       <div id="single_query_global_queryPhotos">
-        <div id="single_query_global_queryPhotos_heading">Attached Photos</div>
+        <div id="single_query_global_queryPhotos_heading">Attached Photo</div>
         <div id="single_query_global_queryPhotos_main">
-          <div
-            id="single_query_global_queryPhotos_main_leftArrow"
-            ref={photosMainLeftArrow}
-          >
-            <span
-              id="single_query_global_queryPhotos_main_leftArrowIcon"
-              class="material-symbols-outlined"
-            >
-              chevron_left
-            </span>
-          </div>
           <div
             id="single_query_global_queryPhotos_main_container"
             ref={photosMainContainer}
@@ -301,137 +247,10 @@ const Single_Query_Global = (props) => {
                 alt="Photo attached with this query"
               />
             </div>
-            <div
-              className="single_query_global_queryPhotos_main_container_childClass"
-              id="single_query_global_queryPhotos_main_container_child2"
-            >
-              <img
-                class="single_queries_global_queryPhotos_main_container_childImageClass"
-                src="/Imagess/dennis-eusebio-2ihYdRZgyWw-unsplash.jpg"
-                height="468"
-                width="900"
-                alt="Photo attached with this query"
-              />
-            </div>
-            <div
-              className="single_query_global_queryPhotos_main_container_childClass"
-              id="single_query_global_queryPhotos_main_container_child3"
-            >
-              <img
-                class="single_queries_global_queryPhotos_main_container_childImageClass"
-                src="/Imagess/dennis-eusebio-2ihYdRZgyWw-unsplash.jpg"
-                height="468"
-                width="900"
-                alt="Photo attached with this query"
-              />
-            </div>
-            <div
-              className="single_query_global_queryPhotos_main_container_childClass"
-              id="single_query_global_queryPhotos_main_container_child4"
-            >
-              <img
-                class="single_queries_global_queryPhotos_main_container_childImageClass"
-                src="/Imagess/dennis-eusebio-2ihYdRZgyWw-unsplash.jpg"
-                height="468"
-                width="900"
-                alt="Photo attached with this query"
-              />
-            </div>
-            <div
-              className="single_query_global_queryPhotos_main_container_childClass"
-              id="single_query_global_queryPhotos_main_container_child5"
-            >
-              <img
-                class="single_queries_global_queryPhotos_main_container_childImageClass"
-                src="/Imagess/dennis-eusebio-2ihYdRZgyWw-unsplash.jpg"
-                height="468"
-                width="900"
-                alt="Photo attached with this query"
-              />
-            </div>
-          </div>
-          <div
-            id="single_query_global_queryPhotos_main_rightArrow"
-            ref={photosMainRightArrow}
-          >
-            <span
-              id="single_query_global_queryPhotos_main_rightArrowIcon"
-              class="material-symbols-outlined"
-            >
-              chevron_right
-            </span>
           </div>
         </div>
       </div>
-      <div id="single_query_global_queryVideos">
-        <div id="single_query_global_queryVideos_heading">Attached Video</div>
-        <div id="single_query_global_queryVideos_main">
-          <div
-            id="single_query_global_queryVideos_main_leftArrow"
-            ref={videosMainLeftArrow}
-          >
-            <span
-              id="single_query_global_queryVideos_main_leftArrowIcon"
-              className="material-symbols-outlined"
-            >
-              chevron_left
-            </span>
-          </div>
-          <div
-            id="single_query_global_queryVideos_main_container"
-            ref={videosMainContainer}
-          >
-            <div
-              className="single_query_global_queryVideos_main_container_childClass"
-              id="single_query_global_queryVideos_main_container_child1"
-            >
-              <video height="468px" width="900px" muted controls autoPlay>
-                <source
-                  src="/Videoss/pexels-mehmet-kılınç-18856748 (2160p).mp4"
-                  type="video/mp4"
-                  alt="query Video"
-                />
-              </video>
-            </div>
-            <div
-              className="single_query_global_queryVideos_main_container_childClass"
-              id="single_query_global_queryVideos_main_container_child2"
-            >
-              <video height="468px" width="900px" muted controls>
-                <source
-                  src="/Videoss/pexels-mikhail-nilov-6962343 (Original).webm"
-                  type="video/webm"
-                  alt="query Video"
-                />
-              </video>
-            </div>
-            <div
-              className="single_query_global_queryVideos_main_container_childClass"
-              id="single_query_global_queryVideos_main_container_child3"
-            >
-              <video height="468px" width="900px" muted controls>
-                <source
-                  src="/Videoss/pexels-mikhail-nilov-6962343 (Original).mp4"
-                  type="video/mp4"
-                  alt="query Video"
-                />
-              </video>
-            </div>
-          </div>
 
-          <div
-            id="single_query_global_queryVideos_main_rightArrow"
-            ref={videosMainRightArrow}
-          >
-            <span
-              id="single_query_global_queryVideos_main_rightArrowIcon"
-              className="material-symbols-outlined"
-            >
-              chevron_right
-            </span>
-          </div>
-        </div>
-      </div>
       <div id="single_query_global_queryComment">
         <div id="single_query_global_queryComment_heading">Comments</div>
         <div id="single_query_global_queryComment_main">

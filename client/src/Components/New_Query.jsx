@@ -55,7 +55,7 @@ const NewQuery = () => {
       descriptionInput.current
     ) {
       submitButton.current.onclick = () => {
-        if (!anonyKeyInput.current.value) {
+        if (!anonyKeyInput.current.value && !publicQuery) {
           alert("Please add anonyKey");
           return;
         }
@@ -71,7 +71,8 @@ const NewQuery = () => {
         };
         console.log("datatosend in new_Query.jsx", dataToSend);
 
-        fetch("https://quire-flow-4.onrender.com/addQuery", {
+        // fetch("https://quire-flow-4.onrender.com/addQuery", {
+        fetch("http://localhost:2300/addQuery", {
           method: "POST",
           headers: {
             "Content-Type": "application/json",
@@ -79,7 +80,17 @@ const NewQuery = () => {
           },
           body: JSON.stringify(dataToSend),
         })
-          .then((res) => res.json())
+          .then((res) => {
+            if (!res.ok) {
+              alert("Can't add the query please try again later");
+              res.json().then(() => {
+                throw new Error(
+                  "Some erro occurred whileadding the query try again"
+                );
+              });
+            }
+            return res.json();
+          })
           .then((response) => {
             console.log("response", response);
             alert(
@@ -95,7 +106,10 @@ const NewQuery = () => {
 
   useEffect(() => {
     if (refPublicQuery.current && anonyKeyInput.current) {
+      // refPublicQuery.current.style.color = "black";
+
       refPublicQuery.current.onclick = () => {
+        console.log("clicked public query");
         if (refPublicQuery.current.style.color == "black") {
           refPublicQuery.current.style.color = "white";
           refPublicQuery.current.style.backgroundColor = "black";
@@ -242,7 +256,7 @@ const NewQuery = () => {
               >
                 Advertisement
               </div>
-              <div
+              {/* <div
                 class="new_query_container_main_leftAds_child"
                 id="new_query_container_main_leftAds_second"
               >
@@ -254,7 +268,7 @@ const NewQuery = () => {
                 id="new_query_container_main_leftAds_third"
               >
                 Advertisement
-              </div>
+              </div> */}
             </div>
           </div>
         </div>
@@ -303,8 +317,8 @@ const NewQuery = () => {
               </div>
               <div id="new_query_container_main_right_content_photos_container"></div>
             </div>
-            <hr />
-            <div id="new_query_container_main_right_content_videos">
+
+            {/* <div id="new_query_container_main_right_content_videos">
               <div id="new_query_container_main_right_content_videos_heading">
                 Upload video
               </div>
@@ -312,7 +326,7 @@ const NewQuery = () => {
                 <input type="file" name="video" accept="video/*" required />
               </div>
               <div id="new_query_container_main_right_content_videos_container"></div>
-            </div>
+            </div> */}
           </div>
         </div>
       </div>

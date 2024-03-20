@@ -83,7 +83,7 @@ code {
   border: 1px solid;
 }
 #header_container_administrativePower {
-  font-size: 21px;
+  font-size: 17px;
   font-weight: 500;
   margin-left: 6rem;
   margin-top: 9px;
@@ -93,7 +93,7 @@ code {
 }
 #header_container_myQueries {
   margin-left: 3rem;
-  font-size: 21px;
+  font-size: 17px;
   font-weight: 500;
   cursor: pointer;
   margin-top: 9px;
@@ -107,7 +107,7 @@ code {
   padding: 12px;
   font-size: large;
   font-weight: 500;
-  margin-left: 2rem;
+  margin-left: 4rem;
   margin-top: 0px;
   background-color: #1034a6;
   color: white;
@@ -1392,6 +1392,7 @@ code {
 #single_query_global_queryDescription_para {
   border-bottom-left-radius: 10px;
   max-height: 28.6rem;
+  word-wrap: break-word;
   overflow-y: scroll;
   border-bottom-right-radius: 10px;
   padding: 16px;
@@ -1406,7 +1407,7 @@ code {
   width: 90%;
   margin-left: 4rem;
   background-color: white;
-  height: 39rem;
+  height: 30rem;
 }
 #single_query_global_queryPhotos_heading {
   color: white;
@@ -1420,6 +1421,7 @@ code {
 #single_query_global_queryPhotos_main {
   margin-top: 2rem;
   margin-left: 6rem;
+  height: 79%;
 }
 #single_query_global_queryPhotos_main_leftArrow {
   border-radius: 6px;
@@ -1441,14 +1443,12 @@ code {
   box-shadow: 0px 0px 6px 0px #c5c4c4;
   position: relative;
   display: flex;
-  overflow-x: scroll;
-  height: 32rem;
   border-radius: 10px;
-  margin-top: -18rem;
   width: 58rem;
+  height: 101%;
 }
 .single_query_global_queryPhotos_main_container_childClass {
-  height: 10rem;
+  /* height: 10rem; */
   width: 56.25rem;
   flex-shrink: 0;
   flex-grow: 0;
@@ -2139,8 +2139,10 @@ code {
   margin-top: -2.2rem;
   padding-top: 5px;
   font-size: x-large;
-  width: 48rem;
-  margin-left: 8rem;
+  height: 3rem;
+  width: 45rem;
+  margin-left: 132px;
+  overflow-x: scroll;
   text-align: center;
 }
 #child_administrator_matter_headingTop_expand {
@@ -3317,7 +3319,7 @@ card */
 #single_query_container {
   /* margin-top: 3rem; */
   background-color: #f2f2f7;
-  height: 125rem;
+  /* height: 125rem; */
   padding: 0.1px;
 }
 #single_query_container_goBack {
@@ -3654,7 +3656,7 @@ card */
   margin-left: 55.2rem;
   /* border: 2px solid blue; */
   border-radius: 10px;
-  height: 34rem;
+  /* height: 34rem; */
   width: 18.5rem;
   margin-top: -98.9rem;
   background-color: white;
@@ -3733,7 +3735,7 @@ card */
 }
 #single_query_container_headerRight_status {
   font-size: large;
-  margin-top: 1rem;
+  margin-top: 3rem;
   margin-left: 1rem;
   width: 15.5rem;
   background-color: #a40e26;
@@ -3744,14 +3746,14 @@ card */
 }
 #single_query_container_headerRight_comments {
   border-radius: 10px;
-  padding: 14px;
+  padding: 8px;
   font-size: larger;
-  width: 82%;
+  width: 85%;
   margin-left: 12px;
   font-weight: 500;
   background-color: #1937be;
   text-align: center;
-  margin-top: 3rem;
+  margin-top: 1rem;
   cursor: pointer;
   font-family: sans-serif;
   color: white;
@@ -3761,8 +3763,8 @@ card */
   /* border: 2px solid; */
   margin-top: 4rem;
   margin-left: 3rem;
-  height: 19rem;
-  overflow-y: scroll;
+  height: 36rem;
+  /* overflow-y: scroll; */
   width: 70.5rem;
   border-radius: 10px;
   box-shadow: 0px 0px 6px 0px #c5c4c4;
@@ -3774,14 +3776,21 @@ card */
   padding: 10px;
   font-family: sans-serif;
   text-align: center;
+  background-color: aliceblue;
 }
 #single_queries_container_comment_content {
   padding: 10px;
   font-size: large;
   font-family: Google sans-serif;
+  /* background-color: darkgray; */
   margin-left: 42px;
-  width: 61rem;
+  width: 65rem;
+  border: 1px solid;
+  height: 82%;
+  margin-top: 1rem;
+  overflow-y: scroll;
   text-align: center;
+  border-radius: 10px;
 }
 /* Single Query */
 /* Single Query */
@@ -3830,6 +3839,11 @@ card */
   /* overflow-y: scroll; */
   box-shadow: 0px 0px 6px 0px #c5c4c4;
   width: 22rem;
+}
+
+#new_query_container_main_left_content {
+  overflow-y: scroll;
+  height: 24rem;
 }
 #new_query_container_main_left_heading {
   border-top-left-radius: 10px;
@@ -3895,7 +3909,7 @@ card */
   border-radius: 4px;
   text-align: center;
   margin-left: 3rem;
-  color: black;
+  /* color: black; */
   border: 1px solid;
   padding: 0.5rem;
   margin-top: 1rem;
@@ -3903,7 +3917,7 @@ card */
 }
 
 .new_query_container_main_leftAds_child {
-  height: 12rem;
+  height: 7rem;
   margin-top: 2rem;
   background-color: #f0f0f0;
   margin-left: 10px;
@@ -3972,9 +3986,9 @@ card */
   padding-left: 10px;
 }
 #new_query_container_main_right_content_photos_container {
-  border: 1px solid;
+  /* border: 1px solid; */
   background-color: #f5f5f5;
-  height: 19rem;
+  /* height: 19rem; */
   margin-left: 10px;
   margin-top: 1rem;
   width: 50.7rem;

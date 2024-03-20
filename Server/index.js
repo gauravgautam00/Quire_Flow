@@ -7,12 +7,13 @@ connectDB();
 const cors = require("cors");
 app.use(
   cors({
-    origin: "https://quire-flow-fk1u.vercel.app/",
+    origin: ["https://quire-flow-fk1u.vercel.app/", "http://localhost:3000"],
     methods: ["GET", "POST"],
-    allowedHeaders: ["my-custom-header"],
+    // allowedHeaders: ["Content-Type", "my-custom-header"],
     credentials: true,
   })
 );
+app.use(cors());
 
 app.use(express.json());
 

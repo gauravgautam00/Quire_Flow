@@ -17,12 +17,14 @@ const Organisation_things = () => {
   const selectDepartmentIcon = useRef(null);
 
   useEffect(() => {
+    // console.log(localStorage.getItem("token"));
     if (localStorage.getItem("token") != null) {
-      fetch("https://quire-flow-4.onrender.com/public/myOrganisation", {
+      // fetch("https://quire-flow-4.onrender.com/public/myOrganisation", {
+      fetch("http://localhost:2300/public/myOrganisation", {
         method: "GET",
         headers: {
           "Content-Type": "application/json",
-          authentication: `Bearer ${localStorage.token}`,
+          authorization: `Bearer ${localStorage.getItem("token")}`,
         },
       })
         .then((res) => res.json())
@@ -36,7 +38,7 @@ const Organisation_things = () => {
           );
         });
     }
-  });
+  }, []);
   useEffect(() => {
     if (
       toggleBox.current &&
@@ -233,7 +235,7 @@ const Organisation_things = () => {
           </span>
         </div>
         <div id="OrgThings_container_scrollContainer" ref={scrollContainer}>
-          {queryArr ? (
+          {localStorage.getItem("token") && queryArr ? (
             queryArr.length > 0 ? (
               queryArr.map((data, index) => {
                 return (

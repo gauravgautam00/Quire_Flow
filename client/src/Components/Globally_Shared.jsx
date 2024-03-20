@@ -45,17 +45,21 @@ const Globally_Shared = () => {
   }, []);
 
   useState(() => {
-    if (localStorage.getItem("token") != null) {
-      fetch("https://quire-flow-4.onrender.com/public/all", {
+    console.log(localStorage.getItem("token"));
+    if (localStorage.getItem("token")) {
+      console.log("coming in /public.all");
+
+      fetch("http://localhost:2300/public/all", {
         method: "GET",
         headers: {
           "Content-Type": "application/json",
-          authentication: `Bearer ${localStorage.token}`,
+          authorization: `Bearer ${localStorage.getItem("token")}`,
         },
       })
         .then((res) => res.json())
         .then((response) => {
           setAllPublicQueryArr(response.requiredQueryData);
+          console.log("response form public/all route", response);
         })
         .catch((err) => {
           console.log("Some error occurred while fetching all public queries");
@@ -324,7 +328,7 @@ const Globally_Shared = () => {
       {/* right part */}
       {/* right part */}
       <div id="publically_shared_container_right">
-        {allPublicQueryArr ? (
+        {localStorage.getItem("token") && allPublicQueryArr ? (
           allPublicQueryArr.length > 0 ? (
             allPublicQueryArr.map((data, index) => {
               return (

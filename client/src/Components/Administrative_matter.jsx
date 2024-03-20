@@ -19,6 +19,7 @@ const Administrative_matter = () => {
   const [markAsValue, setMarkAsValue] = useState("Pending");
   const [allQueryArr, setAllQueryArr] = useState([]);
   const [globalQueryFullArr, setGlobalQueryFullArr] = useState([]);
+  const [loadingFilter, setLoadingFilter] = useState(false);
 
   useEffect(() => {
     if (
@@ -30,7 +31,9 @@ const Administrative_matter = () => {
         const titleFilterValue = titleValue.current.value.toLowerCase();
         const descriptionFilterValue =
           descriptionValue.current.value.toLowerCase();
-        console.log("global arr", globalQueryFullArr);
+
+        //filtering
+        console.log(orgValue);
         const filteredData = globalQueryFullArr.filter((item) => {
           console.log("single item", item);
           const orgMatch =
@@ -48,7 +51,6 @@ const Administrative_matter = () => {
           const markAsMatch =
             markAsValue === "All" ||
             item.markAs.toLowerCase().includes(markAsValue.toLowerCase());
-
           const titleMatch =
             !titleFilterValue ||
             item.title.toLowerCase().includes(titleFilterValue);
@@ -318,16 +320,16 @@ const Administrative_matter = () => {
 
   useEffect(() => {
     if (localStorage.getItem("token")) {
-      fetch(
-        "https://quire-flow-4.onrender.com/viewQuery/administrativeMatter",
-        {
-          method: "GET",
-          headers: {
-            "Content-Type": "application/json",
-            authorization: `Bearer ${localStorage.getItem("token")}`,
-          },
-        }
-      )
+      // fetch(
+      // "https://quire-flow-4.onrender.com/viewQuery/administrativeMatter",
+
+      fetch("http://localhost:2300/viewQuery/administrativeMatter", {
+        method: "GET",
+        headers: {
+          "Content-Type": "application/json",
+          authorization: `Bearer ${localStorage.getItem("token")}`,
+        },
+      })
         .then((res) => res.json())
         .then((response) => {
           const filteredData = [];

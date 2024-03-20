@@ -2,9 +2,10 @@ const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken");
 
 const auth = (req, res, next) => {
+  // console.log("in auth enter");
   try {
     let token = req.headers.authorization;
-
+    // console.log(token);
     if (!token) {
       return res
         .status(401)
@@ -12,6 +13,7 @@ const auth = (req, res, next) => {
     }
     token = token.split(" ")[1];
     // console.log(req);
+    // console.log(token);
     const isTokenVerified = jwt.verify(token, process.env.SECRET_KEY);
     if (!isTokenVerified) {
       return res.status(401).json({ message: "Unauthorized user" });

@@ -1,8 +1,9 @@
 const Query = require("../models/queryModel");
 
 const viewSingleQueryController = async (req, res) => {
+  // console.log("Entering");
   const queryId = req.params.queryId;
-  console.log(queryId);
+  // console.log(queryId);
   const curQuery = await Query.findOne({ _id: queryId });
 
   if (curQuery) {
