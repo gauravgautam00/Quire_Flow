@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { useRef } from "react";
 import { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 const NewQuery = () => {
   const navigate = useNavigate();
   const newQueryBack = useRef(null);
@@ -128,135 +129,142 @@ const NewQuery = () => {
   });
 
   return (
-    <div id="new_query_container">
-      <div id="new_query_container_back" ref={newQueryBack}>
-        <span
-          id="new_query_container_backIcon"
-          class="material-symbols-outlined"
-        >
-          arrow_back
-        </span>
-        Back
-      </div>
-      <div id="new_query_container_heading">RELEASE NEW QUERY</div>
-      <div id="new_query_container_main">
-        <div id="new_query_container_main_left">
-          <div id="new_query_container_main_left_heading">Enter Details</div>
-          <div id="new_query_container_main_left_content">
-            <div
-              id="new_query_container_main_leftPreferences"
-              class="new_query_container_main_left_childClass"
+    <>
+      {localStorage.getItem("token") ? (
+        <div id="new_query_container">
+          <div id="new_query_container_back" ref={newQueryBack}>
+            <span
+              id="new_query_container_backIcon"
+              class="material-symbols-outlined"
             >
-              <div
-                class="new_query_container_main_left_headingClass"
-                id="new_query_container_main_leftPreferences_heading"
-              >
-                Select Preferences
+              arrow_back
+            </span>
+            Back
+          </div>
+          <div id="new_query_container_heading">RELEASE NEW QUERY</div>
+          <div id="new_query_container_main">
+            <div id="new_query_container_main_left">
+              <div id="new_query_container_main_left_heading">
+                Enter Details
               </div>
-              <div
-                id="new_query_container_main_leftPreferences_dropDown"
-                ref={leftPreferencesDropDown}
-              >
+              <div id="new_query_container_main_left_content">
                 <div
-                  id="new_query_container_main_leftPreferences_dropDown_heading"
-                  ref={leftPreferencesDropDown}
+                  id="new_query_container_main_leftPreferences"
+                  class="new_query_container_main_left_childClass"
                 >
-                  {preferenceValue}
+                  <div
+                    class="new_query_container_main_left_headingClass"
+                    id="new_query_container_main_leftPreferences_heading"
+                  >
+                    Select Preferences
+                  </div>
+                  <div
+                    id="new_query_container_main_leftPreferences_dropDown"
+                    ref={leftPreferencesDropDown}
+                  >
+                    <div
+                      id="new_query_container_main_leftPreferences_dropDown_heading"
+                      ref={leftPreferencesDropDown}
+                    >
+                      {preferenceValue}
+                    </div>
+                    <span
+                      id="new_query_container_main_leftPreferences_dropDownIcon"
+                      class="material-symbols-outlined"
+                      ref={leftPreferencesDropDownIcon}
+                    >
+                      expand_more
+                    </span>
+                  </div>
+                  <div
+                    id="new_query_container_main_leftPreferences_bottomBox"
+                    ref={leftPreferencesBottomBox}
+                  >
+                    <div
+                      onClick={() => {
+                        setPreference("Urgent");
+                      }}
+                      className="new_query_container_main_leftPreferences_bottomBox_childClass"
+                      id="new_query_container_main_leftPreferences_bottomBox_child1"
+                    >
+                      Urgent
+                    </div>
+                    <div
+                      onClick={() => {
+                        setPreference("Normal");
+                      }}
+                      className="new_query_container_main_leftPreferences_bottomBox_childClass"
+                      id="new_query_container_main_leftPreferences_bottomBox_child2"
+                    >
+                      Normal
+                    </div>
+                    <div
+                      onClick={() => {
+                        setPreference("Important");
+                      }}
+                      className="new_query_container_main_leftPreferences_bottomBox_childClass"
+                      id="new_query_container_main_leftPreferences_bottomBox_child3"
+                    >
+                      Important
+                    </div>
+                    <div
+                      onClick={() => {
+                        setPreference("Research Required");
+                      }}
+                      className="new_query_container_main_leftPreferences_bottomBox_childClass"
+                      id="new_query_container_main_leftPreferences_bottomBox_child4"
+                    >
+                      Research Required
+                    </div>
+                    <div
+                      onClick={() => {
+                        setPreference("None");
+                      }}
+                      className="new_query_container_main_leftPreferences_bottomBox_childClass"
+                      id="new_query_container_main_leftPreferences_bottomBox_child5"
+                    >
+                      None
+                    </div>
+                  </div>
                 </div>
-                <span
-                  id="new_query_container_main_leftPreferences_dropDownIcon"
-                  class="material-symbols-outlined"
-                  ref={leftPreferencesDropDownIcon}
-                >
-                  expand_more
-                </span>
-              </div>
-              <div
-                id="new_query_container_main_leftPreferences_bottomBox"
-                ref={leftPreferencesBottomBox}
-              >
                 <div
-                  onClick={() => {
-                    setPreference("Urgent");
-                  }}
-                  className="new_query_container_main_leftPreferences_bottomBox_childClass"
-                  id="new_query_container_main_leftPreferences_bottomBox_child1"
+                  id="new_query_container_main_leftAnonyKey"
+                  class="new_query_container_main_left_childClass"
                 >
-                  Urgent
+                  <div
+                    class="new_query_container_main_left_headingClass"
+                    id="new_query_container_main_leftAnonyKey_heading"
+                  >
+                    Enter Reciever's AnonyKey
+                    <label for="anony_key">
+                      <span style={{ color: "red" }}> *</span>
+                    </label>
+                  </div>
+                  <div id="new_query_container_main_leftAnonyKey_input">
+                    <input
+                      name="email"
+                      id="new_query_container_main_leftAnonyKey_inputReal"
+                      className="new_query_container_main_child_inputReal"
+                      type="text"
+                      required
+                      ref={anonyKeyInput}
+                    />
+                  </div>
                 </div>
                 <div
-                  onClick={() => {
-                    setPreference("Normal");
-                  }}
-                  className="new_query_container_main_leftPreferences_bottomBox_childClass"
-                  id="new_query_container_main_leftPreferences_bottomBox_child2"
+                  id="new_query_container_main_leftPublic"
+                  ref={refPublicQuery}
                 >
-                  Normal
+                  {publicQuery ? "Marked" : "Mark"} as Public query
                 </div>
-                <div
-                  onClick={() => {
-                    setPreference("Important");
-                  }}
-                  className="new_query_container_main_leftPreferences_bottomBox_childClass"
-                  id="new_query_container_main_leftPreferences_bottomBox_child3"
-                >
-                  Important
-                </div>
-                <div
-                  onClick={() => {
-                    setPreference("Research Required");
-                  }}
-                  className="new_query_container_main_leftPreferences_bottomBox_childClass"
-                  id="new_query_container_main_leftPreferences_bottomBox_child4"
-                >
-                  Research Required
-                </div>
-                <div
-                  onClick={() => {
-                    setPreference("None");
-                  }}
-                  className="new_query_container_main_leftPreferences_bottomBox_childClass"
-                  id="new_query_container_main_leftPreferences_bottomBox_child5"
-                >
-                  None
-                </div>
-              </div>
-            </div>
-            <div
-              id="new_query_container_main_leftAnonyKey"
-              class="new_query_container_main_left_childClass"
-            >
-              <div
-                class="new_query_container_main_left_headingClass"
-                id="new_query_container_main_leftAnonyKey_heading"
-              >
-                Enter Reciever's AnonyKey
-                <label for="anony_key">
-                  <span style={{ color: "red" }}> *</span>
-                </label>
-              </div>
-              <div id="new_query_container_main_leftAnonyKey_input">
-                <input
-                  name="email"
-                  id="new_query_container_main_leftAnonyKey_inputReal"
-                  className="new_query_container_main_child_inputReal"
-                  type="text"
-                  required
-                  ref={anonyKeyInput}
-                />
-              </div>
-            </div>
-            <div id="new_query_container_main_leftPublic" ref={refPublicQuery}>
-              {publicQuery ? "Marked" : "Mark"} as Public query
-            </div>
-            <div id="new_query_container_main_leftAds">
-              <div
-                class="new_query_container_main_leftAds_child"
-                id="new_query_container_main_leftAds_first"
-              >
-                Advertisement
-              </div>
-              {/* <div
+                <div id="new_query_container_main_leftAds">
+                  <div
+                    class="new_query_container_main_leftAds_child"
+                    id="new_query_container_main_leftAds_first"
+                  >
+                    Advertisement
+                  </div>
+                  {/* <div
                 class="new_query_container_main_leftAds_child"
                 id="new_query_container_main_leftAds_second"
               >
@@ -269,56 +277,56 @@ const NewQuery = () => {
               >
                 Advertisement
               </div> */}
-            </div>
-          </div>
-        </div>
-        <div id="new_query_container_main_right">
-          <div id="new_query_container_main_right_heading">
-            Enter Query Details
-          </div>
-          <div id="new_query_container_main_right_content">
-            <div id="new_query_container_main_right_content_description">
-              <div id="new_query_container_main_right_content_description_first">
-                <div id="new_query_container_main_right_content_description_first_heading">
-                  Enter Query title
-                </div>
-                <div id="new_query_container_main_right_content_description_first_para">
-                  <input
-                    id="new_query_container_main_right_content_description_first_paraInput"
-                    type="text"
-                    placeholder="Enter query title"
-                    required
-                    ref={titleInput}
-                  />
                 </div>
               </div>
+            </div>
+            <div id="new_query_container_main_right">
+              <div id="new_query_container_main_right_heading">
+                Enter Query Details
+              </div>
+              <div id="new_query_container_main_right_content">
+                <div id="new_query_container_main_right_content_description">
+                  <div id="new_query_container_main_right_content_description_first">
+                    <div id="new_query_container_main_right_content_description_first_heading">
+                      Enter Query title
+                    </div>
+                    <div id="new_query_container_main_right_content_description_first_para">
+                      <input
+                        id="new_query_container_main_right_content_description_first_paraInput"
+                        type="text"
+                        placeholder="Enter query title"
+                        required
+                        ref={titleInput}
+                      />
+                    </div>
+                  </div>
 
-              <div id="new_query_container_main_right_content_description_second">
-                <div id="new_query_container_main_right_content_description_second_heading">
-                  Enter query description
+                  <div id="new_query_container_main_right_content_description_second">
+                    <div id="new_query_container_main_right_content_description_second_heading">
+                      Enter query description
+                    </div>
+                    <div id="new_query_container_main_right_content_description_second_para">
+                      <textarea
+                        id="new_query_container_main_right_content_description_second_paraTextarea"
+                        placeholder="Enter query description here"
+                        required
+                        ref={descriptionInput}
+                      />
+                    </div>
+                  </div>
                 </div>
-                <div id="new_query_container_main_right_content_description_second_para">
-                  <textarea
-                    id="new_query_container_main_right_content_description_second_paraTextarea"
-                    placeholder="Enter query description here"
-                    required
-                    ref={descriptionInput}
-                  />
+                <hr />
+                <div id="new_query_container_main_right_content_photos">
+                  <div id="new_query_container_main_right_content_photos_heading">
+                    Upload photo
+                  </div>
+                  <div id="new_query_container_main_right_content_photos_upload">
+                    <input type="file" name="photo" accept="image/*" required />
+                  </div>
+                  <div id="new_query_container_main_right_content_photos_container"></div>
                 </div>
-              </div>
-            </div>
-            <hr />
-            <div id="new_query_container_main_right_content_photos">
-              <div id="new_query_container_main_right_content_photos_heading">
-                Upload photo
-              </div>
-              <div id="new_query_container_main_right_content_photos_upload">
-                <input type="file" name="photo" accept="image/*" required />
-              </div>
-              <div id="new_query_container_main_right_content_photos_container"></div>
-            </div>
 
-            {/* <div id="new_query_container_main_right_content_videos">
+                {/* <div id="new_query_container_main_right_content_videos">
               <div id="new_query_container_main_right_content_videos_heading">
                 Upload video
               </div>
@@ -327,13 +335,20 @@ const NewQuery = () => {
               </div>
               <div id="new_query_container_main_right_content_videos_container"></div>
             </div> */}
+              </div>
+            </div>
+          </div>
+          <div id="new_query_container_submit" ref={submitButton}>
+            Submit
           </div>
         </div>
-      </div>
-      <div id="new_query_container_submit" ref={submitButton}>
-        Submit
-      </div>
-    </div>
+      ) : (
+        <div id="noToken_global">
+          Please <Link to="/authentication">Login/SignUp</Link> to create new
+          queries
+        </div>
+      )}
+    </>
   );
 };
 
