@@ -62,8 +62,7 @@ const Main_page = () => {
         // titleThird.current.style.padding = "6px";
         titleThird.current.style.borderRadius = "10px";
 
-        encap.current.style.transform =
-          "translate(11.1rem, 9rem) scale(2.87,5.6)";
+        encap.current.style.transform = "translate(11.1rem, 9rem) scale(2,5)";
         encap.current.style.borderRadius = "10px";
 
         encap.current.style.transition = "transform 2s , border-radius 2s";
@@ -85,7 +84,7 @@ const Main_page = () => {
         encap.current.style.border = "0px";
 
         setTimeout(() => {
-          img1.width = "140";
+          img1.width = "190";
           img1.height = "80";
           img1.style.borderRadius = "10px";
           img1.style.marginTop = "-1.7rem";
@@ -126,7 +125,7 @@ const Main_page = () => {
             // Resolve the promise when everything is done
             resolve();
           }
-        }, 10000);
+        }, 3000);
       } else {
         // Reject the promise if there's an error
         // reject(new Error("encap.current is not available"));
@@ -159,8 +158,7 @@ const Main_page = () => {
         // titleThird.current.style.padding = "6px";
         titleThird.current.style.borderRadius = "10px";
 
-        respo.current.style.transform =
-          "translate(-10.1rem, 9rem) scale(2.87,5.6) ";
+        respo.current.style.transform = "translate(-10.1rem, 9rem) scale(2,5) ";
         respo.current.style.borderRadius = "10px";
 
         respo.current.style.transition = "transform 2s  , border-radius 2s";
@@ -178,7 +176,7 @@ const Main_page = () => {
         freed_line.current.style.visibility = "hidden";
 
         setTimeout(() => {
-          img2.width = "140";
+          img2.width = "190";
           img2.height = "80";
           img2.style.marginTop = "-1.9rem";
           img2.style.marginLeft = "-0.3rem";
@@ -218,7 +216,7 @@ const Main_page = () => {
 
             resolve();
           }
-        }, 10000);
+        }, 3000);
       } else {
         // Reject the promise if there's an error
         // reject(new Error("respo.current is not available"));
@@ -251,8 +249,7 @@ const Main_page = () => {
         // titleFirst.current.style.padding = "6px";
         titleFirst.current.style.borderRadius = "10px";
 
-        freed.current.style.transform =
-          "translate(1rem, -8.6rem) scale(2.87,5.6) ";
+        freed.current.style.transform = "translate(1rem, -8.6rem) scale(2,5) ";
         freed.current.style.borderRadius = "10px";
 
         freed.current.style.transition = "transform 2s  , border-radius 2s";
@@ -271,7 +268,7 @@ const Main_page = () => {
         freed_line.current.style.visibility = "hidden";
 
         setTimeout(() => {
-          img3.width = "140";
+          img3.width = "190";
           img3.height = "80";
           img3.style.marginTop = "-1.7rem";
           img3.style.marginLeft = "-0.3rem";
@@ -316,7 +313,7 @@ const Main_page = () => {
             if (freed.current.contains(img3)) freed.current.removeChild(img3);
             resolve();
           }
-        }, 10000);
+        }, 3000);
       } else {
         reject();
       }

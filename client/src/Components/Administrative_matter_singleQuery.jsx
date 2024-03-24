@@ -4,7 +4,7 @@ import { Link, useParams } from "react-router-dom";
 const Administrative_matter_singleQuery = () => {
   const { objectId } = useParams();
   const [query, setQuery] = useState();
-  console.log(objectId);
+  // console.log(objectId);
   useEffect(() => {
     fetch(`https://quire-flow-4.onrender.com/viewSingleQuery/${objectId}`, {
       // fetch(`http://localhost:2300/viewSingleQuery/${objectId}`, {
@@ -17,7 +17,7 @@ const Administrative_matter_singleQuery = () => {
       .then((res) => res.json())
       .then((response) => {
         setQuery(response.curQuery);
-        console.log(response);
+        // console.log(response);
       })
       .catch((error) => {
         console.log(

@@ -53,14 +53,14 @@ const Research_Child_Deeper_dive = () => {
         <div id="child_research_container_image1">
           <img
             id="child_research_container_image1_real"
-            src="/Images/Humanités_Numériques.JPG"
+            src="Images/img-slack-connect-hero@2x.png"
             alt="research"
           ></img>
         </div>
         <div id="child_research_container_image2">
           <img
             id="child_research_container_image2_real"
-            src="/Images/Humanités_Numériques.JPG"
+            src="Images/Humanités_Numériques.JPG"
             alt="research"
           ></img>
         </div>

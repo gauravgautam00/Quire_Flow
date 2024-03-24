@@ -33,9 +33,9 @@ const Administrative_matter = () => {
           descriptionValue.current.value.toLowerCase();
 
         //filtering
-        console.log(orgValue);
+        // console.log(orgValue);
         const filteredData = globalQueryFullArr.filter((item) => {
-          console.log("single item", item);
+          // console.log("single item", item);
           const orgMatch =
             orgValue === "All" ||
             orgValue === "Select Organisation" ||
@@ -58,26 +58,26 @@ const Administrative_matter = () => {
             !descriptionFilterValue ||
             item.description.toLowerCase().includes(descriptionFilterValue);
 
-          console.log(
-            "orgMatch",
-            orgMatch,
-            orgValue.toLowerCase(),
-            "depMatch",
-            depMatch,
-            depValue.toLowerCase(),
-            "prefMatch",
-            prefMatch,
-            prefValue.toLowerCase(),
-            "markAsMatch",
-            markAsMatch,
-            markAsValue.toLowerCase(),
-            "titleMatch",
-            titleMatch,
-            titleFilterValue,
-            "descriptionMatch",
-            descriptionMatch,
-            descriptionFilterValue
-          );
+          // console.log(
+          //   "orgMatch",
+          //   orgMatch,
+          //   orgValue.toLowerCase(),
+          //   "depMatch",
+          //   depMatch,
+          //   depValue.toLowerCase(),
+          //   "prefMatch",
+          //   prefMatch,
+          //   prefValue.toLowerCase(),
+          //   "markAsMatch",
+          //   markAsMatch,
+          //   markAsValue.toLowerCase(),
+          //   "titleMatch",
+          //   titleMatch,
+          //   titleFilterValue,
+          //   "descriptionMatch",
+          //   descriptionMatch,
+          //   descriptionFilterValue
+          // );
           return (
             orgMatch &&
             depMatch &&
@@ -88,7 +88,7 @@ const Administrative_matter = () => {
           );
         });
 
-        console.log(filteredData);
+        // console.log(filteredData);
         setAllQueryArr(filteredData);
       };
     }
@@ -123,7 +123,7 @@ const Administrative_matter = () => {
         filterUpSpecialQuery.current.style.color = "black";
         filterUpPending.current.style.backgroundColor = "#16252D";
         filterUpPending.current.style.color = "white";
-        console.log("on resetting", globalQueryFullArr);
+        // console.log("on resetting", globalQueryFullArr);
         setAllQueryArr(globalQueryFullArr);
       };
     }
@@ -337,13 +337,13 @@ const Administrative_matter = () => {
           response.queries.forEach((item) => {
             item.forEach((childItem) => {
               filteredData.push(childItem);
-              console.log(new Date(childItem.createdAt));
-              console.log(childItem.createdAt);
+              // console.log(new Date(childItem.createdAt));
+              // console.log(childItem.createdAt);
             });
           });
           setAllQueryArr(filteredData);
           setGlobalQueryFullArr(filteredData);
-          console.log("response", globalQueryFullArr, filteredData);
+          // console.log("response", globalQueryFullArr, filteredData);
         })
         .catch((error) => {
           console.log(
@@ -353,10 +353,6 @@ const Administrative_matter = () => {
         });
     }
   }, []);
-
-  useEffect(() => {
-    console.log(markAsValue);
-  });
 
   const setOrganisation = (val) => {
     setOrgValue(val);
@@ -401,12 +397,17 @@ const Administrative_matter = () => {
           </div>
         </div>
         <div id="administrator_container_frontRightPart">
-          <video height="500" width="600" autoPlay loop>
+          {/* <video height="500" width="600" autoPlay loop>
             <source
-              src="Videos/A user starting a huddle and recording a video clip with the Slack app.webm"
+              src="public/Videos/A user starting a huddle and recording a video clip with the Slack app.webm"
               type="video/webm"
             ></source>
-          </video>
+          </video> */}
+          <img
+            src="Images/img-slack-connect-hero@2x.png"
+            height="500"
+            width="600"
+          />
         </div>
 
         {/* SECOND PART */}

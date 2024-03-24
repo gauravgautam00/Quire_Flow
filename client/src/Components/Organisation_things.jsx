@@ -3,8 +3,6 @@ import React, { useRef, useState, useEffect } from "react";
 import Child_Organisation_things from "./Child_Organisation_things";
 // import { set } from "mongoose";
 
-const submitForm = () => {};
-
 const Organisation_things = () => {
   const toggleBox = useRef(null);
 
@@ -16,6 +14,9 @@ const Organisation_things = () => {
   const chevron_right = useRef(null);
   const selectDepartmentIcon = useRef(null);
 
+  const submitForm = () => {
+    alert("This filter is not in working condition  . please try later");
+  };
   useEffect(() => {
     // console.log(localStorage.getItem("token"));
     if (localStorage.getItem("token") != null) {
@@ -30,6 +31,7 @@ const Organisation_things = () => {
         .then((res) => res.json())
         .then((response) => {
           setQueryArr(response.requiredQueryData);
+          // console.log("in organisation things", queryArr);
         })
         .catch((err) => {
           console.log(
@@ -48,7 +50,7 @@ const Organisation_things = () => {
       toggleBox.current.style.height = "0rem";
       toggleBox.current.style.border = "none";
       expandMore.current.onclick = () => {
-        console.log("expandMore.current");
+        // console.log("expandMore.current");
 
         if (toggleBox.current.style.height == "0rem") {
           toggleBox.current.style.height = "17rem";
@@ -159,53 +161,6 @@ const Organisation_things = () => {
               </div>
             </div>
           </div>
-          {/* <div
-            id="OrgThings_container_filter_selectDepartment_box"
-            ref={toggleBox}
-          >
-            <div
-              onClick={() => setTheValue("Select Department")}
-              className="OrgThings_container_filter_selectDepartment_box_class"
-              id="OrgThings_container_filter_selectDepartment_box_1"
-            >
-              Select Department
-            </div>
-            <div
-              onClick={() => setTheValue("Finance")}
-              className="OrgThings_container_filter_selectDepartment_box_class"
-              id="OrgThings_container_filter_selectDepartment_box_1"
-            >
-              Finance
-            </div>
-            <div
-              onClick={() => setTheValue("IT")}
-              className="OrgThings_container_filter_selectDepartment_box_class"
-              id="OrgThings_container_filter_selectDepartment_box_2"
-            >
-              IT
-            </div>
-            <div
-              onClick={() => setTheValue("DevOps")}
-              className="OrgThings_container_filter_selectDepartment_box_class"
-              id="OrgThings_container_filter_selectDepartment_box_3"
-            >
-              DevOps
-            </div>
-            <div
-              onClick={() => setTheValue("Product Management")}
-              className="OrgThings_container_filter_selectDepartment_box_class"
-              id="OrgThings_container_filter_selectDepartment_box_4"
-            >
-              Product Management
-            </div>
-            <div
-              onClick={() => setTheValue("Marketing")}
-              className="OrgThings_container_filter_selectDepartment_box_class"
-              id="OrgThings_container_filter_selectDepartment_box_5"
-            >
-              Marketing
-            </div>
-          </div> */}
 
           <div id="OrgThings_container_filter_searchSpecific">
             <input
@@ -243,7 +198,10 @@ const Organisation_things = () => {
                     key={index}
                     queryTitle={data.title}
                     queryDescription={data.description}
-                    comments={data.comments}
+                    department={data.department}
+                    preferences={data.preferences}
+                    date={new Date(data.createdAt).toLocaleString()}
+                    id={data._id}
                   />
                 );
               })

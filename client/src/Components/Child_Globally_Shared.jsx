@@ -20,7 +20,7 @@ const Child_Globally_Shared = (props) => {
       <div id="publically_shared_container_expandMore">
         <Link
           style={{ color: "white", textDecoration: "none" }}
-          to={`/public_queries/query`}
+          to={`/public_queries/query/${props.id}`}
         >
           Expand
         </Link>
@@ -34,8 +34,12 @@ const Child_Globally_Shared = (props) => {
       </div>
 
       <div id="child_globally_shared_container_query">
-        <span className="child_globally_shared_container_bold">Query </span>-{" "}
-        {props.query}
+        <div id="child_globally_shared_container_query_title">
+          {props.title}
+        </div>
+        <div id="child_globally_shared_container_query_description">
+          {props.description}
+        </div>
       </div>
     </div>
   );

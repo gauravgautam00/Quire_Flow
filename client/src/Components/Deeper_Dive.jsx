@@ -2,9 +2,9 @@ import React from "react";
 import { useRef, useState, useEffect } from "react";
 
 import Research_Child_Deeper_dive from "./Research_Child_Deeper_dive";
-// import OnlineWebinar_Child_Deeper_dive from "./OnlineWebinar_Child_Deeper_dive";
-// import OpenParticipation_Child_Deeper_dive from "./OpenParticipation_Child_Deeper_dive";
-// import CustomerStory_Child_Deeper_dive from "./CustomerStory_Child_Deeper_dive";
+import OnlineWebinar_Child_Deeper_dive from "./OnlineWebinar_Child_Deeper_dive";
+import OpenParticipation_Child_Deeper_dive from "./OpenParticipation_Child_Deeper_dive";
+import CustomerStory_Child_Deeper_dive from "./CustomerStory_Child_Deeper_dive";
 const Deeper_Dive = () => {
   const leftContainer = useRef(null);
   const rightContainer = useRef(null);
@@ -165,10 +165,10 @@ const Deeper_Dive = () => {
           ref={bottomOpenParticipation}
         >
           <div id="deeper_dive_container_left_openParticipation_bottom_para">
-            Dive into the world of artificial intelligence with Quire-Flow's
-            dedicated research space.Our team is at the forefront of exploring
-            and embracing the future of AI, bringing you insights,
-            breakthroughs, and innovations
+            Open participation in website development refers to the inclusive
+            practice of inviting users, developers, or community members to
+            actively contribute to the improvementenhancement, or expansion of a
+            website.
           </div>
         </div>
 
@@ -193,10 +193,11 @@ const Deeper_Dive = () => {
           ref={bottomCustomerStory}
         >
           <div id="deeper_dive_container_left_customStory_bottom_para">
-            Dive into the world of artificial intelligence with Quire-Flow's
-            dedicated research space.Our team is at the forefront of exploring
-            and embracing the future of AI, bringing you insights,
-            breakthroughs, and innovations
+            Our "Customer Stories" section serves as a platform for our valued
+            customers to share their experiences and insights about using our
+            products. It's a space where individuals from our community can
+            express their thoughts, feelings, and journeys related to our
+            offerings.
           </div>
         </div>
         {/* //child 4 */}
@@ -220,23 +221,23 @@ const Deeper_Dive = () => {
           ref={bottomOnlineWebinar}
         >
           <div id="deeper_dive_container_left_onlineWebinar_bottom_para">
-            Dive into the world of artificial intelligence with Quire-Flow's
-            dedicated research space.Our team is at the forefront of exploring
-            and embracing the future of AI, bringing you insights,
-            breakthroughs, and innovations
+            Join us for an exclusive online webinar where we delve into the
+            inner workings of our company, share insights into our current
+            status, and unveil our aspirations for the future. This interactive
+            session offers a unique opportunity to gain a deeper understanding
+            of our company.
           </div>
         </div>
       </div>
       <div id="deeper_dive_container_right" ref={rightContainer}>
         {turn == 3 ? (
-          // <OnlineWebinar_Child_Deeper_dive />
-          <Research_Child_Deeper_dive />
-        ) : turn == 2 ? (
-          // <CustomerStory_Child_Deeper_dive />
-          <Research_Child_Deeper_dive />
-        ) : turn == 1 ? (
-          // <OpenParticipation_Child_Deeper_dive />
-          <Research_Child_Deeper_dive />
+          <OnlineWebinar_Child_Deeper_dive />
+        ) : // <Research_Child_Deeper_dive />
+        turn == 2 ? (
+          <CustomerStory_Child_Deeper_dive />
+        ) : // <Research_Child_Deeper_dive />
+        turn == 1 ? (
+          <OpenParticipation_Child_Deeper_dive />
         ) : (
           <Research_Child_Deeper_dive />
         )}

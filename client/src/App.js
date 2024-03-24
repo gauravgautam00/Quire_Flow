@@ -36,7 +36,7 @@ function App() {
           element={<Administrative_matter_singleQuery />}
         ></Route>
         <Route
-          path="/public_queries/query"
+          path="/public_queries/query/:objectId"
           element={<Public_Queries_singleQuery />}
         ></Route>
         <Route path="/my_profile" element={<My_Profile />} />

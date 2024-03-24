@@ -18,7 +18,7 @@ const GlobalSharing_concept = () => {
       </div>
       <div id="GlobalSharing_concept_container_arrow">
         <div id="GlobalSharing_concept_container_arrow_first">
-          Search Publically Shared Queries
+          Search Publically Shared Queries Below
         </div>
       </div>
     </div>

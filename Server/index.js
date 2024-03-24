@@ -8,9 +8,9 @@ const cors = require("cors");
 app.use(
   cors({
     origin: ["https://quire-flow-fk1u.vercel.app/", "http://localhost:3000"],
-    methods: ["GET", "POST"],
+    // methods: ["GET", "POST"],
     // allowedHeaders: ["Content-Type", "my-custom-header"],
-    credentials: true,
+    // credentials: true,
   })
 );
 app.use(cors());

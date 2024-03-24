@@ -18,7 +18,7 @@ const NewQuery = () => {
   const submitButton = useRef(null);
   const setPreference = (val) => {
     setPreferenceValue(val);
-    console.log(preferenceValue);
+    // console.log(preferenceValue);
   };
 
   useEffect(() => {
@@ -60,7 +60,16 @@ const NewQuery = () => {
           alert("Please add anonyKey");
           return;
         }
-        console.log("before sending", preferenceValue);
+        if (!titleInput.current.value) {
+          alert("'Query Title' field is mandatory");
+          return;
+        }
+        if (!descriptionInput.current.value) {
+          alert("'Query Description' field is mandatory");
+          return;
+        }
+
+        // console.log("before sending", preferenceValue);
         const dataToSend = {
           preferences: preferenceValue,
           receiverAnonyKey: publicQuery ? 0 : anonyKeyInput.current.value,
@@ -70,7 +79,7 @@ const NewQuery = () => {
           description: descriptionInput.current.value,
           isPublic: publicQuery,
         };
-        console.log("datatosend in new_Query.jsx", dataToSend);
+        // console.log("datatosend in new_Query.jsx", dataToSend);
 
         fetch("https://quire-flow-4.onrender.com/addQuery", {
           // fetch("http://localhost:2300/addQuery", {
@@ -81,25 +90,29 @@ const NewQuery = () => {
           },
           body: JSON.stringify(dataToSend),
         })
-          .then((res) => {
+          .then(async (res) => {
             if (!res.ok) {
-              alert("Can't add the query please try again later");
-              res.json().then(() => {
-                throw new Error(
-                  "Some erro occurred whileadding the query try again"
-                );
+              return res.json().then((err) => {
+                throw new Error(err.message);
               });
             }
             return res.json();
           })
           .then((response) => {
-            console.log("response", response);
+            titleInput.current.value = "";
+            descriptionInput.current.value = "";
+            setPreferenceValue("");
+            // console.log("response", response);
             alert(
               "Successfully made a query , You can view all your queries in My Query Section on top navbar"
             );
           })
           .catch((err) => {
-            console.log("Some error occurred", err);
+            titleInput.current.value = "";
+            descriptionInput.current.value = "";
+            setPreferenceValue("");
+            alert(`Can't add the query please try again later ${err}`);
+            console.log("Some error occurred while adding the query", err);
           });
       };
     }
@@ -110,19 +123,21 @@ const NewQuery = () => {
       // refPublicQuery.current.style.color = "black";
 
       refPublicQuery.current.onclick = () => {
-        console.log("clicked public query");
+        // console.log("clicked public query");
         if (refPublicQuery.current.style.color == "black") {
           refPublicQuery.current.style.color = "white";
           refPublicQuery.current.style.backgroundColor = "black";
           setPublicQuery(true);
           anonyKeyInput.current.readOnly = true;
-          anonyKeyInput.current.value = "";
+          anonyKeyInput.current.value = "null";
+
           setPreference("none");
         } else {
           refPublicQuery.current.style.color = "black";
           refPublicQuery.current.style.backgroundColor = "white";
           setPublicQuery(false);
           anonyKeyInput.current.readOnly = false;
+          anonyKeyInput.current.value = "";
         }
       };
     }

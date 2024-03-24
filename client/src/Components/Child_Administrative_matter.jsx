@@ -27,7 +27,7 @@ const Child_Administrative_matter = (props) => {
   const [queryData, setQueryData] = useState(props.queryDescription);
   const [typeOfData, setTypeOfData] = useState("Text");
   useEffect(() => {
-    console.log(props.queryImages);
+    // console.log(props.queryImages);
     if (
       sidebarRightText.current &&
       sidebarRightLinks.current &&
@@ -85,7 +85,7 @@ const Child_Administrative_matter = (props) => {
       downData.current.style.marginTop = "-15rem";
       arrowDown.current.onclick = () => {
         if (downData.current.style.marginTop == "-15rem") {
-          // console.log("entering ");
+          // // console.log("entering ");
           arrowDownIcon.current.style.transform = "rotate(180deg)";
           downData.current.style.marginTop = "1rem";
         } else {
@@ -188,6 +188,89 @@ const Child_Administrative_matter = (props) => {
         downBarBottomSecondInProgress.current.style.color = "white";
         downBarBottomSecondCompleted.current.style.backgroundColor = "white";
         downBarBottomSecondCompleted.current.style.color = "#16252D";
+      };
+    }
+  }, []);
+
+  //bootom area
+  //bootom area  //bootom area
+  //bootom area
+  //bootom area
+  //bootom area
+
+  const textareaContainingComment = useRef(null);
+  const commentSendButton = useRef(null);
+  const [allComments, setAllComments] = useState([]);
+
+  useEffect(() => {
+    if (localStorage.getItem("token")) {
+      fetch(
+        `https://quire-flow-4.onrender.com/viewComment/${props.queryObjectId}`,
+        {
+          // fetch(`http://localhost:2300/viewComment/${props.queryObjectId}`, {
+          method: "GET",
+          headers: {
+            "Content-Type": "application/json",
+            authorization: `Bearer ${localStorage.getItem("token")}`,
+          },
+        }
+      )
+        .then((res) => res.json())
+        .then((response) => {
+          setAllComments(response.comments);
+          allComments.map((data, index) => {
+            // console.log("in map", data.content);
+          });
+          // console.log("allComments", response.comments.length);
+        })
+        .catch((error) => {
+          console.log("Some error occurred", error);
+        });
+    }
+  }, []);
+  useEffect(() => {
+    if (commentSendButton.current && textareaContainingComment.current) {
+      commentSendButton.current.onclick = () => {
+        const value = textareaContainingComment.current.value;
+        if (!value) {
+          alert("Comment is empty");
+          return;
+        }
+        fetch("https://quire-flow-4.onrender.com/addComment", {
+          // fetch("http://localhost:2300/addComment", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+            authorization: `Bearer ${localStorage.getItem("token")}`,
+          },
+          body: JSON.stringify({
+            query_id: props.queryObjectId,
+            content: value,
+          }),
+        })
+          .then((res) => res.json())
+          .then((response) => {
+            setAllComments(response.comments);
+            textareaContainingComment.current.value = "";
+          })
+
+          .catch((error) => {
+            console.log(
+              "some error occurred hile adding the comment in the client side",
+              error
+            );
+          });
+      };
+    }
+  }, []);
+
+  //delete
+  useEffect(() => {
+    if (downDataDelete.current) {
+      downDataDelete.current.onclick = () => {
+        alert(
+          "You can't delete the query for now . We are working on this . Sorry for the inconvenience"
+        );
       };
     }
   }, []);
@@ -317,7 +400,7 @@ const Child_Administrative_matter = (props) => {
               Recieved At
             </div>
             <div id="child_administrative_matter_sideBarLeft_dateName">
-              {new Date(props.dateSent).toString()}
+              {new Date(props.dateSent).toLocaleString()}
             </div>
           </div>
         </div>
@@ -371,11 +454,17 @@ const Child_Administrative_matter = (props) => {
               Comment for querySender
             </div>
             <div id="child_administrative_matter_downBarBottom_first_textarea">
-              <textarea id="child_administrative_matter_downBarBottom_first_textareaReal">
+              <textarea
+                id="child_administrative_matter_downBarBottom_first_textareaReal"
+                ref={textareaContainingComment}
+              >
                 Enter here
               </textarea>
             </div>
-            <div id="child_administrative_matter_downBarBottom_first_submitComment">
+            <div
+              id="child_administrative_matter_downBarBottom_first_submitComment"
+              ref={commentSendButton}
+            >
               Send
             </div>
           </div>
@@ -384,24 +473,28 @@ const Child_Administrative_matter = (props) => {
           {/* second */}
           <div id="child_administrative_matter_downBarBottom_second">
             <div id="child_administrative_matter_downBarBottom_second_header">
-              Mark as
+              View Comments
             </div>
-
-            <div
-              id="child_administrative_matter_downBarBottom_second_completed"
-              ref={downBarBottomSecondCompleted}
-            >
-              Acknowledged
-            </div>
-
-            <div
-              id="child_administrative_matter_downBarBottom_second_inProgress"
-              ref={downBarBottomSecondInProgress}
-            >
-              IN-Progress
-            </div>
-            <div id="child_administrative_matter_downBarBottom_second_save">
-              Save
+            <div id="child_administrative_matter_downBarBottom_second_content">
+              {allComments.length > 0 ? (
+                allComments.map((data) => {
+                  return (
+                    <div
+                      id="child_administrative_matter_downBarBottom_second_content_child1"
+                      className="child_administrative_matter_downBarBottom_second_content_childClass"
+                    >
+                      <div id="child_administrative_matter_downBarBottom_second_content_childClass_content">
+                        {data.content}
+                      </div>
+                      <div id="child_administrative_matter_downBarBottom_second_content_childClass_date">
+                        {new Date(data.createdAt).toLocaleString()}
+                      </div>
+                    </div>
+                  );
+                })
+              ) : (
+                <div>Write your first comment</div>
+              )}
             </div>
           </div>
         </div>

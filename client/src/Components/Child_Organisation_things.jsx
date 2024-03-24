@@ -1,5 +1,5 @@
-import React, { useEffect, useRef } from "react";
-
+import React, { useEffect, useRef, useState } from "react";
+import { v4 as uuidv4 } from "uuid";
 const Child_Organisation_things = (props) => {
   const childOrgThingsSideBar = useRef(null);
   const childOrgThingsHamBurger = useRef(null);
@@ -9,6 +9,10 @@ const Child_Organisation_things = (props) => {
   const childOrgThingsHamburgerSecondIcon = useRef(null);
   const childOrgThingsHeading = useRef(null);
 
+  const postCommentButton = useRef(null);
+  const [commentsArr, setCommentsArr] = useState();
+  const [isLoadingComment, setIsLoadingComment] = useState(false);
+  const contentInput = useRef(null);
   useEffect(() => {
     if (
       childOrgThingsHamBurger.current &&
@@ -45,6 +49,92 @@ const Child_Organisation_things = (props) => {
     }
   }, []);
 
+  //post commment
+  //post commment
+  //post commment
+  //post commment
+  //post commment
+
+  useEffect(() => {
+    if (postCommentButton.current && contentInput.current) {
+      postCommentButton.current.onclick = () => {
+        // console.log("clicked post button");
+        setIsLoadingComment(true);
+
+        const content = contentInput.current.value;
+
+        const dataToSend = {
+          content,
+          query_id: props.id,
+        };
+        // console.log("to send data in child organisation", dataToSend);
+        fetch("https://quire-flow-4.onrender.com/addComment", {
+          // fetch("http://localhost:2300/addComment", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+            authorization: `Bearer ${localStorage.getItem("token")}`,
+          },
+          body: JSON.stringify(dataToSend),
+        })
+          .then(async (res) => {
+            if (!res.ok) {
+              return res.json().then((err) => {
+                throw new Error(err);
+              });
+            }
+            return res.json();
+          })
+          .then((response) => {
+            setIsLoadingComment(false);
+            setCommentsArr(response.comments);
+            contentInput.current.value = "";
+          })
+          .catch((err) => {
+            alert(
+              `Some error ocurred while adding the comment . Please try again later`,
+              err.message
+            );
+            setIsLoadingComment(false);
+          });
+      };
+    }
+  }, []);
+
+  // view comment
+  // view comment// view comment
+  // view comment
+  // view comment
+  // view comment
+  // view comment
+
+  useEffect(() => {
+    fetch(`https://quire-flow-4.onrender.com/viewComment/${props.id}`, {
+      // fetch(`http://localhost:2300/viewComment/${props.id}`, {
+      method: "GET",
+      headers: {
+        "Content-Type": "application/json",
+        authorization: `Bearer ${localStorage.getItem("token")}`,
+      },
+    })
+      .then(async (res) => {
+        if (!res.ok) {
+          return res.json().then((err) => {
+            throw new Error(err);
+          });
+        }
+        return res.json();
+      })
+      .then((response) => {
+        setCommentsArr(response.comments);
+      })
+      .catch((err) => {
+        console.log(
+          (`Some error ocurred while adding the comment . Please try again later`,
+          err.message)
+        );
+      });
+  }, []);
   return (
     <div className="for_footer_color" id="child_OrgThings_container">
       <div id="child_OrgThings_container_sideBar" ref={childOrgThingsSideBar}>
@@ -62,7 +152,7 @@ const Child_Organisation_things = (props) => {
               Department
             </div>
             <div id="child_OrgThings_container_sideBar_detailsDepartment_second">
-              Google Search
+              {props.department}
             </div>
           </div>
           <div
@@ -73,7 +163,7 @@ const Child_Organisation_things = (props) => {
               Preferences
             </div>
             <div id="child_OrgThings_container_sideBar_detailsPreferences_second">
-              Research Required
+              {props.preferences}
             </div>
           </div>
           <div
@@ -84,7 +174,7 @@ const Child_Organisation_things = (props) => {
               Date
             </div>
             <div id="child_OrgThings_container_sideBar_detailsDate_second">
-              11-04-2004
+              {props.date}
             </div>
           </div>
         </div>
@@ -112,36 +202,42 @@ const Child_Organisation_things = (props) => {
             Comments
           </div>
         </div>
-        <div id="child_OrgThings_container_sideBar_second_details"></div>
+        <div id="child_OrgThings_container_sideBar_second_details">
+          {commentsArr?.length > 0 ? (
+            commentsArr.map((data) => {
+              return (
+                <div
+                  key={uuidv4()}
+                  id="child_OrgThings_container_sideBar_second_details_eachComment"
+                  className="child_OrgThings_container_sideBar_second_details_eachCommentClass"
+                >
+                  <div id="child_OrgThings_container_sideBar_second_details_eachComment_first">
+                    {data.content}
+                  </div>
+                  <div id="child_OrgThings_container_sideBar_second_details_eachComment_second">
+                    {new Date(data.createdAt).toLocaleString()}
+                  </div>
+                </div>
+              );
+            })
+          ) : (
+            <div>No commments. Add Your comment to start the conversation</div>
+          )}
+        </div>
 
-        <div id="child_OrgThings_container_sideBar_second_vote">
-          <div id="child_OrgThings_container_sideBar_second_vote_upvotes">
-            <div id="child_OrgThings_container_sideBar_second_vote_upvotes_first">
-              <span
-                id="child_OrgThings_container_sideBar_second_vote_upvotes_first_icon"
-                class="material-symbols-outlined"
-              >
-                thumb_up
-              </span>
-            </div>
-            <div id="child_OrgThings_container_sideBar_second_vote_upvotes_second"></div>
-            <div id="child_OrgThings_container_sideBar_second_vote_upvotes_third">
-              35.6K
-            </div>
-          </div>
-          <div id="child_OrgThings_container_sideBar_second_vote_downvotes">
-            <div id="child_OrgThings_container_sideBar_second_vote_downvotes_first">
-              <span
-                id="child_OrgThings_container_sideBar_second_vote_downvotes_first_icon"
-                class="material-symbols-outlined"
-              >
-                thumb_down
-              </span>
-            </div>
-            <div id="child_OrgThings_container_sideBar_second_vote_downvotes_second"></div>
-            <div id="child_OrgThings_container_sideBar_second_vote_downvotes_third">
-              3.6K
-            </div>
+        <div id="child_OrgThings_container_sideBar_second_addComment">
+          <div id="child_OrgThings_container_sideBar_second_addComment_inputContainer">
+            <input
+              placeholder="Add your comment"
+              id="child_OrgThings_container_sideBar_second_addComment_inputContainer_input"
+              ref={contentInput}
+            ></input>
+            <button
+              id="child_OrgThings_container_sideBar_second_addComment_inputContainer_button"
+              ref={postCommentButton}
+            >
+              Post
+            </button>
           </div>
         </div>
       </div>

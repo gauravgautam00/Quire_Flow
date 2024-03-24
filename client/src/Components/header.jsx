@@ -12,7 +12,7 @@ const Header = () => {
       hamburgerBox.current.style.height = "0rem";
 
       accountCircle.current.onclick = () => {
-        console.log("clicked");
+        // console.log("clicked");
         if (hamburgerBox.current.style.height == "0rem") {
           hamburgerBox.current.style.height = "10rem";
         } else {
@@ -23,7 +23,7 @@ const Header = () => {
 
     if (bottomBoxLogout.current) {
       bottomBoxLogout.current.onclick = () => {
-        console.log("logout clicked");
+        // console.log("logout clicked");
         localStorage.removeItem("token");
         localStorage.removeItem("userName");
         alert("Logout successfull");
@@ -125,7 +125,7 @@ const Header = () => {
                 }}
                 height="60"
                 width="55"
-                src="/Images/whatsapp-dp-for-boys-cartoon-7.jpeg"
+                src="/Images/dummy-profile-pic-300x300-1.png"
                 alt="dp"
               />
             </div>

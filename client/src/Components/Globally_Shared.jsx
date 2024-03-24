@@ -1,6 +1,6 @@
 import React, { useRef, useState, useEffect } from "react";
 import Child_Globally_Shared from "./Child_Globally_Shared";
-import Public_Queries_json from "./Public_Queries.json";
+// import Public_Queries_json from "./Public_Queries.json";
 
 const Globally_Shared = () => {
   const [orgValue, setOrgValue] = useState("All");
@@ -18,7 +18,7 @@ const Globally_Shared = () => {
   useEffect(() => {
     if (orgExpand.current && orgExpandBox.current && orgExpandIcon.current) {
       orgExpandBox.current.style.height = "0rem";
-      console.log("clicked");
+      // console.log("clicked");
       orgExpand.current.onclick = () => {
         if (orgExpandBox.current.style.height == "0rem") {
           orgExpandBox.current.style.height = "13rem";
@@ -45,7 +45,7 @@ const Globally_Shared = () => {
   }, []);
 
   useState(() => {
-    console.log(localStorage.getItem("token"));
+    // console.log(localStorage.getItem("token"));
     if (localStorage.getItem("token")) {
       fetch("https://quire-flow-4.onrender.com/public/all", {
         // fetch("http://localhost:2300/public/all", {
@@ -58,7 +58,7 @@ const Globally_Shared = () => {
         .then((res) => res.json())
         .then((response) => {
           setAllPublicQueryArr(response.requiredQueryData);
-          console.log("response form public/all route", response);
+          // console.log("response form public/all route", response);
         })
         .catch((err) => {
           console.log("Some error occurred while fetching all public queries");
@@ -71,6 +71,9 @@ const Globally_Shared = () => {
   };
   const setDepartMent = (val) => {
     setDepValue(val);
+  };
+  const submitForm = () => {
+    alert("This filter is not in working condition  . please try later");
   };
   return (
     <div className="for_footer_color" id="publically_shared_container">
@@ -198,7 +201,6 @@ const Globally_Shared = () => {
               All
             </div>
           </div>
-
           {/* //department */}
           {/* //department */}
           {/* //department */}
@@ -320,6 +322,12 @@ const Globally_Shared = () => {
             type="text"
             placeholder="Search for specific string to search for"
           />
+          <button
+            id="publically_shared_container_left_submit"
+            onClick={submitForm}
+          >
+            Search
+          </button>
         </div>
       </div>
 
@@ -338,6 +346,9 @@ const Globally_Shared = () => {
                   title={data.title}
                   description={data.description}
                   uniqueNum={index}
+                  preferences={data.preferences}
+                  date={new Date(data.createdAt).toLocaleString()}
+                  id={data._id}
                 />
               );
             })

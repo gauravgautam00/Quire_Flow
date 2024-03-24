@@ -9,7 +9,7 @@ const Single_Query = () => {
   const [comments, setComments] = useState([]);
   useEffect(() => {
     window.scrollTo(0, 0);
-    console.log(objectId);
+    // console.log(objectId);
   }, []);
 
   const navigate = useNavigate();
@@ -207,7 +207,7 @@ const Single_Query = () => {
 
   window.onscroll = () => {
     const scroll = window.scrollY;
-    console.log(scroll);
+    // console.log(scroll);
 
     if (scroll >= 620) {
       if (headerRight.current) {
@@ -267,14 +267,14 @@ const Single_Query = () => {
       .then((response) => {
         setQuery(response.curQuery);
         setComments(response.curQuery.comments);
-        console.log(
-          "in line 266 in single query",
-          response.curQuery,
-          "query",
-          query,
-          "comments",
-          comments
-        );
+        // console.log(
+        //   "in line 266 in single query",
+        //   response.curQuery,
+        //   "query",
+        //   query,
+        //   "comments",
+        //   comments
+        // );
       })
       .catch((error) => {
         console.log(
@@ -346,7 +346,7 @@ const Single_Query = () => {
                     alt="Image for the query received"
                   />
                 </div>
-                <div
+                {/* <div
                   class="single_queries_container_images_container_child"
                   id="single_queries_container_images_container_child_2"
                 >
@@ -461,7 +461,7 @@ const Single_Query = () => {
                     width="650"
                     alt="Image for the query received"
                   />
-                </div>
+                </div> */}
               </div>
 
               {/* //RIGHT ARROW */}
@@ -544,7 +544,8 @@ const Single_Query = () => {
 
           <div id="single_query_container_comment">
             <div id="single_query_container_comment_heading">
-              Comment from the QueryReciever
+              {query.isPublic ? "Comments" : "Comment"} from the
+              {query.isPublic ? " Global Public" : " QueryReciever"}
             </div>
             <div id="single_queries_container_comment_content">
               {comments.map((item, key) => {

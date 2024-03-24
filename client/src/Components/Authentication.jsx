@@ -1,9 +1,14 @@
 import React from "react";
+import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 const Authentication = () => {
   const navigate = useNavigate();
+  const [isLoginLoading, setIsLoginLoading] = useState(false);
+  const [isSignupLoading, setIsSignupLoading] = useState(false);
+
   const signUpFormSubmit = (e) => {
     e.preventDefault();
+    setIsSignupLoading(true);
     // const { name, email, password, confirmPassword, organisation, department } =
     const name = e.target.name.value;
     const email = e.target.email.value;
@@ -12,7 +17,7 @@ const Authentication = () => {
     const organisation = e.target.organisation.value;
     const department = e.target.department.value;
 
-    console.log(password, confirmPassword);
+    // console.log(password, confirmPassword);
     if (password !== confirmPassword) {
       alert("Password and Confirm password is not same");
       return;
@@ -24,7 +29,7 @@ const Authentication = () => {
       organisation,
       department,
     };
-    console.log(curData);
+    // console.log(curData);
 
     fetch("https://quire-flow-4.onrender.com/signup", {
       // fetch("http://localhost:2300/signup", {
@@ -34,30 +39,39 @@ const Authentication = () => {
       },
       body: JSON.stringify(curData),
     })
-      .then((res) => {
-        res.json();
+      .then(async (res) => {
         if (!res.ok) {
-          alert(res.message);
-          throw new Error("Network response was not ok");
+          return res.json().then((err) => {
+            throw new Error("Network response was not ok");
+          });
         }
-        return res;
+        return res.json();
       })
       .then((response) => {
-        console.log(response);
+        setIsSignupLoading(false);
+
+        // console.log(response);
         localStorage.setItem("token", response.userToken);
         localStorage.setItem("userName", name);
         localStorage.setItem("anonyKey", response.anonyKey);
-        alert("Sign up successfulll taking you to the home page");
+        alert("Sign up successfull taking you to the home page");
 
         navigate("/");
         window.location.reload();
       })
-      .catch((error) => {
-        console.log("Some error occurred while signing up", error);
+      .catch((err) => {
+        setIsSignupLoading(false);
+
+        console.log("Some error occurred while signing up", err);
+        alert(
+          "Some error occurred while login . Please try again later",
+          err.message
+        );
       });
   };
 
   const loginFormSubmit = (e) => {
+    setIsLoginLoading(true);
     e.preventDefault();
     const email = e.target.email.value;
     const password = e.target.password.value;
@@ -66,7 +80,7 @@ const Authentication = () => {
       email,
       password,
     };
-    console.log(JSON.stringify(data));
+    // console.log(JSON.stringify(data));
     fetch("https://quire-flow-4.onrender.com/login", {
       // fetch("http://localhost:2300/login", {
       method: "POST",
@@ -78,14 +92,14 @@ const Authentication = () => {
       .then(async (res) => {
         if (!res.ok) {
           return res.json().then((err) => {
-            alert(err.message);
             throw new Error("Network response was not ok");
           });
         }
         return res.json();
       })
       .then((response) => {
-        console.log(response);
+        setIsLoginLoading(false);
+        // console.log(response);
         localStorage.setItem("token", response.userToken);
         localStorage.setItem("userName", response.User.name);
 
@@ -97,6 +111,11 @@ const Authentication = () => {
       })
       .catch((err) => {
         console.error("Error:", err);
+        setIsLoginLoading(false);
+        alert(
+          "Some error occurred while login . Please try again later",
+          err.message
+        );
       });
   };
 
@@ -218,6 +237,10 @@ const Authentication = () => {
                 />
               </div>
             </div>
+            <div className="loadingAuthentication" id="loading_signup">
+              {isSignupLoading ? "Loading..." : ""}
+            </div>
+
             <button
               id="authentication_container_signUp_details_but"
               type="submit"
@@ -277,6 +300,9 @@ const Authentication = () => {
                 name="password"
               ></input>
             </div>
+          </div>
+          <div className="loadingAuthentication" id="loading_login">
+            {isLoginLoading ? "Loading..." : ""}
           </div>
           <button id="authentication_container_login_details_but" type="submit">
             Login

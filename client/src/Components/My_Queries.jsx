@@ -42,7 +42,7 @@ const My_Queries = () => {
 
   window.onscroll = () => {
     const curScroll = window.scrollY;
-    // console.log("window scroll By", curScroll);
+    // // console.log("window scroll By", curScroll);
 
     if (curScroll >= 2575) {
       if (upperFlexFourth.current && upperFlexFifth.current) {
@@ -273,7 +273,7 @@ const My_Queries = () => {
       filterOrganisationIcon.current.style.visibility = "hidden";
 
       filterOrganisation.current.onclick = () => {
-        console.log("organisation", orgOpen, depOpen, prefOpen);
+        // console.log("organisation", orgOpen, depOpen, prefOpen);
         if (filterOrganisationExpand.current.style.height == "0rem") {
           filterDepartmentIcon.current.style.visibility = "visible";
           filterOrganisationIcon.current.style.visibility = "hidden";
@@ -289,7 +289,7 @@ const My_Queries = () => {
       };
 
       filterDepartment.current.onclick = () => {
-        console.log("department", orgOpen, depOpen, prefOpen);
+        // console.log("department", orgOpen, depOpen, prefOpen);
 
         if (filterDepartmentExpand.current.style.height == "0rem") {
           filterOrganisationExpand.current.style.height = "0rem";
@@ -306,7 +306,7 @@ const My_Queries = () => {
       };
 
       filterPreferences.current.onclick = () => {
-        // console.log("preferences", orgOpen, depOpen, prefOpen);
+        // // console.log("preferences", orgOpen, depOpen, prefOpen);
 
         if (filterPreferencesExpand.current.style.height == "0rem") {
           filterDepartmentExpand.current.style.height = "0rem";
@@ -364,7 +364,7 @@ const My_Queries = () => {
               arr.push(curEle);
             });
           });
-          console.log("response", response, arr);
+          // console.log("response", response, arr);
           setAllQueryArr(arr);
         })
         .catch((error) => {
@@ -373,6 +373,9 @@ const My_Queries = () => {
     }
   }, []);
 
+  const submitForm = () => {
+    alert("This filter is not in working condition  . please try later");
+  };
   return (
     <>
       <div id="my_queries_container">
@@ -864,6 +867,7 @@ const My_Queries = () => {
               <div
                 id="my_queries_container_third_viewQueries_filter_search"
                 ref={filterSearch}
+                onClick={submitForm}
               >
                 Search
               </div>

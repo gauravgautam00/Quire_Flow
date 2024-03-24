@@ -15,6 +15,7 @@ const auth = (req, res, next) => {
     // console.log(req);
     // console.log(token);
     const isTokenVerified = jwt.verify(token, process.env.SECRET_KEY);
+    // console.log(isTokenVerified);
     if (!isTokenVerified) {
       return res.status(401).json({ message: "Unauthorized user" });
     } else {
@@ -23,8 +24,9 @@ const auth = (req, res, next) => {
       req.organisation = payload.organisation;
       req.department = payload.department;
       req.senderObjectId = payload.objectId;
-      // console.log("payload", payload);
+      // console.log(payload);
     }
+    //
 
     next();
   } catch (err) {

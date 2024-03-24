@@ -19,6 +19,8 @@ const Single_Query_Global = (props) => {
   const extraDetailsUpperBox = useRef(null);
   const extraDetailsBottomBox = useRef(null);
   const extraDetailsIcon = useRef(null);
+  const [isLoadingMarkAs, setIsLoadingMarkAs] = useState(false);
+  const downDataDelete = useRef(null);
 
   useEffect(() => {
     if (
@@ -39,15 +41,24 @@ const Single_Query_Global = (props) => {
     }
     if (singleQueryBack.current) {
       singleQueryBack.current.onclick = () => {
-        console.log("ll");
-        props.isPublic ? navigate("/") : navigate("/administrative_matter");
+        // // console.log("ll");
+        props.isPublicQuery
+          ? navigate("/")
+          : navigate("/administrative_matter");
       };
     }
   }, []);
 
   const callDBToSaveMarkAs = () => {
     if (localStorage.getItem("token")) {
-      console.log(markAsValue);
+      setIsLoadingMarkAs(true);
+      // // // console.log("markAsValueeeeeeeeeeeeeeeeeeeeeeeeeee", markAsValue);
+
+      if (markAsValue.toLowerCase() === "Mark it as".toLowerCase()) {
+        alert("Select One option");
+        setIsLoadingMarkAs(false);
+        return;
+      }
       fetch("https://quire-flow-4.onrender.com/setMarkAs", {
         // fetch("http://localhost:2300/setMarkAs", {
         method: "POST",
@@ -67,17 +78,23 @@ const Single_Query_Global = (props) => {
           res.json();
         })
         .then((response) => {
-          console.log("callDBToSaveMarkAs", response);
+          setIsLoadingMarkAs(false);
+          // // console.log("callDBToSaveMarkAs", response);
+          alert("Success");
+          setMarkAsValue("Mark it as");
           // window.location.reload();
         })
         .catch((err) => {
+          setIsLoadingMarkAs(false);
+          alert("Failed to save   . Try again later");
+
           console.log("error occurred", err);
         });
     }
   };
   const setValueMarkAs = (val) => {
     setMarkAsValue(val);
-    console.log(markAsValue);
+    // console.log(markAsValue);
   };
 
   //for comments
@@ -105,9 +122,9 @@ const Single_Query_Global = (props) => {
         .then((response) => {
           setAllComments(response.comments);
           allComments.map((data, index) => {
-            console.log("in map", data.content);
+            // console.log("in map", data.content);
           });
-          console.log("allComments", response.comments.length);
+          // console.log("allComments", response.comments.length);
         })
         .catch((error) => {
           console.log("Some error occurred", error);
@@ -151,6 +168,15 @@ const Single_Query_Global = (props) => {
     }
   }, []);
 
+  useEffect(() => {
+    if (downDataDelete.current) {
+      downDataDelete.current.onclick = () => {
+        alert(
+          "You can't delete the query for now . We are working on this . Sorry for the inconvenience"
+        );
+      };
+    }
+  }, []);
   return (
     <div id="single_query_global">
       <div id="single_query_global_back" ref={singleQueryBack}>
@@ -197,9 +223,9 @@ const Single_Query_Global = (props) => {
             className="single_query_global_extraDetails_bottomBox_child"
             id="single_query_global_extraDetails_bottomBox_child3"
           >
-            Recieved at - {new Date(props.query.createdAt).toString()}
+            Recieved at - {new Date(props.query.createdAt).toLocaleString()}
           </div>
-          {!props.isPublic ? (
+          {!props.isPublicQuery ? (
             <>
               <div
                 className="single_query_global_extraDetails_bottomBox_child"
@@ -220,7 +246,7 @@ const Single_Query_Global = (props) => {
         </div>
       </div>
       <div id="single_query_global_isPublicQuery">
-        {props.isPublic ? "Public Query" : "Query For You"}
+        {props.isPublicQuery ? "Public Query" : "Query For You"}
       </div>
       <div id="single_query_global_queryDescription">
         <div id="single_query_global_queryDescription_title">
@@ -252,7 +278,6 @@ const Single_Query_Global = (props) => {
           </div>
         </div>
       </div>
-
       <div id="single_query_global_queryComment">
         <div id="single_query_global_queryComment_heading">Comments</div>
         <div id="single_query_global_queryComment_main">
@@ -277,12 +302,18 @@ const Single_Query_Global = (props) => {
           </div>
           <div id="single_query_global_queryComment_rightPart">
             <div id="single_query_global_queryComment_rightPart_heading">
-              View {!props.isPublic ? "your previous" : "all"} comments
+              View {!props.isPublicQuery ? "your previous" : "all"} comments
             </div>
             <div id="single_query_global_queryComment_rightPart_main">
               {allComments ? (
                 allComments.map((data, item) => {
-                  return <Single_Comment key={item} content={data.content} />;
+                  return (
+                    <Single_Comment
+                      key={item}
+                      content={data.content}
+                      date={new Date(data.createdAt).toLocaleString()}
+                    />
+                  );
                 })
               ) : (
                 <div>No comments</div>
@@ -291,7 +322,7 @@ const Single_Query_Global = (props) => {
           </div>
         </div>
       </div>
-      {!props.isPublic ? (
+      {!props.isPublicQuery ? (
         <div id="single_query_global_queryLastPart">
           <div id="single_query_global_queryMark">
             <div
@@ -363,6 +394,7 @@ const Single_Query_Global = (props) => {
             <div id="single_query_global_queryMark_disclaimer">
               Please click on Done to save your Marked As for this query
             </div>
+            <div id="loading_markAs">{isLoadingMarkAs ? "Loading..." : ""}</div>
             <div
               onClick={() => {
                 callDBToSaveMarkAs();
@@ -372,7 +404,9 @@ const Single_Query_Global = (props) => {
               Done
             </div>
           </div>
-          <div id="single_query_global_queryDelete">Delete query</div>
+          <div id="single_query_global_queryDelete" ref={downDataDelete}>
+            Delete query
+          </div>
         </div>
       ) : (
         ""
