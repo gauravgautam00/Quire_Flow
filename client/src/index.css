@@ -611,9 +611,7 @@ code {
   white-space: nowrap;
   box-shadow: 0px 0px 6px 0px #c5c4c4;
 }
-#OrgThings_container_scrollContainer::-webkit-scrollbar {
-  /* display: none; */
-}
+
 #OrgThings_container_rightArrow {
   border-radius: 10px;
   height: 5rem;
