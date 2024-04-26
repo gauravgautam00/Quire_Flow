@@ -116,7 +116,7 @@ code {
 #header_container_name {
   font-size: 17px;
   font-weight: 500;
-  cursor: pointer;
+  /* cursor: pointer; */
   margin-top: 9px;
   color: #16252d;
 }
@@ -4329,6 +4329,38 @@ card */
 /* Authentication */
 /* Authentication */
 
+/* my profile */
+/* my profile */
+/* my profile */
+/* my profile */
+#my_profile_container {
+  flex-wrap: wrap;
+  display: flex;
+  justify-content: center;
+}
+#my_profile_container_title {
+  text-align: center;
+  margin-top: 1rem;
+  width: 100%;
+  font-size: x-large;
+}
+#my_profile_container_anonyKey {
+  width: 100%;
+  text-align: center;
+  margin-top: 4rem;
+}
+#logOut_button {
+  padding: 5px;
+  margin-top: 1rem;
+  cursor: pointer;
+  width: 10rem;
+}
+
+/* my profile */ /* my profile */ /* my profile */ /* my profile */
+/* my profile */
+/* my profile */
+/* my profile */
+
 /* GLOBAL CSS */ /* GLOBAL CSS */ /* GLOBAL CSS */ /* GLOBAL CSS */ /* GLOBAL CSS */ /* GLOBAL CSS */ /* GLOBAL CSS */ /* GLOBAL CSS */ /* GLOBAL CSS */ /* GLOBAL CSS */ /* GLOBAL CSS */
 
 .for_footer_color_global {
@@ -4351,8 +4383,9 @@ card */
 }
 
 .loadingAuthentication {
-  height: 1rem;
+  height: 2rem;
   text-align: center;
+  width: 100%;
   margin-top: 1rem;
 }
 #loading_signuo {

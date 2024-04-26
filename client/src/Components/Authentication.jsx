@@ -8,7 +8,7 @@ const Authentication = () => {
 
   const signUpFormSubmit = (e) => {
     e.preventDefault();
-    setIsSignupLoading(true);
+
     // const { name, email, password, confirmPassword, organisation, department } =
     const name = e.target.name.value;
     const email = e.target.email.value;
@@ -16,12 +16,27 @@ const Authentication = () => {
     const confirmPassword = e.target.confirmPassword.value;
     const organisation = e.target.organisation.value;
     const department = e.target.department.value;
-
+    if (!email) {
+      setIsSignupLoading(false);
+      alert("Please enter email");
+      return;
+    }
+    if (!password) {
+      setIsSignupLoading(false);
+      alert("Please enter password");
+      return;
+    }
+    if (!name) {
+      setIsSignupLoading(false);
+      alert("Please enter name");
+      return;
+    }
     // console.log(password, confirmPassword);
     if (password !== confirmPassword) {
       alert("Password and Confirm password is not same");
       return;
     }
+    setIsSignupLoading(true);
     const curData = {
       name,
       email,
@@ -45,6 +60,7 @@ const Authentication = () => {
             throw new Error("Network response was not ok");
           });
         }
+        setIsSignupLoading(false);
         return res.json();
       })
       .then((response) => {
@@ -55,7 +71,7 @@ const Authentication = () => {
         localStorage.setItem("userName", name);
         localStorage.setItem("anonyKey", response.anonyKey);
         alert("Sign up successfull taking you to the home page");
-
+        setIsSignupLoading(false);
         navigate("/");
         window.location.reload();
       })
@@ -71,11 +87,20 @@ const Authentication = () => {
   };
 
   const loginFormSubmit = (e) => {
-    setIsLoginLoading(true);
     e.preventDefault();
     const email = e.target.email.value;
     const password = e.target.password.value;
-
+    if (!email) {
+      setIsLoginLoading(false);
+      alert("Please enter email");
+      return;
+    }
+    if (!password) {
+      setIsLoginLoading(false);
+      alert("Please enter password");
+      return;
+    }
+    setIsLoginLoading(true);
     const data = {
       email,
       password,
@@ -95,6 +120,7 @@ const Authentication = () => {
             throw new Error("Network response was not ok");
           });
         }
+        setIsLoginLoading(false);
         return res.json();
       })
       .then((response) => {
@@ -105,7 +131,7 @@ const Authentication = () => {
 
         localStorage.setItem("anonyKey", response.anonyKey);
         alert("Successfully logged in");
-
+        setIsLoginLoading(false);
         navigate("/");
         window.location.reload();
       })
