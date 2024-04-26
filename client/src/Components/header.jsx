@@ -33,128 +33,78 @@ const Header = () => {
   }, []);
   return (
     <>
-      {localStorage.getItem("token") === null ? (
-        <>
-          <div className="for_footer_color" id="header_container">
-            <div id="header_container_logo">
-              <Link to="/">
-                {" "}
-                <img id="my_logo" src="/Images/my_favicon.ico" />
-              </Link>
+      <div className="for_footer_color" id="header_container">
+        <div id="header_container_first">
+          <div id="header_container_logo">
+            <Link to="/">
+              <img id="my_logo" src="/Images/my_favicon.ico" />
+            </Link>
+          </div>
+          <div id="header_container_title">Quire Flow</div>
+        </div>
+        <div id="header_container_second">
+          <NavLink
+            to="/administrative_matter"
+            style={{ textDecoration: "none", color: "inherit" }}
+          >
+            <div id="header_container_administrativePower">
+              Administrative Matter
             </div>
-
-            <div id="header_container_title">Quire Flow</div>
-            <div id="header_container_searchBar">
-              <input
-                type="text"
-                id="header_container_input"
-                placeholder="Search Queries here"
-              />
-              <div id="header_container_input_searchIcon">
-                <span className="material-symbols-outlined">search</span>
-              </div>
-            </div>
-
-            <NavLink
-              to="/administrative_matter"
-              style={{ textDecoration: "none", color: "inherit" }}
-            >
-              <div id="header_container_administrativePower">
-                Administrative Matter
-              </div>
-            </NavLink>
-            <NavLink
-              to="/my_queries"
-              style={{ textDecoration: "none", color: "inherit" }}
-            >
-              <div id="header_container_myQueries">My Queries</div>{" "}
-            </NavLink>
-
-            {/* {localStorage.getItem("userName") === null ? ( */}
+          </NavLink>
+          <NavLink
+            to="/my_queries"
+            style={{ textDecoration: "none", color: "inherit" }}
+          >
+            <div id="header_container_myQueries">My Queries</div>{" "}
+          </NavLink>
+          {localStorage.getItem("token") === null ? (
             <Link
               to="/authentication"
               style={{ textDecoration: "none", color: "inherit" }}
             >
               <div id="header_container_account_logo">Sign Up</div>
             </Link>
-          </div>
-        </>
-      ) : (
-        <>
-          <div className="for_footer_color" id="header_container">
-            <div id="header_container_logo">
-              <Link to="/">
-                {" "}
-                <img id="my_logo" src="/Images/my_favicon.ico" />
+          ) : (
+            <>
+              <Link
+                to="/my_profile"
+                style={{ textDecoration: "none", color: "inherit" }}
+              >
+                <div id="header_container_myProfile">My Profile</div>
               </Link>
-            </div>
-
-            <div id="header_container_title">Quire Flow</div>
-            <div id="header_container_searchBar">
-              <input
-                type="text"
-                id="header_container_input"
-                placeholder="Search Queries here"
-              />
-              <div id="header_container_input_searchIcon">
-                <span className="material-symbols-outlined">search</span>
+              <div id="header_container_name">
+                {localStorage.getItem("userName")}
               </div>
-            </div>
+            </>
+          )}
+        </div>
+      </div>
 
-            <NavLink
-              to="/administrative_matter"
-              style={{ textDecoration: "none", color: "inherit" }}
-            >
-              <div id="header_container_administrativePower">
-                Administrative Matter
-              </div>
-            </NavLink>
-            <NavLink
-              to="/my_queries"
-              style={{ textDecoration: "none", color: "inherit" }}
-            >
-              <div id="header_container_myQueries">My Queries</div>{" "}
-            </NavLink>
-
-            <div id="header_container_accountHamburger" ref={accountCircle}>
-              <img
-                style={{
-                  borderRadius: "50%",
-                  marginTop: "-10px",
-                  marginLeft: "-3px",
-                }}
-                height="60"
-                width="55"
-                src="/Images/dummy-profile-pic-300x300-1.png"
-                alt="dp"
-              />
-            </div>
-          </div>
-          <div
-            id="header_container_accountHamburger_bottomBox"
-            ref={hamburgerBox}
+      {/* {localStorage.getItem("token") !== null && (
+        <div
+          id="header_container_accountHamburger_bottomBox"
+          ref={hamburgerBox}
+        >
+          <div id="header_container_accountHamburger_bottomBox_name">
+            {localStorage.getItem("userName")}
+            {/* Gaurav Gautam */}
+      {/* </div>
+          <Link
+            to="/my_profile"
+            style={{ textDecoration: "none", color: "inherit" }}
           >
-            <div id="header_container_accountHamburger_bottomBox_name">
-              {localStorage.getItem("userName")}
-              {/* Gaurav Gautam */}
+            <div id="header_container_accountHamburger_bottomBox_profile">
+              My profile
             </div>
-            <Link
-              to="/my_profile"
-              style={{ textDecoration: "none", color: "inherit" }}
-            >
-              <div id="header_container_accountHamburger_bottomBox_profile">
-                My profile
-              </div>
-            </Link>
-            <div
-              id="header_container_accountHamburger_bottomBox_logout"
-              ref={bottomBoxLogout}
-            >
-              Logout
-            </div>
+          </Link>
+          <div
+            id="header_container_accountHamburger_bottomBox_logout"
+            ref={bottomBoxLogout}
+          >
+            Logout
           </div>
-        </>
-      )}
+        </div>
+      )} */}
     </>
   );
 };

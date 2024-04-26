@@ -180,50 +180,56 @@ const Organisation_things = () => {
           </button>
         </div>
       </div>
+
       <div id="OrgThings_container_rightPart">
-        <div id="OrgThings_container_leftArrow" ref={chevron_left}>
-          <span
-            id="OrgThings_container_leftArrow_symbol"
-            className="material-symbols-outlined"
-          >
-            chevron_left
-          </span>
-        </div>
-        <div id="OrgThings_container_scrollContainer" ref={scrollContainer}>
-          {localStorage.getItem("token") && queryArr ? (
-            queryArr.length > 0 ? (
-              queryArr.map((data, index) => {
-                return (
-                  <Child_Organisation_things
-                    key={index}
-                    queryTitle={data.title}
-                    queryDescription={data.description}
-                    department={data.department}
-                    preferences={data.preferences}
-                    date={new Date(data.createdAt).toLocaleString()}
-                    id={data._id}
-                  />
-                );
-              })
+        <div id="OrgThings_container_rightPart_first">
+          <div id="OrgThings_container_scrollContainer" ref={scrollContainer}>
+            {localStorage.getItem("token") && queryArr ? (
+              queryArr.length > 0 ? (
+                queryArr.map((data, index) => {
+                  return (
+                    <Child_Organisation_things
+                      key={index}
+                      queryTitle={data.title}
+                      queryDescription={data.description}
+                      department={data.department}
+                      preferences={data.preferences}
+                      date={new Date(data.createdAt).toLocaleString()}
+                      id={data._id}
+                    />
+                  );
+                })
+              ) : (
+                <>
+                  <div id="nosuchdata">
+                    No public query is availaible from your organisation .
+                    Checkout all the public queries below
+                  </div>
+                </>
+              )
             ) : (
-              <>
-                <div id="nosuchdata">
-                  No public query is availaible from your organisation .
-                  Checkout all the public queries below
-                </div>
-              </>
-            )
-          ) : (
-            "Loading...  You must login to view your organisation's public query"
-          )}
+              "Loading...  You must login to view your organisation's public query"
+            )}
+          </div>
         </div>
-        <div id="OrgThings_container_rightArrow" ref={chevron_right}>
-          <span
-            id="OrgThings_container_rightArrow_symbol"
-            className="material-symbols-outlined"
-          >
-            chevron_right
-          </span>
+        <div id="OrgThings_container_rightPart_second">
+          <div id="OrgThings_container_leftArrow" ref={chevron_left}>
+            <span
+              id="OrgThings_container_leftArrow_symbol"
+              className="material-symbols-outlined"
+            >
+              chevron_left
+            </span>
+          </div>
+
+          <div id="OrgThings_container_rightArrow" ref={chevron_right}>
+            <span
+              id="OrgThings_container_rightArrow_symbol"
+              className="material-symbols-outlined"
+            >
+              chevron_right
+            </span>
+          </div>
         </div>
       </div>
     </div>

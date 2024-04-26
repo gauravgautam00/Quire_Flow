@@ -37,10 +37,14 @@ const Child_Organisation_things = (props) => {
     ) {
       childOrgThingsHamBurgerSecond.current.onclick = () => {
         if (childOrgThingsSideBarSecond.current.style.marginLeft === "20rem") {
+          childOrgThingsSideBarSecond.current.style.visibility = "hidden";
+
           childOrgThingsSideBarSecond.current.style.marginLeft = "62rem";
           childOrgThingsHamburgerSecondIcon.current.style.transform =
             "rotate(0deg)";
         } else {
+          childOrgThingsSideBarSecond.current.style.visibility = "visible";
+
           childOrgThingsSideBarSecond.current.style.marginLeft = "20rem";
           childOrgThingsHamburgerSecondIcon.current.style.transform =
             "rotate(45deg)";
@@ -137,129 +141,129 @@ const Child_Organisation_things = (props) => {
   }, []);
   return (
     <div className="for_footer_color" id="child_OrgThings_container">
-      <div id="child_OrgThings_container_sideBar" ref={childOrgThingsSideBar}>
-        <div id="child_OrgThings_container_sideBar_cancelDiv">
-          <div id="child_OrgThings_container_sideBar_cancelDiv_detailsContainer">
-            Details
-          </div>
-        </div>
-        <div id="child_OrgThings_container_sideBar_details">
-          <div
-            className="child_OrgThings_container_sideBar_detailsClass"
-            id="child_OrgThings_container_sideBar_detailsDepartment"
-          >
-            <div id="child_OrgThings_container_sideBar_detailsDepartment_first">
-              Department
-            </div>
-            <div id="child_OrgThings_container_sideBar_detailsDepartment_second">
-              {props.department}
+      <div id="child_OrgThings_container_first">
+        <div id="child_OrgThings_container_sideBar" ref={childOrgThingsSideBar}>
+          <div id="child_OrgThings_container_sideBar_cancelDiv">
+            <div id="child_OrgThings_container_sideBar_cancelDiv_detailsContainer">
+              Details
             </div>
           </div>
-          <div
-            className="child_OrgThings_container_sideBar_detailsClass"
-            id="child_OrgThings_container_sideBar_detailsPreferences"
-          >
-            <div id="child_OrgThings_container_sideBar_detailsPreferences_first">
-              Preferences
-            </div>
-            <div id="child_OrgThings_container_sideBar_detailsPreferences_second">
-              {props.preferences}
-            </div>
-          </div>
-          <div
-            className="child_OrgThings_container_sideBar_detailsClass"
-            id="child_OrgThings_container_sideBar_detailsDate"
-          >
-            <div id="child_OrgThings_container_sideBar_detailsDate_first">
-              Date
-            </div>
-            <div id="child_OrgThings_container_sideBar_detailsDate_second">
-              {props.date}
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <div
-        id="child_OrgThings_container_hamburger"
-        ref={childOrgThingsHamBurger}
-      >
-        <span
-          id="child_OrgThings_container_hamburger_icon"
-          class="material-symbols-outlined"
-          ref={childOrgThingsHamburgerIcon}
-        >
-          add
-        </span>
-      </div>
-
-      <div
-        id="child_OrgThings_container_sideBar_second"
-        ref={childOrgThingsSideBarSecond}
-      >
-        <div id="child_OrgThings_container_sideBar_second_cancelDiv">
-          <div id="child_OrgThings_container_sideBar_second_cancelDiv_commentContainer">
-            Comments
-          </div>
-        </div>
-        <div id="child_OrgThings_container_sideBar_second_details">
-          {commentsArr?.length > 0 ? (
-            commentsArr.map((data) => {
-              return (
-                <div
-                  key={uuidv4()}
-                  id="child_OrgThings_container_sideBar_second_details_eachComment"
-                  className="child_OrgThings_container_sideBar_second_details_eachCommentClass"
-                >
-                  <div id="child_OrgThings_container_sideBar_second_details_eachComment_first">
-                    {data.content}
-                  </div>
-                  <div id="child_OrgThings_container_sideBar_second_details_eachComment_second">
-                    {new Date(data.createdAt).toLocaleString()}
-                  </div>
-                </div>
-              );
-            })
-          ) : (
-            <div>No commments. Add Your comment to start the conversation</div>
-          )}
-        </div>
-
-        <div id="child_OrgThings_container_sideBar_second_addComment">
-          <div id="child_OrgThings_container_sideBar_second_addComment_inputContainer">
-            <input
-              placeholder="Add your comment"
-              id="child_OrgThings_container_sideBar_second_addComment_inputContainer_input"
-              ref={contentInput}
-            ></input>
-            <button
-              id="child_OrgThings_container_sideBar_second_addComment_inputContainer_button"
-              ref={postCommentButton}
+          <div id="child_OrgThings_container_sideBar_details">
+            <div
+              className="child_OrgThings_container_sideBar_detailsClass"
+              id="child_OrgThings_container_sideBar_detailsDepartment"
             >
-              Post
-            </button>
+              <div id="child_OrgThings_container_sideBar_detailsDepartment_first">
+                Department
+              </div>
+              <div id="child_OrgThings_container_sideBar_detailsDepartment_second">
+                {props.department}
+              </div>
+            </div>
+            <div
+              className="child_OrgThings_container_sideBar_detailsClass"
+              id="child_OrgThings_container_sideBar_detailsPreferences"
+            >
+              <div id="child_OrgThings_container_sideBar_detailsPreferences_first">
+                Preferences
+              </div>
+              <div id="child_OrgThings_container_sideBar_detailsPreferences_second">
+                {props.preferences}
+              </div>
+            </div>
+            <div
+              className="child_OrgThings_container_sideBar_detailsClass"
+              id="child_OrgThings_container_sideBar_detailsDate"
+            >
+              <div id="child_OrgThings_container_sideBar_detailsDate_first">
+                Date
+              </div>
+              <div id="child_OrgThings_container_sideBar_detailsDate_second">
+                {props.date}
+              </div>
+            </div>
           </div>
         </div>
-      </div>
-
-      <div
-        id="child_OrgThings_container_hamburger_second"
-        ref={childOrgThingsHamBurgerSecond}
-      >
-        <span
-          id="child_OrgThings_container_hamburger_second_icon"
-          class="material-symbols-outlined"
-          ref={childOrgThingsHamburgerSecondIcon}
+        <div
+          id="child_OrgThings_container_hamburger"
+          ref={childOrgThingsHamBurger}
         >
-          add
-        </span>
-      </div>
+          <span
+            id="child_OrgThings_container_hamburger_icon"
+            class="material-symbols-outlined"
+            ref={childOrgThingsHamburgerIcon}
+          >
+            add
+          </span>
+        </div>
+        <div
+          id="child_OrgThings_container_sideBar_second"
+          ref={childOrgThingsSideBarSecond}
+        >
+          <div id="child_OrgThings_container_sideBar_second_cancelDiv">
+            <div id="child_OrgThings_container_sideBar_second_cancelDiv_commentContainer">
+              Comments
+            </div>
+          </div>
+          <div id="child_OrgThings_container_sideBar_second_details">
+            {commentsArr?.length > 0 ? (
+              commentsArr.map((data) => {
+                return (
+                  <div
+                    key={uuidv4()}
+                    id="child_OrgThings_container_sideBar_second_details_eachComment"
+                    className="child_OrgThings_container_sideBar_second_details_eachCommentClass"
+                  >
+                    <div id="child_OrgThings_container_sideBar_second_details_eachComment_first">
+                      {data.content}
+                    </div>
+                    <div id="child_OrgThings_container_sideBar_second_details_eachComment_second">
+                      {new Date(data.createdAt).toLocaleString()}
+                    </div>
+                  </div>
+                );
+              })
+            ) : (
+              <div>
+                No commments. Add Your comment to start the conversation
+              </div>
+            )}
+          </div>
 
-      <div
-        id="child_OrgThings_container_queryHeading"
-        ref={childOrgThingsHeading}
-      >
-        {props.queryTitle}
+          <div id="child_OrgThings_container_sideBar_second_addComment">
+            <div id="child_OrgThings_container_sideBar_second_addComment_inputContainer">
+              <input
+                placeholder="Add your comment"
+                id="child_OrgThings_container_sideBar_second_addComment_inputContainer_input"
+                ref={contentInput}
+              ></input>
+              <button
+                id="child_OrgThings_container_sideBar_second_addComment_inputContainer_button"
+                ref={postCommentButton}
+              >
+                Post
+              </button>
+            </div>
+          </div>
+        </div>
+        <div
+          id="child_OrgThings_container_hamburger_second"
+          ref={childOrgThingsHamBurgerSecond}
+        >
+          <span
+            id="child_OrgThings_container_hamburger_second_icon"
+            class="material-symbols-outlined"
+            ref={childOrgThingsHamburgerSecondIcon}
+          >
+            add
+          </span>
+        </div>
+        <div
+          id="child_OrgThings_container_queryHeading"
+          ref={childOrgThingsHeading}
+        >
+          {props.queryTitle}
+        </div>
       </div>
       <div id="child_OrgThings_container_queryPara">
         {props.queryDescription}
