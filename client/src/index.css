@@ -3239,6 +3239,8 @@ code {
 }
 #my_queries_container_third_viewQueries_data {
   /* height: 10rem; */
+  display: flex;
+  flex-wrap: wrap;
   width: 100%;
   margin-top: 1rem;
   background-color: #f5f5f5;
