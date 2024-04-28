@@ -25,7 +25,7 @@ const setMarkAsRoutes = require("./routes/setMarkAsRoutes");
 const addCommentRoutes = require("./routes/addCommentRoutes");
 const viewCommentRoutes = require("./routes/viewCommentRoutes");
 const publicQueryRoutes = require("./routes/publicQueryRoutes");
-app.use("/", authRoutes);
+app.use("/auth", authRoutes);
 
 app.use("/addQuery", addQueryRoutes);
 app.use("/viewQuery", viewQueryRoutes);
