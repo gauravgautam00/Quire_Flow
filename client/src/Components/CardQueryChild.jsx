@@ -1,7 +1,7 @@
 import React from "react";
 
 const CardQueryChild = (props) => {
-  const colors = ["#079a58", "#1937be", "#6939ed", "#146feb", "#db6802"]; // Array of three colors
+  const colors = ["#079a58", "#1937be", "#6939ed", "#146feb", "#db6802"];
 
   const getRandomColor = () => {
     const randomIndex = Math.floor(Math.random() * colors.length);

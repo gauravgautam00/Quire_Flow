@@ -31,13 +31,15 @@ const My_Queries = () => {
 
   const filterSearch = useRef(null);
 
-  const [orgOpen, setOrgOpen] = useState(false);
-  const [depOpen, setDepOpen] = useState(false);
-  const [prefOpen, setPrefOpen] = useState(false);
   const [orgValue, setOrgValue] = useState("Select Organisation");
   const [depValue, setDepValue] = useState("Select Department");
   const [prefValue, setPrefValue] = useState("Select Preferences");
+  const filterTitle = useRef(null);
+  const filterDescription = useRef(null);
+  const filterAnonyKey = useRef(null);
+  const [globalAllQueryArr, setAllGlobalQueryArr] = useState([]);
   const [allQueryArr, setAllQueryArr] = useState([]);
+
   const img = document.createElement("img");
 
   window.onscroll = () => {
@@ -242,7 +244,7 @@ const My_Queries = () => {
   useEffect(() => {
     if (viewQueriesFilter.current && viewQueriesFilterTitle.current) {
       // viewQueriesFilter.current.style.width = "7.75rem";
-      viewQueriesFilter.current.style.height = "2.55rem";
+      // viewQueriesFilter.current.style.height = "2.55rem";
       viewQueriesFilterTitle.current.onclick = () => {
         if (viewQueriesFilter.current.style.height == "2.55rem") {
           viewQueriesFilter.current.style.height = "28rem";
@@ -366,6 +368,7 @@ const My_Queries = () => {
           });
           // console.log("response", response, arr);
           setAllQueryArr(arr);
+          setAllGlobalQueryArr(arr);
         })
         .catch((error) => {
           console.log("Some error occurred while fetching my query", error);
@@ -374,7 +377,47 @@ const My_Queries = () => {
   }, []);
 
   const submitForm = () => {
-    alert("This filter is not in working condition  . please try later");
+    const filterTitleData = filterTitle.current.value;
+    const filterDescriptionData = filterDescription.current.value;
+    const filterAnonyKeyData = filterAnonyKey.current.value;
+
+    console.log(globalAllQueryArr);
+    console.log(orgValue, " ", depValue, " ", prefValue);
+    const filteredData = globalAllQueryArr.filter((item) => {
+      // console.log("single item", ietem);
+      const orgMatch =
+        orgValue === "All" ||
+        orgValue === "Select Organisation" ||
+        item.organisation.toLowerCase().includes(orgValue.toLowerCase());
+      const depMatch =
+        depValue === "All" ||
+        depValue === "Select Department" ||
+        item.department.toLowerCase().includes(depValue.toLowerCase());
+      const prefMatch =
+        prefValue === "Select Preferences" ||
+        prefValue === "None" ||
+        item.preferences.toLowerCase().includes(prefValue.toLowerCase());
+      const AnonyKeyMatch =
+        !filterAnonyKeyData ||
+        item.anonyKey.toLowerCase().includes(filterAnonyKeyData.toLowerCase());
+      const titleMatch =
+        !filterTitleData || item.title.toLowerCase().includes(filterTitleData);
+      const descriptionMatch =
+        !filterDescriptionData ||
+        item.description.toLowerCase().includes(filterDescriptionData);
+
+      return (
+        orgMatch &&
+        depMatch &&
+        prefMatch &&
+        AnonyKeyMatch &&
+        titleMatch &&
+        descriptionMatch
+      );
+    });
+
+    // console.log(filteredData);
+    setAllQueryArr(filteredData);
   };
   return (
     <>
@@ -567,333 +610,373 @@ const My_Queries = () => {
           Your Sent Queries
         </div>
 
-        {allQueryArr.length > 0 ? (
-          <div>
-            <div
-              id="my_queries_container_third_viewQueries_filter"
-              ref={viewQueriesFilter}
+        {/* // <div> */}
+        <div
+          id="my_queries_container_third_viewQueries_filter"
+          ref={viewQueriesFilter}
+        >
+          <div
+            id="my_queries_container_third_viewQueries_filter_title"
+            ref={viewQueriesFilterTitle}
+          >
+            Filters
+            <span
+              id="my_queries_container_third_viewQueries_filter_font"
+              class="material-symbols-outlined"
             >
-              <div
-                id="my_queries_container_third_viewQueries_filter_title"
-                ref={viewQueriesFilterTitle}
-              >
-                Filters
-                <span
-                  id="my_queries_container_third_viewQueries_filter_font"
-                  class="material-symbols-outlined"
-                >
-                  filter_list
-                </span>
-              </div>
-              <div id="my_queries_container_third_viewQueries_filter_queryTitle">
-                <input
-                  class="my_queries_container_third_viewQueries_filter_inputClass"
-                  placeholder="Enter title"
-                  type="text"
-                />
-              </div>
-              <div id="my_queries_container_third_viewQueries_filter_queryPara">
-                <input
-                  class="my_queries_container_third_viewQueries_filter_inputClass"
-                  placeholder="Enter para"
-                  type="text"
-                />
-              </div>
-              <div id="my_queries_container_third_viewQueries_filter_anonyKey">
-                <input
-                  class="my_queries_container_third_viewQueries_filter_inputClass"
-                  placeholder="Enter anonyKey"
-                  type="text"
-                />
-              </div>
-              <div
-                id="my_queries_container_third_viewQueries_filter_organisation"
-                ref={filterOrganisation}
-              >
-                {orgValue}
-                <span
-                  class="material-symbols-outlined my_queries_container_third_viewQueries_filter_iconClass"
-                  ref={filterOrganisationIcon}
-                >
-                  expand_more
-                </span>
-              </div>
-
-              <div
-                id="my_queries_container_third_viewQueries_filter_department"
-                ref={filterDepartment}
-              >
-                {depValue}{" "}
-                <span
-                  class="material-symbols-outlined my_queries_container_third_viewQueries_filter_iconClass"
-                  ref={filterDepartmentIcon}
-                >
-                  expand_more
-                </span>
-              </div>
-              <div
-                id="my_queries_container_third_viewQueries_filter_preferences"
-                ref={filterPreferences}
-              >
-                {prefValue}
-                <span
-                  class="material-symbols-outlined my_queries_container_third_viewQueries_filter_iconClass"
-                  ref={filterPreferencesIcon}
-                >
-                  expand_more
-                </span>
-              </div>
-              {/* expand of ORGANISATION */}
-              {/* expand of ORGANISATION */}
-              {/* expand of ORGANISATION */}
-              {/* expand of ORGANISATION */}
-              {/* expand of ORGANISATION */}
-              <div
-                id="my_queries_container_third_viewQueries_filter_organisation_expand"
-                ref={filterOrganisationExpand}
-              >
-                <div
-                  onClick={() => setOrganisationValue("Microsoft")}
-                  className="my_queries_container_third_viewQueries_filter_organisation_expandChild"
-                  id="my_queries_container_third_viewQueries_filter_organisation_expandChild_first"
-                >
-                  Microsoft
-                </div>
-                <div
-                  onClick={() => setOrganisationValue("Amazon")}
-                  className="my_queries_container_third_viewQueries_filter_organisation_expandChild"
-                  id="my_queries_container_third_viewQueries_filter_organisation_expandChild_second"
-                >
-                  Amazon
-                </div>
-                <div
-                  onClick={() => setOrganisationValue("Google")}
-                  className="my_queries_container_third_viewQueries_filter_organisation_expandChild"
-                  id="my_queries_container_third_viewQueries_filter_organisation_expandChild_third"
-                >
-                  Google
-                </div>
-                <div
-                  onClick={() => setOrganisationValue("Apple")}
-                  className="my_queries_container_third_viewQueries_filter_organisation_expandChild"
-                  id="my_queries_container_third_viewQueries_filter_organisation_expandChild_fourth"
-                >
-                  Apple
-                </div>
-                <div
-                  onClick={() => setOrganisationValue("Swiggy")}
-                  className="my_queries_container_third_viewQueries_filter_organisation_expandChild"
-                  id="my_queries_container_third_viewQueries_filter_organisation_expandChild_fifth"
-                >
-                  Swiggy
-                </div>
-                <div
-                  onClick={() => setOrganisationValue("Zomato")}
-                  className="my_queries_container_third_viewQueries_filter_organisation_expandChild"
-                  id="my_queries_container_third_viewQueries_filter_organisation_expandChild_sixth"
-                >
-                  Zomato
-                </div>
-                <div
-                  onClick={() => setOrganisationValue("Snapchat")}
-                  className="my_queries_container_third_viewQueries_filter_organisation_expandChild"
-                  id="my_queries_container_third_viewQueries_filter_organisation_expandChild_seventh"
-                >
-                  Snapchat
-                </div>
-                <div
-                  onClick={() => setOrganisationValue("Atlassian")}
-                  className="my_queries_container_third_viewQueries_filter_organisation_expandChild"
-                  id="my_queries_container_third_viewQueries_filter_organisation_expandChild_eight"
-                >
-                  Atlassian
-                </div>
-                <div
-                  onClick={() => setOrganisationValue("Goldman SAchs")}
-                  className="my_queries_container_third_viewQueries_filter_organisation_expandChild"
-                  id="my_queries_container_third_viewQueries_filter_organisation_expandChild_ninth"
-                >
-                  Goldman Sachs
-                </div>
-                <div
-                  onClick={() => setOrganisationValue("Tower Research")}
-                  className="my_queries_container_third_viewQueries_filter_organisation_expandChild"
-                  id="my_queries_container_third_viewQueries_filter_organisation_expandChild_tenth"
-                >
-                  Tower Research
-                </div>
-
-                <div
-                  onClick={() => setOrganisationValue("All")}
-                  className="my_queries_container_third_viewQueries_filter_organisation_expandChild"
-                  id="my_queries_container_third_viewQueries_filter_organisation_expandChild_eleventh5"
-                >
-                  All
-                </div>
-              </div>
-              {/* expand of DEPARTMENT */}
-              {/* expand of DEPARTMENT */}
-              {/* expand of DEPARTMENT */}
-              {/* expand of DEPARTMENT */}
-              {/* expand of DEPARTMENT */}
-              <div
-                id="my_queries_container_third_viewQueries_filter_department_expand"
-                ref={filterDepartmentExpand}
-              >
-                <div
-                  onClick={() => setDepartmentValue("product Development")}
-                  className="my_queries_container_third_viewQueries_filter_department_expandChild"
-                  id="my_queries_container_third_viewQueries_filter_department_expandChild_first"
-                >
-                  Product Development
-                </div>
-                <div
-                  onClick={() => setDepartmentValue("Technical Support")}
-                  className="my_queries_container_third_viewQueries_filter_department_expandChild"
-                  id="my_queries_container_third_viewQueries_filter_department_expandChild_second"
-                >
-                  Technical Support
-                </div>
-                <div
-                  onClick={() => setDepartmentValue("Human Resources")}
-                  className="my_queries_container_third_viewQueries_filter_department_expandChild"
-                  id="my_queries_container_third_viewQueries_filter_department_expandChild_third"
-                >
-                  Human Resources
-                </div>
-                <div
-                  onClick={() => setDepartmentValue("Quality Assurance")}
-                  className="my_queries_container_third_viewQueries_filter_department_expandChild"
-                  id="my_queries_container_third_viewQueries_filter_department_expandChild_fourth"
-                >
-                  Quality Assurance
-                </div>
-                <div
-                  onClick={() => setDepartmentValue("Research")}
-                  className="my_queries_container_third_viewQueries_filter_department_expandChild"
-                  id="my_queries_container_third_viewQueries_filter_department_expandChild_fifth"
-                >
-                  Research
-                </div>
-                <div
-                  onClick={() => setDepartmentValue("Training")}
-                  className="my_queries_container_third_viewQueries_filter_department_expandChild"
-                  id="my_queries_container_third_viewQueries_filter_department_expandChild_sixth"
-                >
-                  Training
-                </div>
-                <div
-                  onClick={() => setDepartmentValue("Events")}
-                  className="my_queries_container_third_viewQueries_filter_department_expandChild"
-                  id="my_queries_container_third_viewQueries_filter_department_expandChild_seventh"
-                >
-                  Events
-                </div>
-                <div
-                  onClick={() => setDepartmentValue("PRoduct Development")}
-                  className="my_queries_container_third_viewQueries_filter_department_expandChild"
-                  id="my_queries_container_third_viewQueries_filter_department_expandChild_eight"
-                >
-                  Product Development
-                </div>
-                <div
-                  onClick={() => setDepartmentValue("Finance")}
-                  className="my_queries_container_third_viewQueries_filter_department_expandChild"
-                  id="my_queries_container_third_viewQueries_filter_department_expandChild_ninth"
-                >
-                  Finance
-                </div>
-                <div
-                  onClick={() => setDepartmentValue("Customer Support")}
-                  className="my_queries_container_third_viewQueries_filter_department_expandChild"
-                  id="my_queries_container_third_viewQueries_filter_department_expandChild_tenth"
-                >
-                  Customer Support
-                </div>
-                <div
-                  onClick={() => setDepartmentValue("All")}
-                  className="my_queries_container_third_viewQueries_filter_department_expandChild"
-                  id="my_queries_container_third_viewQueries_filter_department_expandChild_eleventh"
-                >
-                  All
-                </div>
-              </div>
-              {/* expand of PREFERENCES */}
-              {/* expand of PREFERENCES */}
-              {/* expand of PREFERENCES */}
-              {/* expand of PREFERENCES */}
-              {/* expand of PREFERENCES */}
-              <div
-                id="my_queries_container_third_viewQueries_filter_preferences_expand"
-                ref={filterPreferencesExpand}
-              >
-                <div
-                  onClick={() => setPreferencesValue("Urgent")}
-                  className="my_queries_container_third_viewQueries_filter_preferences_expandChild"
-                  id="my_queries_container_third_viewQueries_filter_preferences_expandChild_first"
-                >
-                  Urgent
-                </div>
-                <div
-                  onClick={() => setPreferencesValue("Normal")}
-                  className="my_queries_container_third_viewQueries_filter_preferences_expandChild"
-                  id="my_queries_container_third_viewQueries_filter_preferences_expandChild_first"
-                >
-                  Normal
-                </div>
-                <div
-                  onClick={() => setPreferencesValue("Important")}
-                  className="my_queries_container_third_viewQueries_filter_preferences_expandChild"
-                  id="my_queries_container_third_viewQueries_filter_preferences_expandChild_first"
-                >
-                  Important
-                </div>
-                <div
-                  onClick={() => setPreferencesValue("Research Required")}
-                  className="my_queries_container_third_viewQueries_filter_preferences_expandChild"
-                  id="my_queries_container_third_viewQueries_filter_preferences_expandChild_second"
-                >
-                  Research Required
-                </div>
-                <div
-                  onClick={() => setPreferencesValue("None")}
-                  className="my_queries_container_third_viewQueries_filter_preferences_expandChild"
-                  id="my_queries_container_third_viewQueries_filter_preferences_expandChild_third"
-                >
-                  None
-                </div>
-              </div>
-
-              <div
-                id="my_queries_container_third_viewQueries_filter_search"
-                ref={filterSearch}
-                onClick={submitForm}
-              >
-                Search
-              </div>
+              filter_list
+            </span>
+          </div>
+          <div id="my_queries_container_third_viewQueries_filter_queryTitle">
+            <input
+              class="my_queries_container_third_viewQueries_filter_inputClass"
+              placeholder="Enter title"
+              type="text"
+              name="filterTitle"
+              ref={filterTitle}
+            />
+          </div>
+          <div id="my_queries_container_third_viewQueries_filter_queryPara">
+            <input
+              class="my_queries_container_third_viewQueries_filter_inputClass"
+              placeholder="Enter para"
+              type="text"
+              name="filterDescription"
+              ref={filterDescription}
+            />
+          </div>
+          <div id="my_queries_container_third_viewQueries_filter_anonyKey">
+            <input
+              class="my_queries_container_third_viewQueries_filter_inputClass"
+              placeholder="Enter anonyKey"
+              type="text"
+              name="filterAnonyKey"
+              ref={filterAnonyKey}
+            />
+          </div>
+          <div
+            id="my_queries_container_third_viewQueries_filter_organisation"
+            ref={filterOrganisation}
+            className="my_queries_container_third_viewQueries_filterHeading"
+          >
+            <div
+              id="my_queries_container_third_viewQueries_filter_organisation_first"
+              className="my_queries_container_third_viewQueries_filterHeading_title"
+            >
+              {orgValue}
             </div>
-            <div id="my_queries_container_third_viewQueries_data">
-              {localStorage.getItem("token") ? (
-                allQueryArr.map((data, index) => {
-                  return (
-                    <Link
-                      style={{ textDecoration: "none" }}
-                      key={index}
-                      to={`/my_queries/${data._id}`}
-                    >
-                      <CardQueryChild query={data} key={index} />
-                    </Link>
-                  );
-                })
-              ) : (
-                <div id="noToken_global">
-                  Please <Link to="/authentication">Login/SignUp</Link> to see
-                  all the received queries
-                </div>
-              )}
+            <div
+              id="my_queries_container_third_viewQueries_filter_organisation_second"
+              className="my_queries_container_third_viewQueries_filterHeading_icon"
+            >
+              <span
+                class="material-symbols-outlined my_queries_container_third_viewQueries_filter_iconClass"
+                ref={filterOrganisationIcon}
+              >
+                expand_more
+              </span>
             </div>
           </div>
+
+          <div
+            id="my_queries_container_third_viewQueries_filter_department"
+            ref={filterDepartment}
+            className="my_queries_container_third_viewQueries_filterHeading"
+          >
+            <div
+              id="my_queries_container_third_viewQueries_filter_department_first"
+              className="my_queries_container_third_viewQueries_filterHeading_title"
+            >
+              {depValue}
+            </div>
+            <div
+              id="my_queries_container_third_viewQueries_filter_department_second"
+              className="my_queries_container_third_viewQueries_filterHeading_icon"
+            >
+              <span
+                class="material-symbols-outlined my_queries_container_third_viewQueries_filter_iconClass"
+                ref={filterDepartmentIcon}
+              >
+                expand_more
+              </span>
+            </div>
+          </div>
+          <div
+            id="my_queries_container_third_viewQueries_filter_preferences"
+            ref={filterPreferences}
+            className="my_queries_container_third_viewQueries_filterHeading"
+          >
+            <div
+              id="my_queries_container_third_viewQueries_filter_preferences_first"
+              className="my_queries_container_third_viewQueries_filterHeading_title"
+            >
+              {prefValue}
+            </div>
+            <div
+              id="my_queries_container_third_viewQueries_filter_preferences_second"
+              className="my_queries_container_third_viewQueries_filterHeading_icon"
+            >
+              <span
+                class="material-symbols-outlined my_queries_container_third_viewQueries_filter_iconClass"
+                ref={filterPreferencesIcon}
+              >
+                expand_more
+              </span>
+            </div>
+          </div>
+          {/* expand of ORGANISATION */}
+          {/* expand of ORGANISATION */}
+          {/* expand of ORGANISATION */}
+          {/* expand of ORGANISATION */}
+          {/* expand of ORGANISATION */}
+          <div
+            id="my_queries_container_third_viewQueries_filter_organisation_expand"
+            ref={filterOrganisationExpand}
+          >
+            <div
+              onClick={() => setOrganisationValue("Microsoft")}
+              className="my_queries_container_third_viewQueries_filter_organisation_expandChild"
+              id="my_queries_container_third_viewQueries_filter_organisation_expandChild_first"
+            >
+              Microsoft
+            </div>
+            <div
+              onClick={() => setOrganisationValue("Amazon")}
+              className="my_queries_container_third_viewQueries_filter_organisation_expandChild"
+              id="my_queries_container_third_viewQueries_filter_organisation_expandChild_second"
+            >
+              Amazon
+            </div>
+            <div
+              onClick={() => setOrganisationValue("Google")}
+              className="my_queries_container_third_viewQueries_filter_organisation_expandChild"
+              id="my_queries_container_third_viewQueries_filter_organisation_expandChild_third"
+            >
+              Google
+            </div>
+            <div
+              onClick={() => setOrganisationValue("Apple")}
+              className="my_queries_container_third_viewQueries_filter_organisation_expandChild"
+              id="my_queries_container_third_viewQueries_filter_organisation_expandChild_fourth"
+            >
+              Apple
+            </div>
+            <div
+              onClick={() => setOrganisationValue("Swiggy")}
+              className="my_queries_container_third_viewQueries_filter_organisation_expandChild"
+              id="my_queries_container_third_viewQueries_filter_organisation_expandChild_fifth"
+            >
+              Swiggy
+            </div>
+            <div
+              onClick={() => setOrganisationValue("Zomato")}
+              className="my_queries_container_third_viewQueries_filter_organisation_expandChild"
+              id="my_queries_container_third_viewQueries_filter_organisation_expandChild_sixth"
+            >
+              Zomato
+            </div>
+            <div
+              onClick={() => setOrganisationValue("Snapchat")}
+              className="my_queries_container_third_viewQueries_filter_organisation_expandChild"
+              id="my_queries_container_third_viewQueries_filter_organisation_expandChild_seventh"
+            >
+              Snapchat
+            </div>
+            <div
+              onClick={() => setOrganisationValue("Atlassian")}
+              className="my_queries_container_third_viewQueries_filter_organisation_expandChild"
+              id="my_queries_container_third_viewQueries_filter_organisation_expandChild_eight"
+            >
+              Atlassian
+            </div>
+            <div
+              onClick={() => setOrganisationValue("Goldman SAchs")}
+              className="my_queries_container_third_viewQueries_filter_organisation_expandChild"
+              id="my_queries_container_third_viewQueries_filter_organisation_expandChild_ninth"
+            >
+              Goldman Sachs
+            </div>
+            <div
+              onClick={() => setOrganisationValue("Tower Research")}
+              className="my_queries_container_third_viewQueries_filter_organisation_expandChild"
+              id="my_queries_container_third_viewQueries_filter_organisation_expandChild_tenth"
+            >
+              Tower Research
+            </div>
+
+            <div
+              onClick={() => setOrganisationValue("All")}
+              className="my_queries_container_third_viewQueries_filter_organisation_expandChild"
+              id="my_queries_container_third_viewQueries_filter_organisation_expandChild_eleventh5"
+            >
+              All
+            </div>
+          </div>
+          {/* expand of DEPARTMENT */}
+          {/* expand of DEPARTMENT */}
+          {/* expand of DEPARTMENT */}
+          {/* expand of DEPARTMENT */}
+          {/* expand of DEPARTMENT */}
+          <div
+            id="my_queries_container_third_viewQueries_filter_department_expand"
+            ref={filterDepartmentExpand}
+          >
+            <div
+              onClick={() => setDepartmentValue("product Development")}
+              className="my_queries_container_third_viewQueries_filter_department_expandChild"
+              id="my_queries_container_third_viewQueries_filter_department_expandChild_first"
+            >
+              Product Development
+            </div>
+            <div
+              onClick={() => setDepartmentValue("Technical Support")}
+              className="my_queries_container_third_viewQueries_filter_department_expandChild"
+              id="my_queries_container_third_viewQueries_filter_department_expandChild_second"
+            >
+              Technical Support
+            </div>
+            <div
+              onClick={() => setDepartmentValue("Human Resources")}
+              className="my_queries_container_third_viewQueries_filter_department_expandChild"
+              id="my_queries_container_third_viewQueries_filter_department_expandChild_third"
+            >
+              Human Resources
+            </div>
+            <div
+              onClick={() => setDepartmentValue("Quality Assurance")}
+              className="my_queries_container_third_viewQueries_filter_department_expandChild"
+              id="my_queries_container_third_viewQueries_filter_department_expandChild_fourth"
+            >
+              Quality Assurance
+            </div>
+            <div
+              onClick={() => setDepartmentValue("Research")}
+              className="my_queries_container_third_viewQueries_filter_department_expandChild"
+              id="my_queries_container_third_viewQueries_filter_department_expandChild_fifth"
+            >
+              Research
+            </div>
+            <div
+              onClick={() => setDepartmentValue("Training")}
+              className="my_queries_container_third_viewQueries_filter_department_expandChild"
+              id="my_queries_container_third_viewQueries_filter_department_expandChild_sixth"
+            >
+              Training
+            </div>
+            <div
+              onClick={() => setDepartmentValue("Events")}
+              className="my_queries_container_third_viewQueries_filter_department_expandChild"
+              id="my_queries_container_third_viewQueries_filter_department_expandChild_seventh"
+            >
+              Events
+            </div>
+            <div
+              onClick={() => setDepartmentValue("Product Development")}
+              className="my_queries_container_third_viewQueries_filter_department_expandChild"
+              id="my_queries_container_third_viewQueries_filter_department_expandChild_eight"
+            >
+              Product Development
+            </div>
+            <div
+              onClick={() => setDepartmentValue("Finance")}
+              className="my_queries_container_third_viewQueries_filter_department_expandChild"
+              id="my_queries_container_third_viewQueries_filter_department_expandChild_ninth"
+            >
+              Finance
+            </div>
+            <div
+              onClick={() => setDepartmentValue("Customer Support")}
+              className="my_queries_container_third_viewQueries_filter_department_expandChild"
+              id="my_queries_container_third_viewQueries_filter_department_expandChild_tenth"
+            >
+              Customer Support
+            </div>
+            <div
+              onClick={() => setDepartmentValue("All")}
+              className="my_queries_container_third_viewQueries_filter_department_expandChild"
+              id="my_queries_container_third_viewQueries_filter_department_expandChild_eleventh"
+            >
+              All
+            </div>
+          </div>
+          {/* expand of PREFERENCES */}
+          {/* expand of PREFERENCES */}
+          {/* expand of PREFERENCES */}
+          {/* expand of PREFERENCES */}
+          {/* expand of PREFERENCES */}
+          <div
+            id="my_queries_container_third_viewQueries_filter_preferences_expand"
+            ref={filterPreferencesExpand}
+          >
+            <div
+              onClick={() => setPreferencesValue("Urgent")}
+              className="my_queries_container_third_viewQueries_filter_preferences_expandChild"
+              id="my_queries_container_third_viewQueries_filter_preferences_expandChild_first"
+            >
+              Urgent
+            </div>
+            <div
+              onClick={() => setPreferencesValue("Normal")}
+              className="my_queries_container_third_viewQueries_filter_preferences_expandChild"
+              id="my_queries_container_third_viewQueries_filter_preferences_expandChild_first"
+            >
+              Normal
+            </div>
+            <div
+              onClick={() => setPreferencesValue("Important")}
+              className="my_queries_container_third_viewQueries_filter_preferences_expandChild"
+              id="my_queries_container_third_viewQueries_filter_preferences_expandChild_first"
+            >
+              Important
+            </div>
+            <div
+              onClick={() => setPreferencesValue("Research Required")}
+              className="my_queries_container_third_viewQueries_filter_preferences_expandChild"
+              id="my_queries_container_third_viewQueries_filter_preferences_expandChild_second"
+            >
+              Research Required
+            </div>
+            <div
+              onClick={() => setPreferencesValue("None")}
+              className="my_queries_container_third_viewQueries_filter_preferences_expandChild"
+              id="my_queries_container_third_viewQueries_filter_preferences_expandChild_third"
+            >
+              None
+            </div>
+          </div>
+
+          <div
+            id="my_queries_container_third_viewQueries_filter_search"
+            ref={filterSearch}
+            onClick={submitForm}
+          >
+            Search
+          </div>
+        </div>
+
+        {allQueryArr.length > 0 ? (
+          <div id="my_queries_container_third_viewQueries_data">
+            {localStorage.getItem("token") ? (
+              allQueryArr.map((data, index) => {
+                return (
+                  <Link
+                    style={{ textDecoration: "none" }}
+                    key={index}
+                    to={`/my_queries/${data._id}`}
+                  >
+                    <CardQueryChild query={data} key={index} />
+                  </Link>
+                );
+              })
+            ) : (
+              <div id="noToken_global">
+                Please <Link to="/authentication">Login/SignUp</Link> to see all
+                the received queries
+              </div>
+            )}
+          </div>
         ) : (
+          // </div>
           <div
             style={{
               marginTop: "3rem",
@@ -902,7 +985,8 @@ const My_Queries = () => {
               marginLeft: "1rem",
             }}
           >
-            No sent queries . Please add query by clicking{" "}
+            No available queries . Either Your filter do not match any query or
+            Your sent query is empty . Add new query by clicking{" "}
             <Link to="/new_query">here</Link>
           </div>
         )}

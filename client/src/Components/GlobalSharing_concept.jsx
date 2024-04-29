@@ -1,6 +1,12 @@
 import React from "react";
 
 const GlobalSharing_concept = () => {
+  const scrollIt = () => {
+    window.scrollTo({
+      top: 2116,
+      behavior: "smooth",
+    });
+  };
   return (
     <div className="for_footer_color" id="GlobalSharing_concept_container">
       <div id="GlobalSharing_concept_container_title">Public Sharing</div>
@@ -17,7 +23,10 @@ const GlobalSharing_concept = () => {
         learning and growth.
       </div>
       <div id="GlobalSharing_concept_container_arrow">
-        <div id="GlobalSharing_concept_container_arrow_first">
+        <div
+          id="GlobalSharing_concept_container_arrow_first"
+          onClick={scrollIt}
+        >
           Search Publically Shared Queries Below
         </div>
       </div>

@@ -7,6 +7,7 @@ const Globally_Shared = () => {
   const [depValue, setDepValue] = useState("All");
 
   const [allPublicQueryArr, setAllPublicQueryArr] = useState([]);
+  const [globalAllQueryArr, setAllGlobalQueryArr] = useState([]);
 
   const orgExpand = useRef(null);
   const orgExpandBox = useRef(null);
@@ -14,6 +15,8 @@ const Globally_Shared = () => {
   const depExpand = useRef(null);
   const depExpandBox = useRef(null);
   const depExpandIcon = useRef(null);
+
+  const filterString = useRef(null);
 
   useEffect(() => {
     if (orgExpand.current && orgExpandBox.current && orgExpandIcon.current) {
@@ -58,6 +61,7 @@ const Globally_Shared = () => {
         .then((res) => res.json())
         .then((response) => {
           setAllPublicQueryArr(response.requiredQueryData);
+          setAllGlobalQueryArr(response.requiredQueryData);
           // console.log("response form public/all route", response);
         })
         .catch((err) => {
@@ -73,7 +77,22 @@ const Globally_Shared = () => {
     setDepValue(val);
   };
   const submitForm = () => {
-    alert("This filter is not in working condition  . please try later");
+    const filteredData = globalAllQueryArr.filter((item) => {
+      // console.log("single item", ietem);
+      const orgMatch =
+        orgValue === "All" ||
+        orgValue === "Select Organisation" ||
+        item.organisation.toLowerCase().includes(orgValue.toLowerCase());
+      const depMatch =
+        depValue === "All" ||
+        depValue === "Select Department" ||
+        item.department.toLowerCase().includes(depValue.toLowerCase());
+
+      return orgMatch && depMatch;
+    });
+
+    // console.log(filteredData);
+    setAllPublicQueryArr(filteredData);
   };
   return (
     <div className="for_footer_color" id="publically_shared_container">
@@ -317,11 +336,12 @@ const Globally_Shared = () => {
                 All
               </div>
             </div>
-            <input
+            {/* <input
               id="publically_shared_container_left_specific"
               type="text"
               placeholder="Search for specific string to search for"
-            />
+              ref={filterString}
+            /> */}
             <button
               id="publically_shared_container_left_submit"
               onClick={submitForm}
@@ -353,7 +373,10 @@ const Globally_Shared = () => {
               })
             ) : (
               <>
-                <div id="nosuchdata">No public query availaible .</div>
+                <div id="nosuchdata">
+                  No query availaible . Either your filter do not match any
+                  query or No public query available.
+                </div>
               </>
             )
           ) : (

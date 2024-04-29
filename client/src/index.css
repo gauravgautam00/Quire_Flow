@@ -577,13 +577,25 @@ code {
   background-color: #c5c4c4;
 }
 
-#OrgThings_container_filter_searchSpecific {
+#OrgThings_container_filter_searchTitle {
   /* margin-left: 3rem; */
   margin-top: 1rem;
   border-radius: 4px;
 }
 
-#OrgThings_container_filter_searchSpecific_input {
+#OrgThings_container_filter_searchDescription {
+  /* margin-left: 3rem; */
+  margin-top: 1rem;
+  border-radius: 4px;
+}
+
+#OrgThings_container_filter_searchTitle_input {
+  height: 1.7rem;
+  width: 19rem;
+  font-size: large;
+  font-family: sans-serif;
+}
+#OrgThings_container_filter_searchDescription_input {
   height: 1.7rem;
   width: 19rem;
   font-size: large;
@@ -994,6 +1006,7 @@ code {
 #GlobalSharing_concept_container_arrow_first {
   background-color: #1937be;
   color: white;
+  cursor: pointer;
   /* width: 50%; */
   /* padding: 64px; */
   /* margin-left: 24vw; */
@@ -1165,7 +1178,7 @@ code {
   margin-bottom: 1rem;
 }
 #publically_shared_container_left_submit {
-  margin-top: 1rem;
+  margin-top: 4rem;
   margin-left: 6vw;
   text-align: center;
   padding: 5px;
@@ -2203,7 +2216,7 @@ code {
   border: 2px solid;
   margin-top: 3rem;
   height: 34rem;
-  font-size: x-large;
+  /* font-size: x-large; */
 }
 #noToken_global {
   margin-top: 3rem;
@@ -3110,6 +3123,16 @@ code {
 .my_queries_container_third_viewQueries_filter_inputClass {
   font-size: large;
 }
+.my_queries_container_third_viewQueries_filterHeading {
+  justify-content: space-between;
+  display: flex;
+}
+.my_queries_container_third_viewQueries_filterHeading_title {
+  margin-top: 5px;
+}
+.my_queries_container_third_viewQueries_filterHeading_icon {
+  margin-top: 5px;
+}
 #my_queries_container_third_viewQueries_filter_organisation {
   margin-top: 2rem;
   height: 2rem;
@@ -3143,12 +3166,6 @@ code {
   border-radius: 5px;
   font-size: large;
   padding-left: 14px;
-}
-
-.my_queries_container_third_viewQueries_filter_iconClass {
-  position: relative;
-  top: 5px;
-  left: 3rem;
 }
 
 #my_queries_container_third_viewQueries_filter_organisation_expand {
@@ -4346,10 +4363,15 @@ card */
   width: 100%;
   font-size: x-large;
 }
-#my_profile_container_anonyKey {
-  width: 100%;
-  text-align: center;
+#my_profile_container_name {
   margin-top: 4rem;
+}
+.my_profile_container_childClass {
+  width: 100%;
+  font-size: large;
+  text-align: center;
+  font-family: system-ui;
+  margin-top: 14px;
 }
 #logOut_button {
   padding: 5px;

@@ -73,16 +73,13 @@ const Authentication = () => {
         alert("Sign up successfull taking you to the home page");
         setIsSignupLoading(false);
         navigate("/");
-        window.location.reload();
+        // window.location.reload();
       })
       .catch((err) => {
         setIsSignupLoading(false);
 
         console.log("Some error occurred while signing up", err);
-        alert(
-          "Some error occurred while login . Please try again later",
-          err.message
-        );
+        alert("You have entered wrong details", err.message);
       });
   };
 
@@ -133,15 +130,13 @@ const Authentication = () => {
         alert("Successfully logged in");
         setIsLoginLoading(false);
         navigate("/");
-        window.location.reload();
+        // window.location.reload();
       })
       .catch((err) => {
         console.error("Error:", err);
         setIsLoginLoading(false);
-        alert(
-          "Some error occurred while login . Please try again later",
-          err.message
-        );
+
+        alert("You have entered wrong details", err.message);
       });
   };
 

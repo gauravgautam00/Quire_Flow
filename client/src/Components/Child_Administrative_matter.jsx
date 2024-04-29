@@ -143,7 +143,7 @@ const Child_Administrative_matter = (props) => {
 
       headingTopOptions.current.onclick = () => {
         if (headingTopOptionsList.current.style.height == "0rem") {
-          headingTopOptionsList.current.style.height = "7rem";
+          headingTopOptionsList.current.style.height = "5rem";
           headingTopOptionsIcon.current.style.transform = "rotate(180deg)";
           headingTopOptionsList.current.style.border = "1px solid #1937be";
         } else {
@@ -341,13 +341,6 @@ const Child_Administrative_matter = (props) => {
               ref={headingTopOptionsListSecond}
             >
               Images
-            </div>
-            <div
-              class="child_administrative_matter_headingTop_options_dropDown_childClass"
-              id="child_administrative_matter_headingTop_options_dropDown_third"
-              ref={headingTopOptionsListThird}
-            >
-              Videos
             </div>
           </div>
         </div>

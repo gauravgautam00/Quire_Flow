@@ -6,17 +6,18 @@ import Child_Organisation_things from "./Child_Organisation_things";
 const Organisation_things = () => {
   const toggleBox = useRef(null);
 
-  const [value, setValue] = useState("Select Department");
+  const [depValue, setDepValue] = useState("Select Department");
   const [queryArr, setQueryArr] = useState([]);
+  const [globalAllQueryArr, setAllGlobalQueryArr] = useState([]);
+  const filterTitle = useRef(null);
+  const filterDescription = useRef(null);
   const expandMore = useRef(null);
   const scrollContainer = useRef(null);
   const chevron_left = useRef(null);
   const chevron_right = useRef(null);
   const selectDepartmentIcon = useRef(null);
+  const filterContainer = useRef(null);
 
-  const submitForm = () => {
-    alert("This filter is not in working condition  . please try later");
-  };
   useEffect(() => {
     // console.log(localStorage.getItem("token"));
     if (localStorage.getItem("token") != null) {
@@ -31,6 +32,7 @@ const Organisation_things = () => {
         .then((res) => res.json())
         .then((response) => {
           setQueryArr(response.requiredQueryData);
+          setAllGlobalQueryArr(response.requiredQueryData);
           // console.log("in organisation things", queryArr);
         })
         .catch((err) => {
@@ -85,13 +87,42 @@ const Organisation_things = () => {
   }, []);
 
   const setTheValue = (val) => {
-    setValue(val);
+    setDepValue(val);
+  };
+
+  const submitForm = (e) => {
+    e.preventDefault();
+    const filterTitleData = filterTitle.current.value;
+    const filterDescriptionData = filterDescription.current.value;
+
+    const filteredData = globalAllQueryArr.filter((item) => {
+      // console.log("single item", ietem);
+
+      const depMatch =
+        depValue === "All" ||
+        depValue === "Select Department" ||
+        item.department.toLowerCase().includes(depValue.toLowerCase());
+      const titleMatch =
+        !filterTitleData || item.title.toLowerCase().includes(filterTitleData);
+      const descriptionMatch =
+        !filterDescriptionData ||
+        item.description.toLowerCase().includes(filterDescriptionData);
+
+      return depMatch && titleMatch && descriptionMatch;
+    });
+
+    // console.log(filteredData);
+    setQueryArr(filteredData);
   };
   return (
     <div className="for_footer_color" id="OrgThings_container">
       <div id="OrgThings_container_title">My Organisation - Google</div>
       <div id="Org_things_container_leftPart">
-        <div id="OrgThings_container_filter">
+        <form
+          id="OrgThings_container_filter"
+          ref={filterContainer}
+          onSubmit={submitForm}
+        >
           {/* <div
             id="OrgThings_container_filter_selectDepartment_title"
         
@@ -103,7 +134,7 @@ const Organisation_things = () => {
             ref={expandMore}
           >
             <div id="OrgThings_container_filter_selectDepartment_dropDown_title">
-              {value}
+              {depValue}
             </div>
 
             <span
@@ -162,12 +193,22 @@ const Organisation_things = () => {
             </div>
           </div>
 
-          <div id="OrgThings_container_filter_searchSpecific">
+          <div id="OrgThings_container_filter_searchTitle">
             <input
-              id="OrgThings_container_filter_searchSpecific_input"
-              name="OrgThings_query_specificWord"
+              id="OrgThings_container_filter_searchTitle_input"
+              name="OrgThings_query_searchTitle"
               type="text"
-              placeholder="Enter specfic string to search for "
+              placeholder="Enter title"
+              ref={filterTitle}
+            ></input>
+          </div>
+          <div id="OrgThings_container_filter_searchDescription">
+            <input
+              id="OrgThings_container_filter_searchDescription_input"
+              name="OrgThings_query_searchDescription"
+              type="text"
+              placeholder="Enter description "
+              ref={filterDescription}
             ></input>
           </div>
 
@@ -178,7 +219,7 @@ const Organisation_things = () => {
           >
             Search
           </button>
-        </div>
+        </form>
       </div>
 
       <div id="OrgThings_container_rightPart">
@@ -202,8 +243,8 @@ const Organisation_things = () => {
               ) : (
                 <>
                   <div id="nosuchdata">
-                    No public query is availaible from your organisation .
-                    Checkout all the public queries below
+                    No query available . Either your filters do not match any
+                    query Or No public query from your organisation.
                   </div>
                 </>
               )

@@ -58,26 +58,6 @@ const Administrative_matter = () => {
             !descriptionFilterValue ||
             item.description.toLowerCase().includes(descriptionFilterValue);
 
-          // console.log(
-          //   "orgMatch",
-          //   orgMatch,
-          //   orgValue.toLowerCase(),
-          //   "depMatch",
-          //   depMatch,
-          //   depValue.toLowerCase(),
-          //   "prefMatch",
-          //   prefMatch,
-          //   prefValue.toLowerCase(),
-          //   "markAsMatch",
-          //   markAsMatch,
-          //   markAsValue.toLowerCase(),
-          //   "titleMatch",
-          //   titleMatch,
-          //   titleFilterValue,
-          //   "descriptionMatch",
-          //   descriptionMatch,
-          //   descriptionFilterValue
-          // );
           return (
             orgMatch &&
             depMatch &&
@@ -829,10 +809,8 @@ const Administrative_matter = () => {
           >
             {allQueryArr.length == 0 ? (
               <div id="noQueryFilter">
-                No such query for these filters , try to change some filter{" "}
-                <br />
-                OR
-                <br /> You have not received any query
+                No query available . Either your filter do not match any query
+                Or no administrative matter queries available.
               </div>
             ) : (
               allQueryArr.map((data, index) => {
