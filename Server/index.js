@@ -25,6 +25,7 @@ const setMarkAsRoutes = require("./routes/setMarkAsRoutes");
 const addCommentRoutes = require("./routes/addCommentRoutes");
 const viewCommentRoutes = require("./routes/viewCommentRoutes");
 const publicQueryRoutes = require("./routes/publicQueryRoutes");
+const profileRoutes = require("./routes/profileRoutes");
 app.use("/", authRoutes);
 
 app.use("/addQuery", addQueryRoutes);
@@ -34,6 +35,7 @@ app.use("/setMarkAs", setMarkAsRoutes);
 app.use("/addComment", addCommentRoutes);
 app.use("/viewComment", viewCommentRoutes);
 app.use("/public", publicQueryRoutes);
+app.use("/profile", profileRoutes);
 
 const port = process.env.PORT || 2300;
 app.listen(port, () => {
